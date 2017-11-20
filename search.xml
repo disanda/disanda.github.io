@@ -1,6 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[游泳自学教程]]></title>
+    <url>%2F2017%2F11%2F20%2F%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%B3%B3%2F</url>
+    <content type="text"><![CDATA[游泳的自学教程前言 ~游泳的前世今生感性地说游泳，除了星光和大海、就是对水的热爱。一种在船尾看着尾随鱼群想跳下去的冲动，一种搏击海浪的激情。 作为从小游泳游到大的人，可以说直到现在游的并不好。从小学花几百块和表哥参加师大的暑期的游泳班，到学校组织夏立营被同班的游泳好手淹个半死。很长时间并没有学会游泳。 直到有一天，在澄江。一个之前小时候双脚踩进青苔石块，就想伸手捞鱼的地方，一个后来偶然发现有着渔舟唱晚、天水一线的地方。瞬间学会了游泳。 可以说我对游泳的感觉是一直不会，一直再固执的坚持游，毕竟不太会游也可以游，主要目的是减肥。 总结下来，很多年因为偶然和勤奋等多种因素，还是长进不少。这里打算写一份课外教程，分享一些自学游泳的感悟。 !学游泳的keypointsa.学会总在一瞬间： 游泳很具实践性，也就是本能，这也是为什么小孩更容易学会的原因。当然，像我这样也属于后天才逐渐掌握，就是也有理论的作用。 对于成年人来学游泳，必要的是多游，多练，当你掌握了一个关键技巧后，你的游泳技术就会上一个台阶 b.必要的技巧: 1.水中平衡（这点非常重要）： 1是入门的标志，因为掌握水中的平衡是区别你在水中是**竖着**走还是**横着**走的关键，也是通俗说的是否会“换气”、和是否怕“淹水”等问题的解决的标志。 2.学青蛙或小狗一样在水中前进 1也是“蛙泳”和“自由泳”的学样式学法，通过根据动物在水中的动作，进行模仿学样，得到 **横着** 在水中前进的方法 3.改进姿势 1毕竟我们和动物结构是有区别的、动物的很多动作我们不能完全模仿，也不适合人，这时候就需要逐步“微调”，逐渐得到适合人且 效率与舒适兼顾的游泳姿势。 4.体能 1234这其实很好理解，也比较简单。就像跑步，体能不好，怎么跑？也是大多数热爱游泳的一个目的吧，锻炼身体，增强体能。 5.身体协调 12这是一个调节，就是游泳中每个动作的改进和适应，需要身体其它部位的协调，这在游泳中显得特别突出。因为游泳是**全身性运动**，你手在动的时候其他部位也在动。有时你觉得手的姿势不对，你调整手的姿势，但是你之前的动作和身体其他部位的动作（例如腿部）动作是协调的。这时挑战需要特别注意身体协调的配套适应改进。 c.其他 我基本是自学的蛙泳和自由泳，蛙泳游的时间比较长，基本能保证正常速度在水中游蛙泳半个小时不会累。自由泳是研究生期间看一些教程和自己规划点练习学会的，前期游的不好，很累，现在能保证比蛙泳略快的前提下游20分钟不会感觉累。 在之后的时间，我会针对以上5点，把自己游泳的心得整理出来，作为自学游泳的一个教程，分享给想自学游泳或者准备自学游泳的同学们。]]></content>
+      <categories>
+        <category>运动</category>
+      </categories>
+      <tags>
+        <tag>Live</tag>
+        <tag>游泳</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Nova组件相关技术]]></title>
+    <url>%2F2017%2F11%2F20%2Fopenstack%2Fnova%2F</url>
+    <content type="text"><![CDATA[一、RabbitMQ个组件通过消息队列实现通讯 二、AMQP协议RabbiteMQ是其中一个实现1.多信道 2.异步 三层实现1.传输层帧处理、信道复用、错误检测、数据表示 2.会话层负责客户端至服务器的通讯，包括可靠性、同步机制、和错误处理 3.模型层定义一套命令，客户端使用这些命令来实现这些功能 对比TCP/IP五层协议1.物理层IEEE 802.1-802.2 2.数据链路层：PPPEthernet：局域网通信标准 3.网络层（关于路由）：IPARP:地址解析协议RARPICMP 4.传输层TCP:提供ip环境下的可靠传输UDP 5.应用层(表示层、会话层) HTTP FTP NFS SNMP SMTP:(simple mail transfer protocol),由源地址到目的地址的邮件传送规则 DNS：(domain namesystem),ip地址和域名映射的一个分布式数据库 Telnet 三、Nova-Scheduler过滤（filter）：过滤不能满足条件的节点 计算权值（weight）：通过“重要性”计算出哪个节点调度 类比学习《操作系统》中的进程调度1.什么是进程（与线程的区别） 2.进程的三种状态 3.进程调度的算法 a.先进先出 b.短进程优先 c.轮询(按钟表时间分配给进程)]]></content>
+      <categories>
+        <category>openstack</category>
+      </categories>
+      <tags>
+        <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Devstack集成安装（ubuntu下）]]></title>
+    <url>%2F2017%2F11%2F20%2Fopenstack%2FDevstack%2F</url>
+    <content type="text"><![CDATA[Ubuntu 16.04下安装openstack教程（使用Devstack） 安装前的准备1.下载安装虚拟机vm 2.安装ubuntu16.04 3.安装git 1$ apt install git 一、基本步骤1.添加用户（Devstack要以非root用户运行，但需要sudo权限） 1$ sudo useradd -s /bin/bash -d /opt/stack -m stack //关于useradd命令的参数意义如下，供参考：1234567891011121314151617181920212223-c&lt;备注&gt;：加上备注文字。备注文字会保存在passwd的备注栏位中；**-d&lt;登入目录&gt;：指定用户登入时的启始目录；** -D：变更预设值；-e&lt;有效期限&gt;：指定帐号的有效期限； -f&lt;缓冲天数&gt;：指定在密码过期后多少天即关闭该帐号； -g&lt;群组&gt;：指定用户所属的群组； -G&lt;群组&gt;：指定用户所属的附加群组； **-m：自动建立用户的登入目录；** -M：不要自动建立用户的登入目录； -n：取消建立以用户名称为名的群组；-r：建立系统帐号； **-s：指定用户登入后所使用的shell；**-u：指定用户id。 2.给予stack用户sudo权限123$ echo &quot;stack ALL=(ALL) NOPASSWD: ALL&quot; | sudo tee /etc/sudoers.d/stack$ sudo su - stack//这里注意区别su -和su，带-是指切换用户的时候同时切换shell环境 3.下载Devstack 12$ git clone https://git.openstack.org/openstack-dev/devstack$ cd devstack 4.创建local.conf配置文件 用来预置openstack root密码注：conf读写权限默认无法写入，用chmod更改1234567$vi conf//以下写入conf[[local|localrc]]ADMIN_PASSWORD=secretDATABASE_PASSWORD=$ADMIN_PASSWORDRABBIT_PASSWORD=$ADMIN_PASSWORDSERVICE_PASSWORD=$ADMIN_PASSWORD 注：安装时刚开始会叫设置各组件安装密码，建议设置成一样的方便记忆 12./stack.sh//启动脚本开始安装 二、安装过程：安装大约持续一个小时。 之后组件keystone、glance、nova、cinder、neutron和 horizon安装成功。 客户机可访问外网，网络设置为Floating IPs。 可通过web浏览器访问horizon ，链接为http://9.115.112.111/dashboard 亦可访问keystone，链接为http://9.115.112.111/identity/ 可在shell中执行1source openrc 然后使用openstack命令行工具管理Devstack。 目录/opt/stack/tempest下存放了用来测试openstack平台的测试用例。 三、常用错误解决办法http://blog.csdn.net/xiongchun11/article/details/52679110 (遇到问题，把问题解决继续./stack.sh) 1.permission deniedsudo chown stack:stack 文件绝对路径 a.在安装各组建时容易报这个错误,把组建的文件名更改组和用户即可 2.devstack could not determine a suitable url这一般是ip问题，在配置文件conf中添加host_ip(内网) https://docs.openstack.org/devstack/latest/]]></content>
+      <categories>
+        <category>openstack</category>
+      </categories>
+      <tags>
+        <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[openStack网络组件]]></title>
+    <url>%2F2017%2F11%2F20%2Fopenstack%2F%E7%BD%91%E7%BB%9C%E7%BB%84%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[概述 一、发展历程第一个版本 nova-network123452010年openstack第一个版本网络组件为：nova-network功能：网络管理，包括ip分配、组网、以及网络模型等。 提供主要模型有： 1234567891011a.扁平网络(flat network)：创建虚拟主机时，组件会从预定子网中取一个空闲ip，并将网络信息写入虚拟主机的配置文件。* 在同一个子网中的虚拟主机可以相互ping通a+:带DHCP的flat newwork：在子网中自动为虚拟主机分配ip和物理地址b.vlan网络():vlan的意思是Virtual Local Area Network,就是虚拟局域网 第二个版本 Quantum随Openstack的Folsom版本发布 1.提供给租户api,使得租户能控制两层网络，管理ip地址 2.支持插件式网络组件，像Open vSwitch,Cisco,Linux Bridge,Nicira NVP 3.支持不同层的网络 4.支持隧道技术 隧道技术（Tunneling）是一种通过使用互联网络的基础设施在网络之间传递数据的方式。使用隧道传递的数据（或负载）可以是不同协议的数据帧或包。隧道协议将其它协议的数据帧或包重新封装然后通过隧道发送。新的帧头提供路由信息，以便通过互联网传递被封装的负载数据。 5.支持3层转发和多重路由 6.提供负载均衡api（试用） 第三版 NeutronQuantum这名字侵权，更名为Neutron 1.提供更为稳定的负载均衡api 2.支持端到端的IPSec VPN 3.面向租户的防火墙服务注：截止2017.11,很多openstack云还在用nova-network，因为它简单，稳定。 Neutron构成1.APIa.插件的“零件” b.网络、子网、端口的查询 c.增加、删除、更新的操作 2.插件存储当前逻辑网络的配置信息 a.可以用SQLlite和MySQL b.存储逻辑网络和物理网络的对应关系 c.与交换机通信实现对应关系 3.Open vSmitch:开放虚拟交换 虚拟交换就是利用虚拟平台，通过软件的方式形成交换机部件。 跟传统的物理交换机相比，虚拟交换机同样具备众多优点，一是配置更加灵活。一台普通的服务器可以配置出数十台甚至上百台虚拟交换机，且端口数目可以灵活选择。 例如，VMware的ESX一台服务器可以仿真出248台虚拟交换机，且每台交换机预设虚拟端口即可达56个；二是成本更加低廉，通过虚拟交换往往可以获得昂贵的普通交换机才能达到的性能 OpenvSmitch需要访问的表： Tables_in_neutron agents allowedaddresspairs dnsnameservers externalnetworks extradhcpopts floatingips ipallocationpools ipallocations ipavailabilityranges networkdhcpagentbindings networks ovs_network_bindings ovs_tunnel_allocations ovs_tunnel_endpoints ovs_vlan_allocations portbindingports ports quotas routerl3agentbindings routerroutes routers securitygroupportbindings securitygrouprules securitygroups subnetroutes subnets +—————————+ Neutron 结构图 ovs &amp; ovnhttp://blog.csdn.net/cusor/article/details/18213977]]></content>
+      <categories>
+        <category>openstack</category>
+      </categories>
+      <tags>
+        <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[openStack集成安装]]></title>
+    <url>%2F2017%2F11%2F20%2Fopenstack%2FopenStack%E9%9B%86%E6%88%90%E5%AE%89%E8%A3%85%2F</url>
+    <content type="text"><![CDATA[官方文档https://docs.openstack.org/pike/ 使用Devstack组件keystone、glance、nova、cinder、neutron和 horizon安装成功 http://blog.csdn.net/ysbj123/article/details/77771065 http://blog.csdn.net/mygrus/article/details/53816022 使用Fuelhttps://www.cnblogs.com/dongdongwq/p/5627532.html http://blog.csdn.net/qq_21398167/article/details/51611487 使用Packstack (CentOS)https://wiki.openstack.org/wiki/Packstack https://github.com/openstack/packstack http://blog.csdn.net/violet_echo_0908/article/details/52049372 使用openshithttp://blog.csdn.net/justinshane/article/details/50097839]]></content>
+      <categories>
+        <category>openstack</category>
+      </categories>
+      <tags>
+        <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Packstack集成安装(CentOS 7)]]></title>
+    <url>%2F2017%2F11%2F20%2Fopenstack%2FPackstak%E9%9B%86%E6%88%90%E5%AE%89%E8%A3%85(CentOS)%2F</url>
+    <content type="text"><![CDATA[Packstack 集成安装(CentOS 7)CentOS, Red Hat Enterprise Linux (RHEL)两个版本可用 安装前准备(部署在一台主机上)a.一键安装,首选保证centOS能上网 b.虚拟机主机硬件设置中cpu打开VT-X c.同步系统时间 d.虚拟机主机硬件设置内存8g以上 1.首先安装yum若报错：1Ropodate is over 2 weeks old 解决： 123456yum clean allyum updateyum makecache //将源更新保存至本地缓存 2.安装packstack源和命令12345$ sudo yum install -y http://rdo.fedorapeople.org/rdo-release.rpm//用于配置安装源$ sudo yum install -y openstack-packstack//安装packstack命令 3.安装1$ packstack --allinone 4.常见错误1.apply puppet controller.pp卡住 解决：同步系统时间 12345678$ yum instal ntp ntp date//安装网络时间协议$ ntpdate cn.pool.ntp.org// 同步系统时间$ hwclock --systohc//写入硬件（否则下次重启失效）]]></content>
+      <categories>
+        <category>openstack</category>
+      </categories>
+      <tags>
+        <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[keystone(v3) 简介]]></title>
+    <url>%2F2017%2F11%2F20%2Fopenstack%2Fkeystone%2F</url>
+    <content type="text"><![CDATA[keystone(v3) 简介 核心概念User(用户):服务的用户，可以是人、系统或服务，只要是openstack服务的对象都可以称为用户。 Tenant(租户)：可以理解为人、项目或者组织拥有资源的集合，在一个租户中可以拥有很多个用户，这些用户可以根据权限划分使用租户的资源。 Role(角色)：用于分配操作的权限，角色可以指定给用户，用户会获得对应该角色的权限。 Token(认证)：指的是一串比特值或者字符串，用来作为访问资源的记号。token中含有可访问资源的范围 keystone交互过程 首先用户向Keystone提供自己的身份验证信息，如用户名和密码。Keystone 会从数据库中读取数据对其验证，如验证通过，会向用户返回一个 token，此后用户所有的请求都会使用该token进行身份验证。如用户向 Nova 申请虚拟机服务，nova 会将用户提供的 token 发给 Keystone 进行验证，Keystone会根据token判断用户是否拥有进行此项操作的权限，若验证通过那么nova会向其提供相对应的服务。其它组件和 Keystone 的交互也是如此。 在 Keystone V3 之前，用户的权限管理以每一个用户为单位，需要对每一个用户进行角色分配，并不存在一种对一组用户进行统一管理的方案，这给系统管理员带来了额外的工作和不便。此外，Keystone V3 之前的版本中，资源分配是以 Tenant 为单位的，这不太符合现实世界中的层级关系。如一个公司在 Openstack 中拥有两个不同的项目，他需要管理两个 Tenant 来分别对应这两个项目，并对这两个 Tenant 中的用户分别分配角色。 keystone v3为了更加符合现实世界和云服务的映射，将 Tenant 改为 Project 并在其上添加 Domain 的概念12345graph TD A[Tenant] --&gt;|改为| B(Project) B --&gt; C(Domain) B --&gt; D(Group) V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。 域(Domain):比Project更高级的容器，云服务客服是Domain的拥有者，一个Domain可以创建多Project、Users、Groups和Roles。通过Domain对所拥有的多个Project统一管理，不必对每个Project单独管理。 组(Group):是一组User容器,通过给Group分配角色，在用一组的用户就有Group所有角色的权限 keystone v3 各组件关系 UUID FRENET]]></content>
+      <categories>
+        <category>openstack</category>
+      </categories>
+      <tags>
+        <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2017%2F11%2F10%2Fmath%2F%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[初等函数三角函数 常用公式$sina^2+cos^2=1 $ $tana^2+1=seca^2$ $1+cot^2=csca^2$ 角度转换 奇偶关系除了$cos a$是偶函数外，其他三个是奇函数 二倍角关系 和差角公式 正切函数$\tan a$ 余切函数$cos a$ 对数函数$y=\log_ax$ 幂函数$y=x^a $(a为有理数) y=x ,y=$x^3$为奇函数 y=$x^2$,y=$x^4$为偶函数 指数函数$y=a^x$(a为常数，且 a&gt;0,a$\neq$1)定义域为R,常数是指固定不变的数值]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2017%2F11%2F10%2Fmath%2F%E5%9B%BE%E5%BD%A2%2F</url>
+    <content type="text"><![CDATA[图形1.直线a.斜率（切线）b.截距c.直线上的点d.平行，相交 2.圆锥曲线2.1椭圆椭圆（Ellipse）是平面内到定点F1、F2的距离之和等于常数（大于|F1F2|）的动点P的轨迹，F1、F2称为椭圆的两个焦点。其数学表达式为：|PF1|+|PF2|=2a（2a&gt;|F1F2|）。 a.设椭圆中心点为(h,k)椭圆公式为:$\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1$(焦点在a，b中的较大的点)b.其中$c^2=a^2-b^2$(2c为两焦点的距离，简称焦距)c.离心率e=c/a,其中$e\in(0,1)$,椭圆越扁，离心率越大; 2.2抛物线平面内，到定点与定直线的距离相等的点的轨迹叫做抛物线。其中定点叫抛物线的焦点，定直线叫抛物线的准线。 标准方程：特点： 2.3双曲线平面内与两个定点F1,F2的距离的差的绝对值等于一个常数(常数为2a，小于|F1F2|)的轨迹称为双曲线;平面内到两定点的距离差的绝对值为定长的点的轨迹叫做双曲线 a.│|MF1|-|MF2│|=2ab.准线 x=±$a^2$/c(焦点在x轴)c.实轴：曲线在焦点所在轴的交点虚轴：相对实轴的相对轴（无交点）（a-&gt;实轴点，b-&gt;虚轴点，c-&gt;焦点。）$a^2$+$b^2$=$c^2$d.渐近线：把双曲线等式右边的1换成0，就是渐进线 三角形s=1/2ah(a是底，h是高)s=1/2ac*sin b(b角对应的边为b) 正弦定理$\frac{sinA}{a}=\frac{sinB}{b}=\frac{sinC}{c}$其中a、b、c为边，A、B、C为边对应的角 余玹定理cos a= $\frac{a^2+b^2+c^2}{2bc} $ 最小正周期a.三角函数相加最小正周期是各个函数的周期的最小公倍数b.三角函数相乘时要化简]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2017%2F11%2F10%2Fmath%2F%E6%A6%82%E7%8E%87%2F</url>
+    <content type="text"><![CDATA[概率排列$ A_n^m = \frac{n!}{(n-m)!} $ 组合a. $ C_n^m = \frac{n!}{m!(n-m)!} $ b.$ C_n^m =C_n^t (t=n-m)$ c.$ C_{n+1}^m = C_n^m + C_n^{m-1}$ d.$ C_n^0+C_n^1+\ldots +C_n^n = 2^n $ e.$ C_n^m = \frac{A_n^m}{m!} $ 等差数列通项公式：$a_n = a_1 + (n-1)*d$求和公式：$S=\frac{n(a_1+a_n)}{2}$ 样本方差总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。]]></content>
+  </entry>
+  <entry>
+    <title></title>
+    <url>%2F2017%2F11%2F10%2Fmath%2F%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[高数基础导数a.y’=dy/dx b.y’的值为曲线在该点切线的斜率 极值在数学分析中，函数的最大值和最小值（最大值和最小值）被统称为极值（极数），是给定范围内的函数的最大值和最小值（本地 或相对极值）或函数的整个定义域（全局或绝对极值）。 a.求导数$f’(x)=0$的根（值） b.该点为极值（一定范围内） 单调性分为单调递增和单调递减 a.当$f&#39;(x)&gt;0$时，函数单调递增 b.当$f&#39;(x)&lt;0$时，函数单调递减 ##连续性]]></content>
+  </entry>
+  <entry>
     <title><![CDATA[sql基础教程1]]></title>
     <url>%2F2017%2F11%2F09%2Fsql%2Fsql_1%2F</url>
     <content type="text"><![CDATA[针对常用命令直接实践掌握 一、基础命令1.启动登录12service mysqld start //启动mysqlmysql -u root -p password //登陆root password 2.建立新用户(grant命令)格式：grant all privileges on 数据库.* to 用户名@登录主机 identified by “密码”； 12grant all privileges on shopex.* to test@localhost identified by &quot;1234&quot;; 增加一个用户test密码为”1234”,让他只可以在localhost上登录，并可以对数据库Shopex进行所有的操作（localhost指本地主机，即MYSQL数据库所在的那台主机） 3.操作数据库1234567891011121314create database student_management;//创建数据库show databases;use student_management;show table;create table student_info(stu_id int,name varchar(8),sex varchar(4),class varchar(16));//创建student_info表create table teacher_info(tea_id int primary key,name varchar(8),sex varchar(4) check(sex=’男’ or sex=’女’),join_time date,nationality varchar(8) default ’汉族’)//主键、约束、默认值desc student_info;//查看表结构 二、对表数据操作1.增删改12345678insert into student_info values(20080201,’张帅’,’男’,’计算机软件’);//增加一行数据update student_info set class=’计算机软件’ where name=’王青’;//修改一行数据delete from student_info where name=’张玲’;//删除一行数据 2.查询1234567891011select * from student_info order by stu_id;//order by子句：按顺序排序select stu_id,class from student_info where name=’李飞’;//where子句：过滤记录select count(*) from student_info;//count()函数：计数select name from student_info where name like &apos;张%&apos;;//like操作符:模式（模糊）匹配,&quot;%&quot;符号用于在模式的前后定义通配符（缺省字母） 三、对表结构操作1234567891011121314151617181920alter table student_info add tel_num int(11);//添加字段alter table student_info change name stu_name varchar(8);//修改字段名称alter table student_info modify stu_id int primary key;//修改字段属性alter tavle student_info modify tel_num int(22);//同上alter table student_info drop column tel_num;//删除字段drop table course_info;//删除表drop database student_management;//删除数据库]]></content>
@@ -24,6 +122,17 @@
       </tags>
   </entry>
   <entry>
+    <title><![CDATA[about Markdown]]></title>
+    <url>%2F2017%2F11%2F07%2Fsql%2Fsql_2%2F</url>
+    <content type="text"><![CDATA[查询_21. 聚合函数计算列中的值，返回一个单一的值 SUM() 求总和 MIN() 最小值 MAX() 最大值 AVG() 平均值 count() 返回行数 first() last() 2. join (inner join,left join,right join)12345SELECT Websites.id, Websites.name, access_log.count, access_log.dateFROM WebsitesINNER JOIN access_logON Websites.id=access_log.site_id;//把两张表拼起来查询 3. group by 语句结合聚合函数使用 12345678910SELECT site_id, SUM(access_log.count) AS numsFROM access_log GROUP BY site_id;//按某一字段，聚合其他字段数据后显示新表SELECT Websites.name,COUNT(access_log.aid) AS nums FROM access_logLEFT JOIN WebsitesON access_log.site_id=Websites.idGROUP BY Websites.name;// 4. having 子句1234567891011121314SELECT Websites.name, Websites.url, SUM(access_log.count) AS nums FROM (access_logINNER JOIN WebsitesON access_log.site_id=Websites.id)GROUP BY Websites.nameHAVING SUM(access_log.count) &gt; 200;//having的作用在于对group by后的数据进行筛选，类似where，而where不能用聚合函数 SELECT Websites.name, SUM(access_log.count) AS nums FROM WebsitesINNER JOIN access_logON Websites.id=access_log.site_idWHERE Websites.alexa &lt; 200 GROUP BY Websites.nameHAVING SUM(access_log.count) &gt; 200;]]></content>
+      <categories>
+        <category>sql</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[关于大学城 和 青春]]></title>
     <url>%2F2017%2F10%2F01%2F2%2F</url>
     <content type="text"><![CDATA[关于大学城 和 青春 诗 &nbsp; 和 &nbsp; 远方&emsp;“你能上天时为什么不浪？“ ————《somebody sometime》 &emsp;&emsp;到重庆大学城不知不觉已经半年。说起大学城，基本每个城市都一样，隔一到两条街就是一个学校，是个有着无数且只有学校的地方。聊以慰藉的，是校里校外宽敞的公路，优美的绿化，还有一两个热闹的商街。。 &emsp;&emsp;当然，更多的是大面积未开发的区域，类似高速公路的环山的风景，还有一望无际类似田野的乡村，于是“城乡结合部”，“村里”这些描述偏僻的词语。 &emsp;&emsp;这让我想起一段往事，11年6月，我从本科毕业回到家乡，那时有一个叫呈贡的地方，偏僻，荒凉，同样被冠予“大学城”的绰号，当时朋友为了能在主城置换房产，专门去了大学城卖掉家里云大的职工房。当时去大学城的时候，朋友还说过一句话：“这鸟不拉屎的地方，站在隔壁山上都可以看到澄江。” &emsp;&emsp;后来，因为工作的原因，走过省内不少区县，普洱就去过不止一次，听着一两首民歌，绕山绕水，高高的山上走马棒。 &emsp;&emsp;有时，激情洋溢的内心也有梦想，高速边停车愿望，青春是否可以抛头颅，洒热血，建设家乡。 &emsp;&emsp;再后来，对大学城空旷和荒凉有了更明确的看法。城市要发展，也注定是一个缓慢的过程。 &emsp;&emsp;一代又一代的年轻人，大学不过就是人生的一段路，人生的起点。当我们站在大学城一望无际的土地上，是否会有对未来的憧憬而有点激情澎湃呢。 &emsp;&emsp;诚然，变革和发展必然伴随痛苦，在此为之无悔地奋斗，奉献青春，我觉得，是幸运地。脚下的土地，月光下天边的星空，会因我们的努力而改变。我们未来的时光，艰苦漫长，但不再迷茫。 &emsp;&emsp;这片土地伴随着你，无论好与坏，相聚离愁。 &emsp;&emsp;不如在这片土地，这段时光，不畏惧，不退缩，尽全力，做想做的事，做该做的梦。 &emsp;&emsp;终有一天，当你离开大学城时， 我想这就是对青春最好的注脚。]]></content>
@@ -35,17 +144,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[about Markdown]]></title>
-    <url>%2F2017%2F10%2F01%2F1%2F</url>
-    <content type="text"><![CDATA[Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。 本文约定如果有写 效果如下：， 在 MWeb 编辑状态下只有用 CMD + 4 或 CMD + R 预览才可以看效果。 标题Markdown 语法： 123# 第一级标题 `&lt;h1&gt;` ## 第二级标题 `&lt;h2&gt;` ###### 第六级标题 `&lt;h6&gt;` 效果如下： 第一级标题 &lt;h1&gt;第二级标题 &lt;h2&gt;第六级标题 &lt;h6&gt;强调Markdown 语法： 12345*这些文字会生成`&lt;em&gt;`*_这些文字会生成`&lt;u&gt;`_**这些文字会生成`&lt;strong&gt;`**__这些文字会生成`&lt;strong&gt;`__ 在 MWeb 中的快捷键为： CMD + U、CMD + I、CMD + B效果如下： 这些文字会生成&lt;em&gt;这些文字会生成&lt;u&gt; 这些文字会生成&lt;strong&gt;这些文字会生成&lt;strong&gt; 换行四个及以上空格加回车。如果不想打这么多空格，只要回车就为换行，请勾选：Preferences - Themes - Translate newlines to &lt;br&gt; tags 列表无序列表Markdown 语法： 1234* 项目一 无序列表 `* + 空格键`* 项目二* 项目二的子项目一 无序列表 `TAB + * + 空格键`* 项目二的子项目二 在 MWeb 中的快捷键为： Option + U效果如下： 项目一 无序列表 * + 空格键 项目二 项目二的子项目一 无序列表 TAB + * + 空格键 项目二的子项目二 有序列表Markdown 语法： 123451. 项目一 有序列表 `数字 + . + 空格键`2. 项目二 3. 项目三1. 项目三的子项目一 有序列表 `TAB + 数字 + . + 空格键`2. 项目三的子项目二 效果如下： 项目一 有序列表 数字 + . + 空格键 项目二 项目三 项目三的子项目一 有序列表 TAB + 数字 + . + 空格键 项目三的子项目二 任务列表（Task lists）Markdown 语法： 12- [ ] 任务一 未做任务 `- + 空格 + [ ]`- [x] 任务二 已做任务 `- + 空格 + [x]` 效果如下： 任务一 未做任务 - + 空格 + [ ] 任务二 已做任务 - + 空格 + [x] 图片Markdown 语法： 12![GitHub set up](http://zh.mweb.im/asset/img/set-up-git.gif)格式: ![Alt Text](url) Control + Shift + I 可插入Markdown语法。如果是 MWeb 的文档库中的文档，还可以用拖放图片、CMD + V 粘贴、CMD + Option + I 导入这三种方式来增加图片。效果如下： MWeb 引入的特别的语法来设置图片宽度，方法是在图片描述后加 -w + 图片宽度 即可，比如说要设置上面的图片的宽度为 140，语法如下： 链接Markdown 语法： 123email &lt;example@example.com&gt;[GitHub](http://github.com)自动生成连接 &lt;http://www.github.com/&gt; Control + Shift + L 可插入Markdown语法。如果是 MWeb 的文档库中的文档，拖放或CMD + Option + I 导入非图片时，会生成连接。效果如下： Email 连接： &#x65;&#x78;&#x61;&#109;&#112;&#x6c;&#101;&#x40;&#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#46;&#x63;&#x6f;&#x6d;连接标题Github网站自动生成连接像： http://www.github.com/ 这样 区块引用Markdown 语法： 123某某说:&gt; 第一行引用&gt; 第二行费用文字 CMD + Shift + B 可插入Markdown语法。效果如下： 某某说: 第一行引用第二行费用文字 行内代码Markdown 语法： 1像这样即可：`&lt;addr&gt;` `code` CMD + K 可插入Markdown语法。效果如下： 像这样即可：&lt;addr&gt; code 多行或者一段代码Markdown 语法： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; CMD + Shift + K 可插入Markdown语法。效果如下： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; 顺序图或流程图Markdown 语法： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 效果如下（ Preferences - Themes - Enable sequence &amp; flow chart 才会看到效果 ）： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 更多请参考：http://bramp.github.io/js-sequence-diagrams/, http://adrai.github.io/flowchart.js/ 表格Markdown 语法： 1234第一格表头 | 第二格表头--------- | -------------内容单元格 第一列第一格 | 内容单元格第二列第一格内容单元格 第一列第二格 多加文字 | 内容单元格第二列第二格 效果如下： 第一格表头 第二格表头 内容单元格 第一列第一格 内容单元格第二列第一格 内容单元格 第一列第二格 多加文字 内容单元格第二列第二格 删除线Markdown 语法： 加删除线像这样用： 删除这些 效果如下： 加删除线像这样用： 删除这些 分隔线以下三种方式都可以生成分隔线： 效果如下： MathJaxMarkdown 语法： 12345678块级公式：$$ x = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$\\[ \frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125; \\]行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 效果如下（Preferences - Themes - Enable MathJax 才会看到效果）： 块级公式：$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$ \[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}{1+\frac{e^{-8\pi}} {1+\ldots} } } } \] 行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 脚注（Footnote）Markdown 语法： 1这是一个脚注：[^sample_footnote] 效果如下： 这是一个脚注：^sample_footnote 注释和阅读更多 Actions-&gt;Insert Read More Comment 或者 Command + .注 阅读更多的功能只用在生成网站或博客时，插入时注意要后空一行。 TOCMarkdown 语法： 1[TOC] 效果如下： [TOC]]]></content>
-      <categories>
-        <category>前端</category>
-      </categories>
-      <tags>
-        <tag>Markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[云平台]]></title>
     <url>%2F2017%2F10%2F01%2Fmd%E5%A4%B4%E9%83%A8%2F</url>
     <content type="text"></content>
@@ -54,6 +152,17 @@
       </categories>
       <tags>
         <tag>Youth</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[about Markdown]]></title>
+    <url>%2F2017%2F10%2F01%2F1%2F</url>
+    <content type="text"><![CDATA[Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。 本文约定如果有写 效果如下：， 在 MWeb 编辑状态下只有用 CMD + 4 或 CMD + R 预览才可以看效果。 标题Markdown 语法： 123# 第一级标题 `&lt;h1&gt;` ## 第二级标题 `&lt;h2&gt;` ###### 第六级标题 `&lt;h6&gt;` 效果如下： 第一级标题 &lt;h1&gt;第二级标题 &lt;h2&gt;第六级标题 &lt;h6&gt;强调Markdown 语法： 12345*这些文字会生成`&lt;em&gt;`*_这些文字会生成`&lt;u&gt;`_**这些文字会生成`&lt;strong&gt;`**__这些文字会生成`&lt;strong&gt;`__ 在 MWeb 中的快捷键为： CMD + U、CMD + I、CMD + B效果如下： 这些文字会生成&lt;em&gt;这些文字会生成&lt;u&gt; 这些文字会生成&lt;strong&gt;这些文字会生成&lt;strong&gt; 换行四个及以上空格加回车。如果不想打这么多空格，只要回车就为换行，请勾选：Preferences - Themes - Translate newlines to &lt;br&gt; tags 列表无序列表Markdown 语法： 1234* 项目一 无序列表 `* + 空格键`* 项目二* 项目二的子项目一 无序列表 `TAB + * + 空格键`* 项目二的子项目二 在 MWeb 中的快捷键为： Option + U效果如下： 项目一 无序列表 * + 空格键 项目二 项目二的子项目一 无序列表 TAB + * + 空格键 项目二的子项目二 有序列表Markdown 语法： 123451. 项目一 有序列表 `数字 + . + 空格键`2. 项目二 3. 项目三1. 项目三的子项目一 有序列表 `TAB + 数字 + . + 空格键`2. 项目三的子项目二 效果如下： 项目一 有序列表 数字 + . + 空格键 项目二 项目三 项目三的子项目一 有序列表 TAB + 数字 + . + 空格键 项目三的子项目二 任务列表（Task lists）Markdown 语法： 12- [ ] 任务一 未做任务 `- + 空格 + [ ]`- [x] 任务二 已做任务 `- + 空格 + [x]` 效果如下： 任务一 未做任务 - + 空格 + [ ] 任务二 已做任务 - + 空格 + [x] 图片Markdown 语法： 12![GitHub set up](http://zh.mweb.im/asset/img/set-up-git.gif)格式: ![Alt Text](url) Control + Shift + I 可插入Markdown语法。如果是 MWeb 的文档库中的文档，还可以用拖放图片、CMD + V 粘贴、CMD + Option + I 导入这三种方式来增加图片。效果如下： MWeb 引入的特别的语法来设置图片宽度，方法是在图片描述后加 -w + 图片宽度 即可，比如说要设置上面的图片的宽度为 140，语法如下： 链接Markdown 语法： 123email &lt;example@example.com&gt;[GitHub](http://github.com)自动生成连接 &lt;http://www.github.com/&gt; Control + Shift + L 可插入Markdown语法。如果是 MWeb 的文档库中的文档，拖放或CMD + Option + I 导入非图片时，会生成连接。效果如下： Email 连接： &#x65;&#120;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#x6d;连接标题Github网站自动生成连接像： http://www.github.com/ 这样 区块引用Markdown 语法： 123某某说:&gt; 第一行引用&gt; 第二行费用文字 CMD + Shift + B 可插入Markdown语法。效果如下： 某某说: 第一行引用第二行费用文字 行内代码Markdown 语法： 1像这样即可：`&lt;addr&gt;` `code` CMD + K 可插入Markdown语法。效果如下： 像这样即可：&lt;addr&gt; code 多行或者一段代码Markdown 语法： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; CMD + Shift + K 可插入Markdown语法。效果如下： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; 顺序图或流程图Markdown 语法： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 效果如下（ Preferences - Themes - Enable sequence &amp; flow chart 才会看到效果 ）： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 更多请参考：http://bramp.github.io/js-sequence-diagrams/, http://adrai.github.io/flowchart.js/ 表格Markdown 语法： 1234第一格表头 | 第二格表头--------- | -------------内容单元格 第一列第一格 | 内容单元格第二列第一格内容单元格 第一列第二格 多加文字 | 内容单元格第二列第二格 效果如下： 第一格表头 第二格表头 内容单元格 第一列第一格 内容单元格第二列第一格 内容单元格 第一列第二格 多加文字 内容单元格第二列第二格 删除线Markdown 语法： 加删除线像这样用： 删除这些 效果如下： 加删除线像这样用： 删除这些 分隔线以下三种方式都可以生成分隔线： 效果如下： MathJaxMarkdown 语法： 12345678块级公式：$$ x = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$\\[ \frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125; \\]行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 效果如下（Preferences - Themes - Enable MathJax 才会看到效果）： 块级公式：$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$ \[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}{1+\frac{e^{-8\pi}} {1+\ldots} } } } \] 行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 脚注（Footnote）Markdown 语法： 1这是一个脚注：[^sample_footnote] 效果如下： 这是一个脚注：^sample_footnote 注释和阅读更多 Actions-&gt;Insert Read More Comment 或者 Command + .注 阅读更多的功能只用在生成网站或博客时，插入时注意要后空一行。 TOCMarkdown 语法： 1[TOC] 效果如下： [TOC]]]></content>
+      <categories>
+        <category>前端</category>
+      </categories>
+      <tags>
+        <tag>Markdown</tag>
       </tags>
   </entry>
   <entry>
