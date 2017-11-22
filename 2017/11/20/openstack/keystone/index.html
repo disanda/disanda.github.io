@@ -89,7 +89,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://a3.qpic.cn/psb?/V13eBt6k40tVED/kN.4ccACz65s.KizplMiQaMzN0.Qz.VMVMBMfdmtfsQ!/b/dG0BAAAAAAAA&bo=kwOAAgAAAAARByI!&rf=viewer_4">
 <meta property="og:image" content="http://a3.qpic.cn/psb?/V13eBt6k40tVED/KmXtiBNrtlpm4aus*Y7ldSR9TuHfm9y09*TfoAYsDzw!/b/dOAAAAAAAAAA&bo=*gKAAgAAAAARAEk!&rf=viewer_4">
-<meta property="og:updated_time" content="2017-11-22T07:39:06.000Z">
+<meta property="og:updated_time" content="2017-11-22T08:09:56.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="keystone(v3) 简介">
 <meta name="twitter:description" content="keystone(v3) 简介">
@@ -417,7 +417,8 @@
 <pre><code>A[Tenant] --&gt;|改为| B(Project)
 B --&gt; C(Domain)
 B --&gt; D(Group)
-</code></pre><p>V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。</p>
+</code></pre><p>graph LR;<br>　　A–&gt;B;<br>　　A–&gt;C;<br>　　B–&gt;D;<br>　　C–&gt;D; </p>
+<p>V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。</p>
 <p>域(Domain):比Project更高级的容器，云服务客服是Domain的拥有者，一个Domain可以创建多Project、Users、Groups和Roles。通过<br>Domain对所拥有的多个Project统一管理，不必对每个Project单独管理。</p>
 <p>组(Group):是一组User容器,通过给Group分配角色，在用一组的用户就有Group所有角色的权限</p>
 <h2 id="keystone-v3-各组件关系"><a href="#keystone-v3-各组件关系" class="headerlink" title="keystone v3 各组件关系"></a>keystone v3 各组件关系</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/KmXtiBNrtlpm4aus*Y7ldSR9TuHfm9y09*TfoAYsDzw!/b/dOAAAAAAAAAA&amp;bo=*gKAAgAAAAARAEk!&amp;rf=viewer_4" alt="image"></p>
