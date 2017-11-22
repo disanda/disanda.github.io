@@ -1,9 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[高数基础]]></title>
+    <url>%2F2017%2F11%2F22%2Fmath%2F%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80%2F</url>
+    <content type="text"><![CDATA[高数基础 导数a.y’=dy/dx b.y’的值为曲线在该点切线的斜率 极值在数学分析中，函数的最大值和最小值（最大值和最小值）被统称为极值（极数），是给定范围内的函数的最大值和最小值（本地 或相对极值）或函数的整个定义域（全局或绝对极值）。 a.求导数$f’(x)=0$的根（值） b.该点为极值（一定范围内） 单调性分为单调递增和单调递减 a.当$f&#39;(x)&gt;0$时，函数单调递增 b.当$f&#39;(x)&lt;0$时，函数单调递减 ##连续性]]></content>
+      <categories>
+        <category>高数基础</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[初等函数]]></title>
+    <url>%2F2017%2F11%2F22%2Fmath%2F%E5%9B%BE%E5%BD%A2%2F</url>
+    <content type="text"><![CDATA[图形 1.直线a.斜率（切线）b.截距c.直线上的点d.平行，相交 2.圆锥曲线2.1椭圆椭圆（Ellipse）是平面内到定点F1、F2的距离之和等于常数（大于|F1F2|）的动点P的轨迹，F1、F2称为椭圆的两个焦点。其数学表达式为：|PF1|+|PF2|=2a（2a&gt;|F1F2|）。 a.设椭圆中心点为(h,k)椭圆公式为:$\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1$(焦点在a，b中的较大的点)b.其中$c^2=a^2-b^2$(2c为两焦点的距离，简称焦距)c.离心率e=c/a,其中$e\in(0,1)$,椭圆越扁，离心率越大; 2.2抛物线平面内，到定点与定直线的距离相等的点的轨迹叫做抛物线。其中定点叫抛物线的焦点，定直线叫抛物线的准线。 标准方程：特点： 2.3双曲线平面内与两个定点F1,F2的距离的差的绝对值等于一个常数(常数为2a，小于|F1F2|)的轨迹称为双曲线;平面内到两定点的距离差的绝对值为定长的点的轨迹叫做双曲线 a.│|MF1|-|MF2│|=2ab.准线 x=±$a^2$/c(焦点在x轴)c.实轴：曲线在焦点所在轴的交点虚轴：相对实轴的相对轴（无交点）（a-&gt;实轴点，b-&gt;虚轴点，c-&gt;焦点。）$a^2$+$b^2$=$c^2$d.渐近线：把双曲线等式右边的1换成0，就是渐进线 三角形s=1/2ah(a是底，h是高)s=1/2ac*sin b(b角对应的边为b) 正弦定理$\frac{sinA}{a}=\frac{sinB}{b}=\frac{sinC}{c}$其中a、b、c为边，A、B、C为边对应的角 余玹定理cos a= $\frac{a^2+b^2+c^2}{2bc} $ 最小正周期a.三角函数相加最小正周期是各个函数的周期的最小公倍数b.三角函数相乘时要化简]]></content>
+      <categories>
+        <category>高数基础</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[概率]]></title>
+    <url>%2F2017%2F11%2F22%2Fmath%2F%E6%A6%82%E7%8E%87%2F</url>
+    <content type="text"><![CDATA[概率 排列$ A_n^m = \frac{n!}{(n-m)!} $ 组合a. $ C_n^m = \frac{n!}{m!(n-m)!} $ b.$ C_n^m =C_n^t (t=n-m)$ c.$ C_{n+1}^m = C_n^m + C_n^{m-1}$ d.$ C_n^0+C_n^1+\ldots +C_n^n = 2^n $ e.$ C_n^m = \frac{A_n^m}{m!} $ 等差数列通项公式：$a_n = a_1 + (n-1)*d$求和公式：$S=\frac{n(a_1+a_n)}{2}$ 样本方差总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。]]></content>
+      <categories>
+        <category>高数基础</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[初等函数]]></title>
+    <url>%2F2017%2F11%2F22%2Fmath%2F%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%2F</url>
+    <content type="text"><![CDATA[初等函数 三角函数//三角函数表 常用公式$sina^2+cos^2=1 $ $tana^2+1=seca^2$ $1+cot^2=csca^2$ 角度转换／／角度转换1／／2／／3／／4 奇偶关系除了$cos a$是偶函数外，其他三个是奇函数 二倍角关系／／二倍角1 和差角公式／／2 正切函数$\tan a$//正切 余切函数$cos a$／／余切 对数函数$y=\log_ax$ ／／ 幂函数$y=x^a $(a为有理数) y=x ,y=$x^3$为奇函数 y=$x^2$,y=$x^4$为偶函数 指数函数$y=a^x$(a为常数，且 a&gt;0,a$\neq$1)定义域为R,常数是指固定不变的数值]]></content>
+      <categories>
+        <category>高数基础</category>
+      </categories>
+      <tags>
+        <tag>公式</tag>
+        <tag>高数</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[游泳自学教程]]></title>
     <url>%2F2017%2F11%2F20%2F%E5%85%B3%E4%BA%8E%E6%B8%B8%E6%B3%B3%2F</url>
-    <content type="text"><![CDATA[游泳的自学教程前言 ~游泳的前世今生感性地说游泳，除了星光和大海、就是对水的热爱。一种在船尾看着尾随鱼群想跳下去的冲动，一种搏击海浪的激情。 作为从小游泳游到大的人，可以说直到现在游的并不好。从小学花几百块和表哥参加师大的暑期的游泳班，到学校组织夏立营被同班的游泳好手淹个半死。很长时间并没有学会游泳。 直到有一天，在澄江。一个之前小时候双脚踩进青苔石块，就想伸手捞鱼的地方，一个后来偶然发现有着渔舟唱晚、天水一线的地方。瞬间学会了游泳。 可以说我对游泳的感觉是一直不会，一直再固执的坚持游，毕竟不太会游也可以游，主要目的是减肥。 总结下来，很多年因为偶然和勤奋等多种因素，还是长进不少。这里打算写一份课外教程，分享一些自学游泳的感悟。 !学游泳的keypointsa.学会总在一瞬间： 游泳很具实践性，也就是本能，这也是为什么小孩更容易学会的原因。当然，像我这样也属于后天才逐渐掌握，就是也有理论的作用。 对于成年人来学游泳，必要的是多游，多练，当你掌握了一个关键技巧后，你的游泳技术就会上一个台阶 b.必要的技巧: 1.水中平衡（这点非常重要）： 1是入门的标志，因为掌握水中的平衡是区别你在水中是**竖着**走还是**横着**走的关键，也是通俗说的是否会“换气”、和是否怕“淹水”等问题的解决的标志。 2.学青蛙或小狗一样在水中前进 1也是“蛙泳”和“自由泳”的学样式学法，通过根据动物在水中的动作，进行模仿学样，得到 **横着** 在水中前进的方法 3.改进姿势 1毕竟我们和动物结构是有区别的、动物的很多动作我们不能完全模仿，也不适合人，这时候就需要逐步“微调”，逐渐得到适合人且 效率与舒适兼顾的游泳姿势。 4.体能 1234这其实很好理解，也比较简单。就像跑步，体能不好，怎么跑？也是大多数热爱游泳的一个目的吧，锻炼身体，增强体能。 5.身体协调 12这是一个调节，就是游泳中每个动作的改进和适应，需要身体其它部位的协调，这在游泳中显得特别突出。因为游泳是**全身性运动**，你手在动的时候其他部位也在动。有时你觉得手的姿势不对，你调整手的姿势，但是你之前的动作和身体其他部位的动作（例如腿部）动作是协调的。这时挑战需要特别注意身体协调的配套适应改进。 c.其他 我基本是自学的蛙泳和自由泳，蛙泳游的时间比较长，基本能保证正常速度在水中游蛙泳半个小时不会累。自由泳是研究生期间看一些教程和自己规划点练习学会的，前期游的不好，很累，现在能保证比蛙泳略快的前提下游20分钟不会感觉累。 在之后的时间，我会针对以上5点，把自己游泳的心得整理出来，作为自学游泳的一个教程，分享给想自学游泳或者准备自学游泳的同学们。]]></content>
+    <content type="text"><![CDATA[游泳的自学教程前言 ~游泳的前世今生感性地说游泳，除了星光和大海、就是对水的热爱。一种在船尾看着尾随鱼群想跳下去的冲动，一种搏击海浪的激情。 作为从小游泳游到大的人，可以说直到现在游的并不好。从小学花几百块和表哥参加师大的暑期的游泳班，到学校组织夏立营被同班的游泳好手淹个半死。很长时间并没有学会游泳。 直到有一天，在澄江。一个之前小时候双脚踩进青苔石块，就想伸手捞鱼的地方，一个后来偶然发现有着渔舟唱晚、天水一线的地方。瞬间学会了游泳。 可以说我对游泳的感觉是一直不会，一直再固执的坚持游，毕竟不太会游也可以游，主要目的是减肥。 总结下来，很多年因为偶然和勤奋等多种因素，还是长进不少。这里打算写一份课外教程，分享一些自学游泳的感悟。 !学游泳的keypointsa.学会总在一瞬间： 游泳很具实践性，也就是本能，这也是为什么小孩更容易学会的原因。当然，像我这样也属于后天才逐渐掌握，就是也有理论的作用。 对于成年人来学游泳，必要的是多游，多练，当你掌握了一个关键技巧后，你的游泳技术就会上一个台阶 b.必要的技巧: 1.水中平衡（这点非常重要）： 123是入门的标志，因为掌握水中的平衡是区别你在水中是**竖着**走还是**横着**走的关键，也是通俗说的是否会“换气”、和是否怕“淹水”等问题的解决的标志。 2.学青蛙或小狗一样在水中前进 12也是“蛙泳”和“自由泳”的学样式学法，通过根据动物在水中的动作，进行模仿学样，得到 **横着** 在水中前进的方法 3.改进姿势 123毕竟我们和动物结构是有区别的、动物的很多动作我们不能完全模仿，也不适合人，这时候就需要逐步“微调”，逐渐得到适合人且效率与舒适兼顾的游泳姿势。 4.体能 123这其实很好理解，也比较简单。就像跑步，体能不好，怎么跑？也是大多数热爱游泳的一个目的吧，锻炼身体，增强体能。 5.身体协调 1234这是一个调节，就是游泳中每个动作的改进和适应，需要身体其它部位的协调，这在游泳中显得特别突出。因为游泳是**全身性运动**，你手在动的时候其他部位也在动。有时你觉得手的姿势不对，你调整手的姿势，但是你之前的动作和身体其他部位的动作（例如腿部）动作是协调的。这时挑战需要特别注意身体协调的配套适应改进。 c.其他 我基本是自学的蛙泳和自由泳，蛙泳游的时间比较长，基本能保证正常速度在水中游蛙泳半个小时不会累。自由泳是研究生期间看一些教程和自己规划点练习学会的，前期游的不好，很累，现在能保证比蛙泳略快的前提下游20分钟不会感觉累。 在之后的时间，我会针对以上5点，把自己游泳的心得整理出来，作为自学游泳的一个教程，分享给想自学游泳或者准备自学游泳的同学们。]]></content>
       <categories>
         <category>运动</category>
       </categories>
@@ -79,26 +127,6 @@
       </tags>
   </entry>
   <entry>
-    <title></title>
-    <url>%2F2017%2F11%2F10%2Fmath%2F%E5%88%9D%E7%AD%89%E5%87%BD%E6%95%B0%2F</url>
-    <content type="text"><![CDATA[初等函数三角函数 常用公式$sina^2+cos^2=1 $ $tana^2+1=seca^2$ $1+cot^2=csca^2$ 角度转换 奇偶关系除了$cos a$是偶函数外，其他三个是奇函数 二倍角关系 和差角公式 正切函数$\tan a$ 余切函数$cos a$ 对数函数$y=\log_ax$ 幂函数$y=x^a $(a为有理数) y=x ,y=$x^3$为奇函数 y=$x^2$,y=$x^4$为偶函数 指数函数$y=a^x$(a为常数，且 a&gt;0,a$\neq$1)定义域为R,常数是指固定不变的数值]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2017%2F11%2F10%2Fmath%2F%E5%9B%BE%E5%BD%A2%2F</url>
-    <content type="text"><![CDATA[图形1.直线a.斜率（切线）b.截距c.直线上的点d.平行，相交 2.圆锥曲线2.1椭圆椭圆（Ellipse）是平面内到定点F1、F2的距离之和等于常数（大于|F1F2|）的动点P的轨迹，F1、F2称为椭圆的两个焦点。其数学表达式为：|PF1|+|PF2|=2a（2a&gt;|F1F2|）。 a.设椭圆中心点为(h,k)椭圆公式为:$\frac{(x-h)^2}{a^2}+\frac{(y-k)^2}{b^2}=1$(焦点在a，b中的较大的点)b.其中$c^2=a^2-b^2$(2c为两焦点的距离，简称焦距)c.离心率e=c/a,其中$e\in(0,1)$,椭圆越扁，离心率越大; 2.2抛物线平面内，到定点与定直线的距离相等的点的轨迹叫做抛物线。其中定点叫抛物线的焦点，定直线叫抛物线的准线。 标准方程：特点： 2.3双曲线平面内与两个定点F1,F2的距离的差的绝对值等于一个常数(常数为2a，小于|F1F2|)的轨迹称为双曲线;平面内到两定点的距离差的绝对值为定长的点的轨迹叫做双曲线 a.│|MF1|-|MF2│|=2ab.准线 x=±$a^2$/c(焦点在x轴)c.实轴：曲线在焦点所在轴的交点虚轴：相对实轴的相对轴（无交点）（a-&gt;实轴点，b-&gt;虚轴点，c-&gt;焦点。）$a^2$+$b^2$=$c^2$d.渐近线：把双曲线等式右边的1换成0，就是渐进线 三角形s=1/2ah(a是底，h是高)s=1/2ac*sin b(b角对应的边为b) 正弦定理$\frac{sinA}{a}=\frac{sinB}{b}=\frac{sinC}{c}$其中a、b、c为边，A、B、C为边对应的角 余玹定理cos a= $\frac{a^2+b^2+c^2}{2bc} $ 最小正周期a.三角函数相加最小正周期是各个函数的周期的最小公倍数b.三角函数相乘时要化简]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2017%2F11%2F10%2Fmath%2F%E6%A6%82%E7%8E%87%2F</url>
-    <content type="text"><![CDATA[概率排列$ A_n^m = \frac{n!}{(n-m)!} $ 组合a. $ C_n^m = \frac{n!}{m!(n-m)!} $ b.$ C_n^m =C_n^t (t=n-m)$ c.$ C_{n+1}^m = C_n^m + C_n^{m-1}$ d.$ C_n^0+C_n^1+\ldots +C_n^n = 2^n $ e.$ C_n^m = \frac{A_n^m}{m!} $ 等差数列通项公式：$a_n = a_1 + (n-1)*d$求和公式：$S=\frac{n(a_1+a_n)}{2}$ 样本方差总体各单位变量值与其算术平均数的离差的平方，然后再对此变量取平均数，就叫做样本方差。样本方差用来表示一列数的变异程度。]]></content>
-  </entry>
-  <entry>
-    <title></title>
-    <url>%2F2017%2F11%2F10%2Fmath%2F%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80%2F</url>
-    <content type="text"><![CDATA[高数基础导数a.y’=dy/dx b.y’的值为曲线在该点切线的斜率 极值在数学分析中，函数的最大值和最小值（最大值和最小值）被统称为极值（极数），是给定范围内的函数的最大值和最小值（本地 或相对极值）或函数的整个定义域（全局或绝对极值）。 a.求导数$f’(x)=0$的根（值） b.该点为极值（一定范围内） 单调性分为单调递增和单调递减 a.当$f&#39;(x)&gt;0$时，函数单调递增 b.当$f&#39;(x)&lt;0$时，函数单调递减 ##连续性]]></content>
-  </entry>
-  <entry>
     <title><![CDATA[sql基础教程1]]></title>
     <url>%2F2017%2F11%2F09%2Fsql%2Fsql_1%2F</url>
     <content type="text"><![CDATA[针对常用命令直接实践掌握 一、基础命令1.启动登录12service mysqld start //启动mysqlmysql -u root -p password //登陆root password 2.建立新用户(grant命令)格式：grant all privileges on 数据库.* to 用户名@登录主机 identified by “密码”； 12grant all privileges on shopex.* to test@localhost identified by &quot;1234&quot;; 增加一个用户test密码为”1234”,让他只可以在localhost上登录，并可以对数据库Shopex进行所有的操作（localhost指本地主机，即MYSQL数据库所在的那台主机） 3.操作数据库1234567891011121314create database student_management;//创建数据库show databases;use student_management;show table;create table student_info(stu_id int,name varchar(8),sex varchar(4),class varchar(16));//创建student_info表create table teacher_info(tea_id int primary key,name varchar(8),sex varchar(4) check(sex=’男’ or sex=’女’),join_time date,nationality varchar(8) default ’汉族’)//主键、约束、默认值desc student_info;//查看表结构 二、对表数据操作1.增删改12345678insert into student_info values(20080201,’张帅’,’男’,’计算机软件’);//增加一行数据update student_info set class=’计算机软件’ where name=’王青’;//修改一行数据delete from student_info where name=’张玲’;//删除一行数据 2.查询1234567891011select * from student_info order by stu_id;//order by子句：按顺序排序select stu_id,class from student_info where name=’李飞’;//where子句：过滤记录select count(*) from student_info;//count()函数：计数select name from student_info where name like &apos;张%&apos;;//like操作符:模式（模糊）匹配,&quot;%&quot;符号用于在模式的前后定义通配符（缺省字母） 三、对表结构操作1234567891011121314151617181920alter table student_info add tel_num int(11);//添加字段alter table student_info change name stu_name varchar(8);//修改字段名称alter table student_info modify stu_id int primary key;//修改字段属性alter tavle student_info modify tel_num int(22);//同上alter table student_info drop column tel_num;//删除字段drop table course_info;//删除表drop database student_management;//删除数据库]]></content>
@@ -133,17 +161,6 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[关于大学城 和 青春]]></title>
-    <url>%2F2017%2F10%2F01%2F2%2F</url>
-    <content type="text"><![CDATA[关于大学城 和 青春 诗 &nbsp; 和 &nbsp; 远方&emsp;“你能上天时为什么不浪？“ ————《somebody sometime》 &emsp;&emsp;到重庆大学城不知不觉已经半年。说起大学城，基本每个城市都一样，隔一到两条街就是一个学校，是个有着无数且只有学校的地方。聊以慰藉的，是校里校外宽敞的公路，优美的绿化，还有一两个热闹的商街。。 &emsp;&emsp;当然，更多的是大面积未开发的区域，类似高速公路的环山的风景，还有一望无际类似田野的乡村，于是“城乡结合部”，“村里”这些描述偏僻的词语。 &emsp;&emsp;这让我想起一段往事，11年6月，我从本科毕业回到家乡，那时有一个叫呈贡的地方，偏僻，荒凉，同样被冠予“大学城”的绰号，当时朋友为了能在主城置换房产，专门去了大学城卖掉家里云大的职工房。当时去大学城的时候，朋友还说过一句话：“这鸟不拉屎的地方，站在隔壁山上都可以看到澄江。” &emsp;&emsp;后来，因为工作的原因，走过省内不少区县，普洱就去过不止一次，听着一两首民歌，绕山绕水，高高的山上走马棒。 &emsp;&emsp;有时，激情洋溢的内心也有梦想，高速边停车愿望，青春是否可以抛头颅，洒热血，建设家乡。 &emsp;&emsp;再后来，对大学城空旷和荒凉有了更明确的看法。城市要发展，也注定是一个缓慢的过程。 &emsp;&emsp;一代又一代的年轻人，大学不过就是人生的一段路，人生的起点。当我们站在大学城一望无际的土地上，是否会有对未来的憧憬而有点激情澎湃呢。 &emsp;&emsp;诚然，变革和发展必然伴随痛苦，在此为之无悔地奋斗，奉献青春，我觉得，是幸运地。脚下的土地，月光下天边的星空，会因我们的努力而改变。我们未来的时光，艰苦漫长，但不再迷茫。 &emsp;&emsp;这片土地伴随着你，无论好与坏，相聚离愁。 &emsp;&emsp;不如在这片土地，这段时光，不畏惧，不退缩，尽全力，做想做的事，做该做的梦。 &emsp;&emsp;终有一天，当你离开大学城时， 我想这就是对青春最好的注脚。]]></content>
-      <categories>
-        <category>日记</category>
-      </categories>
-      <tags>
-        <tag>Youth</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[云平台]]></title>
     <url>%2F2017%2F10%2F01%2Fmd%E5%A4%B4%E9%83%A8%2F</url>
     <content type="text"></content>
@@ -157,12 +174,23 @@
   <entry>
     <title><![CDATA[about Markdown]]></title>
     <url>%2F2017%2F10%2F01%2F1%2F</url>
-    <content type="text"><![CDATA[Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。 本文约定如果有写 效果如下：， 在 MWeb 编辑状态下只有用 CMD + 4 或 CMD + R 预览才可以看效果。 标题Markdown 语法： 123# 第一级标题 `&lt;h1&gt;` ## 第二级标题 `&lt;h2&gt;` ###### 第六级标题 `&lt;h6&gt;` 效果如下： 第一级标题 &lt;h1&gt;第二级标题 &lt;h2&gt;第六级标题 &lt;h6&gt;强调Markdown 语法： 12345*这些文字会生成`&lt;em&gt;`*_这些文字会生成`&lt;u&gt;`_**这些文字会生成`&lt;strong&gt;`**__这些文字会生成`&lt;strong&gt;`__ 在 MWeb 中的快捷键为： CMD + U、CMD + I、CMD + B效果如下： 这些文字会生成&lt;em&gt;这些文字会生成&lt;u&gt; 这些文字会生成&lt;strong&gt;这些文字会生成&lt;strong&gt; 换行四个及以上空格加回车。如果不想打这么多空格，只要回车就为换行，请勾选：Preferences - Themes - Translate newlines to &lt;br&gt; tags 列表无序列表Markdown 语法： 1234* 项目一 无序列表 `* + 空格键`* 项目二* 项目二的子项目一 无序列表 `TAB + * + 空格键`* 项目二的子项目二 在 MWeb 中的快捷键为： Option + U效果如下： 项目一 无序列表 * + 空格键 项目二 项目二的子项目一 无序列表 TAB + * + 空格键 项目二的子项目二 有序列表Markdown 语法： 123451. 项目一 有序列表 `数字 + . + 空格键`2. 项目二 3. 项目三1. 项目三的子项目一 有序列表 `TAB + 数字 + . + 空格键`2. 项目三的子项目二 效果如下： 项目一 有序列表 数字 + . + 空格键 项目二 项目三 项目三的子项目一 有序列表 TAB + 数字 + . + 空格键 项目三的子项目二 任务列表（Task lists）Markdown 语法： 12- [ ] 任务一 未做任务 `- + 空格 + [ ]`- [x] 任务二 已做任务 `- + 空格 + [x]` 效果如下： 任务一 未做任务 - + 空格 + [ ] 任务二 已做任务 - + 空格 + [x] 图片Markdown 语法： 12![GitHub set up](http://zh.mweb.im/asset/img/set-up-git.gif)格式: ![Alt Text](url) Control + Shift + I 可插入Markdown语法。如果是 MWeb 的文档库中的文档，还可以用拖放图片、CMD + V 粘贴、CMD + Option + I 导入这三种方式来增加图片。效果如下： MWeb 引入的特别的语法来设置图片宽度，方法是在图片描述后加 -w + 图片宽度 即可，比如说要设置上面的图片的宽度为 140，语法如下： 链接Markdown 语法： 123email &lt;example@example.com&gt;[GitHub](http://github.com)自动生成连接 &lt;http://www.github.com/&gt; Control + Shift + L 可插入Markdown语法。如果是 MWeb 的文档库中的文档，拖放或CMD + Option + I 导入非图片时，会生成连接。效果如下： Email 连接： &#x65;&#120;&#x61;&#109;&#112;&#x6c;&#x65;&#64;&#101;&#x78;&#97;&#109;&#x70;&#108;&#x65;&#46;&#x63;&#111;&#x6d;连接标题Github网站自动生成连接像： http://www.github.com/ 这样 区块引用Markdown 语法： 123某某说:&gt; 第一行引用&gt; 第二行费用文字 CMD + Shift + B 可插入Markdown语法。效果如下： 某某说: 第一行引用第二行费用文字 行内代码Markdown 语法： 1像这样即可：`&lt;addr&gt;` `code` CMD + K 可插入Markdown语法。效果如下： 像这样即可：&lt;addr&gt; code 多行或者一段代码Markdown 语法： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; CMD + Shift + K 可插入Markdown语法。效果如下： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; 顺序图或流程图Markdown 语法： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 效果如下（ Preferences - Themes - Enable sequence &amp; flow chart 才会看到效果 ）： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 更多请参考：http://bramp.github.io/js-sequence-diagrams/, http://adrai.github.io/flowchart.js/ 表格Markdown 语法： 1234第一格表头 | 第二格表头--------- | -------------内容单元格 第一列第一格 | 内容单元格第二列第一格内容单元格 第一列第二格 多加文字 | 内容单元格第二列第二格 效果如下： 第一格表头 第二格表头 内容单元格 第一列第一格 内容单元格第二列第一格 内容单元格 第一列第二格 多加文字 内容单元格第二列第二格 删除线Markdown 语法： 加删除线像这样用： 删除这些 效果如下： 加删除线像这样用： 删除这些 分隔线以下三种方式都可以生成分隔线： 效果如下： MathJaxMarkdown 语法： 12345678块级公式：$$ x = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$\\[ \frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125; \\]行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 效果如下（Preferences - Themes - Enable MathJax 才会看到效果）： 块级公式：$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$ \[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}{1+\frac{e^{-8\pi}} {1+\ldots} } } } \] 行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 脚注（Footnote）Markdown 语法： 1这是一个脚注：[^sample_footnote] 效果如下： 这是一个脚注：^sample_footnote 注释和阅读更多 Actions-&gt;Insert Read More Comment 或者 Command + .注 阅读更多的功能只用在生成网站或博客时，插入时注意要后空一行。 TOCMarkdown 语法： 1[TOC] 效果如下： [TOC]]]></content>
+    <content type="text"><![CDATA[Markdown 语法和 MWeb 写作使用说明Markdown 的设计哲学 Markdown 的目標是實現「易讀易寫」。不過最需要強調的便是它的可讀性。一份使用 Markdown 格式撰寫的文件應該可以直接以純文字發佈，並且看起來不會像是由許多標籤或是格式指令所構成。Markdown 的語法有個主要的目的：用來作為一種網路內容的寫作用語言。 本文约定如果有写 效果如下：， 在 MWeb 编辑状态下只有用 CMD + 4 或 CMD + R 预览才可以看效果。 标题Markdown 语法： 123# 第一级标题 `&lt;h1&gt;` ## 第二级标题 `&lt;h2&gt;` ###### 第六级标题 `&lt;h6&gt;` 效果如下： 第一级标题 &lt;h1&gt;第二级标题 &lt;h2&gt;第六级标题 &lt;h6&gt;强调Markdown 语法： 12345*这些文字会生成`&lt;em&gt;`*_这些文字会生成`&lt;u&gt;`_**这些文字会生成`&lt;strong&gt;`**__这些文字会生成`&lt;strong&gt;`__ 在 MWeb 中的快捷键为： CMD + U、CMD + I、CMD + B效果如下： 这些文字会生成&lt;em&gt;这些文字会生成&lt;u&gt; 这些文字会生成&lt;strong&gt;这些文字会生成&lt;strong&gt; 换行四个及以上空格加回车。如果不想打这么多空格，只要回车就为换行，请勾选：Preferences - Themes - Translate newlines to &lt;br&gt; tags 列表无序列表Markdown 语法： 1234* 项目一 无序列表 `* + 空格键`* 项目二* 项目二的子项目一 无序列表 `TAB + * + 空格键`* 项目二的子项目二 在 MWeb 中的快捷键为： Option + U效果如下： 项目一 无序列表 * + 空格键 项目二 项目二的子项目一 无序列表 TAB + * + 空格键 项目二的子项目二 有序列表Markdown 语法： 123451. 项目一 有序列表 `数字 + . + 空格键`2. 项目二 3. 项目三1. 项目三的子项目一 有序列表 `TAB + 数字 + . + 空格键`2. 项目三的子项目二 效果如下： 项目一 有序列表 数字 + . + 空格键 项目二 项目三 项目三的子项目一 有序列表 TAB + 数字 + . + 空格键 项目三的子项目二 任务列表（Task lists）Markdown 语法： 12- [ ] 任务一 未做任务 `- + 空格 + [ ]`- [x] 任务二 已做任务 `- + 空格 + [x]` 效果如下： 任务一 未做任务 - + 空格 + [ ] 任务二 已做任务 - + 空格 + [x] 图片Markdown 语法： 12![GitHub set up](http://zh.mweb.im/asset/img/set-up-git.gif)格式: ![Alt Text](url) Control + Shift + I 可插入Markdown语法。如果是 MWeb 的文档库中的文档，还可以用拖放图片、CMD + V 粘贴、CMD + Option + I 导入这三种方式来增加图片。效果如下： MWeb 引入的特别的语法来设置图片宽度，方法是在图片描述后加 -w + 图片宽度 即可，比如说要设置上面的图片的宽度为 140，语法如下： 链接Markdown 语法： 123email &lt;example@example.com&gt;[GitHub](http://github.com)自动生成连接 &lt;http://www.github.com/&gt; Control + Shift + L 可插入Markdown语法。如果是 MWeb 的文档库中的文档，拖放或CMD + Option + I 导入非图片时，会生成连接。效果如下： Email 连接： &#x65;&#x78;&#x61;&#109;&#112;&#108;&#101;&#64;&#x65;&#x78;&#x61;&#109;&#112;&#108;&#x65;&#46;&#x63;&#x6f;&#x6d;连接标题Github网站自动生成连接像： http://www.github.com/ 这样 区块引用Markdown 语法： 123某某说:&gt; 第一行引用&gt; 第二行费用文字 CMD + Shift + B 可插入Markdown语法。效果如下： 某某说: 第一行引用第二行费用文字 行内代码Markdown 语法： 1像这样即可：`&lt;addr&gt;` `code` CMD + K 可插入Markdown语法。效果如下： 像这样即可：&lt;addr&gt; code 多行或者一段代码Markdown 语法： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; CMD + Shift + K 可插入Markdown语法。效果如下： 123456function fancyAlert(arg) &#123; if(arg) &#123; $.facebox(&#123;div:'#foo'&#125;) &#125;&#125; 顺序图或流程图Markdown 语法： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 效果如下（ Preferences - Themes - Enable sequence &amp; flow chart 才会看到效果 ）： 123张三-&gt;李四: 嘿，小四儿, 写博客了没?Note right of 李四: 李四愣了一下，说：李四--&gt;张三: 忙得吐血，哪有时间写。 12345678st=&gt;start: 开始e=&gt;end: 结束op=&gt;operation: 我的操作cond=&gt;condition: 确认？st-&gt;op-&gt;condcond(yes)-&gt;econd(no)-&gt;op 更多请参考：http://bramp.github.io/js-sequence-diagrams/, http://adrai.github.io/flowchart.js/ 表格Markdown 语法： 1234第一格表头 | 第二格表头--------- | -------------内容单元格 第一列第一格 | 内容单元格第二列第一格内容单元格 第一列第二格 多加文字 | 内容单元格第二列第二格 效果如下： 第一格表头 第二格表头 内容单元格 第一列第一格 内容单元格第二列第一格 内容单元格 第一列第二格 多加文字 内容单元格第二列第二格 删除线Markdown 语法： 加删除线像这样用： 删除这些 效果如下： 加删除线像这样用： 删除这些 分隔线以下三种方式都可以生成分隔线： 效果如下： MathJaxMarkdown 语法： 12345678块级公式：$$ x = \dfrac&#123;-b \pm \sqrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$\\[ \frac&#123;1&#125;&#123;\Bigl(\sqrt&#123;\phi \sqrt&#123;5&#125;&#125;-\phi\Bigr) e^&#123;\frac25 \pi&#125;&#125; =1+\frac&#123;e^&#123;-2\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-4\pi&#125;&#125; &#123;1+\frac&#123;e^&#123;-6\pi&#125;&#125;&#123;1+\frac&#123;e^&#123;-8\pi&#125;&#125; &#123;1+\ldots&#125; &#125; &#125; &#125; \\]行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 效果如下（Preferences - Themes - Enable MathJax 才会看到效果）： 块级公式：$$ x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$ \[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}{1+\frac{e^{-8\pi}} {1+\ldots} } } } \] 行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$ 脚注（Footnote）Markdown 语法： 1这是一个脚注：[^sample_footnote] 效果如下： 这是一个脚注：^sample_footnote 注释和阅读更多 Actions-&gt;Insert Read More Comment 或者 Command + .注 阅读更多的功能只用在生成网站或博客时，插入时注意要后空一行。 TOCMarkdown 语法： 1[TOC] 效果如下： [TOC]]]></content>
       <categories>
         <category>前端</category>
       </categories>
       <tags>
         <tag>Markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[关于大学城 和 青春]]></title>
+    <url>%2F2017%2F10%2F01%2F2%2F</url>
+    <content type="text"><![CDATA[关于大学城 和 青春 诗 &nbsp; 和 &nbsp; 远方&emsp;“你能上天时为什么不浪？“ ————《somebody sometime》 &emsp;&emsp;到重庆大学城不知不觉已经半年。说起大学城，基本每个城市都一样，隔一到两条街就是一个学校，是个有着无数且只有学校的地方。聊以慰藉的，是校里校外宽敞的公路，优美的绿化，还有一两个热闹的商街。。 &emsp;&emsp;当然，更多的是大面积未开发的区域，类似高速公路的环山的风景，还有一望无际类似田野的乡村，于是“城乡结合部”，“村里”这些描述偏僻的词语。 &emsp;&emsp;这让我想起一段往事，11年6月，我从本科毕业回到家乡，那时有一个叫呈贡的地方，偏僻，荒凉，同样被冠予“大学城”的绰号，当时朋友为了能在主城置换房产，专门去了大学城卖掉家里云大的职工房。当时去大学城的时候，朋友还说过一句话：“这鸟不拉屎的地方，站在隔壁山上都可以看到澄江。” &emsp;&emsp;后来，因为工作的原因，走过省内不少区县，普洱就去过不止一次，听着一两首民歌，绕山绕水，高高的山上走马棒。 &emsp;&emsp;有时，激情洋溢的内心也有梦想，高速边停车愿望，青春是否可以抛头颅，洒热血，建设家乡。 &emsp;&emsp;再后来，对大学城空旷和荒凉有了更明确的看法。城市要发展，也注定是一个缓慢的过程。 &emsp;&emsp;一代又一代的年轻人，大学不过就是人生的一段路，人生的起点。当我们站在大学城一望无际的土地上，是否会有对未来的憧憬而有点激情澎湃呢。 &emsp;&emsp;诚然，变革和发展必然伴随痛苦，在此为之无悔地奋斗，奉献青春，我觉得，是幸运地。脚下的土地，月光下天边的星空，会因我们的努力而改变。我们未来的时光，艰苦漫长，但不再迷茫。 &emsp;&emsp;这片土地伴随着你，无论好与坏，相聚离愁。 &emsp;&emsp;不如在这片土地，这段时光，不畏惧，不退缩，尽全力，做想做的事，做该做的梦。 &emsp;&emsp;终有一天，当你离开大学城时， 我想这就是对青春最好的注脚。]]></content>
+      <categories>
+        <category>日记</category>
+      </categories>
+      <tags>
+        <tag>Youth</tag>
       </tags>
   </entry>
   <entry>
