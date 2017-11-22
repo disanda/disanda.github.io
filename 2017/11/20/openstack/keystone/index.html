@@ -87,13 +87,13 @@
 <meta property="og:site_name" content="owl&#39;s blog">
 <meta property="og:description" content="keystone(v3) 简介">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://github.com/disanda/markdownPhoto/blob/master/openStack/keystone1.jpg?raw=true">
-<meta property="og:image" content="https://github.com/disanda/markdownPhoto/blob/master/openStack/keystone2.jpg?raw=true">
-<meta property="og:updated_time" content="2017-11-20T15:44:01.000Z">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V13eBt6k40tVED/kN.4ccACz65s.KizplMiQaMzN0.Qz.VMVMBMfdmtfsQ!/b/dG0BAAAAAAAA&bo=kwOAAgAAAAARByI!&rf=viewer_4">
+<meta property="og:image" content="http://a3.qpic.cn/psb?/V13eBt6k40tVED/KmXtiBNrtlpm4aus*Y7ldSR9TuHfm9y09*TfoAYsDzw!/b/dOAAAAAAAAAA&bo=*gKAAgAAAAARAEk!&rf=viewer_4">
+<meta property="og:updated_time" content="2017-11-22T07:39:06.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="keystone(v3) 简介">
 <meta name="twitter:description" content="keystone(v3) 简介">
-<meta name="twitter:image" content="https://github.com/disanda/markdownPhoto/blob/master/openStack/keystone1.jpg?raw=true">
+<meta name="twitter:image" content="http://a3.qpic.cn/psb?/V13eBt6k40tVED/kN.4ccACz65s.KizplMiQaMzN0.Qz.VMVMBMfdmtfsQ!/b/dG0BAAAAAAAA&bo=kwOAAgAAAAARByI!&rf=viewer_4">
 
 
 
@@ -409,14 +409,18 @@
 <p>Tenant(租户)<br>：可以理解为人、项目或者组织拥有资源的集合，在一个租户中可以拥有很多个用户，这些用户可以根据权限划分使用租户的资源。</p>
 <p>Role(角色)<br>：用于分配操作的权限，角色可以指定给用户，用户会获得对应该<br>角色的权限。</p>
 <p>Token(认证)<br>：指的是一串比特值或者字符串，用来作为访问资源的记号。token中含有可访问资源的范围</p>
-<h2 id="keystone交互过程"><a href="#keystone交互过程" class="headerlink" title="keystone交互过程"></a>keystone交互过程</h2><p><img src="https://github.com/disanda/markdownPhoto/blob/master/openStack/keystone1.jpg?raw=true" alt="image"></p>
+<h2 id="keystone交互过程"><a href="#keystone交互过程" class="headerlink" title="keystone交互过程"></a>keystone交互过程</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/kN.4ccACz65s.KizplMiQaMzN0.Qz.VMVMBMfdmtfsQ!/b/dG0BAAAAAAAA&amp;bo=kwOAAgAAAAARByI!&amp;rf=viewer_4" alt="image"></p>
 <p>首先用户向Keystone提供自己的身份验证信息，如用户名和密码。Keystone 会从数据库中读取数据对其验证，如验证通过，会向用户返回一个 token，此后用户所有的请求都会使用该token进行身份验证。如用户向 Nova 申请虚拟机服务，nova 会将用户提供的 token 发给 Keystone 进行验证，Keystone会根据token判断用户是否拥有进行此项操作的权限，若验证通过那么nova会向其提供相对应的服务。其它组件和 Keystone 的交互也是如此。</p>
 <p>在 Keystone V3 之前，用户的权限管理以每一个用户为单位，需要对每一个用户进行角色分配，并不存在一种对一组用户进行统一管理的方案，这给系统管理员带来了额外的工作和不便。此外，Keystone V3 之前的版本中，资源分配是以 Tenant 为单位的，这不太符合现实世界中的层级关系。如一个公司在 Openstack 中拥有两个不同的项目，他需要管理两个 Tenant 来分别对应这两个项目，并对这两个 Tenant 中的用户分别分配角色。</p>
-<h2 id="keystone-v3"><a href="#keystone-v3" class="headerlink" title="keystone v3"></a>keystone v3</h2><p>为了更加符合现实世界和云服务的映射，将 Tenant 改为 Project 并在其上添加 Domain 的概念<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">graph TD</div><div class="line"></div><div class="line">    A[Tenant] --&gt;|改为| B(Project)</div><div class="line">    B --&gt; C(Domain)</div><div class="line">    B --&gt; D(Group)</div></pre></td></tr></table></figure></p>
-<p>V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。</p>
+<h2 id="keystone-v3"><a href="#keystone-v3" class="headerlink" title="keystone v3"></a>keystone v3</h2><p>为了更加符合现实世界和云服务的映射，将 Tenant 改为 Project 并在其上添加 Domain 的概念</p>
+<p>graph TD</p>
+<pre><code>A[Tenant] --&gt;|改为| B(Project)
+B --&gt; C(Domain)
+B --&gt; D(Group)
+</code></pre><p>V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。</p>
 <p>域(Domain):比Project更高级的容器，云服务客服是Domain的拥有者，一个Domain可以创建多Project、Users、Groups和Roles。通过<br>Domain对所拥有的多个Project统一管理，不必对每个Project单独管理。</p>
 <p>组(Group):是一组User容器,通过给Group分配角色，在用一组的用户就有Group所有角色的权限</p>
-<h2 id="keystone-v3-各组件关系"><a href="#keystone-v3-各组件关系" class="headerlink" title="keystone v3 各组件关系"></a>keystone v3 各组件关系</h2><p><img src="https://github.com/disanda/markdownPhoto/blob/master/openStack/keystone2.jpg?raw=true" alt="image"></p>
+<h2 id="keystone-v3-各组件关系"><a href="#keystone-v3-各组件关系" class="headerlink" title="keystone v3 各组件关系"></a>keystone v3 各组件关系</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/KmXtiBNrtlpm4aus*Y7ldSR9TuHfm9y09*TfoAYsDzw!/b/dOAAAAAAAAAA&amp;bo=*gKAAgAAAAARAEk!&amp;rf=viewer_4" alt="image"></p>
 <p>UUID FRENET</p>
 
       
@@ -458,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/20/openstack/Packstak集成安装(CentOS)/" rel="prev" title="Packstack集成安装(CentOS 7)">
-                Packstack集成安装(CentOS 7) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/20/openstack/openStack集成安装/" rel="prev" title="openStack集成安装">
+                openStack集成安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -626,7 +630,7 @@
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <!-- div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
