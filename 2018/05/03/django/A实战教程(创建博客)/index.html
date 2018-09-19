@@ -82,14 +82,14 @@
 <meta name="description" content="Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在">
 <meta name="keywords" content="Python,Django">
 <meta property="og:type" content="article">
-<meta property="og:title" content="教程1 Django初学实践，创建简易blog">
+<meta property="og:title" content="Django初学实践，创建简易blog">
 <meta property="og:url" content="http://yoursite.com/2018/05/03/django/A实战教程(创建博客)/index.html">
 <meta property="og:site_name" content="owl&#39;s blog">
 <meta property="og:description" content="Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-29T01:27:21.716Z">
+<meta property="og:updated_time" content="2018-09-19T04:03:37.075Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="教程1 Django初学实践，创建简易blog">
+<meta name="twitter:title" content="Django初学实践，创建简易blog">
 <meta name="twitter:description" content="Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>教程1 Django初学实践，创建简易blog | owl's blog</title>
+  <title>Django初学实践，创建简易blog | owl's blog</title>
   
 
 
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">教程1 Django初学实践，创建简易blog</h1>
+          <h1 class="post-title" itemprop="name headline">Django初学实践，创建简易blog</h1>
         
 
         <div class="post-meta">
@@ -404,14 +404,51 @@
         <blockquote>
 <p>Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在<br><a id="more"></a></p>
 </blockquote>
-<h1 id="1-前期工作"><a href="#1-前期工作" class="headerlink" title="1.前期工作"></a>1.前期工作</h1><ul>
-<li>创建项目</li>
-</ul>
+<h1 id="1-前期工作"><a href="#1-前期工作" class="headerlink" title="1.前期工作"></a>1.前期工作</h1><p>以下命令在命令行下完成</p>
+<ul>
+<li>创建项目<blockquote>
+<p>该命令生成manage.py文件和4个基本配置文件，如果项目已有相关文件，就无需再使用该命令</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">django-admin.py startproject mysite</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>生成文件如下：</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>mysite</th>
+<th>-</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>-</td>
+<td><strong>init</strong>.py</td>
+</tr>
+<tr>
+<td>-</td>
+<td>settings.py</td>
+</tr>
+<tr>
+<td>-</td>
+<td>urls.py</td>
+</tr>
+<tr>
+<td>-</td>
+<td>wsgi.py</td>
+</tr>
+<tr>
+<td>manage.py</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
 <ul>
 <li>运行服务器</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py runserver</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python manage.py runserver</div><div class="line">#可更改端口:python manage.py runserver 8003</div></pre></td></tr></table></figure>
 <ul>
 <li>创建应用(app)</li>
 </ul>
@@ -419,7 +456,7 @@
 <h1 id="2-mvc设计"><a href="#2-mvc设计" class="headerlink" title="2.mvc设计"></a>2.mvc设计</h1><ul>
 <li>models(models.py)<br>用于定义数据结构</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">from __future__ import unicode_literals</div><div class="line">from django.contrib import admin</div><div class="line">from django.db import models</div><div class="line"></div><div class="line">class BlogPost(models.Model):</div><div class="line">    title = models.CharField(max_length =150)</div><div class="line">    body = models.TextField()</div><div class="line">    timestamp = models.DateTimeField()</div><div class="line"># BlogPost类是django.db.models.Model的一个子类 。</div><div class="line">#它有变量title(blog的标题)，body(blog的内容部分)，</div><div class="line">#timestamp(blog的发表时间)。   </div><div class="line"></div><div class="line">class BlogPostAdmin(admin.ModelAdmin):</div><div class="line">    list_display = (&apos;title&apos;,&apos;timestamp&apos;)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">#from __future__ import unicode_literals</div><div class="line">#该命令负责转码，非必须使用</div><div class="line"></div><div class="line">from django.contrib import admin</div><div class="line">from django.db import models</div><div class="line"></div><div class="line">class BlogPost(models.Model):</div><div class="line">    title = models.CharField(max_length =150)</div><div class="line">    body = models.TextField()</div><div class="line">    timestamp = models.DateTimeField()</div><div class="line"># BlogPost类是django.db.models.Model的一个子类 。</div><div class="line">#它有变量title(blog的标题)，body(blog的内容部分)，</div><div class="line">#timestamp(blog的发表时间)。   </div><div class="line"></div><div class="line">class BlogPostAdmin(admin.ModelAdmin):</div><div class="line">    list_display = (&apos;title&apos;,&apos;timestamp&apos;)</div></pre></td></tr></table></figure>
 <ul>
 <li>views(views.py)</li>
 </ul>
@@ -429,8 +466,13 @@
 <li>controller(urls.py)</li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">from django.conf.urls import url</div><div class="line">from django.contrib import admin</div><div class="line">from blog.views import *</div><div class="line"></div><div class="line">urlpatterns = [</div><div class="line">    url(r&apos;^admin/&apos;, admin.site.urls),</div><div class="line">    url(r&apos;^myBlogs/$&apos;,myBlogs),</div><div class="line">    url(&apos;&apos;,Hello)    </div><div class="line">]</div></pre></td></tr></table></figure>
-<h1 id="3-templates模版网站-MTV模式"><a href="#3-templates模版网站-MTV模式" class="headerlink" title="3.templates模版网站(MTV模式)"></a>3.templates模版网站(MTV模式)</h1><h2 id="基模版页"><a href="#基模版页" class="headerlink" title="基模版页"></a>基模版页</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;zh&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;标题&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">    body&#123;</div><div class="line">        color: #efd;</div><div class="line">        background: #BBBBBB;</div><div class="line">        padding: 12px 5em;</div><div class="line">        margin:7px;</div><div class="line">    &#125;</div><div class="line">    h1&#123;</div><div class="line">        padding: 2em;</div><div class="line">        background: #675;</div><div class="line">    &#125;</div><div class="line">    h2&#123;</div><div class="line">        color: #85F2F2;</div><div class="line">        border-top: 1px dotted #fff;</div><div class="line">        margin-top:2em;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        margin:1em 0;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;h1&gt;XX博文&lt;/h1&gt;</div><div class="line">&lt;h3&gt;小生不才，但求简约！&lt;/h3&gt;</div><div class="line">&#123;% block content %&#125;</div><div class="line">&#123;% endblock %&#125;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
-<h2 id="具体网页-和views-py中的网页对应"><a href="#具体网页-和views-py中的网页对应" class="headerlink" title="具体网页(和views.py中的网页对应)"></a>具体网页(和views.py中的网页对应)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">BlogTemplate.html</div><div class="line"></div><div class="line">&#123;% extends &quot;base.html&quot; %&#125;</div><div class="line">    &#123;% block content %&#125;</div><div class="line">        &#123;% for post in blog_list %&#125;</div><div class="line">            &lt;h2&gt;&#123;&#123; post.title &#125;&#125;&lt;/h2&gt;</div><div class="line">            &lt;p&gt;&#123;&#123; post.timestamp &#125;&#125;&lt;/p&gt;</div><div class="line">            &lt;p&gt;&#123;&#123; post.body &#125;&#125;&lt;/p&gt;</div><div class="line">        &#123;% endfor %&#125;</div><div class="line">    &#123;% endblock %&#125;</div></pre></td></tr></table></figure>
+<h1 id="3-templates模版网站-MTV模式"><a href="#3-templates模版网站-MTV模式" class="headerlink" title="3.templates模版网站(MTV模式)"></a>3.templates模版网站(MTV模式)</h1><p>在根项目文件下创建templates文件夹(用于存放前端网页)，并在根配置文件(settings.py)配置templates路径。</p>
+<blockquote>
+<p>‘DIRS’: [os.path.join(BASE_DIR,’templates’)],</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">TEMPLATES = [</div><div class="line">    &#123;</div><div class="line"></div><div class="line">        &apos;BACKEND&apos;: &apos;django.template.backends.django.DjangoTemplates&apos;,</div><div class="line">        &apos;DIRS&apos;: [os.path.join(BASE_DIR,&apos;templates&apos;)],</div><div class="line">        &apos;APP_DIRS&apos;: True,</div><div class="line">        &apos;OPTIONS&apos;: &#123;</div><div class="line">            &apos;context_processors&apos;: [</div><div class="line">                &apos;django.template.context_processors.debug&apos;,</div><div class="line">                &apos;django.template.context_processors.request&apos;,</div><div class="line">                &apos;django.contrib.auth.context_processors.auth&apos;,</div><div class="line">                &apos;django.contrib.messages.context_processors.messages&apos;,</div><div class="line">            ],</div><div class="line">        &#125;,</div><div class="line">    &#125;,</div><div class="line">]</div></pre></td></tr></table></figure>
+<h2 id="基模版页"><a href="#基模版页" class="headerlink" title="基模版页"></a>基模版页</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">#名为base.html</div><div class="line"></div><div class="line">&lt;!DOCTYPE html&gt;</div><div class="line">&lt;html lang=&quot;zh&quot;&gt;</div><div class="line">&lt;head&gt;</div><div class="line">    &lt;meta charset=&quot;UTF-8&quot;&gt;</div><div class="line">    &lt;title&gt;标题&lt;/title&gt;</div><div class="line">&lt;/head&gt;</div><div class="line">&lt;style type=&quot;text/css&quot;&gt;</div><div class="line">    body&#123;</div><div class="line">        color: #efd;</div><div class="line">        background: #BBBBBB;</div><div class="line">        padding: 12px 5em;</div><div class="line">        margin:7px;</div><div class="line">    &#125;</div><div class="line">    h1&#123;</div><div class="line">        padding: 2em;</div><div class="line">        background: #675;</div><div class="line">    &#125;</div><div class="line">    h2&#123;</div><div class="line">        color: #85F2F2;</div><div class="line">        border-top: 1px dotted #fff;</div><div class="line">        margin-top:2em;</div><div class="line">    &#125;</div><div class="line">    p&#123;</div><div class="line">        margin:1em 0;</div><div class="line">    &#125;</div><div class="line">&lt;/style&gt;</div><div class="line">&lt;body&gt;</div><div class="line">&lt;h1&gt;XX博文&lt;/h1&gt;</div><div class="line">&lt;h3&gt;小生不才，但求简约！&lt;/h3&gt;</div><div class="line">&#123;% block content %&#125;</div><div class="line">&#123;% endblock %&#125;</div><div class="line">&lt;/body&gt;</div><div class="line">&lt;/html&gt;</div></pre></td></tr></table></figure>
+<h2 id="具体网页-和views-py中的网页对应"><a href="#具体网页-和views-py中的网页对应" class="headerlink" title="具体网页(和views.py中的网页对应)"></a>具体网页(和views.py中的网页对应)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#名为BlogTemplate.html</div><div class="line"></div><div class="line">&#123;% extends &quot;base.html&quot; %&#125;</div><div class="line">    &#123;% block content %&#125;</div><div class="line">        &#123;% for post in blog_list %&#125;</div><div class="line">            &lt;h2&gt;&#123;&#123; post.title &#125;&#125;&lt;/h2&gt;</div><div class="line">            &lt;p&gt;&#123;&#123; post.timestamp &#125;&#125;&lt;/p&gt;</div><div class="line">            &lt;p&gt;&#123;&#123; post.body &#125;&#125;&lt;/p&gt;</div><div class="line">        &#123;% endfor %&#125;</div><div class="line">    &#123;% endblock %&#125;</div></pre></td></tr></table></figure>
 <h1 id="4-配置工作"><a href="#4-配置工作" class="headerlink" title="4.配置工作"></a>4.配置工作</h1><h2 id="2-1前期配置"><a href="#2-1前期配置" class="headerlink" title="2.1前期配置"></a>2.1前期配置</h2><ul>
 <li>在setting.py的<strong>INSTALLED_APP</strong>列表中配置app</li>
 </ul>
@@ -454,7 +496,7 @@
 <ul>
 <li>在admin.py中注册model模型中的类</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">from blogapp.models import BlogPost</div><div class="line">admin.site.register(BlogPost)</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">from blog.models import BlogPost</div><div class="line">admin.site.register(BlogPost)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -487,8 +529,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/02/Python/1.2 字符串/" rel="next" title="1.2 字符串">
-                <i class="fa fa-chevron-left"></i> 1.2 字符串
+              <a href="/2018/05/03/django/A mysql操作二/" rel="next" title="教程3 Django操作Mysql(删除、修改数据)">
+                <i class="fa fa-chevron-left"></i> 教程3 Django操作Mysql(删除、修改数据)
               </a>
             
           </div>
@@ -497,8 +539,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/03/django/A mysql操作二/" rel="prev" title="教程3 Django操作Mysql(删除、修改数据)">
-                教程3 Django操作Mysql(删除、修改数据) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/03/django/A mysql操作一/" rel="prev" title="教程2 Django 操作Mysql(增加数据)">
+                教程2 Django 操作Mysql(增加数据) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
