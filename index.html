@@ -306,6 +306,1202 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/Python/7. 特殊参数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/owl_2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/21/Python/7. 特殊参数/" itemprop="url">10. 字符串</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T08:48:06+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Python教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第七章-类方法中的特殊参数"><a href="#第七章-类方法中的特殊参数" class="headerlink" title="第七章 类方法中的特殊参数"></a>第七章 类方法中的特殊参数</h1><h2 id="类参数self-amp-cls"><a href="#类参数self-amp-cls" class="headerlink" title="类参数self&amp;cls"></a>类参数self&amp;cls</h2><ul>
+<li>staticmethod(静态方法):可以没有self，当普通函数使用</li>
+<li>classmethod(类方法):第一个参数是cls，代表类本身</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"> class A(object):</div><div class="line">    def foo1(self):</div><div class="line">        print(&quot;Hello&quot;,self)</div><div class="line">    @staticmethod</div><div class="line">    def foo2():</div><div class="line">        print(&quot;hello&quot;)</div><div class="line">    @classmethod</div><div class="line">    def foo3(cls):</div><div class="line">        print(&quot;hello&quot;,cls)</div><div class="line">        </div><div class="line">&gt;&gt;&gt; a = A()</div><div class="line">&gt;&gt;&gt; a.foo1()          #最常见的调用方式，但与下面的方式相同</div><div class="line">Hello &lt;__main__.A object at 0x9f6abec&gt;</div><div class="line">&gt;&gt;&gt; A.foo1(a)         #这里传入实例a，相当于普通方法的self</div><div class="line">Hello &lt;__main__.A object at 0x9f6abec&gt;</div><div class="line">&gt;&gt;&gt; A.foo2()          #这里，由于静态方法没有参数，故可以不传东西</div><div class="line">hello</div><div class="line">&gt;&gt;&gt; A.foo3()          #这里，由于是类方法，因此，它的第一个参数为类本身。</div><div class="line">hello &lt;class &apos;__main__.A&apos;&gt;</div><div class="line">&gt;&gt;&gt; A                 #可以看到，直接输入A，与上面那种调用返回同样的信息。</div><div class="line">&lt;class &apos;__main__.A&apos;&gt;</div></pre></td></tr></table></figure>
+<h2 id="函数参数（args-amp-kwargs）"><a href="#函数参数（args-amp-kwargs）" class="headerlink" title="函数参数（args &amp; *kwargs）"></a>函数参数（<em>args &amp; *</em>kwargs）</h2><blockquote>
+<p>*args 其中args只是个名字，可以是其他字母</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">*args表示函数可以接受多个参数</div></pre></td></tr></table></figure>
+<p>实例1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">def test_args(normal_arg, *args):</div><div class="line">    print(&quot;first normal arg:&quot; + normal_arg)</div><div class="line">    for arg in args:</div><div class="line">        print(&quot;another arg through *args :&quot; + arg)</div><div class="line"></div><div class="line">test_args(&quot;normal&quot;, &quot;python&quot;, &quot;java&quot;, &quot;C#&quot;)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>**kwargs意思相同，但参数形式是字典形式</p>
+</blockquote>
+<p>实例2<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">def fun_kwargs(farg, **kwargs):  </div><div class="line">    print &quot;arg:&quot;, farg  </div><div class="line">    for key in kwargs:  </div><div class="line">        print &quot;another key and arg: %s: %s&quot; % (key, kwargs[key])  </div><div class="line">  </div><div class="line">  </div><div class="line">fun_kwargs(farg=1, myarg2=&quot;two&quot;, myarg3=3)  </div><div class="line">  </div><div class="line">dic = &#123;&quot;args2&quot;:&quot;two&quot;, &quot;args3&quot;:3&#125;  </div><div class="line">fun_kwargs(fargs=1, **dic) #调用方式1</div></pre></td></tr></table></figure></p>
+<p>实例3</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">def fun_kwargs1(arg1, arg2, arg3):  </div><div class="line">    print &quot;arg1:&quot;, arg1  </div><div class="line">    print &quot;arg2:&quot;, arg2  </div><div class="line">    print &quot;arg3:&quot;, arg3  </div><div class="line">  </div><div class="line">  </div><div class="line">kwargs = &#123;&quot;arg2&quot;:&quot;two&quot;, &quot;arg3&quot;:3&#125;  </div><div class="line">fun_kwargs1(1, **kwargs)</div></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/Python/10. 文件和异常/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/owl_2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/21/Python/10. 文件和异常/" itemprop="url">10. 字符串</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T08:48:06+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Python教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第十章-文件与异常"><a href="#第十章-文件与异常" class="headerlink" title="第十章 文件与异常"></a>第十章 文件与异常</h1><h2 id="1-文件操作"><a href="#1-文件操作" class="headerlink" title="1.文件操作"></a>1.文件操作</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"># 1.txt 文件内容</div><div class="line">a: aaa</div><div class="line">b: bbb</div><div class="line">c: ccc</div><div class="line">d: ddd :d222</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">data1 = open(&apos;1.txt&apos;) #open函数生成一个文件对象</div><div class="line"></div><div class="line">data2 = open(&apos;2.txt&apos;,&apos;w&apos;) #w是从头开始写，a是从文件尾开始写 参数‘w’，代表可写，无该文件时会创建该文件，默认为r</div><div class="line"></div><div class="line">data2.write(&apos;hello /n world /n&apos;) #将字符串写入文件中</div><div class="line"></div><div class="line">data1.close() #关闭文件</div><div class="line"></div><div class="line">data2.close()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">data = open(&apos;1.txt&apos;)</div><div class="line">for i in data</div><div class="line">    print(i)</div></pre></td></tr></table></figure>
+<h2 id="2-异常处理"><a href="#2-异常处理" class="headerlink" title="2.异常处理"></a>2.异常处理</h2><ul>
+<li><p>1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    code1</div><div class="line">except:</div><div class="line">    code2 #如果code1出现错误，执行code2部分</div></pre></td></tr></table></figure>
+</li>
+<li><p>2</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    code1</div><div class="line">except ValueError: </div><div class="line">    code2 #如果code1出现ValueError错误，执行code2部分   </div><div class="line">    </div><div class="line"># 错误类型有很多，例如IOError()</div></pre></td></tr></table></figure>
+<ul>
+<li>3</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    code1</div><div class="line">except:</div><div class="line">    code2</div><div class="line">finally:</div><div class="line">    code3 #code3是无论是否出错，都会执行的代码块,例如文件关闭</div></pre></td></tr></table></figure>
+<ul>
+<li>4</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">try:</div><div class="line">    with open(&apos;1.txt&apos;,&apos;w&apos;) as data:</div><div class="line">        print(&apos;It;s...&apos;,file=data)</div><div class="line">exceot IOError as err:</div><div class="line">    print(&apos;File error&apos;+str(err))</div><div class="line"></div><div class="line">#省去finnaly，with可以妥善关闭一个文件</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/Python/4. 类-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/owl_2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/21/Python/4. 类-1/" itemprop="url">4. 类与对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T08:48:06+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Python教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第四章-类与对象"><a href="#第四章-类与对象" class="headerlink" title="第四章 类与对象"></a>第四章 类与对象</h1><h2 id="4-1-类简述"><a href="#4-1-类简述" class="headerlink" title="4.1 类简述"></a>4.1 类简述</h2><ul>
+<li>类是一个“模版”，可以包含<strong>变量</strong>和<strong>函数</strong>(即类是属性和方法的集合)</li>
+<li>对象是类创建的实例，通过实例可以调用变量和函数</li>
+<li>类中普通函数的必须有第一个参数，来代表该类调用函数的具体对象(一般取名为self)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#类的基本语法</div><div class="line">class A:</div><div class="line">    x = &apos;x&apos; #静态变量</div><div class="line">    def __init__(self): #构造函数</div><div class="line">            self.y = &apos;y&apos; #普通变量</div><div class="line">    </div><div class="line">    def f1(self): #普通函数，无参数</div><div class="line">        print(&quot;aaa&quot;)</div><div class="line">    </div><div class="line">    def f2(self,name): #普通函数，有参数</div><div class="line">        print(&apos;my name is %s&apos;%name)</div><div class="line">    </div><div class="line">obj1 = A() #实例化对象，对象变量为obj1</div><div class="line">obj1.f1()  #对象调用函数f1()</div></pre></td></tr></table></figure>
+<h2 id="4-2-类成员"><a href="#4-2-类成员" class="headerlink" title="4.2 类成员"></a>4.2 类成员</h2><blockquote>
+<p>类的结构图，其中变量也称属性，函数也称方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">A(类成员)--&gt;B(变量)</div><div class="line">A--&gt;C(函数)</div><div class="line">A--&gt;D(方法属性)</div><div class="line">B--&gt;普通变量</div><div class="line">B--&gt;静态变量</div><div class="line">C--&gt;普通函数</div><div class="line">C--&gt;类函数</div><div class="line">C--&gt;静态函数</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="4-3-变量-属性"><a href="#4-3-变量-属性" class="headerlink" title="4.3 变量(属性)"></a>4.3 变量(属性)</h2><blockquote>
+<p>类中的变量也叫属性，亦可叫字段，是类这种数据结构中保存多样数据的方式</p>
+</blockquote>
+<ul>
+<li>普通字段属于对象(每个对象都存一份)</li>
+<li>静态字段属于类(就类存有一份)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Province:</div><div class="line">    #静态字段</div><div class="line">    country = &apos;中国&apos;</div><div class="line">    </div><div class="line">    def __init__(self,name):</div><div class="line">        #普通字段</div><div class="line">        self.name=name</div><div class="line"></div><div class="line"></div><div class="line">obj = Province(&apos;河北省&apos;)</div><div class="line">访问普通字段</div><div class="line">print obj.name</div><div class="line"></div><div class="line">访问静态字段</div><div class="line">Province.country</div></pre></td></tr></table></figure>
+<h2 id="4-4-函数-方法"><a href="#4-4-函数-方法" class="headerlink" title="4.4 函数(方法)"></a>4.4 函数(方法)</h2><blockquote>
+<p>函数在类中也叫方法。通过方法，让类这种数据结构具有“运动”的特征，即类不仅可以保存数据，以可以操作处理数据，其中操作处理数据就是通过类方法实现。</p>
+</blockquote>
+<ul>
+<li>普通方法:对象调用，至少一个self参数，执行方法自动调用具体对象给该方法</li>
+<li>类方法:由类调用，至少一个cls参数，执行时自动调用cls给该方法</li>
+<li>静态方法:由类调用，无默认参数</li>
+</ul>
+<blockquote>
+<p>三种方法都存于类</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line">    def __init__(self,name):</div><div class="line">        self.name = name</div><div class="line">    </div><div class="line">    #普通方法</div><div class="line">    def ord_func(self):</div><div class="line">        print(普通方法)</div><div class="line">        </div><div class="line">    #类方法</div><div class="line">    @classemethod</div><div class="line">    def class_func(cls):</div><div class="line">        print(类方法)</div><div class="line">    </div><div class="line">    #定义静态方法</div><div class="line">    @staticmethod</div><div class="line">    def static_func():</div><div class="line">        print(静态方法)</div><div class="line"></div><div class="line">#调用普通方法</div><div class="line">f = Foo()</div><div class="line">f.ord_func()</div><div class="line"></div><div class="line">#调用类方法</div><div class="line">Foo.class_func()</div><div class="line"></div><div class="line">#调用静态方法</div><div class="line">Foo.static_func()</div></pre></td></tr></table></figure>
+<h3 id="4-4-1-函数属性化"><a href="#4-4-1-函数属性化" class="headerlink" title="4.4.1 函数属性化"></a>4.4.1 函数属性化</h3><blockquote>
+<p>通过装饰器，函数可以像属性一样调用</p>
+</blockquote>
+<ul>
+<li>用@property装饰器定义</li>
+<li><strong>仅有</strong>一个self参数</li>
+<li>调用时无需括号</li>
+</ul>
+<blockquote>
+<p>经典类(python2中常用)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">################ 定义 ###############</div><div class="line">class Foo:</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">    # 定义属性</div><div class="line">    @property</div><div class="line">    def prop(self):</div><div class="line">        print(&apos;abc&apos;)</div><div class="line">################ 调用 ###############</div><div class="line">foo_obj = Foo()</div><div class="line"> </div><div class="line">foo_obj.func()</div><div class="line">foo_obj.prop   #调用属性</div></pre></td></tr></table></figure></p>
+<p>新式类</p>
+</blockquote>
+<p>由于新式类中具有三种访问方式，我们可以根据他们几个属性的访问特点，分别将三个方法定义为对同一个属性：</p>
+<ul>
+<li>获取</li>
+<li>修改</li>
+<li>删除</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># ############### 定义 ###############</div><div class="line">class Goods(object):</div><div class="line"> </div><div class="line">    @property</div><div class="line">    def price(self):</div><div class="line">        print &apos;@property&apos;</div><div class="line"> </div><div class="line">    @price.setter</div><div class="line">    def price(self, value):</div><div class="line">        print &apos;@price.setter&apos;</div><div class="line"> </div><div class="line">    @price.deleter</div><div class="line">    def price(self):</div><div class="line">        print &apos;@price.deleter&apos;</div><div class="line"> </div><div class="line"># ############### 调用 ###############</div><div class="line">obj = Goods()</div><div class="line"> </div><div class="line">obj.price          # 自动执行 @property 修饰的 price 方法，并获取方法的返回值</div><div class="line"> </div><div class="line">obj.price = 123    # 自动执行 @price.setter 修饰的 price 方法，并将  123 赋值给方法的参数</div><div class="line"> </div><div class="line">del obj.price      # 自动执行 @price.deleter 修饰的 price 方法</div></pre></td></tr></table></figure>
+<blockquote>
+<p>以下是property的构造方法(静态变量的方式)中有个四个参数</p>
+</blockquote>
+<ul>
+<li>第一个参数是方法名，调用 对象.属性 时自动触发执行方法</li>
+<li>第二个参数是方法名，调用 对象.属性 ＝ XXX 时自动触发执行方法</li>
+<li>第三个参数是方法名，调用 del 对象.属性 时自动触发执行方法</li>
+<li>第四个参数是字符串，调用 对象.属性.<strong>doc</strong> ，此参数是该属性的描述信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Foo：</div><div class="line"> </div><div class="line">    def get_bar(self):</div><div class="line">        return &apos;wupeiqi&apos;</div><div class="line"> </div><div class="line">    # *必须两个参数</div><div class="line">    def set_bar(self, value): </div><div class="line">        return return &apos;set value&apos; + value</div><div class="line"> </div><div class="line">    def del_bar(self):</div><div class="line">        return &apos;wupeiqi&apos;</div><div class="line"> </div><div class="line">    BAR ＝ property(get_bar, set_bar, del_bar, &apos;description...&apos;)</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">obj.BAR              # 自动调用第一个参数中定义的方法：get_bar</div><div class="line">obj.BAR = &quot;alex&quot;     # 自动调用第二个参数中定义的方法：set_bar方法，并将“alex”当作参数传入</div><div class="line">del Foo.BAR          # 自动调用第三个参数中定义的方法：del_bar方法</div><div class="line">obj.BAE.__doc__      # 自动获取第四个参数中设置的值：description...</div></pre></td></tr></table></figure>
+<h2 id="4-5-类变量-属性-扩展"><a href="#4-5-类变量-属性-扩展" class="headerlink" title="4.5 类变量(属性)扩展"></a>4.5 类变量(属性)扩展</h2><ul>
+<li>静态变量(保存在类中)：在任何对方都能访问</li>
+<li>私有静态变量(变量前加__)：只有在类的内部能访问</li>
+<li>普通变量(在函数里的变量):对象可以访问、类内部可以访问、派生类中可以访问</li>
+<li>普通私有变量(变量前加__):仅类内部能访问</li>
+</ul>
+<ol>
+<li>静态变量：类可以访问、类内部可以访问、派生类中可以访问</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    name = &quot;全局变量&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print C.name</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print C.name</div><div class="line"> </div><div class="line">C.name         # 类访问</div><div class="line"> </div><div class="line">obj = C()</div><div class="line">obj.func()     # 类内部可以访问</div><div class="line"> </div><div class="line">obj_son = D()</div><div class="line">obj_son.show() # 派生类中可以访问</div></pre></td></tr></table></figure>
+<p>2.私有静态变量：仅类内部可以访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    __name = &quot;私有静态变量&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print C.__name</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print C.__name</div><div class="line"> </div><div class="line">C.__name       # 类访问            错误</div><div class="line"> </div><div class="line">obj = C()</div><div class="line">obj.func()     # 类内部可以访问    正确</div><div class="line"> </div><div class="line">obj_son = D()</div><div class="line">obj_son.show() # 派生类中可以访问   错误</div></pre></td></tr></table></figure></p>
+<p>3.普通变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    def __init__(self):</div><div class="line">        self.foo = &quot;普通变量&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print self.foo 　#　类内部访问</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print self.foo　＃　派生类中访问</div><div class="line"> </div><div class="line">obj = C()</div><div class="line"> </div><div class="line">obj.foo     # 通过对象访问</div><div class="line">obj.func()  # 类内部访问</div><div class="line"> </div><div class="line">obj_son = D();</div><div class="line">obj_son.show()  # 派生类中访问</div></pre></td></tr></table></figure>
+<p>4.私有字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    def __init__(self):</div><div class="line">        self.__foo = &quot;私有字段&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print self.foo 　#　类内部访问</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print self.foo　＃　派生类中访问</div><div class="line"> </div><div class="line">obj = C()</div><div class="line"> </div><div class="line">obj.__foo     # 通过对象访问    错误</div><div class="line">obj.func()  # 类内部访问        正确</div><div class="line"> </div><div class="line">obj_son = D();</div><div class="line">obj_son.show()  # 派生类中访问  错误</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果想要强制访问私有字段，可以通过 【对象._类名<strong>私有字段明 】访问（如：obj._C</strong>foo），不建议强制访问私有成员。</p>
+</blockquote>
+<h2 id="4-6-类的特殊成员"><a href="#4-6-类的特殊成员" class="headerlink" title="4.6 类的特殊成员"></a>4.6 类的特殊成员</h2><blockquote>
+<p>类的特殊成员包括特殊变量和特殊方法，其是系统定义的，不需要用户定义，一般具有普通变量和方法所不具有的特殊功能</p>
+</blockquote>
+<p>1.<strong> doc</strong>:表示类的描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line">    &quot;&quot;&quot; 描述类信息，这是用于看片的神奇 &quot;&quot;&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">print(Foo.__doc__)</div><div class="line">#输出：类的描述信息</div></pre></td></tr></table></figure>
+<p>2.<strong> module</strong>:表示当前操作对象在哪个模块</p>
+<blockquote>
+<p>模块:组织函数和类的单位(类似java的一类一文件，有时不同模块可能有同名函数),例如Django</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(obj.__module__) #输出对象所在模块</div></pre></td></tr></table></figure>
+<p>3.<strong> class</strong>：表示当前操作对象的是什么</p>
+<blockquote>
+<p>类</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(obj.__class__) #输出对象所在类</div></pre></td></tr></table></figure>
+<p>4.<strong> init(self,..)</strong>:<br>构造方法、类创建对象时自动执行</p>
+<p>5.<strong> del(self,..)</strong>:<br>析构方法、当对象在内存释放时、自动触发执行。</p>
+<blockquote>
+<p>此方法一般无须定义，因为Python是一门高级语言，程序员在使用时无需关心内存的分配和释放，因为此工作都是交给Python解释器来执行，所以，析构函数的调用是由解释器在进行垃圾回收时自动触发执行的。</p>
+</blockquote>
+<p>6.<strong> call(self,..)</strong>:<br>除析构方法外，执行对象的另一种特殊方法,对象加括号执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line"> </div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">    def __call__(self, *args, **kwargs):</div><div class="line"> </div><div class="line">        print &apos;__call__&apos;</div><div class="line"> </div><div class="line">obj = Foo() # 执行 __init__</div><div class="line">obj()       # 执行 __call__</div></pre></td></tr></table></figure>
+<p>7.<strong> dict</strong>:<br>显示类(静态变量、方法)和对象(普通字段)的所以成员</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Province:</div><div class="line"> </div><div class="line">    country = &apos;China&apos;</div><div class="line"> </div><div class="line">    def __init__(self, name, count):</div><div class="line">        self.name = name</div><div class="line">        self.count = count</div><div class="line"> </div><div class="line">    def func(self, *args, **kwargs):</div><div class="line">        print &apos;func&apos;</div><div class="line"> </div><div class="line"># 获取类的成员，即：静态字段、方法、</div><div class="line">print Province.__dict__</div><div class="line"># 输出：&#123;&apos;country&apos;: &apos;China&apos;, &apos;__module__&apos;: &apos;__main__&apos;, &apos;func&apos;: , &apos;__init__&apos;: , &apos;__doc__&apos;: None&#125;</div><div class="line"> </div><div class="line">obj1 = Province(&apos;HeBei&apos;,10000)</div><div class="line">print obj1.__dict__</div><div class="line"># 获取 对象obj1 的成员</div><div class="line"># 输出：&#123;&apos;count&apos;: 10000, &apos;name&apos;: &apos;HeBei&apos;&#125;</div><div class="line"> </div><div class="line">obj2 = Province(&apos;HeNan&apos;, 3888)</div><div class="line">print obj2.__dict__</div><div class="line"># 获取 对象obj1 的成员</div><div class="line"># 输出：&#123;&apos;count&apos;: 3888, &apos;name&apos;: &apos;HeNan&apos;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><strong> str</strong>:如果一个类中定义了<strong>str</strong>方法，那么在打印(print)对象时，默认输出该方法的返回值。</li>
+</ol>
+<p>9.<strong> getitem</strong>、<strong> setitem</strong>、<strong> delitem</strong></p>
+<blockquote>
+<p>用于对象的索引操作，如字典。以上分别表示获取、设置、删除数据</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># -*- coding:utf-8 -*-</div><div class="line"> </div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __getitem__(self, key):</div><div class="line">        print &apos;__getitem__&apos;,key</div><div class="line"> </div><div class="line">    def __setitem__(self, key, value):</div><div class="line">        print &apos;__setitem__&apos;,key,value</div><div class="line"> </div><div class="line">    def __delitem__(self, key):</div><div class="line">        print &apos;__delitem__&apos;,key</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">result = obj[&apos;k1&apos;]      # 自动触发执行 __getitem__</div><div class="line">obj[&apos;k2&apos;] = &apos;wupeiqi&apos;   # 自动触发执行 __setitem__</div><div class="line">del obj[&apos;k1&apos;]           # 自动触发执行 __delitem__</div></pre></td></tr></table></figure>
+<p>10.<strong>getslice</strong>、<strong>setslice</strong>、<strong>delslice</strong></p>
+<blockquote>
+<p>用于对象的分片操作(如列表)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __getslice__(self, i, j):</div><div class="line">        print &apos;__getslice__&apos;,i,j</div><div class="line"> </div><div class="line">    def __setslice__(self, i, j, sequence):</div><div class="line">        print &apos;__setslice__&apos;,i,j</div><div class="line"> </div><div class="line">    def __delslice__(self, i, j):</div><div class="line">        print &apos;__delslice__&apos;,i,j</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">obj[-1:1]                   # 自动触发执行 __getslice__</div><div class="line">obj[0:1] = [11,22,33,44]    # 自动触发执行 __setslice__</div><div class="line">del obj[0:2]                # 自动触发执行 __delslice__</div></pre></td></tr></table></figure>
+<p>11.<strong> iter</strong>:迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">##case 1:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line">    pass</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"> </div><div class="line"># 报错：TypeError: &apos;Foo&apos; object is not iterable</div><div class="line"></div><div class="line">## case 2:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __iter__(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"> </div><div class="line"># 报错：TypeError: iter() returned non-iterator of type &apos;NoneType&apos;</div><div class="line"></div><div class="line">## case 3:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __init__(self, sq):</div><div class="line">        self.sq = sq</div><div class="line"> </div><div class="line">    def __iter__(self):</div><div class="line">        return iter(self.sq)</div><div class="line"> </div><div class="line">obj = Foo([11,22,33,44])</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div></pre></td></tr></table></figure>
+<p>迭代的变种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">obj = iter([11,22,33,44])</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"></div><div class="line">############################</div><div class="line">obj = iter([11,22,33,44])</div><div class="line"> </div><div class="line">while True:</div><div class="line">    val = obj.next()</div><div class="line">    print val</div></pre></td></tr></table></figure>
+<h2 id="4-7-旧式类和新式类"><a href="#4-7-旧式类和新式类" class="headerlink" title="4.7 旧式类和新式类"></a>4.7 旧式类和新式类</h2><blockquote>
+<p>从Python2.2开始，Python 引入了 new style class（新式类）</p>
+</blockquote>
+<ul>
+<li>新式类类似Java，有一个根类object，所有类都继承自根类object</li>
+<li>新式类跟经典类的差别主要是以下几点:</li>
+</ul>
+<p>a.新式类对象可以直接通过<strong>class</strong>属性获取自身类型:type</p>
+<p>b.继承搜索的顺序发生了改变,经典类多继承属性搜索顺序: 先深入继承树左侧，再返回，开始找右侧;新式类多继承属性搜索顺序: 先水平搜索，然后再向上移动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-  </div><div class="line">class A(object):  </div><div class="line">    &quot;&quot;&quot;</div><div class="line">	新式类</div><div class="line">    作为所有类的基类</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class A&quot; </div><div class="line">		</div><div class="line">class A1():  </div><div class="line">    &quot;&quot;&quot;</div><div class="line">	经典类</div><div class="line">    作为所有类的基类</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class A1&quot;  </div><div class="line">		</div><div class="line">class C(A):  </div><div class="line">    pass</div><div class="line">	</div><div class="line">class C1(A1):  </div><div class="line">    pass</div><div class="line">	</div><div class="line">class D(A):  </div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class D&quot;  </div><div class="line">	</div><div class="line">class D1(A1):  </div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class D1&quot;  </div><div class="line">		</div><div class="line">  </div><div class="line">  </div><div class="line">class E(C, D):  </div><div class="line">    pass</div><div class="line">	</div><div class="line">class E1(C1, D1):  </div><div class="line">    pass</div><div class="line"> </div><div class="line">e = E()</div><div class="line">e.foo()</div><div class="line">  </div><div class="line"> </div><div class="line">e1 = E1()</div><div class="line">e1.foo()</div></pre></td></tr></table></figure></p>
+<p>c.新式类增加了<strong>slots</strong>内置属性，可以把实例属性的种类锁定到<strong>slots</strong>规定的范围之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#比如只允许对A实例添加name和age属性</div><div class="line"># -*- coding:utf-8 -*-  </div><div class="line"> </div><div class="line">class A(object):  </div><div class="line">    __slots__ = (&apos;name&apos;, &apos;age&apos;) </div><div class="line"> </div><div class="line">class A1():  </div><div class="line">    __slots__ = (&apos;name&apos;, &apos;age&apos;) </div><div class="line">	</div><div class="line">a1 = A1()</div><div class="line">a = A()</div><div class="line"> </div><div class="line">a1.name1 = &quot;a1&quot;</div><div class="line">a.name1 = &quot;a&quot;</div><div class="line"></div><div class="line">#A是新式类添加了__slots__ 属性,所以只允许添加 name age</div><div class="line"></div><div class="line">#A1经典类__slots__ 属性没用</div></pre></td></tr></table></figure></p>
+<p>d.新式类增加了<strong>getattribute</strong>方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class A(object):  </div><div class="line">    def __getattribute__(self, *args, **kwargs):  </div><div class="line">	    print &quot;A.__getattribute__&quot;</div><div class="line">		</div><div class="line">	</div><div class="line">class A1():  </div><div class="line">    def __getattribute__(self, *args, **kwargs):  </div><div class="line">	    print &quot;A1.__getattribute__&quot;</div><div class="line">		</div><div class="line">	</div><div class="line">a1 = A1()</div><div class="line">a = A()</div><div class="line"> </div><div class="line">a.test</div><div class="line">print &quot;=========&quot;</div><div class="line">a1.test</div><div class="line"></div><div class="line">#A是新式类，每次通过实例访问属性，都会经过__getattribute__函数,</div><div class="line"></div><div class="line">#A1不会调用__getattribute__所以出错了</div></pre></td></tr></table></figure></p>
+<h2 id="4-8-类的实例化"><a href="#4-8-类的实例化" class="headerlink" title="4.8 类的实例化"></a>4.8 类的实例化</h2><ul>
+<li><strong>call</strong>方法</li>
+</ul>
+<blockquote>
+<p>类的实例化主要通过<strong>init</strong>()函数和<strong>call</strong>()函数实现，其中<strong>init</strong>()较为常用，<strong>call</strong>()函数是一种让类像函数一样使用的特殊方法。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class MyType(type):</div><div class="line"> </div><div class="line">    def __init__(self, what, bases=None, dict=None):</div><div class="line">        super(MyType, self).__init__(what, bases, dict)</div><div class="line"> </div><div class="line">    def __call__(self, *args, **kwargs):</div><div class="line">        obj = self.__new__(self, *args, **kwargs)</div><div class="line"> </div><div class="line">        self.__init__(obj)</div><div class="line"> </div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    __metaclass__ = MyType</div><div class="line"> </div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line"> </div><div class="line">    def __new__(cls, *args, **kwargs):</div><div class="line">        return object.__new__(cls, *args, **kwargs)</div><div class="line"> </div><div class="line"># 第一阶段：解释器从上到下执行代码创建Foo类</div><div class="line"># 第二阶段：通过Foo类创建obj对象</div><div class="line">obj = Foo()</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>new</strong>方法</li>
+</ul>
+<p>继承自object的新式类才有<strong>new</strong></p>
+<blockquote>
+<p><strong>new</strong>方法接受的参数虽然也是和<strong>init</strong>一样，但<strong>init</strong>是在类实例创建之后调用，而 <strong>new</strong>方法正是创建这个类实例的方法。</p>
+</blockquote>
+<p>依照Python官方文档的说法，<strong>new</strong>方法主要是当你继承一些不可变的class时(比如int, str, tuple)， 提供给你一个自定义这些类的实例化过程的途径。还有就是实现自定义的metaclass。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 创建一个类，继承int，并返回绝对值</div><div class="line">class PositiveInteger(int):</div><div class="line">    def __init__(self, value):</div><div class="line">        super(PositiveInteger, self).__init__(self, abs(value))</div><div class="line"> </div><div class="line">i = PositiveInteger(-3)</div><div class="line">print i</div><div class="line">#结果还是-3</div><div class="line"></div><div class="line">class PositiveInteger(int):</div><div class="line">    def __new__(cls, value):</div><div class="line">        return super(PositiveInteger, cls).__new__(cls, abs(value))</div><div class="line"> </div><div class="line">i = PositiveInteger(-3)</div><div class="line">print i</div><div class="line">#结果是 3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>因为类的每一次实例化都是通过<strong>new</strong>实现的,通过重载类来实现单例</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Singleton(object):</div><div class="line">    def __new__(cls):</div><div class="line">        # 关键在于这，每一次实例化的时候，我们都只会返回这同一个instance对象</div><div class="line">        if not hasattr(cls, &apos;instance&apos;):</div><div class="line">            cls.instance = super(Singleton, cls).__new__(cls)</div><div class="line">        return cls.instance</div><div class="line"> </div><div class="line">obj1 = Singleton()</div><div class="line">obj2 = Singleton()</div><div class="line"> </div><div class="line">obj1.attr1 = &apos;value1&apos;</div><div class="line">print obj1.attr1, obj2.attr1</div><div class="line">print obj1 is obj2</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/Python/5.面向对象-2/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/owl_2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/21/Python/5.面向对象-2/" itemprop="url">5.面向对象</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T08:48:06+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Python教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第五章-面向对象"><a href="#第五章-面向对象" class="headerlink" title="第五章 面向对象"></a>第五章 面向对象</h1><h2 id="5-1-继承"><a href="#5-1-继承" class="headerlink" title="5.1 继承"></a>5.1 继承</h2><ul>
+<li>继承实现子类继承父类的方法和属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">class Animal:</div><div class="line"> </div><div class="line">    def eat(self):</div><div class="line">        print(&quot;%s 吃 &quot;%self.name）</div><div class="line"> </div><div class="line">    def drink(self):</div><div class="line">        print(&quot;%s 喝 &quot; %self.name)</div></pre></td></tr></table></figure>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class Cat(Animal):</div><div class="line"> </div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">        self.breed ＝ &apos;猫&apos;</div><div class="line">        #属性不必再单独定义</div><div class="line"> </div><div class="line">    def cry(self):</div><div class="line">        print &apos;喵喵叫&apos;</div><div class="line"> </div><div class="line"> </div><div class="line">class Dog(Animal):</div><div class="line"> </div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line">        self.breed ＝ &apos;狗&apos;</div><div class="line"> </div><div class="line">    def cry(self):</div><div class="line">        print &apos;汪汪叫&apos;</div></pre></td></tr></table></figure>
+<h3 id="5-5-1-多继承"><a href="#5-5-1-多继承" class="headerlink" title="5.5.1 多继承"></a>5.5.1 多继承</h3><ul>
+<li>可以继承多个类</li>
+<li>继承类分为<strong>经典类</strong>和<strong>新式类</strong></li>
+<li>当前类或者父类继承了object类，那么该类便是新式类，否则便是经典类。</li>
+<li>经典类时，多继承会按照深度优先查找覆盖方法</li>
+<li>新式类时，多继承会按照广度优先查找覆盖方法</li>
+<li>子类中，super()可以调用父类的属性和方法</li>
+</ul>
+<blockquote>
+<p>调用super()的实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div></pre></td><td class="code"><pre><div class="line">class Parent(object):</div><div class="line">    def __init__(self):</div><div class="line">        self.parent = &apos;I\&apos;m the parent.&apos;</div><div class="line">        print (&apos;Parent&apos;)</div><div class="line">    </div><div class="line">    def bar(self,message):</div><div class="line">        print (&quot;%s from Parent&quot; %message)</div><div class="line"> </div><div class="line">class Child(Parent):</div><div class="line">    def __init__(self):</div><div class="line">        #super(FooChild,self).__init__() //python2语法</div><div class="line">        super().__init__()  </div><div class="line">        print (&apos;Child&apos;)</div><div class="line">        </div><div class="line">    def bar(self,message):</div><div class="line">        #super(FooChild, self).bar(message)//这里是python2的语法</div><div class="line">        super().bar(message)</div><div class="line">        print (&apos;Child bar fuction&apos;)</div><div class="line">        print (self.parent) #继承父类属性</div><div class="line">        </div><div class="line">C = Child()</div><div class="line">C.bar(&apos;HelloWorld&apos;)</div><div class="line"></div><div class="line">#执行结果:</div><div class="line">#Parent</div><div class="line">#Child</div><div class="line">#HelloWorld from Parent</div><div class="line">#Child bar function</div><div class="line">#I&apos;m the parent</div></pre></td></tr></table></figure></p>
+<p>多继承顺序实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">class A:  </div><div class="line">    def say(self):  </div><div class="line">        print(&quot;A Hello:&quot;, self)  </div><div class="line">  </div><div class="line">class B(A):  </div><div class="line">    def eat(self):  </div><div class="line">        print(&quot;B Eating:&quot;, self)  </div><div class="line">  </div><div class="line">class C(A):  </div><div class="line">    def eat(self):  </div><div class="line">        print(&quot;C Eating:&quot;, self)  </div><div class="line">  </div><div class="line">class D(B, C):  </div><div class="line">    def say(self):  </div><div class="line">        super().say()  </div><div class="line">        print(&quot;D Hello:&quot;, self)  </div><div class="line">    def dinner(self):  </div><div class="line">        self.say()  </div><div class="line">        super().say()  </div><div class="line">        self.eat()  </div><div class="line">        super().eat()  </div><div class="line">        C.eat(self) </div><div class="line">        </div><div class="line">d = D() </div><div class="line">d.eat()  </div><div class="line">C.eat(d) </div><div class="line">D.__mro__ #类的一个继承顺序</div><div class="line">d.dinner()</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="5-2-封装"><a href="#5-2-封装" class="headerlink" title="5.2 封装"></a>5.2 封装</h2><ul>
+<li>封装，即隐藏对象的属性和实现细节，仅对外公开接口，控制在程序中属性的读和修改的访问级别。</li>
+<li>将内容封装到类</li>
+<li>从某处调用被封装的内容(通过对象或者self)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">class B:</div><div class="line">    #构造方法，根据类创建对象时自动执行</div><div class="line">    def __init__(self,name,age):</div><div class="line">        self.name = name</div><div class="line">        self.age = age</div><div class="line">    def f1(self)： </div><div class="line">        print(self.name,self.name)</div><div class="line">        </div><div class="line">#自动执行__init__方法</div><div class="line">obj1 = B(&apos;anda&apos;,28)</div><div class="line"></div><div class="line">print(obj1.name) #直接调用对象属性</div><div class="line"></div><div class="line">obj1.f1() #obj1将self作为参数传递给f1(),因此self就是obj1，实现self的间接调用</div></pre></td></tr></table></figure>
+<h2 id="5-3-多态"><a href="#5-3-多态" class="headerlink" title="5.3 多态"></a>5.3 多态</h2><ul>
+<li>多态是同一个行为具有多个不同表现形式或形态的能力。</li>
+<li>多态就是同一个接口，使用不同的实例而执行不同操作</li>
+<li>实现多态的三要素(继承、重写、父类引用指向子类对象)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class F1:</div><div class="line">    pass</div><div class="line"> </div><div class="line">class S1(F1):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print &apos;S1.show&apos;</div><div class="line"> </div><div class="line">class S2(F1):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print &apos;S2.show&apos;</div><div class="line"> </div><div class="line"># 由于在Java或C#中定义函数参数时，必须指定参数的类型</div><div class="line"># 为了让Func函数既可以执行S1对象的show方法，又可以执行S2对象的show方法，所以，定义了一个S1和S2类的父类</div><div class="line"># 而实际传入的参数是：S1对象和S2对象</div><div class="line"> </div><div class="line">def Func(F1 obj):</div><div class="line">    &quot;&quot;&quot;Func函数需要接收一个F1类型或者F1子类的类型&quot;&quot;&quot;</div><div class="line"> </div><div class="line">    print obj.show()</div><div class="line"> </div><div class="line">s1_obj = S1()</div><div class="line">Func(s1_obj) # 在Func函数中传入S1类的对象 s1_obj，执行 S1 的show方法，结果：S1.show</div><div class="line"> </div><div class="line">s2_obj = S2()</div><div class="line">Func(s2_obj) # 在Func函数中传入Ss类的对象 ss_obj，执行 Ss 的show方法，结果：S2.show</div></pre></td></tr></table></figure>
+<h2 id="5-4-type-产生对象"><a href="#5-4-type-产生对象" class="headerlink" title="5.4 type()产生对象"></a>5.4 type()产生对象</h2><blockquote>
+<p>Python中一切事物都是对象,类也是</p>
+<p>类可由type类实力化产生</p>
+<p>type() 函数如果你只有第一个参数则返回对象的类型，三个参数返回新的类型对象</p>
+</blockquote>
+<ul>
+<li>创建类的两种方式:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># case 1:普通方式</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print &apos;hello wupeiqi&apos;</div><div class="line">        </div><div class="line"># case 2:特殊方式</div><div class="line"></div><div class="line">def func(self):</div><div class="line">    print &apos;hello wupeiqi&apos;</div><div class="line"> </div><div class="line">Foo = type(&apos;Foo&apos;,(object,), &#123;&apos;func&apos;: func&#125;)</div><div class="line">#type第一个参数：类名</div><div class="line">#type第二个参数：当前类的基类</div><div class="line">#type第三个参数：类的成员</div></pre></td></tr></table></figure>
+<h2 id="5-5-类的特殊成员"><a href="#5-5-类的特殊成员" class="headerlink" title="5.5 类的特殊成员"></a>5.5 类的特殊成员</h2><p>1.<strong> doc</strong>:表示类的描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line">    &quot;&quot;&quot; 描述类信息，这是用于看片的神奇 &quot;&quot;&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">print(Foo.__doc__)</div><div class="line">#输出：类的描述信息</div></pre></td></tr></table></figure>
+<p>2.<strong> module</strong>:表示当前操作对象在哪个模块</p>
+<blockquote>
+<p>模块:组织函数和类的单位(类似java的一类一文件，有时不同模块可能有同名函数),例如Django</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(obj.__module__) #输出对象所在模块</div></pre></td></tr></table></figure>
+<p>3.<strong> class</strong>：表示当前操作对象的是什么</p>
+<blockquote>
+<p>类</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(obj.__class__) #输出对象所在类</div></pre></td></tr></table></figure>
+<p>4.<strong> init(self,..)</strong>:<br>构造方法、类创建对象时自动执行</p>
+<p>5.<strong> del(self,..)</strong>:<br>析构方法、当对象在内存释放时、自动触发执行。</p>
+<blockquote>
+<p>此方法一般无须定义，因为Python是一门高级语言，程序员在使用时无需关心内存的分配和释放，因为此工作都是交给Python解释器来执行，所以，析构函数的调用是由解释器在进行垃圾回收时自动触发执行的。</p>
+</blockquote>
+<p>6.<strong> call(self,..)</strong>:<br>除析构方法外，执行对象的另一种特殊方法,对象加括号执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line"> </div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">    def __call__(self, *args, **kwargs):</div><div class="line"> </div><div class="line">        print &apos;__call__&apos;</div><div class="line"> </div><div class="line">obj = Foo() # 执行 __init__</div><div class="line">obj()       # 执行 __call__</div></pre></td></tr></table></figure>
+<p>7.<strong> dict</strong>:<br>显示类(静态变量、方法)和对象(普通字段)的所以成员</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Province:</div><div class="line"> </div><div class="line">    country = &apos;China&apos;</div><div class="line"> </div><div class="line">    def __init__(self, name, count):</div><div class="line">        self.name = name</div><div class="line">        self.count = count</div><div class="line"> </div><div class="line">    def func(self, *args, **kwargs):</div><div class="line">        print &apos;func&apos;</div><div class="line"> </div><div class="line"># 获取类的成员，即：静态字段、方法、</div><div class="line">print Province.__dict__</div><div class="line"># 输出：&#123;&apos;country&apos;: &apos;China&apos;, &apos;__module__&apos;: &apos;__main__&apos;, &apos;func&apos;: , &apos;__init__&apos;: , &apos;__doc__&apos;: None&#125;</div><div class="line"> </div><div class="line">obj1 = Province(&apos;HeBei&apos;,10000)</div><div class="line">print obj1.__dict__</div><div class="line"># 获取 对象obj1 的成员</div><div class="line"># 输出：&#123;&apos;count&apos;: 10000, &apos;name&apos;: &apos;HeBei&apos;&#125;</div><div class="line"> </div><div class="line">obj2 = Province(&apos;HeNan&apos;, 3888)</div><div class="line">print obj2.__dict__</div><div class="line"># 获取 对象obj1 的成员</div><div class="line"># 输出：&#123;&apos;count&apos;: 3888, &apos;name&apos;: &apos;HeNan&apos;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><strong> str</strong>:如果一个类中定义了<strong>str</strong>方法，那么在打印(print)对象时，默认输出该方法的返回值。</li>
+</ol>
+<p>9.<strong> getitem</strong>、<strong> setitem</strong>、<strong> delitem</strong></p>
+<blockquote>
+<p>用于对象的索引操作，如字典。以上分别表示获取、设置、删除数据</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># -*- coding:utf-8 -*-</div><div class="line"> </div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __getitem__(self, key):</div><div class="line">        print &apos;__getitem__&apos;,key</div><div class="line"> </div><div class="line">    def __setitem__(self, key, value):</div><div class="line">        print &apos;__setitem__&apos;,key,value</div><div class="line"> </div><div class="line">    def __delitem__(self, key):</div><div class="line">        print &apos;__delitem__&apos;,key</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">result = obj[&apos;k1&apos;]      # 自动触发执行 __getitem__</div><div class="line">obj[&apos;k2&apos;] = &apos;wupeiqi&apos;   # 自动触发执行 __setitem__</div><div class="line">del obj[&apos;k1&apos;]           # 自动触发执行 __delitem__</div></pre></td></tr></table></figure>
+<p>10.<strong>getslice</strong>、<strong>setslice</strong>、<strong>delslice</strong></p>
+<blockquote>
+<p>用于对象的分片操作(如列表)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __getslice__(self, i, j):</div><div class="line">        print &apos;__getslice__&apos;,i,j</div><div class="line"> </div><div class="line">    def __setslice__(self, i, j, sequence):</div><div class="line">        print &apos;__setslice__&apos;,i,j</div><div class="line"> </div><div class="line">    def __delslice__(self, i, j):</div><div class="line">        print &apos;__delslice__&apos;,i,j</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">obj[-1:1]                   # 自动触发执行 __getslice__</div><div class="line">obj[0:1] = [11,22,33,44]    # 自动触发执行 __setslice__</div><div class="line">del obj[0:2]                # 自动触发执行 __delslice__</div></pre></td></tr></table></figure>
+<p>11.<strong> iter</strong>:迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">##case 1:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line">    pass</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"> </div><div class="line"># 报错：TypeError: &apos;Foo&apos; object is not iterable</div><div class="line"></div><div class="line">## case 2:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __iter__(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"> </div><div class="line"># 报错：TypeError: iter() returned non-iterator of type &apos;NoneType&apos;</div><div class="line"></div><div class="line">## case 3:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __init__(self, sq):</div><div class="line">        self.sq = sq</div><div class="line"> </div><div class="line">    def __iter__(self):</div><div class="line">        return iter(self.sq)</div><div class="line"> </div><div class="line">obj = Foo([11,22,33,44])</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div></pre></td></tr></table></figure>
+<p>迭代的变种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">obj = iter([11,22,33,44])</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"></div><div class="line">############################</div><div class="line">obj = iter([11,22,33,44])</div><div class="line"> </div><div class="line">while True:</div><div class="line">    val = obj.next()</div><div class="line">    print val</div></pre></td></tr></table></figure>
+<p>12.<strong>new</strong>方法</p>
+<ul>
+<li><p>继承自object的新式类才有<strong>new</strong></p>
+</li>
+<li><p><strong>new</strong>方法接受的参数虽然也是和<strong>init</strong>一样，但<strong>init</strong>是在类实例创建之后调用，而 <strong>new</strong>方法正是创建这个类实例的方法。</p>
+</li>
+<li><p>依照Python官方文档，<strong>new</strong>方法主要是当你继承一些不可变的class时(比如int, str, tuple)， 提供给你一个自定义这些类的实例化过程的途径。还有就是实现自定义的metaclass。</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 创建一个类，继承int，并返回绝对值</div><div class="line">class PositiveInteger(int):</div><div class="line">    def __init__(self, value):</div><div class="line">        super(PositiveInteger, self).__init__(self, abs(value))</div><div class="line"> </div><div class="line">i = PositiveInteger(-3)</div><div class="line">print i</div><div class="line">#结果还是-3</div><div class="line"></div><div class="line">class PositiveInteger(int):</div><div class="line">    def __new__(cls, value):</div><div class="line">        return super(PositiveInteger, cls).__new__(cls, abs(value))</div><div class="line"> </div><div class="line">i = PositiveInteger(-3)</div><div class="line">print i</div><div class="line">#结果是 3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>因为类的每一次实例化都是通过<strong>new</strong>实现的,通过重载类来实现单例</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Singleton(object):</div><div class="line">    def __new__(cls):</div><div class="line">        # 关键在于这，每一次实例化的时候，我们都只会返回这同一个instance对象</div><div class="line">        if not hasattr(cls, &apos;instance&apos;):</div><div class="line">            cls.instance = super(Singleton, cls).__new__(cls)</div><div class="line">        return cls.instance</div><div class="line"> </div><div class="line">obj1 = Singleton()</div><div class="line">obj2 = Singleton()</div><div class="line"> </div><div class="line">obj1.attr1 = &apos;value1&apos;</div><div class="line">print obj1.attr1, obj2.attr1</div><div class="line">print obj1 is obj2</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/Python/6. 类的系统成员(内置属性)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/owl_2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/21/Python/6. 类的系统成员(内置属性)/" itemprop="url">10. 字符串</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T08:48:06+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Python教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>#第六章 类的系统成员(内置属性)</p>
+<h2 id="name和-main"><a href="#name和-main" class="headerlink" title=" name和  main"></a><strong> name</strong>和 <strong> main</strong></h2><blockquote>
+<p>Python使用缩进对齐组织代码的执行，所有没有缩进的代码，都会在载入时自动执行。每个文件（模块）都可以任意写一些没有缩进的代码，并在载入时自动执行。为了区分 主执行代码和被调用文件，Python引入了变量：<strong> name</strong>。</p>
+</blockquote>
+<ul>
+<li><p>当文件是被调用时，<strong> name</strong>的值为模块名</p>
+</li>
+<li><p>当文件被执行时，<strong> name</strong>的值为 ‘<strong> main</strong>’</p>
+</li>
+</ul>
+<h2 id="init和-new和-call"><a href="#init和-new和-call" class="headerlink" title=" init和 new和 call"></a><strong> init</strong>和<strong> new</strong>和<strong> call</strong></h2><blockquote>
+<p><strong> new</strong>： 对象的创建，是一个静态方法，第一个参数是cls。(想想也是，不可能是self，对象还没创建，哪来的self)</p>
+<p><strong> init</strong> ： 对象的初始化， 是一个实例方法，第一个参数是self。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Foo(object):  </div><div class="line">    def __new__(cls, *args, **kwargs):  </div><div class="line">        print(&apos;a&apos;)</div><div class="line">  </div><div class="line">Foo()</div><div class="line">#输出a</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong> call</strong> ： python中函数是一个对象，类也是一个对象，可以通过<strong> call</strong>方法调用对象(如调用函数一样)</p>
+</blockquote>
+<p>例1<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">class Foo(object):  </div><div class="line">    def __call__(self):  </div><div class="line">        print(&apos;b&apos;)  </div><div class="line">  </div><div class="line">f = Foo()#类Foo可call  </div><div class="line">f()#对象f可call</div></pre></td></tr></table></figure></p>
+<p>例2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line"></div><div class="line">    def __call__(self, friend):</div><div class="line">        print（&apos;My name is %s...&apos;%self.name）</div><div class="line">        print（&apos;My gender is %s...&apos;%self.gender</div><div class="line">        print（&apos;My friend is %s...&apos;%friend）</div><div class="line"></div><div class="line">p = Person(&apos;anda&apos;,&apos;male&apos;)</div><div class="line">p(&apos;Tim&apos;) #call方法调用对象(函数的方法)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>在python中，类的行为就是这样，<strong>new</strong>、<strong>init</strong>、<strong>call</strong>等方法不是必须写的，会默认调用，如果自己定义了，就是override,可以custom。既然override了，通常也会显式调用进行补偿以达到extend的目的。</p>
+</blockquote>
+<h2 id="str-amp-rept-amp-repr"><a href="#str-amp-rept-amp-repr" class="headerlink" title=" str &amp;  rept &amp; repr"></a><strong> str</strong> &amp; <strong> rept</strong> &amp;<strong> repr</strong></h2><blockquote>
+<p><strong> str</strong>让对象返回字符串的形式</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">    def __str__(self):</div><div class="line">        return &apos;(Person: %s, %s)&apos;%(self.name, self.gender)</div><div class="line">p = Person(&apos;anda&apos;,&apos;male&apos;)</div><div class="line">print(p) # __str__()</div></pre></td></tr></table></figure>
+<blockquote>
+<p><strong> repr</strong> 返回一个可以用来表示对象的可打印字符串：</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">class Person(object):</div><div class="line">    def __init__(self, name, gender):</div><div class="line">        self.name = name</div><div class="line">        self.gender = gender</div><div class="line">    def __str__(self):</div><div class="line">        return &apos;(Person: %s, %s)&apos;%(self.name, self.gender)</div><div class="line">    __repr__=__str__</div><div class="line">p = Person(&apos;anda&apos;,&apos;male&apos;)</div><div class="line">p #__repr__()</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">class Fib(object):</div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line">    def __call__(self,num):</div><div class="line">        a,b = 0,1;</div><div class="line">        self.l=[]</div><div class="line">        </div><div class="line">        for i in range (num):</div><div class="line">            self.l.append(a)</div><div class="line">            a,b= b,a+b</div><div class="line">        return self.l</div><div class="line">    def __str__(self):</div><div class="line">        return str(self.l)</div><div class="line">    __repr__=__str__</div><div class="line">    </div><div class="line">f = Fib()</div><div class="line">f(10)</div></pre></td></tr></table></figure>
+<h2 id="setitem-amp-getitem-amp-delitem"><a href="#setitem-amp-getitem-amp-delitem" class="headerlink" title=" setitem&amp; getitem&amp;__ delitem()"></a><strong> setitem</strong>&amp;<strong> getitem</strong>&amp;__ delitem()</h2><blockquote>
+<p>使得对象和字典功能对应</p>
+</blockquote>
+<ul>
+<li><p><strong> setitem</strong>:每当属性被赋值的时候都会调用该方法，因此不能再该方法内赋值 self.name = value 会死循环</p>
+</li>
+<li><p><strong> getitem</strong>:当访问不存在的属性时会调用该方法</p>
+</li>
+<li><p><strong> delitem</strong>:当删除属性时调用该方法</p>
+</li>
+<li><p><strong> dict</strong>:对象的字典值</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">class A(object):  </div><div class="line">    def __init__(self):  </div><div class="line">        self[&apos;B&apos;] = &quot;BB&quot;  </div><div class="line">        self[&apos;D&apos;] = &quot;DD&quot;  </div><div class="line">        del self[&apos;D&apos;]  </div><div class="line">      </div><div class="line">    def __setitem__(self,name,value):  </div><div class="line">        &apos;&apos;&apos;&apos;&apos; </div><div class="line">        @summary: 每当属性被赋值的时候都会调用该方法，因此不能再该方法内赋值 self.name = value 会死循环 </div><div class="line">        &apos;&apos;&apos;  </div><div class="line">        print &quot;__setitem__:Set %s Value %s&quot;%(name,value)  </div><div class="line">        self.__dict__[name] = value  </div><div class="line">      </div><div class="line">    def __getitem__(self,name):  </div><div class="line">        &apos;&apos;&apos;&apos;&apos;  </div><div class="line">        @summary: 当访问不存在的属性时会调用该方法 </div><div class="line">        &apos;&apos;&apos;  </div><div class="line">        print &quot;__getitem__:No attribute named &apos;%s&apos;&quot;%name  </div><div class="line">        return None  </div><div class="line">      </div><div class="line">    def __delitem__(self,name):  </div><div class="line">        &apos;&apos;&apos;&apos;&apos;  </div><div class="line">        @summary: 当删除属性时调用该方法 </div><div class="line">        &apos;&apos;&apos;  </div><div class="line">        print &quot;__delitem__:Delect attribute &apos;%s&apos;&quot;%name  </div><div class="line">        del self.__dict__[name]  </div><div class="line">        print self.__dict__  </div><div class="line">      </div><div class="line">      </div><div class="line">X = A()</div><div class="line">X[&apos;a&apos;]=&apos;aa&apos;</div><div class="line">X[&apos;b&apos;]=&apos;bb&apos;</div><div class="line">X.__dict__</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/Python/9. 常用函数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/owl_2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/09/21/Python/9. 常用函数/" itemprop="url">9. 字符串</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T08:48:06+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Python教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="第九章-常用函数"><a href="#第九章-常用函数" class="headerlink" title="第九章 常用函数"></a>第九章 常用函数</h1><ul>
+<li><p>iter()&amp;next()</p>
+<blockquote>
+<p>迭代器和生成器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">a=iter(x) //生成一个迭代器</div><div class="line"></div><div class="line">next(a）</div></pre></td></tr></table></figure>
+</blockquote>
+</li>
+<li><p>range()</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#从0到10</div><div class="line">range(10)</div><div class="line"></div><div class="line">#从1到11</div><div class="line">range(1,11)</div><div class="line"></div><div class="line">#从1到11，步长为3</div><div class="line">range(1,11,3)</div></pre></td></tr></table></figure>
+<ul>
+<li>list()<blockquote>
+<p>把变量转换为list</p>
+</blockquote>
+</li>
+<li>map()<blockquote>
+<p>map(fuciton,iterable,…),第一个参数是一个函数，以后的参数的列表，map把列表中的值带入到函数(第一个参数)并输出值</p>
+</blockquote>
+</li>
+</ul>
+<p>map()的值在python2中是一个列表，在python3中是一个迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt;def square(x) :            # 计算平方数</div><div class="line">...     return x ** 2</div><div class="line">... </div><div class="line">&gt;&gt;&gt; map(square, [1,2,3,4,5])   # 计算列表各个元素的平方</div><div class="line">[1, 4, 9, 16, 25]</div><div class="line">&gt;&gt;&gt; map(lambda x: x ** 2, [1, 2, 3, 4, 5])  # 使用 lambda 匿名函数</div><div class="line">[1, 4, 9, 16, 25]</div><div class="line"> </div><div class="line"># 提供了两个列表，对相同位置的列表数据进行相加</div><div class="line">&gt;&gt;&gt; map(lambda x, y: x + y, [1, 3, 5, 7, 9], [2, 4, 6, 8, 10])</div><div class="line">[3, 7, 11, 15, 19]</div></pre></td></tr></table></figure>
+<ul>
+<li>filter()<blockquote>
+<p>filter(function, iterable)函数用于过滤序列，过滤掉不符合条件的元素，返回由符合条件元素组成的新列表。<br>function是过滤条件，iterable是可迭代对象。</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">def is_odd(n):</div><div class="line">    return n % 2 == 1</div><div class="line"> </div><div class="line">newlist = filter(is_odd, [1, 2, 3, 4, 5, 6, 7, 8, 9, 10])</div><div class="line">print(newlist)</div><div class="line">#过滤奇数</div><div class="line"></div><div class="line">import math</div><div class="line">def is_sqr(x):</div><div class="line">    return math.sqrt(x) % 1 == 0</div><div class="line"> </div><div class="line">newlist = filter(is_sqr, range(1, 101))</div><div class="line">print(newlist) #python2使用，返回列表</div><div class="line">list(newlist)</div><div class="line">newlist.__next__()#python3使用，返回迭代器</div><div class="line">#过滤平方根是整数的数</div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/对当下高职教育的个人感想/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -880,893 +2076,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/算法/4回溯算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="disanda">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/owl_2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="owl's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/06/算法/4回溯算法/" itemprop="url">四.回溯算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T12:16:06+08:00">
-                2018-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>原创 进阶算法概述<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/06/算法/4回溯算法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/算法/1分冶算法/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="disanda">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/owl_2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="owl's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/06/算法/1分冶算法/" itemprop="url">一.分冶算法</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T12:16:06+08:00">
-                2018-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>原创 进阶算法概述<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/06/算法/1分冶算法/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/06/算法/5分支限界/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="disanda">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/owl_2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="owl's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/06/06/算法/5分支限界/" itemprop="url">五.分支限界</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-06T12:16:06+08:00">
-                2018-06-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/算法/" itemprop="url" rel="index">
-                    <span itemprop="name">算法</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>原创 进阶算法概述<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/06/06/算法/5分支限界/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/django/A mysql操作一/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="disanda">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/owl_2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="owl's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/03/django/A mysql操作一/" itemprop="url">教程2 Django 操作Mysql(增加数据)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-03T17:52:06+08:00">
-                2018-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Django框架</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/03/django/A mysql操作一/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/django/A mysql操作二/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="disanda">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/owl_2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="owl's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/03/django/A mysql操作二/" itemprop="url">教程3 Django操作Mysql(删除、修改数据)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-03T17:50:06+08:00">
-                2018-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Django框架</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/03/django/A mysql操作二/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/03/django/A实战教程(创建博客)/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="disanda">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/owl_2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="owl's blog">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/05/03/django/A实战教程(创建博客)/" itemprop="url">教程1 Django初学实践，创建简易blog</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-03T17:50:06+08:00">
-                2018-05-03
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Django框架/" itemprop="url" rel="index">
-                    <span itemprop="name">Django框架</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/05/03/django/A实战教程(创建博客)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/4/">4</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1816,7 +2130,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">36</span>
+                  <span class="site-state-item-count">42</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

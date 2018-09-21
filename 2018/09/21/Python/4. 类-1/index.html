@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-Hans">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Python," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="第四章 类与对象4.1 类简述 类是一个“模版”，可以包含变量和函数(即类是属性和方法的集合) 对象是类创建的实例，通过实例可以调用变量和函数 类中普通函数的必须有第一个参数，来代表该类调用函数的具体对象(一般取名为self)  1234567891011121314#类的基本语法class A:    x = &amp;apos;x&amp;apos; #静态变量    def __init__(self):">
+<meta name="keywords" content="Python">
+<meta property="og:type" content="article">
+<meta property="og:title" content="4. 类与对象">
+<meta property="og:url" content="http://yoursite.com/2018/09/21/Python/4. 类-1/index.html">
+<meta property="og:site_name" content="owl&#39;s blog">
+<meta property="og:description" content="第四章 类与对象4.1 类简述 类是一个“模版”，可以包含变量和函数(即类是属性和方法的集合) 对象是类创建的实例，通过实例可以调用变量和函数 类中普通函数的必须有第一个参数，来代表该类调用函数的具体对象(一般取名为self)  1234567891011121314#类的基本语法class A:    x = &amp;apos;x&amp;apos; #静态变量    def __init__(self):">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-21T00:52:49.817Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="4. 类与对象">
+<meta name="twitter:description" content="第四章 类与对象4.1 类简述 类是一个“模版”，可以包含变量和函数(即类是属性和方法的集合) 对象是类创建的实例，通过实例可以调用变量和函数 类中普通函数的必须有第一个参数，来代表该类调用函数的具体对象(一般取名为self)  1234567891011121314#类的基本语法class A:    x = &amp;apos;x&amp;apos; #静态变量    def __init__(self):">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/09/21/Python/4. 类-1/"/>
+
+
+
+
+
+  <title>4. 类与对象 | owl's blog</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07a295c6ccb5a3cdd8e052d917407520";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">owl's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">1111</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-disanda">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            Disanda
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/21/Python/4. 类-1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/owl_2.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">4. 类与对象</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-21T08:48:06+08:00">
+                2018-09-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Python教程/" itemprop="url" rel="index">
+                    <span itemprop="name">Python教程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="第四章-类与对象"><a href="#第四章-类与对象" class="headerlink" title="第四章 类与对象"></a>第四章 类与对象</h1><h2 id="4-1-类简述"><a href="#4-1-类简述" class="headerlink" title="4.1 类简述"></a>4.1 类简述</h2><ul>
+<li>类是一个“模版”，可以包含<strong>变量</strong>和<strong>函数</strong>(即类是属性和方法的集合)</li>
+<li>对象是类创建的实例，通过实例可以调用变量和函数</li>
+<li>类中普通函数的必须有第一个参数，来代表该类调用函数的具体对象(一般取名为self)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">#类的基本语法</div><div class="line">class A:</div><div class="line">    x = &apos;x&apos; #静态变量</div><div class="line">    def __init__(self): #构造函数</div><div class="line">            self.y = &apos;y&apos; #普通变量</div><div class="line">    </div><div class="line">    def f1(self): #普通函数，无参数</div><div class="line">        print(&quot;aaa&quot;)</div><div class="line">    </div><div class="line">    def f2(self,name): #普通函数，有参数</div><div class="line">        print(&apos;my name is %s&apos;%name)</div><div class="line">    </div><div class="line">obj1 = A() #实例化对象，对象变量为obj1</div><div class="line">obj1.f1()  #对象调用函数f1()</div></pre></td></tr></table></figure>
+<h2 id="4-2-类成员"><a href="#4-2-类成员" class="headerlink" title="4.2 类成员"></a>4.2 类成员</h2><blockquote>
+<p>类的结构图，其中变量也称属性，函数也称方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">graph LR</div><div class="line">A(类成员)--&gt;B(变量)</div><div class="line">A--&gt;C(函数)</div><div class="line">A--&gt;D(方法属性)</div><div class="line">B--&gt;普通变量</div><div class="line">B--&gt;静态变量</div><div class="line">C--&gt;普通函数</div><div class="line">C--&gt;类函数</div><div class="line">C--&gt;静态函数</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="4-3-变量-属性"><a href="#4-3-变量-属性" class="headerlink" title="4.3 变量(属性)"></a>4.3 变量(属性)</h2><blockquote>
+<p>类中的变量也叫属性，亦可叫字段，是类这种数据结构中保存多样数据的方式</p>
+</blockquote>
+<ul>
+<li>普通字段属于对象(每个对象都存一份)</li>
+<li>静态字段属于类(就类存有一份)</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">class Province:</div><div class="line">    #静态字段</div><div class="line">    country = &apos;中国&apos;</div><div class="line">    </div><div class="line">    def __init__(self,name):</div><div class="line">        #普通字段</div><div class="line">        self.name=name</div><div class="line"></div><div class="line"></div><div class="line">obj = Province(&apos;河北省&apos;)</div><div class="line">访问普通字段</div><div class="line">print obj.name</div><div class="line"></div><div class="line">访问静态字段</div><div class="line">Province.country</div></pre></td></tr></table></figure>
+<h2 id="4-4-函数-方法"><a href="#4-4-函数-方法" class="headerlink" title="4.4 函数(方法)"></a>4.4 函数(方法)</h2><blockquote>
+<p>函数在类中也叫方法。通过方法，让类这种数据结构具有“运动”的特征，即类不仅可以保存数据，以可以操作处理数据，其中操作处理数据就是通过类方法实现。</p>
+</blockquote>
+<ul>
+<li>普通方法:对象调用，至少一个self参数，执行方法自动调用具体对象给该方法</li>
+<li>类方法:由类调用，至少一个cls参数，执行时自动调用cls给该方法</li>
+<li>静态方法:由类调用，无默认参数</li>
+</ul>
+<blockquote>
+<p>三种方法都存于类</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line">    def __init__(self,name):</div><div class="line">        self.name = name</div><div class="line">    </div><div class="line">    #普通方法</div><div class="line">    def ord_func(self):</div><div class="line">        print(普通方法)</div><div class="line">        </div><div class="line">    #类方法</div><div class="line">    @classemethod</div><div class="line">    def class_func(cls):</div><div class="line">        print(类方法)</div><div class="line">    </div><div class="line">    #定义静态方法</div><div class="line">    @staticmethod</div><div class="line">    def static_func():</div><div class="line">        print(静态方法)</div><div class="line"></div><div class="line">#调用普通方法</div><div class="line">f = Foo()</div><div class="line">f.ord_func()</div><div class="line"></div><div class="line">#调用类方法</div><div class="line">Foo.class_func()</div><div class="line"></div><div class="line">#调用静态方法</div><div class="line">Foo.static_func()</div></pre></td></tr></table></figure>
+<h3 id="4-4-1-函数属性化"><a href="#4-4-1-函数属性化" class="headerlink" title="4.4.1 函数属性化"></a>4.4.1 函数属性化</h3><blockquote>
+<p>通过装饰器，函数可以像属性一样调用</p>
+</blockquote>
+<ul>
+<li>用@property装饰器定义</li>
+<li><strong>仅有</strong>一个self参数</li>
+<li>调用时无需括号</li>
+</ul>
+<blockquote>
+<p>经典类(python2中常用)<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">################ 定义 ###############</div><div class="line">class Foo:</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">    # 定义属性</div><div class="line">    @property</div><div class="line">    def prop(self):</div><div class="line">        print(&apos;abc&apos;)</div><div class="line">################ 调用 ###############</div><div class="line">foo_obj = Foo()</div><div class="line"> </div><div class="line">foo_obj.func()</div><div class="line">foo_obj.prop   #调用属性</div></pre></td></tr></table></figure></p>
+<p>新式类</p>
+</blockquote>
+<p>由于新式类中具有三种访问方式，我们可以根据他们几个属性的访问特点，分别将三个方法定义为对同一个属性：</p>
+<ul>
+<li>获取</li>
+<li>修改</li>
+<li>删除</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"># ############### 定义 ###############</div><div class="line">class Goods(object):</div><div class="line"> </div><div class="line">    @property</div><div class="line">    def price(self):</div><div class="line">        print &apos;@property&apos;</div><div class="line"> </div><div class="line">    @price.setter</div><div class="line">    def price(self, value):</div><div class="line">        print &apos;@price.setter&apos;</div><div class="line"> </div><div class="line">    @price.deleter</div><div class="line">    def price(self):</div><div class="line">        print &apos;@price.deleter&apos;</div><div class="line"> </div><div class="line"># ############### 调用 ###############</div><div class="line">obj = Goods()</div><div class="line"> </div><div class="line">obj.price          # 自动执行 @property 修饰的 price 方法，并获取方法的返回值</div><div class="line"> </div><div class="line">obj.price = 123    # 自动执行 @price.setter 修饰的 price 方法，并将  123 赋值给方法的参数</div><div class="line"> </div><div class="line">del obj.price      # 自动执行 @price.deleter 修饰的 price 方法</div></pre></td></tr></table></figure>
+<blockquote>
+<p>以下是property的构造方法(静态变量的方式)中有个四个参数</p>
+</blockquote>
+<ul>
+<li>第一个参数是方法名，调用 对象.属性 时自动触发执行方法</li>
+<li>第二个参数是方法名，调用 对象.属性 ＝ XXX 时自动触发执行方法</li>
+<li>第三个参数是方法名，调用 del 对象.属性 时自动触发执行方法</li>
+<li>第四个参数是字符串，调用 对象.属性.<strong>doc</strong> ，此参数是该属性的描述信息</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class Foo：</div><div class="line"> </div><div class="line">    def get_bar(self):</div><div class="line">        return &apos;wupeiqi&apos;</div><div class="line"> </div><div class="line">    # *必须两个参数</div><div class="line">    def set_bar(self, value): </div><div class="line">        return return &apos;set value&apos; + value</div><div class="line"> </div><div class="line">    def del_bar(self):</div><div class="line">        return &apos;wupeiqi&apos;</div><div class="line"> </div><div class="line">    BAR ＝ property(get_bar, set_bar, del_bar, &apos;description...&apos;)</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">obj.BAR              # 自动调用第一个参数中定义的方法：get_bar</div><div class="line">obj.BAR = &quot;alex&quot;     # 自动调用第二个参数中定义的方法：set_bar方法，并将“alex”当作参数传入</div><div class="line">del Foo.BAR          # 自动调用第三个参数中定义的方法：del_bar方法</div><div class="line">obj.BAE.__doc__      # 自动获取第四个参数中设置的值：description...</div></pre></td></tr></table></figure>
+<h2 id="4-5-类变量-属性-扩展"><a href="#4-5-类变量-属性-扩展" class="headerlink" title="4.5 类变量(属性)扩展"></a>4.5 类变量(属性)扩展</h2><ul>
+<li>静态变量(保存在类中)：在任何对方都能访问</li>
+<li>私有静态变量(变量前加__)：只有在类的内部能访问</li>
+<li>普通变量(在函数里的变量):对象可以访问、类内部可以访问、派生类中可以访问</li>
+<li>普通私有变量(变量前加__):仅类内部能访问</li>
+</ul>
+<ol>
+<li>静态变量：类可以访问、类内部可以访问、派生类中可以访问</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    name = &quot;全局变量&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print C.name</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print C.name</div><div class="line"> </div><div class="line">C.name         # 类访问</div><div class="line"> </div><div class="line">obj = C()</div><div class="line">obj.func()     # 类内部可以访问</div><div class="line"> </div><div class="line">obj_son = D()</div><div class="line">obj_son.show() # 派生类中可以访问</div></pre></td></tr></table></figure>
+<p>2.私有静态变量：仅类内部可以访问<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    __name = &quot;私有静态变量&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print C.__name</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print C.__name</div><div class="line"> </div><div class="line">C.__name       # 类访问            错误</div><div class="line"> </div><div class="line">obj = C()</div><div class="line">obj.func()     # 类内部可以访问    正确</div><div class="line"> </div><div class="line">obj_son = D()</div><div class="line">obj_son.show() # 派生类中可以访问   错误</div></pre></td></tr></table></figure></p>
+<p>3.普通变量</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    def __init__(self):</div><div class="line">        self.foo = &quot;普通变量&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print self.foo 　#　类内部访问</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print self.foo　＃　派生类中访问</div><div class="line"> </div><div class="line">obj = C()</div><div class="line"> </div><div class="line">obj.foo     # 通过对象访问</div><div class="line">obj.func()  # 类内部访问</div><div class="line"> </div><div class="line">obj_son = D();</div><div class="line">obj_son.show()  # 派生类中访问</div></pre></td></tr></table></figure>
+<p>4.私有字段</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class C:</div><div class="line"> </div><div class="line">    def __init__(self):</div><div class="line">        self.__foo = &quot;私有字段&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        print self.foo 　#　类内部访问</div><div class="line"> </div><div class="line">class D(C):</div><div class="line"> </div><div class="line">    def show(self):</div><div class="line">        print self.foo　＃　派生类中访问</div><div class="line"> </div><div class="line">obj = C()</div><div class="line"> </div><div class="line">obj.__foo     # 通过对象访问    错误</div><div class="line">obj.func()  # 类内部访问        正确</div><div class="line"> </div><div class="line">obj_son = D();</div><div class="line">obj_son.show()  # 派生类中访问  错误</div></pre></td></tr></table></figure>
+<blockquote>
+<p>如果想要强制访问私有字段，可以通过 【对象._类名<strong>私有字段明 】访问（如：obj._C</strong>foo），不建议强制访问私有成员。</p>
+</blockquote>
+<h2 id="4-6-类的特殊成员"><a href="#4-6-类的特殊成员" class="headerlink" title="4.6 类的特殊成员"></a>4.6 类的特殊成员</h2><blockquote>
+<p>类的特殊成员包括特殊变量和特殊方法，其是系统定义的，不需要用户定义，一般具有普通变量和方法所不具有的特殊功能</p>
+</blockquote>
+<p>1.<strong> doc</strong>:表示类的描述</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line">    &quot;&quot;&quot; 描述类信息，这是用于看片的神奇 &quot;&quot;&quot;</div><div class="line"> </div><div class="line">    def func(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">print(Foo.__doc__)</div><div class="line">#输出：类的描述信息</div></pre></td></tr></table></figure>
+<p>2.<strong> module</strong>:表示当前操作对象在哪个模块</p>
+<blockquote>
+<p>模块:组织函数和类的单位(类似java的一类一文件，有时不同模块可能有同名函数),例如Django</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(obj.__module__) #输出对象所在模块</div></pre></td></tr></table></figure>
+<p>3.<strong> class</strong>：表示当前操作对象的是什么</p>
+<blockquote>
+<p>类</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">print(obj.__class__) #输出对象所在类</div></pre></td></tr></table></figure>
+<p>4.<strong> init(self,..)</strong>:<br>构造方法、类创建对象时自动执行</p>
+<p>5.<strong> del(self,..)</strong>:<br>析构方法、当对象在内存释放时、自动触发执行。</p>
+<blockquote>
+<p>此方法一般无须定义，因为Python是一门高级语言，程序员在使用时无需关心内存的分配和释放，因为此工作都是交给Python解释器来执行，所以，析构函数的调用是由解释器在进行垃圾回收时自动触发执行的。</p>
+</blockquote>
+<p>6.<strong> call(self,..)</strong>:<br>除析构方法外，执行对象的另一种特殊方法,对象加括号执行</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">class Foo:</div><div class="line"> </div><div class="line">    def __init__(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">    def __call__(self, *args, **kwargs):</div><div class="line"> </div><div class="line">        print &apos;__call__&apos;</div><div class="line"> </div><div class="line">obj = Foo() # 执行 __init__</div><div class="line">obj()       # 执行 __call__</div></pre></td></tr></table></figure>
+<p>7.<strong> dict</strong>:<br>显示类(静态变量、方法)和对象(普通字段)的所以成员</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">class Province:</div><div class="line"> </div><div class="line">    country = &apos;China&apos;</div><div class="line"> </div><div class="line">    def __init__(self, name, count):</div><div class="line">        self.name = name</div><div class="line">        self.count = count</div><div class="line"> </div><div class="line">    def func(self, *args, **kwargs):</div><div class="line">        print &apos;func&apos;</div><div class="line"> </div><div class="line"># 获取类的成员，即：静态字段、方法、</div><div class="line">print Province.__dict__</div><div class="line"># 输出：&#123;&apos;country&apos;: &apos;China&apos;, &apos;__module__&apos;: &apos;__main__&apos;, &apos;func&apos;: , &apos;__init__&apos;: , &apos;__doc__&apos;: None&#125;</div><div class="line"> </div><div class="line">obj1 = Province(&apos;HeBei&apos;,10000)</div><div class="line">print obj1.__dict__</div><div class="line"># 获取 对象obj1 的成员</div><div class="line"># 输出：&#123;&apos;count&apos;: 10000, &apos;name&apos;: &apos;HeBei&apos;&#125;</div><div class="line"> </div><div class="line">obj2 = Province(&apos;HeNan&apos;, 3888)</div><div class="line">print obj2.__dict__</div><div class="line"># 获取 对象obj1 的成员</div><div class="line"># 输出：&#123;&apos;count&apos;: 3888, &apos;name&apos;: &apos;HeNan&apos;&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><strong> str</strong>:如果一个类中定义了<strong>str</strong>方法，那么在打印(print)对象时，默认输出该方法的返回值。</li>
+</ol>
+<p>9.<strong> getitem</strong>、<strong> setitem</strong>、<strong> delitem</strong></p>
+<blockquote>
+<p>用于对象的索引操作，如字典。以上分别表示获取、设置、删除数据</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">#!/usr/bin/env python</div><div class="line"># -*- coding:utf-8 -*-</div><div class="line"> </div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __getitem__(self, key):</div><div class="line">        print &apos;__getitem__&apos;,key</div><div class="line"> </div><div class="line">    def __setitem__(self, key, value):</div><div class="line">        print &apos;__setitem__&apos;,key,value</div><div class="line"> </div><div class="line">    def __delitem__(self, key):</div><div class="line">        print &apos;__delitem__&apos;,key</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">result = obj[&apos;k1&apos;]      # 自动触发执行 __getitem__</div><div class="line">obj[&apos;k2&apos;] = &apos;wupeiqi&apos;   # 自动触发执行 __setitem__</div><div class="line">del obj[&apos;k1&apos;]           # 自动触发执行 __delitem__</div></pre></td></tr></table></figure>
+<p>10.<strong>getslice</strong>、<strong>setslice</strong>、<strong>delslice</strong></p>
+<blockquote>
+<p>用于对象的分片操作(如列表)</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __getslice__(self, i, j):</div><div class="line">        print &apos;__getslice__&apos;,i,j</div><div class="line"> </div><div class="line">    def __setslice__(self, i, j, sequence):</div><div class="line">        print &apos;__setslice__&apos;,i,j</div><div class="line"> </div><div class="line">    def __delslice__(self, i, j):</div><div class="line">        print &apos;__delslice__&apos;,i,j</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">obj[-1:1]                   # 自动触发执行 __getslice__</div><div class="line">obj[0:1] = [11,22,33,44]    # 自动触发执行 __setslice__</div><div class="line">del obj[0:2]                # 自动触发执行 __delslice__</div></pre></td></tr></table></figure>
+<p>11.<strong> iter</strong>:迭代器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">##case 1:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line">    pass</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"> </div><div class="line"># 报错：TypeError: &apos;Foo&apos; object is not iterable</div><div class="line"></div><div class="line">## case 2:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __iter__(self):</div><div class="line">        pass</div><div class="line"> </div><div class="line">obj = Foo()</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"> </div><div class="line"># 报错：TypeError: iter() returned non-iterator of type &apos;NoneType&apos;</div><div class="line"></div><div class="line">## case 3:</div><div class="line"></div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    def __init__(self, sq):</div><div class="line">        self.sq = sq</div><div class="line"> </div><div class="line">    def __iter__(self):</div><div class="line">        return iter(self.sq)</div><div class="line"> </div><div class="line">obj = Foo([11,22,33,44])</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div></pre></td></tr></table></figure>
+<p>迭代的变种</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">obj = iter([11,22,33,44])</div><div class="line"> </div><div class="line">for i in obj:</div><div class="line">    print i</div><div class="line"></div><div class="line">############################</div><div class="line">obj = iter([11,22,33,44])</div><div class="line"> </div><div class="line">while True:</div><div class="line">    val = obj.next()</div><div class="line">    print val</div></pre></td></tr></table></figure>
+<h2 id="4-7-旧式类和新式类"><a href="#4-7-旧式类和新式类" class="headerlink" title="4.7 旧式类和新式类"></a>4.7 旧式类和新式类</h2><blockquote>
+<p>从Python2.2开始，Python 引入了 new style class（新式类）</p>
+</blockquote>
+<ul>
+<li>新式类类似Java，有一个根类object，所有类都继承自根类object</li>
+<li>新式类跟经典类的差别主要是以下几点:</li>
+</ul>
+<p>a.新式类对象可以直接通过<strong>class</strong>属性获取自身类型:type</p>
+<p>b.继承搜索的顺序发生了改变,经典类多继承属性搜索顺序: 先深入继承树左侧，再返回，开始找右侧;新式类多继承属性搜索顺序: 先水平搜索，然后再向上移动<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line"># -*- coding:utf-8 -*-  </div><div class="line">class A(object):  </div><div class="line">    &quot;&quot;&quot;</div><div class="line">	新式类</div><div class="line">    作为所有类的基类</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class A&quot; </div><div class="line">		</div><div class="line">class A1():  </div><div class="line">    &quot;&quot;&quot;</div><div class="line">	经典类</div><div class="line">    作为所有类的基类</div><div class="line">    &quot;&quot;&quot;</div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class A1&quot;  </div><div class="line">		</div><div class="line">class C(A):  </div><div class="line">    pass</div><div class="line">	</div><div class="line">class C1(A1):  </div><div class="line">    pass</div><div class="line">	</div><div class="line">class D(A):  </div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class D&quot;  </div><div class="line">	</div><div class="line">class D1(A1):  </div><div class="line">    def foo(self):  </div><div class="line">        print &quot;class D1&quot;  </div><div class="line">		</div><div class="line">  </div><div class="line">  </div><div class="line">class E(C, D):  </div><div class="line">    pass</div><div class="line">	</div><div class="line">class E1(C1, D1):  </div><div class="line">    pass</div><div class="line"> </div><div class="line">e = E()</div><div class="line">e.foo()</div><div class="line">  </div><div class="line"> </div><div class="line">e1 = E1()</div><div class="line">e1.foo()</div></pre></td></tr></table></figure></p>
+<p>c.新式类增加了<strong>slots</strong>内置属性，可以把实例属性的种类锁定到<strong>slots</strong>规定的范围之中。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">#比如只允许对A实例添加name和age属性</div><div class="line"># -*- coding:utf-8 -*-  </div><div class="line"> </div><div class="line">class A(object):  </div><div class="line">    __slots__ = (&apos;name&apos;, &apos;age&apos;) </div><div class="line"> </div><div class="line">class A1():  </div><div class="line">    __slots__ = (&apos;name&apos;, &apos;age&apos;) </div><div class="line">	</div><div class="line">a1 = A1()</div><div class="line">a = A()</div><div class="line"> </div><div class="line">a1.name1 = &quot;a1&quot;</div><div class="line">a.name1 = &quot;a&quot;</div><div class="line"></div><div class="line">#A是新式类添加了__slots__ 属性,所以只允许添加 name age</div><div class="line"></div><div class="line">#A1经典类__slots__ 属性没用</div></pre></td></tr></table></figure></p>
+<p>d.新式类增加了<strong>getattribute</strong>方法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">class A(object):  </div><div class="line">    def __getattribute__(self, *args, **kwargs):  </div><div class="line">	    print &quot;A.__getattribute__&quot;</div><div class="line">		</div><div class="line">	</div><div class="line">class A1():  </div><div class="line">    def __getattribute__(self, *args, **kwargs):  </div><div class="line">	    print &quot;A1.__getattribute__&quot;</div><div class="line">		</div><div class="line">	</div><div class="line">a1 = A1()</div><div class="line">a = A()</div><div class="line"> </div><div class="line">a.test</div><div class="line">print &quot;=========&quot;</div><div class="line">a1.test</div><div class="line"></div><div class="line">#A是新式类，每次通过实例访问属性，都会经过__getattribute__函数,</div><div class="line"></div><div class="line">#A1不会调用__getattribute__所以出错了</div></pre></td></tr></table></figure></p>
+<h2 id="4-8-类的实例化"><a href="#4-8-类的实例化" class="headerlink" title="4.8 类的实例化"></a>4.8 类的实例化</h2><ul>
+<li><strong>call</strong>方法</li>
+</ul>
+<blockquote>
+<p>类的实例化主要通过<strong>init</strong>()函数和<strong>call</strong>()函数实现，其中<strong>init</strong>()较为常用，<strong>call</strong>()函数是一种让类像函数一样使用的特殊方法。</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">class MyType(type):</div><div class="line"> </div><div class="line">    def __init__(self, what, bases=None, dict=None):</div><div class="line">        super(MyType, self).__init__(what, bases, dict)</div><div class="line"> </div><div class="line">    def __call__(self, *args, **kwargs):</div><div class="line">        obj = self.__new__(self, *args, **kwargs)</div><div class="line"> </div><div class="line">        self.__init__(obj)</div><div class="line"> </div><div class="line">class Foo(object):</div><div class="line"> </div><div class="line">    __metaclass__ = MyType</div><div class="line"> </div><div class="line">    def __init__(self, name):</div><div class="line">        self.name = name</div><div class="line"> </div><div class="line">    def __new__(cls, *args, **kwargs):</div><div class="line">        return object.__new__(cls, *args, **kwargs)</div><div class="line"> </div><div class="line"># 第一阶段：解释器从上到下执行代码创建Foo类</div><div class="line"># 第二阶段：通过Foo类创建obj对象</div><div class="line">obj = Foo()</div></pre></td></tr></table></figure>
+<ul>
+<li><strong>new</strong>方法</li>
+</ul>
+<p>继承自object的新式类才有<strong>new</strong></p>
+<blockquote>
+<p><strong>new</strong>方法接受的参数虽然也是和<strong>init</strong>一样，但<strong>init</strong>是在类实例创建之后调用，而 <strong>new</strong>方法正是创建这个类实例的方法。</p>
+</blockquote>
+<p>依照Python官方文档的说法，<strong>new</strong>方法主要是当你继承一些不可变的class时(比如int, str, tuple)， 提供给你一个自定义这些类的实例化过程的途径。还有就是实现自定义的metaclass。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"># 创建一个类，继承int，并返回绝对值</div><div class="line">class PositiveInteger(int):</div><div class="line">    def __init__(self, value):</div><div class="line">        super(PositiveInteger, self).__init__(self, abs(value))</div><div class="line"> </div><div class="line">i = PositiveInteger(-3)</div><div class="line">print i</div><div class="line">#结果还是-3</div><div class="line"></div><div class="line">class PositiveInteger(int):</div><div class="line">    def __new__(cls, value):</div><div class="line">        return super(PositiveInteger, cls).__new__(cls, abs(value))</div><div class="line"> </div><div class="line">i = PositiveInteger(-3)</div><div class="line">print i</div><div class="line">#结果是 3</div></pre></td></tr></table></figure>
+<blockquote>
+<p>因为类的每一次实例化都是通过<strong>new</strong>实现的,通过重载类来实现单例</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">class Singleton(object):</div><div class="line">    def __new__(cls):</div><div class="line">        # 关键在于这，每一次实例化的时候，我们都只会返回这同一个instance对象</div><div class="line">        if not hasattr(cls, &apos;instance&apos;):</div><div class="line">            cls.instance = super(Singleton, cls).__new__(cls)</div><div class="line">        return cls.instance</div><div class="line"> </div><div class="line">obj1 = Singleton()</div><div class="line">obj2 = Singleton()</div><div class="line"> </div><div class="line">obj1.attr1 = &apos;value1&apos;</div><div class="line">print obj1.attr1, obj2.attr1</div><div class="line">print obj1 is obj2</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Python/" rel="tag"># Python</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/21/Python/5.面向对象-2/" rel="next" title="5.面向对象">
+                <i class="fa fa-chevron-left"></i> 5.面向对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/21/Python/10. 文件和异常/" rel="prev" title="10. 字符串">
+                10. 字符串 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/owl_2.png"
+                alt="disanda" />
+            
+              <p class="site-author-name" itemprop="name">disanda</p>
+              <p class="site-description motion-element" itemprop="description">正义会迟到，但不会缺席</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">42</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#第四章-类与对象"><span class="nav-number">1.</span> <span class="nav-text">第四章 类与对象</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#4-1-类简述"><span class="nav-number">1.1.</span> <span class="nav-text">4.1 类简述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-2-类成员"><span class="nav-number">1.2.</span> <span class="nav-text">4.2 类成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-3-变量-属性"><span class="nav-number">1.3.</span> <span class="nav-text">4.3 变量(属性)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-4-函数-方法"><span class="nav-number">1.4.</span> <span class="nav-text">4.4 函数(方法)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-4-1-函数属性化"><span class="nav-number">1.4.1.</span> <span class="nav-text">4.4.1 函数属性化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-5-类变量-属性-扩展"><span class="nav-number">1.5.</span> <span class="nav-text">4.5 类变量(属性)扩展</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-6-类的特殊成员"><span class="nav-number">1.6.</span> <span class="nav-text">4.6 类的特殊成员</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-7-旧式类和新式类"><span class="nav-number">1.7.</span> <span class="nav-text">4.7 旧式类和新式类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-8-类的实例化"><span class="nav-number">1.8.</span> <span class="nav-text">4.8 类的实例化</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">disanda</span>
+
+  
+</div>
+
+<!--
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
+
+-->
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
