@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="owl&#39;s blog">
 <meta property="og:description" content="Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-29T01:27:50.465Z">
+<meta property="og:image" content="http://note.youdao.com/yws/res/7903/692D1B2AC1514EA3B1BF6B8375CCBE70">
+<meta property="og:updated_time" content="2018-09-29T03:58:11.061Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="教程3 Django操作Mysql(删除、修改数据)">
 <meta name="twitter:description" content="Django框架,以MVT(mvc+T)模式高效开发web,超越spring系列的存在">
+<meta name="twitter:image" content="http://note.youdao.com/yws/res/7903/692D1B2AC1514EA3B1BF6B8375CCBE70">
 
 
 
@@ -456,6 +458,21 @@
 </li>
 </ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&gt;python manage.py makemigrate webname #输出modles到数据库到中间文件</div><div class="line"></div><div class="line">&gt;python namge.py migrate #同步到数据库</div></pre></td></tr></table></figure>
+<ul>
+<li><p>中文设置</p>
+<blockquote>
+<p>Django和Mysql本身默认数据库编码不能识别中文数据，需将设置</p>
+</blockquote>
+<p>  1.setting.py文件</p>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">DATABASES = &#123;</div><div class="line">    &apos;default&apos;: &#123;</div><div class="line">        #&apos;ENGINE&apos;: &apos;django.db.backends.sqlite3&apos;,</div><div class="line">        #&apos;NAME&apos;: os.path.join(BASE_DIR, &apos;db.sqlite3&apos;),</div><div class="line">        &apos;ENGINE&apos;: &apos;django.db.backends.mysql&apos;,</div><div class="line">        &apos;NAME&apos;: &apos;testdata3&apos;,</div><div class="line">        &apos;USER&apos;: &apos;root&apos;,</div><div class="line">        &apos;PASSWORD&apos;: &apos;121212&apos;, #数据库密码</div><div class="line">        &apos;HOST&apos;: &apos;127.0.0.1&apos;,</div><div class="line">        &apos;PORT&apos;: &apos;3306&apos;,</div><div class="line">        &apos;CHARSET&apos;:&apos;utf8&apos;,</div><div class="line">        &apos;COLLATION&apos;:&apos;utf8_general_ci&apos;,</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//增加CHARSET字段</div><div class="line">//增加增加COLLATION字段</div></pre></td></tr></table></figure>
+<p><img src="http://note.youdao.com/yws/res/7903/692D1B2AC1514EA3B1BF6B8375CCBE70" alt="image"></p>
+<pre><code>2. mysql设置
+</code></pre><blockquote>
+<p>通过设置设置编码utf-8支持中文</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">&gt;show create database xxx</div><div class="line">//查看xxx数据库编码</div><div class="line"></div><div class="line">&gt;show create table xxx</div><div class="line">//查看表xxx编码</div><div class="line"></div><div class="line">&gt;alter table table_name convert to character set utf8;</div><div class="line">//更改表编码</div><div class="line"></div><div class="line">&gt;create database xxx character set utf8</div><div class="line">//创建数据库xxx时设定编码</div><div class="line"></div><div class="line">&gt;alter database xxx character set utf8;</div><div class="line">//修改数据库xxx时设定编码</div><div class="line"></div><div class="line">&gt;insert into xxx values  (&quot;小明&quot;)；</div><div class="line">//测试中文</div></pre></td></tr></table></figure>
 <h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a href="https://www.cnblogs.com/nulige/p/6529175.html" target="_blank" rel="external">https://www.cnblogs.com/nulige/p/6529175.html</a></p>
 
       
@@ -489,8 +506,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/02/Python/3. 函数/" rel="next" title="3. Python函数">
-                <i class="fa fa-chevron-left"></i> 3. Python函数
+              <a href="/2018/05/03/django/A实战教程(创建博客)/" rel="next" title="教程1 Django初学实践，创建简易blog">
+                <i class="fa fa-chevron-left"></i> 教程1 Django初学实践，创建简易blog
               </a>
             
           </div>
@@ -499,8 +516,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/03/django/A实战教程(创建博客)/" rel="prev" title="教程1 Django初学实践，创建简易blog">
-                教程1 Django初学实践，创建简易blog <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/03/django/A mysql操作一/" rel="prev" title="教程2 Django 操作Mysql(增加数据)">
+                教程2 Django 操作Mysql(增加数据) <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
