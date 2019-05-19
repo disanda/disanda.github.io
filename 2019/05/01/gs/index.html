@@ -86,17 +86,20 @@
 
 
 
-<meta name="description" content="y=\frac {1} {1+e^{-z}}当\(\Delta\)&amp;gt;0时  BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{a">
+<meta name="description" content="y=\frac {1} {1+e^{-z}}  当\(\Delta\)&amp;gt;0时 BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{">
 <meta property="og:type" content="article">
 <meta property="og:title" content="公式">
 <meta property="og:url" content="http://yoursite.com/2019/05/01/gs/index.html">
 <meta property="og:site_name" content="owl&#39;s blog">
-<meta property="og:description" content="y=\frac {1} {1+e^{-z}}当\(\Delta\)&amp;gt;0时  BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{a">
+<meta property="og:description" content="y=\frac {1} {1+e^{-z}}  当\(\Delta\)&amp;gt;0时 BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-19T13:10:43.568Z">
+<meta property="og:image" content="http://www.forkosh.com/mathtex.cgi?y=\frac {1} {1+e^{-z}}">
+<meta property="og:image" content="http://chart.googleapis.com/chart?cht=tx&chl=y=\frac {1} {1+e^{-z}}">
+<meta property="og:updated_time" content="2019-05-19T13:17:15.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="公式">
-<meta name="twitter:description" content="y=\frac {1} {1+e^{-z}}当\(\Delta\)&amp;gt;0时  BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{a">
+<meta name="twitter:description" content="y=\frac {1} {1+e^{-z}}  当\(\Delta\)&amp;gt;0时 BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{">
+<meta name="twitter:image" content="http://www.forkosh.com/mathtex.cgi?y=\frac {1} {1+e^{-z}}">
 
 
 
@@ -405,8 +408,9 @@
       
 
       
-        <script type="math/tex; mode=display">y=\frac {1} {1+e^{-z}}</script><p>当\(\Delta\)&gt;0时</p>
-<hr>
+        <script type="math/tex; mode=display">y=\frac {1} {1+e^{-z}}</script><p><img src="http://www.forkosh.com/mathtex.cgi?y=\frac {1} {1+e^{-z}}"></p>
+<p><img src="http://chart.googleapis.com/chart?cht=tx&chl=y=\frac {1} {1+e^{-z}}" style="border:none;"></p>
+<p>当\(\Delta\)&gt;0时</p>
 <p><strong>BP算法</strong></p>
 <p>训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$</p>
 <p>设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$</p>
@@ -414,7 +418,6 @@
 <script type="math/tex; mode=display">
 \begin{array}{l}{\text { Set } a^{(1)}=x^{(i)}} \\ {\text { Perform forward propagation to compute } a^{(l)} \text { for } l=2,3, \ldots, L} \\ {\text { Using } y^{(i)}, \text { compute } \delta^{(L)}=a^{(L)}-y^{(i)}} \\ {\text { Compute } \delta^{(L-1)}, \delta^{(l+1)}, \ldots, \delta^{(2)}} \\ {\Delta_{i j}^{(l)} :=\Delta_{i j}^{(l)}+a_{j}^{(l)} \delta_{i}^{(l+1)}}\end{array}</script><p>$\begin{array}{l}{D<em>{i j}^{(l)} :=\frac{1}{m} \Delta</em>{i j}^{(l)}+\lambda \Theta<em>{i j}^{(l)}} &amp; {\text { if } j \neq 0} \ {D</em>{i j}^{(l)} :=\frac{1}{m} \Delta_{i j}^{(l)}} &amp; {\text { if } j=0}\end{array}$</p>
 <p>其中    $\frac{\partial}{\partial \Theta<em>{i j}^{(l)}} J(\Theta)=D</em>{i j}^{(l)}$</p>
-<hr>
 <figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span>y=\<span class="built-in">frac</span> &#123;<span class="number">1</span>&#125; &#123;<span class="number">1</span>+e^&#123;-z&#125;&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
 
       
