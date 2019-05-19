@@ -446,8 +446,8 @@
 <figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby"> [ ] 任务一 未做任务 <span class="string">`- + 空格 + [ ]`</span></span></span><br><span class="line"><span class="ruby">- [x] 任务二 已做任务 <span class="string">`- + 空格 + [x]`</span></span></span><br></pre></td></tr></table></figure>
 <p>效果如下：</p>
 <ul>
-<li style="list-style: none"><input type="checkbox"> 任务一 未做任务 <code>- + 空格 + [ ]</code></li>
-<li style="list-style: none"><input type="checkbox" checked> 任务二 已做任务 <code>- + 空格 + [x]</code></li>
+<li>[ ] 任务一 未做任务 <code>- + 空格 + [ ]</code></li>
+<li>[x] 任务二 已做任务 <code>- + 空格 + [x]</code></li>
 </ul>
 <h2 id="图片"><a href="#图片" class="headerlink" title="图片"></a>图片</h2><p>Markdown 语法：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">GitHub set up</span>](<span class="link">http://zh.mweb.im/asset/img/set-up-git.gif</span>)</span><br><span class="line">格式: ![<span class="string">Alt Text</span>](<span class="link">url</span>)</span><br></pre></td></tr></table></figure>
@@ -458,7 +458,7 @@
 <h2 id="链接"><a href="#链接" class="headerlink" title="链接"></a>链接</h2><p>Markdown 语法：</p>
 <figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">email <span class="xml"><span class="tag">&lt;<span class="name">example@example.com</span>&gt;</span></span></span><br><span class="line">[<span class="string">GitHub</span>](<span class="link">http://github.com</span>)</span><br><span class="line">自动生成连接  <span class="xml"><span class="tag">&lt;<span class="name">http:</span>//<span class="attr">www.github.com</span>/&gt;</span></span></span><br></pre></td></tr></table></figure>
 <p><code>Control + Shift + L</code> 可插入Markdown语法。<br>如果是 MWeb 的文档库中的文档，拖放或<code>CMD + Option + I</code> 导入非图片时，会生成连接。<br>效果如下：</p>
-<p>Email 连接： <a href="mailto:&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;" target="_blank" rel="noopener">&#101;&#120;&#97;&#109;&#112;&#108;&#x65;&#64;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#99;&#111;&#109;</a><br><a href="http://github.com" target="_blank" rel="noopener">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="noopener">http://www.github.com/</a> 这样</p>
+<p>Email 连接： <a href="&#x6d;&#x61;&#x69;&#x6c;&#x74;&#111;&#x3a;&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;">&#101;&#x78;&#97;&#x6d;&#112;&#x6c;&#101;&#x40;&#x65;&#x78;&#x61;&#x6d;&#x70;&#x6c;&#x65;&#x2e;&#x63;&#x6f;&#109;</a><br><a href="http://github.com" target="_blank" rel="noopener">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/" target="_blank" rel="noopener">http://www.github.com/</a> 这样</p>
 <h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>Markdown 语法：</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">某某说:</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 第一行引用</span></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> 第二行费用文字</span></span><br></pre></td></tr></table></figure>
 <p><code>CMD + Shift + B</code> 可插入Markdown语法。<br>效果如下：</p>
@@ -486,6 +486,7 @@
 <h2 id="表格"><a href="#表格" class="headerlink" title="表格"></a>表格</h2><p>Markdown 语法：</p>
 <figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">第一格表头 <span class="string">| 第二格表头</span></span><br><span class="line">--------- <span class="string">| -------------</span></span><br><span class="line">内容单元格 第一列第一格 <span class="string">| 内容单元格第二列第一格</span></span><br><span class="line">内容单元格 第一列第二格 多加文字 <span class="string">| 内容单元格第二列第二格</span></span><br></pre></td></tr></table></figure>
 <p>效果如下：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -504,6 +505,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="删除线"><a href="#删除线" class="headerlink" title="删除线"></a>删除线</h2><p>Markdown 语法：</p>
 <p>加删除线像这样用： <del>删除这些</del></p>
 <p>效果如下：</p>
@@ -519,13 +521,16 @@
 <h2 id="MathJax"><a href="#MathJax" class="headerlink" title="MathJax"></a>MathJax</h2><p>Markdown 语法：</p>
 <figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">块级公式：</span><br><span class="line">$$	x = <span class="symbol">\d</span>frac&#123;-b <span class="symbol">\p</span>m <span class="symbol">\s</span>qrt&#123;b^2 - 4ac&#125;&#125;&#123;2a&#125; $$</span><br><span class="line"></span><br><span class="line"><span class="symbol">\\</span>[ <span class="symbol">\f</span>rac&#123;1&#125;&#123;<span class="symbol">\B</span>igl(<span class="symbol">\s</span>qrt&#123;<span class="symbol">\p</span>hi <span class="symbol">\s</span>qrt&#123;5&#125;&#125;-<span class="symbol">\p</span>hi<span class="symbol">\B</span>igr) e^&#123;<span class="symbol">\f</span>rac25 <span class="symbol">\p</span>i&#125;&#125; =</span><br><span class="line">1+<span class="symbol">\f</span>rac&#123;e^&#123;-2<span class="symbol">\p</span>i&#125;&#125; &#123;1+<span class="symbol">\f</span>rac&#123;e^&#123;-4<span class="symbol">\p</span>i&#125;&#125; &#123;1+<span class="symbol">\f</span>rac&#123;e^&#123;-6<span class="symbol">\p</span>i&#125;&#125;</span><br><span class="line">&#123;1+<span class="symbol">\f</span>rac&#123;e^&#123;-8<span class="symbol">\p</span>i&#125;&#125; &#123;1+<span class="symbol">\l</span>dots&#125; &#125; &#125; &#125; <span class="symbol">\\</span>]</span><br><span class="line"></span><br><span class="line">行内公式： $<span class="symbol">\G</span>amma(n) = (n-1)!<span class="symbol">\q</span>uad<span class="symbol">\f</span>orall n<span class="symbol">\i</span>n<span class="symbol">\m</span>athbb N$</span><br></pre></td></tr></table></figure>
 <p>效果如下（<code>Preferences</code> - <code>Themes</code> - <code>Enable MathJax</code> 才会看到效果）：</p>
-<p>块级公式：<br>$$    x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a} $$</p>
-<p>\[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =<br>1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}<br>{1+\frac{e^{-8\pi}} {1+\ldots} } } } \]</p>
+<p>块级公式：</p>
+<script type="math/tex; mode=display">x = \dfrac{-b \pm \sqrt{b^2 - 4ac}}{2a}</script><p>\[ \frac{1}{\Bigl(\sqrt{\phi \sqrt{5}}-\phi\Bigr) e^{\frac25 \pi}} =<br>1+\frac{e^{-2\pi}} {1+\frac{e^{-4\pi}} {1+\frac{e^{-6\pi}}<br>{1+\frac{e^{-8\pi}} {1+\ldots} } } } \]</p>
 <p>行内公式： $\Gamma(n) = (n-1)!\quad\forall n\in\mathbb N$</p>
 <h2 id="脚注（Footnote）"><a href="#脚注（Footnote）" class="headerlink" title="脚注（Footnote）"></a>脚注（Footnote）</h2><p>Markdown 语法：</p>
 <figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这是一个脚注：<span class="string">[^sample_footnote]</span></span><br></pre></td></tr></table></figure>
 <p>效果如下：</p>
-<p>这是一个脚注：<a href="这里是脚注信息">^sample_footnote</a></p>
+<p>这是一个脚注：<sup><a href="#fn_sample_footnote" id="reffn_sample_footnote">sample_footnote</a></sup></p>
+<blockquote id="fn_sample_footnote">
+<sup>sample_footnote</sup>. 这里是脚注信息<a href="#reffn_sample_footnote" title="Jump back to footnote [sample_footnote] in the text."> &#8617;</a>
+</blockquote>
 <h2 id="注释和阅读更多"><a href="#注释和阅读更多" class="headerlink" title="注释和阅读更多"></a>注释和阅读更多</h2><!-- comment -->
 <!-- more -->
 <p>Actions-&gt;Insert Read More Comment <em>或者</em> <code>Command + .</code><br><strong>注</strong> 阅读更多的功能只用在生成网站或博客时，插入时注意要后空一行。</p>
@@ -607,8 +612,8 @@ cond(no)->op</textarea><textarea id="flowchart-1-options" style="display: none">
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/01/日记/大学城与青春/" rel="next" title="关于大学城 和 青春">
-                <i class="fa fa-chevron-left"></i> 关于大学城 和 青春
+              <a href="/2017/10/01/其他/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
               </a>
             
           </div>
@@ -617,8 +622,8 @@ cond(no)->op</textarea><textarea id="flowchart-1-options" style="display: none">
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/07/sql/sql_2/" rel="prev" title="sql_2">
-                sql_2 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/10/01/日记/大学城与青春/" rel="prev" title="关于大学城 和 青春">
+                关于大学城 和 青春 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1300,7 +1305,39 @@ cond(no)->op</textarea><textarea id="flowchart-1-options" style="display: none">
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1318,18 +1355,8 @@ cond(no)->op</textarea><textarea id="flowchart-1-options" style="display: none">
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

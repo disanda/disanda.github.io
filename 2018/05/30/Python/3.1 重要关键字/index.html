@@ -430,11 +430,7 @@
 </ul>
 <blockquote>
 <p>示例<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">g</span><span class="params">(N)</span></span><span class="symbol">:</span></span><br><span class="line">    res=[]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(N)<span class="symbol">:</span></span><br><span class="line">        res.append(i*i)</span><br><span class="line">    rerurn res</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> item <span class="keyword">in</span> g(<span class="number">5</span>)</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">g</span><span class="params">(N)</span></span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>生成器表达式，类似列表推导，返回一个迭代器，而不是全部结果<br><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">squares1 = [x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>)]<span class="comment">#结果，一个列表</span></span><br><span class="line">squares2 = (x**<span class="number">2</span> <span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>))<span class="comment">#生成器</span></span><br><span class="line">next(squares2)</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>用yield改写函数</p>
 </blockquote>
 <figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">def</span> fab(max): </span><br><span class="line">   n, a, <span class="keyword">b </span>= <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span> </span><br><span class="line">   <span class="meta">while</span> n &lt; max: </span><br><span class="line">       print <span class="keyword">b </span></span><br><span class="line">       a, <span class="keyword">b </span>= <span class="keyword">b, </span>a + <span class="keyword">b </span></span><br><span class="line">       n = n + <span class="number">1</span></span><br></pre></td></tr></table></figure>
@@ -1194,7 +1190,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1212,18 +1240,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

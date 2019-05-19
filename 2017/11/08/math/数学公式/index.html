@@ -408,14 +408,19 @@
       
         <h1 id="Latex编辑方式"><a href="#Latex编辑方式" class="headerlink" title="Latex编辑方式"></a>Latex编辑方式</h1><a id="more"></a>
 <p>1.$\log_2 10$</p>
-<p><code>$\log_2 10$</code><br><br></p>
-<p>2.$\sin x$<br><code>$\sin x$</code><br><br></p>
-<p>3.$\frac{7x+5}{1+y^2}$<br><code>$\frac{7x+5}{1+y^2}$</code><br><br></p>
-<p>4.$s=\sum_1^n{n_i}$<br><code>$s=\sum_1^n{n_i}$</code><br><br></p>
+<script type="math/tex; mode=display">\log_2 10</script><p><br></p>
+<p>2.$\sin x$</p>
+<script type="math/tex; mode=display">\sin x</script><p><br></p>
+<p>3.$\frac{7x+5}{1+y^2}$</p>
+<script type="math/tex; mode=display">\frac{7x+5}{1+y^2}</script><p><br></p>
+<p>4.$s=\sum_1^n{n_i}$</p>
+<script type="math/tex; mode=display">s=\sum_1^n{n_i}</script><p><br></p>
 <p>5.$\int_{1}^{a}$</p>
-<p><code>$\int_{1}^{a}$</code><br><br></p>
-<p>6.$\infty$<br><code>$\infty$</code><br><br></p>
-<p>7.$\sqrt[x+1]{x^2}$<br><code>$\sqrt[x+1]{x^2}$</code><br><br></p>
+<script type="math/tex; mode=display">\int_{1}^{a}</script><p><br></p>
+<p>6.$\infty$</p>
+<script type="math/tex; mode=display">\infty</script><p><br></p>
+<p>7.$\sqrt[x+1]{x^2}$</p>
+<script type="math/tex; mode=display">\sqrt[x+1]{x^2}</script><p><br></p>
 <h1 id="hexo配置方法"><a href="#hexo配置方法" class="headerlink" title="hexo配置方法"></a>hexo配置方法</h1><p>a.直接在<strong>主题</strong>中的配置mathjax，把flase改为ture即可<br>b.不用像网上说的那样安装math，更换渲染引擎，复杂且各种bug，<br>归其原因：引擎和math包是安装在hexo下，但是hexo主题next已集成了math和引擎（就像两个配置文件，两个node.modules）,hexo安装的包理论上没什么用，除非不用next自带的,<br>其他主题也是一样的道理。</p>
 
       
@@ -1171,7 +1176,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1189,18 +1226,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

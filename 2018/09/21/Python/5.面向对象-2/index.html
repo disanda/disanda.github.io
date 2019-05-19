@@ -423,8 +423,6 @@
 </ul>
 <blockquote>
 <p>调用super()的实例<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span>(<span class="title">object</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.parent = <span class="string">'I\'m the parent.'</span></span><br><span class="line">        print (<span class="string">'Parent'</span>)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">(<span class="keyword">self</span>,message)</span></span><span class="symbol">:</span></span><br><span class="line">        print (<span class="string">"%s from Parent"</span> %message)</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span>(<span class="title">Parent</span>):</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="comment">#super(FooChild,self).__init__() //python2语法</span></span><br><span class="line">        <span class="keyword">super</span>().__init_<span class="number">_</span>()  </span><br><span class="line">        print (<span class="string">'Child'</span>)</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">bar</span><span class="params">(<span class="keyword">self</span>,message)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="comment">#super(FooChild, self).bar(message)//这里是python2的语法</span></span><br><span class="line">        <span class="keyword">super</span>().bar(message)</span><br><span class="line">        print (<span class="string">'Child bar fuction'</span>)</span><br><span class="line">        print (<span class="keyword">self</span>.parent) <span class="comment">#继承父类属性</span></span><br><span class="line">        </span><br><span class="line">C = Child()</span><br><span class="line">C.bar(<span class="string">'HelloWorld'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment">#执行结果:</span></span><br><span class="line"><span class="comment">#Parent</span></span><br><span class="line"><span class="comment">#Child</span></span><br><span class="line"><span class="comment">#HelloWorld from Parent</span></span><br><span class="line"><span class="comment">#Child bar function</span></span><br><span class="line"><span class="comment">#I'm the parent</span></span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>多继承顺序实例<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span>:  </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(<span class="keyword">self</span>)</span></span>:  </span><br><span class="line">        print(<span class="string">"A Hello:"</span>, <span class="keyword">self</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span>(<span class="title">A</span>):  </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(<span class="keyword">self</span>)</span></span>:  </span><br><span class="line">        print(<span class="string">"B Eating:"</span>, <span class="keyword">self</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>(<span class="title">A</span>):  </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">eat</span><span class="params">(<span class="keyword">self</span>)</span></span>:  </span><br><span class="line">        print(<span class="string">"C Eating:"</span>, <span class="keyword">self</span>)  </span><br><span class="line">  </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>(<span class="title">B</span>, <span class="title">C</span>):  </span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">say</span><span class="params">(<span class="keyword">self</span>)</span></span>:  </span><br><span class="line">        <span class="keyword">super</span>().say()  </span><br><span class="line">        print(<span class="string">"D Hello:"</span>, <span class="keyword">self</span>)  </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">dinner</span><span class="params">(<span class="keyword">self</span>)</span></span>:  </span><br><span class="line">        <span class="keyword">self</span>.say()  </span><br><span class="line">        <span class="keyword">super</span>().say()  </span><br><span class="line">        <span class="keyword">self</span>.eat()  </span><br><span class="line">        <span class="keyword">super</span>().eat()  </span><br><span class="line">        C.eat(<span class="keyword">self</span>) </span><br><span class="line">        </span><br><span class="line">d = D() </span><br><span class="line">d.eat()  </span><br><span class="line">C.eat(d) </span><br><span class="line">D.__mro_<span class="number">_</span> <span class="comment">#类的一个继承顺序</span></span><br><span class="line">d.dinner()</span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <h2 id="5-2-封装"><a href="#5-2-封装" class="headerlink" title="5.2 封装"></a>5.2 封装</h2><ul>
@@ -441,11 +439,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">F1</span>:</span></span><br><span class="line">    <span class="keyword">pass</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">S1</span><span class="params">(F1)</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'S1.show'</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">S2</span><span class="params">(F1)</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">print</span> <span class="string">'S2.show'</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 由于在Java或C#中定义函数参数时，必须指定参数的类型</span></span><br><span class="line"><span class="comment"># 为了让Func函数既可以执行S1对象的show方法，又可以执行S2对象的show方法，所以，定义了一个S1和S2类的父类</span></span><br><span class="line"><span class="comment"># 而实际传入的参数是：S1对象和S2对象</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">Func</span><span class="params">(F1 obj)</span>:</span></span><br><span class="line">    <span class="string">"""Func函数需要接收一个F1类型或者F1子类的类型"""</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">print</span> obj.show()</span><br><span class="line"> </span><br><span class="line">s1_obj = S1()</span><br><span class="line">Func(s1_obj) <span class="comment"># 在Func函数中传入S1类的对象 s1_obj，执行 S1 的show方法，结果：S1.show</span></span><br><span class="line"> </span><br><span class="line">s2_obj = S2()</span><br><span class="line">Func(s2_obj) <span class="comment"># 在Func函数中传入Ss类的对象 ss_obj，执行 Ss 的show方法，结果：S2.show</span></span><br></pre></td></tr></table></figure>
 <h2 id="5-4-type-产生对象"><a href="#5-4-type-产生对象" class="headerlink" title="5.4 type()产生对象"></a>5.4 type()产生对象</h2><blockquote>
 <p>Python中一切事物都是对象,类也是</p>
-</blockquote>
-<blockquote>
 <p>类可由type类实力化产生</p>
-</blockquote>
-<blockquote>
 <p>type() 函数如果你只有第一个参数则返回对象的类型，三个参数返回新的类型对象</p>
 </blockquote>
 <ul>
@@ -473,7 +467,7 @@
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(<span class="keyword">self</span>, *args, **kwargs)</span></span><span class="symbol">:</span></span><br><span class="line"> </span><br><span class="line">        print <span class="string">'__call__'</span></span><br><span class="line"> </span><br><span class="line">obj = Foo() <span class="comment"># 执行 __init__</span></span><br><span class="line">obj()       <span class="comment"># 执行 __call__</span></span><br></pre></td></tr></table></figure>
 <p>7.<strong> dict</strong>:<br>显示类(静态变量、方法)和对象(普通字段)的所以成员</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Province:</span><br><span class="line"> </span><br><span class="line">    country = <span class="string">'China'</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> __init__(self, name, <span class="keyword">count</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.<span class="keyword">count</span> = <span class="keyword">count</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> func(self, *args, **kwargs):</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'func'</span></span><br><span class="line"> </span><br><span class="line"># 获取类的成员，即：静态字段、方法、</span><br><span class="line"><span class="keyword">print</span> Province.__dict__</span><br><span class="line"># 输出：&#123;<span class="string">'country'</span>: <span class="string">'China'</span>, <span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'func'</span>: , <span class="string">'__init__'</span>: , <span class="string">'__doc__'</span>: None&#125;</span><br><span class="line"> </span><br><span class="line">obj1 = Province(<span class="string">'HeBei'</span>,<span class="number">10000</span>)</span><br><span class="line"><span class="keyword">print</span> obj1.__dict__</span><br><span class="line"># 获取 对象obj1 的成员</span><br><span class="line"># 输出：&#123;<span class="string">'count'</span>: <span class="number">10000</span>, <span class="string">'name'</span>: <span class="string">'HeBei'</span>&#125;</span><br><span class="line"> </span><br><span class="line">obj2 = Province(<span class="string">'HeNan'</span>, <span class="number">3888</span>)</span><br><span class="line"><span class="keyword">print</span> obj2.__dict__</span><br><span class="line"># 获取 对象obj1 的成员</span><br><span class="line"># 输出：&#123;<span class="string">'count'</span>: <span class="number">3888</span>, <span class="string">'name'</span>: <span class="string">'HeNan'</span>&#125;</span><br></pre></td></tr></table></figure>
-<ol start="8">
+<ol>
 <li><strong> str</strong>:如果一个类中定义了<strong>str</strong>方法，那么在打印(print)对象时，默认输出该方法的返回值。</li>
 </ol>
 <p>9.<strong> getitem</strong>、<strong> setitem</strong>、<strong> delitem</strong></p>
@@ -573,8 +567,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/26/爬虫/1. 爬虫 1/" rel="prev" title="爬虫教程1 爬虫基础">
-                爬虫教程1 爬虫基础 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/09/21/Python/9. 常用函数/" rel="prev" title="9.常用函数">
+                9.常用函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1256,7 +1250,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1274,18 +1300,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

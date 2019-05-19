@@ -447,8 +447,6 @@
 </ul>
 <blockquote>
 <p>经典类(python2中常用)<br><figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">################ 定义 ###############</span><br><span class="line"><span class="keyword">class</span> Foo:</span><br><span class="line"> </span><br><span class="line">    def func(self):</span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">    # 定义属性</span><br><span class="line">    @property</span><br><span class="line">    def prop(self):</span><br><span class="line">        print(<span class="string">'abc'</span>)</span><br><span class="line">################ 调用 ###############</span><br><span class="line">foo_obj = Foo()</span><br><span class="line"> </span><br><span class="line">foo_obj.func()</span><br><span class="line">foo_obj.prop   #调用属性</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>新式类</p>
 </blockquote>
 <p>由于新式类中具有三种访问方式，我们可以根据他们几个属性的访问特点，分别将三个方法定义为对同一个属性：</p>
@@ -484,7 +482,7 @@
 <p>4.私有字段</p>
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        <span class="keyword">self</span>.__foo = <span class="string">"私有字段"</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">func</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        print <span class="keyword">self</span>.foo 　<span class="comment">#　类内部访问</span></span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">D</span>(<span class="title">C</span>):</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">show</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        print <span class="keyword">self</span>.foo　＃　派生类中访问</span><br><span class="line"> </span><br><span class="line">obj = C()</span><br><span class="line"> </span><br><span class="line">obj.__foo     <span class="comment"># 通过对象访问    错误</span></span><br><span class="line">obj.func()  <span class="comment"># 类内部访问        正确</span></span><br><span class="line"> </span><br><span class="line">obj_son = D();</span><br><span class="line">obj_son.show()  <span class="comment"># 派生类中访问  错误</span></span><br></pre></td></tr></table></figure>
 <blockquote>
-<p>如果想要强制访问私有字段，可以通过 【对象._类名<strong>私有字段明 】访问（如：obj._C</strong>foo），不建议强制访问私有成员。</p>
+<p>如果想要强制访问私有字段，可以通过 【对象.<em>类名_</em>私有字段明 】访问（如：obj._C__foo），不建议强制访问私有成员。</p>
 </blockquote>
 <h2 id="4-6-类的特殊成员"><a href="#4-6-类的特殊成员" class="headerlink" title="4.6 类的特殊成员"></a>4.6 类的特殊成员</h2><blockquote>
 <p>类的特殊成员包括特殊变量和特殊方法，其是系统定义的，不需要用户定义，一般具有普通变量和方法所不具有的特殊功能</p>
@@ -510,7 +508,7 @@
 <figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Foo</span>:</span></span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(<span class="keyword">self</span>)</span></span><span class="symbol">:</span></span><br><span class="line">        pass</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__call__</span><span class="params">(<span class="keyword">self</span>, *args, **kwargs)</span></span><span class="symbol">:</span></span><br><span class="line"> </span><br><span class="line">        print <span class="string">'__call__'</span></span><br><span class="line"> </span><br><span class="line">obj = Foo() <span class="comment"># 执行 __init__</span></span><br><span class="line">obj()       <span class="comment"># 执行 __call__</span></span><br></pre></td></tr></table></figure>
 <p>7.<strong> dict</strong>:<br>显示类(静态变量、方法)和对象(普通字段)的所以成员</p>
 <figure class="highlight gradle"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> Province:</span><br><span class="line"> </span><br><span class="line">    country = <span class="string">'China'</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> __init__(self, name, <span class="keyword">count</span>):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.<span class="keyword">count</span> = <span class="keyword">count</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">def</span> func(self, *args, **kwargs):</span><br><span class="line">        <span class="keyword">print</span> <span class="string">'func'</span></span><br><span class="line"> </span><br><span class="line"># 获取类的成员，即：静态字段、方法、</span><br><span class="line"><span class="keyword">print</span> Province.__dict__</span><br><span class="line"># 输出：&#123;<span class="string">'country'</span>: <span class="string">'China'</span>, <span class="string">'__module__'</span>: <span class="string">'__main__'</span>, <span class="string">'func'</span>: , <span class="string">'__init__'</span>: , <span class="string">'__doc__'</span>: None&#125;</span><br><span class="line"> </span><br><span class="line">obj1 = Province(<span class="string">'HeBei'</span>,<span class="number">10000</span>)</span><br><span class="line"><span class="keyword">print</span> obj1.__dict__</span><br><span class="line"># 获取 对象obj1 的成员</span><br><span class="line"># 输出：&#123;<span class="string">'count'</span>: <span class="number">10000</span>, <span class="string">'name'</span>: <span class="string">'HeBei'</span>&#125;</span><br><span class="line"> </span><br><span class="line">obj2 = Province(<span class="string">'HeNan'</span>, <span class="number">3888</span>)</span><br><span class="line"><span class="keyword">print</span> obj2.__dict__</span><br><span class="line"># 获取 对象obj1 的成员</span><br><span class="line"># 输出：&#123;<span class="string">'count'</span>: <span class="number">3888</span>, <span class="string">'name'</span>: <span class="string">'HeNan'</span>&#125;</span><br></pre></td></tr></table></figure>
-<ol start="8">
+<ol>
 <li><strong> str</strong>:如果一个类中定义了<strong>str</strong>方法，那么在打印(print)对象时，默认输出该方法的返回值。</li>
 </ol>
 <p>9.<strong> getitem</strong>、<strong> setitem</strong>、<strong> delitem</strong></p>
@@ -617,8 +615,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/21/Python/7. 特殊参数/" rel="next" title="7. 字符串">
-                <i class="fa fa-chevron-left"></i> 7. 字符串
+              <a href="/2018/09/21/Python/10. 文件和异常/" rel="next" title="10. 字符串">
+                <i class="fa fa-chevron-left"></i> 10. 字符串
               </a>
             
           </div>
@@ -1310,7 +1308,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1328,18 +1358,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

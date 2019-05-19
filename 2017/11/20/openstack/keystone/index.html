@@ -422,7 +422,7 @@
 <pre><code>A[Tenant] --&gt;|改为| B(Project)
 B --&gt; C(Domain)
 B --&gt; D(Group)
-</code></pre><p>graph LR;<br>　　A–&gt;B;<br>　　A–&gt;C;<br>　　B–&gt;D;<br>　　C–&gt;D; </p>
+</code></pre><p>graph LR;<br>　　A—&gt;B;<br>　　A—&gt;C;<br>　　B—&gt;D;<br>　　C—&gt;D; </p>
 <p>V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。</p>
 <p>域(Domain):比Project更高级的容器，云服务客服是Domain的拥有者，一个Domain可以创建多Project、Users、Groups和Roles。通过<br>Domain对所拥有的多个Project统一管理，不必对每个Project单独管理。</p>
 <p>组(Group):是一组User容器,通过给Group分配角色，在用一组的用户就有Group所有角色的权限</p>
@@ -497,8 +497,8 @@ B --&gt; D(Group)
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/20/openstack/Packstak集成安装(CentOS)/" rel="prev" title="Packstack集成安装(CentOS 7)">
-                Packstack集成安装(CentOS 7) <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/20/openstack/openStack集成安装/" rel="prev" title="openStack集成安装">
+                openStack集成安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1180,7 +1180,39 @@ B --&gt; D(Group)
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1198,18 +1230,8 @@ B --&gt; D(Group)
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

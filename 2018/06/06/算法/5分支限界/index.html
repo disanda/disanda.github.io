@@ -408,8 +408,8 @@
       
         <blockquote>
 <p>原创 进阶算法概述<br><a id="more"></a></p>
-</blockquote>
-<h1 id="五-回溯算法"><a href="#五-回溯算法" class="headerlink" title="五.回溯算法"></a>五.回溯算法</h1><h2 id="1-算法本质"><a href="#1-算法本质" class="headerlink" title="1.算法本质"></a>1.算法本质</h2><ul>
+<h1 id="五-回溯算法"><a href="#五-回溯算法" class="headerlink" title="五.回溯算法"></a>五.回溯算法</h1><h2 id="1-算法本质"><a href="#1-算法本质" class="headerlink" title="1.算法本质"></a>1.算法本质</h2></blockquote>
+<ul>
 <li><p>求解目标：回溯法的求解目标是找出解空间树中满足约束条件的所有解，而分支限界法的求解目标则是找出满足约束条件的一个解，或是在满足约束条件的解中找出在某种意义下的最优解。 </p>
 </li>
 <li><p>求解思路:在分支限界法中，每一个活结点只有一次机会成为扩展结点。活结点一旦成为扩展结点，就一次性产生其所有儿子结点。在这些儿子结点中，导致不可行解或导致非最优解的儿子结点被舍弃，其余儿子结点被加入活结点表中。<br>此后，从活结点表中取下一结点成为当前扩展结点，并重复上述结点扩展过程。这个过程一直持续到找到所需的解或活结点表为空时为止</p>
@@ -481,8 +481,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/30/Python/8.正则表达式/" rel="next" title="8.正则表达式">
-                <i class="fa fa-chevron-left"></i> 8.正则表达式
+              <a href="/2018/06/06/算法/1分冶算法/" rel="next" title="一.分冶算法">
+                <i class="fa fa-chevron-left"></i> 一.分冶算法
               </a>
             
           </div>
@@ -491,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/06/算法/1分冶算法/" rel="prev" title="一.分冶算法">
-                一.分冶算法 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/06/算法/2动态规划/" rel="prev" title="二.动态规划">
+                二.动态规划 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1174,7 +1174,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1192,18 +1224,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

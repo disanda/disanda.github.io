@@ -408,10 +408,10 @@
       
         <blockquote>
 <p>原创 进阶算法概述<br><a id="more"></a></p>
-</blockquote>
 <h1 id="二-动态规划"><a href="#二-动态规划" class="headerlink" title="二.动态规划"></a>二.动态规划</h1><h2 id="1-算法本质"><a href="#1-算法本质" class="headerlink" title="1.算法本质"></a>1.算法本质</h2><ul>
 <li>状态</li>
 </ul>
+</blockquote>
 <p>一个方程，用于表述问题的(1-n)通向公式，可以是求解过程中一个开始或一个结果</p>
 <ul>
 <li>状态转移方程</li>
@@ -448,8 +448,7 @@
 <ul>
 <li>转移方程</li>
 </ul>
-<p><code>$d(i,v)=min_{i\epsilon{v}}\{d(k,v)+c_{ki}\}$</code></p>
-<ul>
+<script type="math/tex; mode=display">d(i,v)=min_{i\epsilon{v}}\{d(k,v)+c_{ki}\}</script><ul>
 <li>代码</li>
 </ul>
 <figure class="highlight lisp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">for(<span class="name">int</span> j=1<span class="comment">;j&lt;1&lt;&lt;(n-1);j++)&#123;</span></span><br><span class="line">            for(<span class="name">int</span> i=1<span class="comment">;i&lt;n;i++)&#123;    //j用二进制表示的城市集合</span></span><br><span class="line">                    if(((<span class="number">1</span>&lt;&lt;(<span class="name">i-1</span>))<span class="symbol">&amp;j</span>)==0)&#123;         //i不在j表示的城市集合中</span><br><span class="line"></span><br><span class="line">                        minDis=60000<span class="comment">;</span></span><br><span class="line">                        for(<span class="name">int</span> k=1<span class="comment">;k&lt;n;k++)&#123;</span></span><br><span class="line">                        if(((<span class="number">1</span>&lt;&lt;(<span class="name">k-1</span>))<span class="symbol">&amp;j</span>)!=0)  &#123;//k表示的城市在j表示的城市集合中</span><br><span class="line"></span><br><span class="line">                        temp=dis[i][k]+d[k][j-(<span class="number">1</span>&lt;&lt;(<span class="name">k-1</span>))]<span class="comment">;</span></span><br><span class="line">                        if(<span class="name">temp&lt;minDis</span>)&#123;</span><br><span class="line">                            minDis=temp<span class="comment">;   //所有k中最小的距离</span></span><br><span class="line">                        &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                    d[i][j]=minDis<span class="comment">;</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
@@ -518,8 +517,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/06/算法/4回溯算法/" rel="next" title="四.回溯算法">
-                <i class="fa fa-chevron-left"></i> 四.回溯算法
+              <a href="/2018/06/06/算法/5分支限界/" rel="next" title="五.分支限界">
+                <i class="fa fa-chevron-left"></i> 五.分支限界
               </a>
             
           </div>
@@ -1211,7 +1210,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1229,18 +1260,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

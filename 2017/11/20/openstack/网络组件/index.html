@@ -436,6 +436,7 @@
 <p>跟传统的物理交换机相比，虚拟交换机同样具备众多优点，一是配置更加灵活。一台普通的服务器可以配置出数十台甚至上百台虚拟交换机，且端口数目可以灵活选择。</p>
 <p>例如，VMware的ESX一台服务器可以仿真出248台虚拟交换机，且每台交换机预设虚拟端口即可达56个；二是成本更加低廉，通过虚拟交换往往可以获得昂贵的普通交换机才能达到的性能</p>
 <p>OpenvSmitch需要访问的表：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -549,6 +550,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="Neutron-结构图"><a href="#Neutron-结构图" class="headerlink" title="Neutron 结构图"></a>Neutron 结构图</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/gA67oJejvJbbywjxTJ24LAR1RsGQ.1kQ2FJZACZ48wo!/b/dOAAAAAAAAAA&amp;bo=1gOAAgAAAAADAHI!&amp;rf=viewer_4" alt="image"></p>
 <h2 id="ovs-amp-ovn"><a href="#ovs-amp-ovn" class="headerlink" title="ovs &amp; ovn"></a>ovs &amp; ovn</h2><p><a href="http://blog.csdn.net/cusor/article/details/18213977" target="_blank" rel="noopener">http://blog.csdn.net/cusor/article/details/18213977</a></p>
 
@@ -610,8 +612,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/11/20/openstack/openStack集成安装/" rel="next" title="openStack集成安装">
-                <i class="fa fa-chevron-left"></i> openStack集成安装
+              <a href="/2017/11/20/openstack/Packstak集成安装(CentOS)/" rel="next" title="Packstack集成安装(CentOS 7)">
+                <i class="fa fa-chevron-left"></i> Packstack集成安装(CentOS 7)
               </a>
             
           </div>
@@ -1303,7 +1305,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1321,18 +1355,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

@@ -410,7 +410,7 @@
 <p>Python 简易爬虫<br><a id="more"></a></p>
 </blockquote>
 <h2 id="1-爬整个网页"><a href="#1-爬整个网页" class="headerlink" title="1.爬整个网页"></a>1.爬整个网页</h2><ul>
-<li>一个网址字符串，ex：’<a href="http://www.baidu.com&#39;" target="_blank" rel="noopener">http://www.baidu.com&#39;</a></li>
+<li>一个网址字符串，ex：’<a href="http://www.baidu.com" target="_blank" rel="noopener">http://www.baidu.com</a>‘</li>
 <li>向网站发出请求：把字符串传入request对象()</li>
 <li>把请求返回的信息赋值到变量response</li>
 <li>写入txt文件</li>
@@ -420,22 +420,25 @@
 <p>load(url)函数,通过url传递网页爬取网页内容<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">import urllib.request</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load</span><span class="params">(url)</span></span><span class="symbol">:</span></span><br><span class="line">    req = urllib.request.Request(url)</span><br><span class="line">    <span class="comment">#豆瓣评论的网址</span></span><br><span class="line">    res = urllib.request.urlopen(req)</span><br><span class="line">    html = res.read()</span><br><span class="line">    <span class="keyword">return</span> html</span><br><span class="line"><span class="string">``</span><span class="string">` </span></span><br><span class="line"><span class="string">&gt;write(html,txt)函数，将html内容存至txt文件中</span></span><br></pre></td></tr></table></figure></p>
 </blockquote>
 <p>def write(html,t):<br>    f = open(t,’wb’)<br>    f.write(html)<br>    f.close()<br><figure class="highlight crystal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt;spider(url,<span class="keyword">begin</span>,<span class="keyword">end</span>)函数，爬取指定页数的评论</span><br><span class="line"></span><br><span class="line">其中</span><br><span class="line"><span class="symbol">https:</span>/<span class="regexp">/movie.douban.com/subject</span><span class="regexp">/24773958/comments</span>?start=<span class="number">0</span>&amp;limit=<span class="number">20</span>&amp;sort=new_score&amp;status=P&amp;percent_type=为短评首页</span><br></pre></td></tr></table></figure></p>
-<p>def spider(url,begin,end):<br>    for i in range(begin,end+1):<br>        20*(i-1)<br>        the_url=’<a href="https://movie.douban.com/subject/24773958/comments?start=&#39;+str(i)+&#39;&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=&#39;" target="_blank" rel="noopener">https://movie.douban.com/subject/24773958/comments?start=&#39;+str(i)+&#39;&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=&#39;</a><br>        html = load(the_url)<br>        t = str(i)+’.html’<br>        write(html,t)<br>        print(‘已保存第%d页’%i)</p>
+<p>def spider(url,begin,end):<br>    for i in range(begin,end+1):<br>        20*(i-1)<br>        the_url=’<a href="https://movie.douban.com/subject/24773958/comments?start=&#39;+str(i)+&#39;&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=" target="_blank" rel="noopener">https://movie.douban.com/subject/24773958/comments?start=&#39;+str(i)+&#39;&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=</a>‘<br>        html = load(the_url)<br>        t = str(i)+’.html’<br>        write(html,t)<br>        print(‘已保存第%d页’%i)</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;</span><span class="bash">正则表达式爬取评论内容</span></span><br></pre></td></tr></table></figure>
-<p class=""><br>结局简直丧出天际！灭霸竟然有内心戏！<br>全程下来美队和钢铁侠也没见上一面，<br>我还以为在世界末日前必然要重修旧好了！<br></p>
+<p class=""> 
+结局简直丧出天际！灭霸竟然有内心戏！
+全程下来美队和钢铁侠也没见上一面，
+我还以为在世界末日前必然要重修旧好了！
+</p>
 
-<p>#正则表达式为<br>‘</p><p class="">(.*?)</p>‘<p></p>
+<h1 id="正则表达式为"><a href="#正则表达式为" class="headerlink" title="正则表达式为"></a>正则表达式为</h1><p>‘</p><p class="">(.*?)</p>‘<p></p>
 <h1 id="改写load"><a href="#改写load" class="headerlink" title="改写load()"></a>改写load()</h1><p>import urllib.request<br>import re<br>def load(url):<br>    req = urllib.request.Request(url)</p>
 <pre><code>#豆瓣评论的网址
 res = urllib.request.urlopen(req)
 html = res.read() #二进制文件
-html = html.decode(&apos;utf-8&apos;) #解码,该方法返回解码后的字符串。 
-pattern = re.compile(&apos;&lt;p class=&quot;&quot;&gt;(.*?)&lt;/div&gt;&apos;)
+html = html.decode(&#39;utf-8&#39;) #解码,该方法返回解码后的字符串。 
+pattern = re.compile(&#39;&lt;p class=&quot;&quot;&gt;(.*?)&lt;/div&gt;&#39;)
 list = pattern.findall(html)
 return list
 </code></pre><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">&gt;命令行操作</span><br></pre></td></tr></table></figure>
-<p>#有中文输出输入时需加下行的编码</p>
-<h1 id="coding-utf-8"><a href="#coding-utf-8" class="headerlink" title="-- coding: utf-8 --"></a>-<em>- coding: utf-8 -</em>-</h1><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = input(‘请输入网址:’)<br>    begin = int(input(‘请输入起始页:’))<br>    end = int(input(‘请输入终止页:’))<br>    spider(url,begin,end)<br><code>`</code></p>
+<h1 id="有中文输出输入时需加下行的编码"><a href="#有中文输出输入时需加下行的编码" class="headerlink" title="有中文输出输入时需加下行的编码"></a>有中文输出输入时需加下行的编码</h1><h1 id="coding-utf-8"><a href="#coding-utf-8" class="headerlink" title="-- coding: utf-8 --"></a>-<em>- coding: utf-8 -</em>-</h1><p>if <strong>name</strong> == ‘<strong>main</strong>‘:<br>    url = input(‘请输入网址:’)<br>    begin = int(input(‘请输入起始页:’))<br>    end = int(input(‘请输入终止页:’))<br>    spider(url,begin,end)<br>```</p>
 
       
     </div>
@@ -495,8 +498,8 @@ return list
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/21/Python/5.面向对象-2/" rel="next" title="5.面向对象">
-                <i class="fa fa-chevron-left"></i> 5.面向对象
+              <a href="/2018/09/21/Python/6. 类的系统成员(内置属性)/" rel="next" title="6.类的系统成员">
+                <i class="fa fa-chevron-left"></i> 6.类的系统成员
               </a>
             
           </div>
@@ -659,7 +662,7 @@ return list
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-爬整个网页"><span class="nav-number">1.</span> <span class="nav-text">1.爬整个网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-爬取豆瓣短评"><span class="nav-number">2.</span> <span class="nav-text">2.爬取豆瓣短评</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#改写load"><span class="nav-number"></span> <span class="nav-text">改写load()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-utf-8"><span class="nav-number"></span> <span class="nav-text">-- coding: utf-8 --</span></a></li></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-爬整个网页"><span class="nav-number">1.</span> <span class="nav-text">1.爬整个网页</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-爬取豆瓣短评"><span class="nav-number">2.</span> <span class="nav-text">2.爬取豆瓣短评</span></a></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式为"><span class="nav-number"></span> <span class="nav-text">正则表达式为</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#改写load"><span class="nav-number"></span> <span class="nav-text">改写load()</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#有中文输出输入时需加下行的编码"><span class="nav-number"></span> <span class="nav-text">有中文输出输入时需加下行的编码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#coding-utf-8"><span class="nav-number"></span> <span class="nav-text">-- coding: utf-8 --</span></a></li></div>
             
 
           </div>
@@ -1188,7 +1191,39 @@ return list
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1206,18 +1241,8 @@ return list
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

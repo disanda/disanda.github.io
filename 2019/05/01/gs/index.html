@@ -86,17 +86,17 @@
 
 
 
-<meta name="description" content="1y=\frac &amp;#123;1&amp;#125; &amp;#123;1+e^&amp;#123;-z&amp;#125;&amp;#125; $$y=\frac {1} {1+e^{-z}}$$ 当\(\Delta\)&amp;gt;0时">
+<meta name="description" content="y=\frac {1} {1+e^{-z}}当\(\Delta\)&amp;gt;0时  BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{a">
 <meta property="og:type" content="article">
 <meta property="og:title" content="公式">
 <meta property="og:url" content="http://yoursite.com/2019/05/01/gs/index.html">
 <meta property="og:site_name" content="owl&#39;s blog">
-<meta property="og:description" content="1y=\frac &amp;#123;1&amp;#125; &amp;#123;1+e^&amp;#123;-z&amp;#125;&amp;#125; $$y=\frac {1} {1+e^{-z}}$$ 当\(\Delta\)&amp;gt;0时">
+<meta property="og:description" content="y=\frac {1} {1+e^{-z}}当\(\Delta\)&amp;gt;0时  BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-19T04:01:06.512Z">
+<meta property="og:updated_time" content="2019-05-19T13:10:43.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="公式">
-<meta name="twitter:description" content="1y=\frac &amp;#123;1&amp;#125; &amp;#123;1+e^&amp;#123;-z&amp;#125;&amp;#125; $$y=\frac {1} {1+e^{-z}}$$ 当\(\Delta\)&amp;gt;0时">
+<meta name="twitter:description" content="y=\frac {1} {1+e^{-z}}当\(\Delta\)&amp;gt;0时  BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{a">
 
 
 
@@ -405,12 +405,17 @@
       
 
       
-        <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
-
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">y=\frac &#123;1&#125; &#123;1+e^&#123;-z&#125;&#125;</span><br></pre></td></tr></table></figure>
-<p>$$y=\frac {1} {1+e^{-z}}$$</p>
-<p>当\(\Delta\)&gt;0时</p>
+        <script type="math/tex; mode=display">y=\frac {1} {1+e^{-z}}</script><p>当\(\Delta\)&gt;0时</p>
+<hr>
+<p><strong>BP算法</strong></p>
+<p>训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$</p>
+<p>设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$</p>
+<p>$\begin{array}{l}{\text {For } i=1 \text { to } m}\end{array}$</p>
+<script type="math/tex; mode=display">
+\begin{array}{l}{\text { Set } a^{(1)}=x^{(i)}} \\ {\text { Perform forward propagation to compute } a^{(l)} \text { for } l=2,3, \ldots, L} \\ {\text { Using } y^{(i)}, \text { compute } \delta^{(L)}=a^{(L)}-y^{(i)}} \\ {\text { Compute } \delta^{(L-1)}, \delta^{(l+1)}, \ldots, \delta^{(2)}} \\ {\Delta_{i j}^{(l)} :=\Delta_{i j}^{(l)}+a_{j}^{(l)} \delta_{i}^{(l+1)}}\end{array}</script><p>$\begin{array}{l}{D<em>{i j}^{(l)} :=\frac{1}{m} \Delta</em>{i j}^{(l)}+\lambda \Theta<em>{i j}^{(l)}} &amp; {\text { if } j \neq 0} \ {D</em>{i j}^{(l)} :=\frac{1}{m} \Delta_{i j}^{(l)}} &amp; {\text { if } j=0}\end{array}$</p>
+<p>其中    $\frac{\partial}{\partial \Theta<em>{i j}^{(l)}} J(\Theta)=D</em>{i j}^{(l)}$</p>
+<hr>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span>y=\<span class="built-in">frac</span> &#123;<span class="number">1</span>&#125; &#123;<span class="number">1</span>+e^&#123;-z&#125;&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1128,7 +1133,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1146,18 +1183,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 

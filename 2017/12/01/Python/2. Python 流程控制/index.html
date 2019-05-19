@@ -410,8 +410,6 @@
 <a id="more"></a>
 <h2 id="2-1-简介"><a href="#2-1-简介" class="headerlink" title="2.1 简介"></a>2.1 简介</h2><blockquote>
 <p>流程控制指程序设计中语言<em>最基础</em>的运行流程,主要包括三种结构，顺序结构，分支结构，循环结构。</p>
-</blockquote>
-<blockquote>
 <p>每种结构的实现语句在所有编程语言中都大致相同，主要是分支结构的if判断语句，和循环结构的while语句和for语句。</p>
 </blockquote>
 <ul>
@@ -436,8 +434,6 @@
 <figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 示例</span><br><span class="line"><span class="built_in">var1</span> = <span class="number">100</span></span><br><span class="line"><span class="keyword">if</span> <span class="built_in">var1</span>&gt;<span class="number">100</span>:</span><br><span class="line">   <span class="built_in">print</span> (<span class="string">"1 - if 表达式条件为 true"</span>)</span><br><span class="line">   <span class="built_in">print</span> (<span class="built_in">var1</span>)</span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">   <span class="built_in">print</span>(<span class="built_in">var1</span>+<span class="string">"&lt;100"</span>)</span><br></pre></td></tr></table></figure>
 <h2 id="2-3-while语句"><a href="#2-3-while语句" class="headerlink" title="2.3 while语句"></a>2.3 while语句</h2><h3 id="2-3-1-while循环"><a href="#2-3-1-while循环" class="headerlink" title="2.3.1 while循环"></a>2.3.1 while循环</h3><blockquote>
 <p>循环是重复执行某一段代码的程序语句，一般通过条件判断的结果执行循环，当条件为true时执行循环，当条件为false时循环结束。</p>
-</blockquote>
-<blockquote>
 <p>python中没有do..while循环</p>
 </blockquote>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 公式</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">while 判断语句：</span><br><span class="line">    判断成立就执行循环语句</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"><span class="keyword">while</span>惯例是提前定义一个变量，用于执行<span class="keyword">while</span>的判断，并在循环语句中改变这个变量,以便判断语句能在循环一定次数后停止</span></span><br></pre></td></tr></table></figure>
@@ -512,8 +508,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/12/01/数据结构&基础算法/二叉树/" rel="next" title="二叉树&相关算法">
-                <i class="fa fa-chevron-left"></i> 二叉树&相关算法
+              <a href="/2017/12/01/Python/1.Python变量(包含1.1和1.2)/" rel="next" title="1.Python变量">
+                <i class="fa fa-chevron-left"></i> 1.Python变量
               </a>
             
           </div>
@@ -522,8 +518,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/01/Python/1.Python变量(包含1.1和1.2)/" rel="prev" title="1.Python变量">
-                1.Python变量 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/02/Python/3. 函数/" rel="prev" title="3. Python函数">
+                3. Python函数 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -1205,7 +1201,39 @@
         onPopupClose();
       }
     });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1223,18 +1251,8 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-
-
-
-
-
   
 
-  
-
-  
-
-  
 
   
 
