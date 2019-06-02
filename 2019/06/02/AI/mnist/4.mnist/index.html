@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="MNIST,图片识别,">
 
 
 
@@ -86,20 +86,18 @@
 
 
 
-<meta name="description" content="y=\frac {1} {1+e^{-z}}  当\(\Delta\)&amp;gt;0时 BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{">
+<meta name="description" content="该模型是TF书中97页的改进版，来源于CSDN,模型使用tf框架的范围管理scope技术来优化参数设定，最终准确率为0.984">
+<meta name="keywords" content="MNIST,图片识别">
 <meta property="og:type" content="article">
-<meta property="og:title" content="公式">
-<meta property="og:url" content="http://yoursite.com/2019/05/01/gs/index.html">
+<meta property="og:title" content="MNIST 4.改进的cnn模型">
+<meta property="og:url" content="http://yoursite.com/2019/06/02/AI/mnist/4.mnist/index.html">
 <meta property="og:site_name" content="owl&#39;s blog">
-<meta property="og:description" content="y=\frac {1} {1+e^{-z}}  当\(\Delta\)&amp;gt;0时 BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{">
+<meta property="og:description" content="该模型是TF书中97页的改进版，来源于CSDN,模型使用tf框架的范围管理scope技术来优化参数设定，最终准确率为0.984">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://www.forkosh.com/mathtex.cgi?y=\frac {1} {1+e^{-z}}">
-<meta property="og:image" content="http://chart.googleapis.com/chart?cht=tx&chl={y=\frac {1} {1+e^{-z}}}">
-<meta property="og:updated_time" content="2019-05-19T13:19:49.581Z">
+<meta property="og:updated_time" content="2019-06-02T15:20:14.256Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="公式">
-<meta name="twitter:description" content="y=\frac {1} {1+e^{-z}}  当\(\Delta\)&amp;gt;0时 BP算法 训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$ 设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$ $\begin{">
-<meta name="twitter:image" content="http://www.forkosh.com/mathtex.cgi?y=\frac {1} {1+e^{-z}}">
+<meta name="twitter:title" content="MNIST 4.改进的cnn模型">
+<meta name="twitter:description" content="该模型是TF书中97页的改进版，来源于CSDN,模型使用tf框架的范围管理scope技术来优化参数设定，最终准确率为0.984">
 
 
 
@@ -129,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/05/01/gs/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/02/AI/mnist/4.mnist/">
 
 
 
 
 
-  <title>公式 | owl's blog</title>
+  <title>MNIST 4.改进的cnn模型 | owl's blog</title>
   
 
 
@@ -314,7 +312,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/01/gs/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/AI/mnist/4.mnist/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="disanda">
@@ -331,7 +329,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">公式</h1>
+          <h1 class="post-title" itemprop="name headline">MNIST 4.改进的cnn模型</h1>
         
 
         <div class="post-meta">
@@ -343,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-01T10:20:05+08:00">
-                2019-05-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T23:10:06+08:00">
+                2019-06-02
               </time>
             
 
@@ -366,8 +364,8 @@
               
               
                 <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/前端/" itemprop="url" rel="index">
-                    <span itemprop="name">前端</span>
+                  <a href="/categories/AI/" itemprop="url" rel="index">
+                    <span itemprop="name">AI</span>
                   </a>
                 </span>
 
@@ -408,17 +406,19 @@
       
 
       
-        <script type="math/tex; mode=display">y=\frac {1} {1+e^{-z}}</script><p><img src="http://www.forkosh.com/mathtex.cgi?y=\frac {1} {1+e^{-z}}"></p>
-<p><img src="http://chart.googleapis.com/chart?cht=tx&chl={y=\frac {1} {1+e^{-z}}}" style="border:none;"></p>
-<p>当\(\Delta\)&gt;0时</p>
-<p><strong>BP算法</strong></p>
-<p>训练集    $\left{\left(x^{(1)}, y^{(1)}\right), \ldots,\left(x^{(m)}, y^{(m)}\right)\right}$</p>
-<p>设    $\Delta_{i j}^{(l)}=0(\text { for all } l, i, j)$</p>
-<p>$\begin{array}{l}{\text {For } i=1 \text { to } m}\end{array}$</p>
-<script type="math/tex; mode=display">
-\begin{array}{l}{\text { Set } a^{(1)}=x^{(i)}} \\ {\text { Perform forward propagation to compute } a^{(l)} \text { for } l=2,3, \ldots, L} \\ {\text { Using } y^{(i)}, \text { compute } \delta^{(L)}=a^{(L)}-y^{(i)}} \\ {\text { Compute } \delta^{(L-1)}, \delta^{(l+1)}, \ldots, \delta^{(2)}} \\ {\Delta_{i j}^{(l)} :=\Delta_{i j}^{(l)}+a_{j}^{(l)} \delta_{i}^{(l+1)}}\end{array}</script><p>$\begin{array}{l}{D<em>{i j}^{(l)} :=\frac{1}{m} \Delta</em>{i j}^{(l)}+\lambda \Theta<em>{i j}^{(l)}} &amp; {\text { if } j \neq 0} \ {D</em>{i j}^{(l)} :=\frac{1}{m} \Delta_{i j}^{(l)}} &amp; {\text { if } j=0}\end{array}$</p>
-<p>其中    $\frac{\partial}{\partial \Theta<em>{i j}^{(l)}} J(\Theta)=D</em>{i j}^{(l)}$</p>
-<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="symbol">$</span><span class="symbol">$</span>y=\<span class="built-in">frac</span> &#123;<span class="number">1</span>&#125; &#123;<span class="number">1</span>+e^&#123;-z&#125;&#125;<span class="symbol">$</span><span class="symbol">$</span></span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>该模型是TF书中97页的改进版，来源于CSDN,模型使用<br>tf框架的范围管理scope技术来优化参数设定，最终准确率为0.984</p>
+</blockquote>
+<a id="more"></a>
+<p>这里主要引入较多参数来改进原有的cnn模型：</p>
+<ul>
+<li>使用激活函数去线性化</li>
+<li>使用隐藏层即加深层数以解决复杂问题</li>
+<li>使用学习率调整更新参数的频度</li>
+<li>使用滑动平均模型来调整模型结果</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 导入必要的库</span></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 下载数据，打印数据信息</span></span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">'/MNIST_data/'</span>, one_hot=<span class="keyword">True</span>)</span><br><span class="line">print(<span class="string">"Training data size: "</span>, mnist.train.num_examples)</span><br><span class="line">print(<span class="string">"Validating data size: "</span>, mnist.validation.num_examples)</span><br><span class="line">print(<span class="string">"Testing data size: "</span>, mnist.test.num_examples)</span><br><span class="line">print(<span class="string">"Example training data: "</span>, mnist.train.images[<span class="number">0</span>] )</span><br><span class="line">print(<span class="string">"Example training data label: "</span>, mnist.train.labels[<span class="number">0</span>])</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 声明全局变量</span></span><br><span class="line">INPUT_NODE = <span class="number">784</span>  <span class="comment"># 输入层节点数，图片是28*28*1的格式，每个像素点对应一个节点就是784</span></span><br><span class="line">OUTPUT_NODE = <span class="number">10</span>  <span class="comment"># 输出层节点数，0-9十个数字</span></span><br><span class="line"> </span><br><span class="line">LAYER1_NODE = <span class="number">500</span>  <span class="comment"># 第一个隐藏层的节点数</span></span><br><span class="line"> </span><br><span class="line">BATCH_SIZE = <span class="number">100</span>  <span class="comment"># batch的大小，越大训练过程越接近梯度下降，越小越接近随机梯度下降</span></span><br><span class="line"> </span><br><span class="line">LEARNING_RATE_BASE = <span class="number">0.8</span>  <span class="comment"># 基础的学习率</span></span><br><span class="line">LEARNING_RATE_DECAY = <span class="number">0.99</span>  <span class="comment"># 学习率的衰减值</span></span><br><span class="line"> </span><br><span class="line">REGULARIZATION_RATE = <span class="number">0.0001</span>  <span class="comment"># 正则化的λ系数</span></span><br><span class="line">TRAINING_STEPS = <span class="number">30000</span>  <span class="comment"># 训练的轮数</span></span><br><span class="line">MOVING_AVERAGE_DECAY = <span class="number">0.99</span>  <span class="comment"># 滑动平均衰减率</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_weight_variable</span><span class="params">(shape, regualrizer)</span>:</span></span><br><span class="line">    <span class="comment"># get_variable()获取这个参数的现有变量或创建一个新变量。获取的参数根据"name"指定</span></span><br><span class="line">    <span class="comment"># 生成的值服从具有指定平均值和标准偏差的正态分布，</span></span><br><span class="line">    <span class="comment"># 如果生成的值大于平均值2个标准偏差的值则丢弃重新选择。</span></span><br><span class="line">    <span class="comment"># stddev 要生成的随机值的标准偏差</span></span><br><span class="line">    weights = tf.get_variable(<span class="string">"weights"</span>, shape, </span><br><span class="line">                              initializer=tf.random_normal_initializer(stddev=<span class="number">0.1</span>))</span><br><span class="line">    <span class="keyword">if</span> regualrizer != <span class="keyword">None</span>:</span><br><span class="line">        <span class="comment"># 传入的参数regualrizer是一个函数</span></span><br><span class="line">        <span class="comment"># 如果定义了正则化函数（L1或者L2），则计算weights的正则化参数，并加入</span></span><br><span class="line">        <span class="comment"># 名为“losses”的集合</span></span><br><span class="line">        tf.add_to_collection(<span class="string">"losses"</span>, regualrizer(weights))</span><br><span class="line">    <span class="keyword">return</span> weights</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">inference</span><span class="params">(x, regularizer)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    辅助函数，给定神经网络的输入和所有参数，计算向前传播的结果</span></span><br><span class="line"><span class="string">    定义了一个relu激活的三层全连接网络(输入层，隐藏层，输出层)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="comment"># variable_scope()用于定义创建变量（层）的操作的上下文管理器。此上下文管理器验证（可选）的</span></span><br><span class="line">    <span class="comment"># values来自同一图形，确保图形是默认图形，并推送名称范围和变量范围</span></span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">'layer1'</span>, reuse = <span class="keyword">False</span>):</span><br><span class="line">        weights = get_weight_variable([INPUT_NODE, LAYER1_NODE], regularizer)</span><br><span class="line">        biases = tf.get_variable(<span class="string">"biases"</span>, [LAYER1_NODE], </span><br><span class="line">                                 initializer=tf.constant_initializer(<span class="number">0.0</span>))</span><br><span class="line">        layer1 = tf.nn.relu(tf.matmul(x, weights) + biases)</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">'layer2'</span>, reuse = <span class="keyword">False</span>):</span><br><span class="line">        weights = get_weight_variable([LAYER1_NODE, OUTPUT_NODE], regularizer)</span><br><span class="line">        biases = tf.get_variable(<span class="string">"biases"</span>, [OUTPUT_NODE], </span><br><span class="line">                                 initializer=tf.constant_initializer(<span class="number">0.0</span>))</span><br><span class="line">        layer2 = tf.matmul(layer1, weights) + biases</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">return</span> layer2</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">train</span><span class="params">(mnist)</span>:</span></span><br><span class="line">    <span class="string">"""训练模型"""</span></span><br><span class="line">    x = tf.placeholder(tf.float32, shape=[<span class="keyword">None</span>, INPUT_NODE], name=<span class="string">"x-input"</span>)</span><br><span class="line">    y_ = tf.placeholder(tf.float32, shape=[<span class="keyword">None</span>, OUTPUT_NODE], name=<span class="string">"y-input"</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 定义正则化的函数</span></span><br><span class="line">    regularizer = tf.contrib.layers.l2_regularizer(REGULARIZATION_RATE)</span><br><span class="line">    <span class="comment"># 向前传播求出y</span></span><br><span class="line">    y = inference(x, regularizer)</span><br><span class="line">    <span class="comment"># 定义训练的轮数，需要用trainable=False参数指定不训练这个变量，</span></span><br><span class="line">    <span class="comment"># 这样同时也可以避免这个变量被计算滑动平均值</span></span><br><span class="line">    global_step = tf.Variable(<span class="number">0</span>, trainable=<span class="keyword">False</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 给定滑动平均衰减速率和训练轮数，初始化滑动平均类</span></span><br><span class="line">    variable_averages = tf.train.ExponentialMovingAverage(MOVING_AVERAGE_DECAY,</span><br><span class="line">                                                          global_step)</span><br><span class="line">    <span class="comment"># 用tf.trainable_variable()获取所有可以训练的变量列表，全部使用滑动平均</span></span><br><span class="line">    variables_averages_op = variable_averages.apply(tf.trainable_variables())</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 定义损失函数</span></span><br><span class="line">    <span class="comment"># 因为标准答案是一个长度为10的一维数组，argmax可以从这个矩阵（y_）的轴为1的部分取最大值的序号</span></span><br><span class="line">    <span class="comment"># 在sparse_softmax_cross_entropy_with_logits()中，要将原来为one-hot形式的labels</span></span><br><span class="line">    <span class="comment"># 转换为数字标签[1],[2],...的格式。</span></span><br><span class="line">    <span class="comment"># tf.argmax(Y,asix)，axis = 0 或 1，分别表示按列或按行返回最大值的序号。</span></span><br><span class="line">    cross_entropy = tf.nn.sparse_softmax_cross_entropy_with_logits(logits=y,</span><br><span class="line">                                                                   labels=tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">    <span class="comment"># 获取总损失平均值</span></span><br><span class="line">    cross_entropy_mean = tf.reduce_mean(cross_entropy)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 给损失加上正则化的损失</span></span><br><span class="line">    <span class="comment"># 使用get_collection获取losses集合的全部值的列表，然后用add_n求列表的所有值的和</span></span><br><span class="line">    loss = cross_entropy_mean + tf.add_n(tf.get_collection(<span class="string">"losses"</span>))</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 求加上指数衰减的学习率</span></span><br><span class="line">    learning_rate = tf.train.exponential_decay(</span><br><span class="line">        LEARNING_RATE_BASE,</span><br><span class="line">        global_step,</span><br><span class="line">        mnist.train.num_examples / BATCH_SIZE,</span><br><span class="line">        LEARNING_RATE_DECAY,</span><br><span class="line">        staircase = <span class="keyword">True</span></span><br><span class="line">    )</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 优化损失函数</span></span><br><span class="line">    <span class="comment"># global_step初始值为0，在loss更新后会+1，用来记录更新的次数</span></span><br><span class="line">    <span class="comment"># 返回值是训练之后的梯度，会随着global_step递增</span></span><br><span class="line">    train_step = tf.train.GradientDescentOptimizer(</span><br><span class="line">        learning_rate).minimize(loss, global_step=global_step)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># 反向传播更新参数之后需要更新每一个参数的滑动平均值，用下面的代码可以一次完成这两个操作</span></span><br><span class="line">    <span class="comment"># train_step计算所有参数的梯度，variables_averages_op对所有参数进行滑动平均（利用train_step）</span></span><br><span class="line">    <span class="keyword">with</span> tf.control_dependencies([train_step, variables_averages_op]):</span><br><span class="line">        train_op = tf.no_op(name=<span class="string">"train"</span>)</span><br><span class="line"> </span><br><span class="line">    <span class="comment"># y是计算得出的预测答案，而y_是正确答案，用argmax获取答案的序号（也即是数字的值）</span></span><br><span class="line">    <span class="comment"># equal()判断两个答案是否相等，是就返回True，否就返回False</span></span><br><span class="line">    correct_prediction = tf.equal(tf.argmax(y, <span class="number">1</span>), tf.argmax(y_, <span class="number">1</span>))</span><br><span class="line">    <span class="comment"># cast()把一个布尔类型的数转换为实数，然后用reduce_mean计算平均值，获取准确率</span></span><br><span class="line">    accuracy = tf.reduce_mean(tf.cast(correct_prediction, tf.float32))</span><br><span class="line"> </span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        <span class="comment"># 初始化全局变量</span></span><br><span class="line">        tf.global_variables_initializer().run()</span><br><span class="line">        </span><br><span class="line">        validate_feed = &#123;x: mnist.validation.images, y_: mnist.validation.labels&#125;</span><br><span class="line">        test_feed = &#123;x: mnist.test.images, y_: mnist.test.labels&#125;</span><br><span class="line">        <span class="comment"># 开始迭代</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(TRAINING_STEPS):</span><br><span class="line">            xs, ys = mnist.train.next_batch(BATCH_SIZE)</span><br><span class="line">            sess.run(train_op, feed_dict=&#123;x:xs, y_:ys&#125;)</span><br><span class="line"> </span><br><span class="line">            <span class="comment"># tensorflow的数据集特有的一种batch_size获取方法</span></span><br><span class="line">            <span class="keyword">if</span> i % <span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">                <span class="comment"># 获取计算之后的loss和global_step</span></span><br><span class="line">                validate_acc = sess.run(accuracy, feed_dict=validate_feed)</span><br><span class="line">                print(<span class="string">"After %d traing times, validate accuracy using average model is %g"</span></span><br><span class="line">                     % (i, validate_acc)) </span><br><span class="line"> </span><br><span class="line">        <span class="comment"># 使用模型训练测试集，获取最终的准确率</span></span><br><span class="line">        test_acc = sess.run(accuracy, feed_dict=test_feed)</span><br><span class="line">        print(<span class="string">"After %d traing times, test accuracy using average model is %g"</span> </span><br><span class="line">              % (TRAINING_STEPS, test_acc))</span><br><span class="line"> </span><br><span class="line"><span class="comment"># 主函数定义</span></span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(argv=None)</span>:</span></span><br><span class="line">    tf.reset_default_graph()</span><br><span class="line">    mnist = input_data.read_data_sets(<span class="string">'/MNIST_data/'</span>, one_hot=<span class="keyword">True</span>)</span><br><span class="line">    train(mnist)</span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+<p>参考文献：<a href="https://blog.csdn.net/lovefreewind/article/d" target="_blank" rel="noopener">https://blog.csdn.net/lovefreewind/article/d</a></p>
 
       
     </div>
@@ -463,6 +463,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/MNIST/" rel="tag"># MNIST</a>
+          
+            <a href="/tags/图片识别/" rel="tag"># 图片识别</a>
+          
+        </div>
+      
 
       
       
@@ -472,8 +480,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/09/26/爬虫/1. 爬虫 1/" rel="next" title="爬虫教程1 爬虫基础">
-                <i class="fa fa-chevron-left"></i> 爬虫教程1 爬虫基础
+              <a href="/2018/09/26/爬虫/2.爬虫2/" rel="next" title="爬虫教程2 框架爬虫">
+                <i class="fa fa-chevron-left"></i> 爬虫教程2 框架爬虫
               </a>
             
           </div>
@@ -481,6 +489,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/02/AI/mnist/1.mnist/" rel="prev" title="MNIST 1.简介&可视化">
+                MNIST 1.简介&可视化 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -552,7 +564,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">44</span>
+                  <span class="site-state-item-count">49</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -563,7 +575,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">11</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -574,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1136,39 +1148,7 @@
         onPopupClose();
       }
     });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1186,8 +1166,18 @@
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
+
+
+
+
+
   
 
+  
+
+  
+
+  
 
   
 
