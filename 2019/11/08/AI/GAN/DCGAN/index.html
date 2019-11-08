@@ -86,13 +86,13 @@
 
 
 
-<meta name="description" content="DCGAN1.什么是GANGAN是一个框架，让深度模型可以学习到数据的分布，从而通过数据的分布生成新的数据(服从同一分布)。 其由一个判别器和一个生成器构成，生成器负责生成“仿造数据”，判别器负责判断“仿造数据”的质量。两者一起进化，导致造假货和识别假货的两个模型G/D都能有超强的造假和识别假货的能力。 最终训练达到类似纳什均衡的平衡状态，就是分辨器已经分辨不出真假，其分别真假的成功率只有50%">
+<meta name="description" content="DCGAN">
 <meta name="keywords" content="GAN,AI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="DCGAN的PyTorch实现">
 <meta property="og:url" content="http://yoursite.com/2019/11/08/AI/GAN/DCGAN/index.html">
 <meta property="og:site_name" content="owl&#39;s blog">
-<meta property="og:description" content="DCGAN1.什么是GANGAN是一个框架，让深度模型可以学习到数据的分布，从而通过数据的分布生成新的数据(服从同一分布)。 其由一个判别器和一个生成器构成，生成器负责生成“仿造数据”，判别器负责判断“仿造数据”的质量。两者一起进化，导致造假货和识别假货的两个模型G/D都能有超强的造假和识别假货的能力。 最终训练达到类似纳什均衡的平衡状态，就是分辨器已经分辨不出真假，其分别真假的成功率只有50%">
+<meta property="og:description" content="DCGAN">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MZOG6J.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MZOOA0.jpg">
@@ -100,10 +100,10 @@
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MZXiH1.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MZXZ9O.jpg">
 <meta property="og:image" content="https://s2.ax1x.com/2019/11/08/MZLqJO.jpg">
-<meta property="og:updated_time" content="2019-11-08T16:36:26.812Z">
+<meta property="og:updated_time" content="2019-11-08T16:54:19.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="DCGAN的PyTorch实现">
-<meta name="twitter:description" content="DCGAN1.什么是GANGAN是一个框架，让深度模型可以学习到数据的分布，从而通过数据的分布生成新的数据(服从同一分布)。 其由一个判别器和一个生成器构成，生成器负责生成“仿造数据”，判别器负责判断“仿造数据”的质量。两者一起进化，导致造假货和识别假货的两个模型G/D都能有超强的造假和识别假货的能力。 最终训练达到类似纳什均衡的平衡状态，就是分辨器已经分辨不出真假，其分别真假的成功率只有50%">
+<meta name="twitter:description" content="DCGAN">
 <meta name="twitter:image" content="https://s2.ax1x.com/2019/11/08/MZOG6J.jpg">
 
 
@@ -424,8 +424,8 @@
       
 
       
-        <a id="more"></a>
-<h1 id="DCGAN"><a href="#DCGAN" class="headerlink" title="DCGAN"></a>DCGAN</h1><h2 id="1-什么是GAN"><a href="#1-什么是GAN" class="headerlink" title="1.什么是GAN"></a>1.什么是GAN</h2><p>GAN是一个框架，让深度模型可以学习到数据的分布，从而通过数据的分布生成新的数据(服从同一分布)。</p>
+        <h1 id="DCGAN"><a href="#DCGAN" class="headerlink" title="DCGAN"></a>DCGAN</h1><a id="more"></a>
+<h2 id="1-什么是GAN"><a href="#1-什么是GAN" class="headerlink" title="1.什么是GAN"></a>1.什么是GAN</h2><p>GAN是一个框架，让深度模型可以学习到数据的分布，从而通过数据的分布生成新的数据(服从同一分布)。</p>
 <p>其由一个判别器和一个生成器构成，生成器负责生成“仿造数据”，判别器负责判断“仿造数据”的质量。两者一起进化，导致造假货和识别假货的两个模型G/D都能有超强的造假和识别假货的能力。</p>
 <p>最终训练达到类似纳什均衡的平衡状态，就是分辨器已经分辨不出真假，其分别真假的成功率只有50%(和瞎猜没有区别)。</p>
 <p>假设原数据分布为x(可以是一张真实图片等多维数据)，判别器D(),随机变量Z，生成器为G()。D(x)生成一个标量代表x来自真实分布的概率。Z是一个随机噪声，G(Z)代表随机噪声Z(也称为隐空间向量)到真实分布P_data的映射。G(Z)的生成数据的概率分布记作P_G.</p>
