@@ -1,416 +1,109 @@
 <!DOCTYPE html>
-
-
-
+<html>
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
   
-
-
-<html class="theme-next mist use-motion" lang="zh-Hans">
-<head><meta name="generator" content="Hexo 3.8.0">
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
-
-
-
-  
-  
-    
-    
-  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-center-simple.min.css?v=1.0.2" rel="stylesheet">
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png?v=5.1.3">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png?v=5.1.3">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="图片识别,MNIST,">
-
-
-
-
-
-
-
-
-
-
-<meta name="description" content="1.简介MNIST 数据集来自美国国家标准与技术研究所, 是NIST(National Institute of Standards and Technology)的缩小版，训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员，测试集(test set) 也是同样比例的">
-<meta name="keywords" content="图片识别,MNIST">
+  <title>MNIST 1.简介&amp;可视化 | owl&#39;s blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="1.简介 MNIST 数据集来自美国国家标准与技术研究所, 是NIST(National Institute of Standards and Technology)的缩小版，训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员，测试集(test set) 也是同样比例">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MNIST 1.简介&amp;可视化">
 <meta property="og:url" content="http://yoursite.com/2019/06/02/AI/mnist/1.mnist/index.html">
 <meta property="og:site_name" content="owl&#39;s blog">
-<meta property="og:description" content="1.简介MNIST 数据集来自美国国家标准与技术研究所, 是NIST(National Institute of Standards and Technology)的缩小版，训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员，测试集(test set) 也是同样比例的">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zngT3kDSse*gvdD1Nls8nq6h8SJU56z7o9*Qgn5e6ek!/b/dMAAAAAAAAAA&bo=pAdiAwAAAAADB.A!&rf=viewer_4">
-<meta property="og:updated_time" content="2019-06-02T15:19:17.000Z">
+<meta property="og:description" content="1.简介 MNIST 数据集来自美国国家标准与技术研究所, 是NIST(National Institute of Standards and Technology)的缩小版，训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员，测试集(test set) 也是同样比例">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zngT3kDSse*gvdD1Nls8nq6h8SJU56z7o9*Qgn5e6ek!/b/dMAAAAAAAAAA&amp;bo=pAdiAwAAAAADB.A!&amp;rf=viewer_4">
+<meta property="article:published_time" content="2019-06-02T15:17:06.000Z">
+<meta property="article:modified_time" content="2019-06-02T15:19:17.000Z">
+<meta property="article:author" content="disanda">
+<meta property="article:tag" content="图片识别">
+<meta property="article:tag" content="MNIST">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MNIST 1.简介&amp;可视化">
-<meta name="twitter:description" content="1.简介MNIST 数据集来自美国国家标准与技术研究所, 是NIST(National Institute of Standards and Technology)的缩小版，训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员，测试集(test set) 也是同样比例的">
-<meta name="twitter:image" content="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zngT3kDSse*gvdD1Nls8nq6h8SJU56z7o9*Qgn5e6ek!/b/dMAAAAAAAAAA&bo=pAdiAwAAAAADB.A!&rf=viewer_4">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Mist',
-    version: '5.1.3',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2019/06/02/AI/mnist/1.mnist/">
-
-
-
-
-
-  <title>MNIST 1.简介&可视化 | owl's blog</title>
+<meta name="twitter:image" content="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zngT3kDSse*gvdD1Nls8nq6h8SJU56z7o9*Qgn5e6ek!/b/dMAAAAAAAAAA&amp;bo=pAdiAwAAAAADB.A!&amp;rf=viewer_4">
   
-
-
-
-
-
-  <script type="text/javascript">
-    var _hmt = _hmt || [];
-    (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?07a295c6ccb5a3cdd8e052d917407520";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-    })();
-  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
-
-
-
-
-</head>
-
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+    <link rel="alternate" href="/atom.xml" title="owl&#39;s blog" type="application/atom+xml">
   
   
-    
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
-    <div class="headband"></div>
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
 
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">owl's blog</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+<body>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">owl&#39;s blog</a>
+      </h1>
+      
     </div>
-      
-        <p class="site-subtitle">1111</p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
+          <a class="main-nav-link" href="/">Home</a>
         
-        <li class="menu-item menu-item-disanda">
-          <a href="/about/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            Disanda
-          </a>
-        </li>
-      
+          <a class="main-nav-link" href="/archives">Archives</a>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            Tags
-          </a>
-        </li>
-      
+      </nav>
+      <nav id="sub-nav">
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            Categories
-          </a>
-        </li>
-      
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
     </div>
   </div>
-  <div id="local-search-result"></div>
-</div>
-
-
-
-    </div>
-  
-</nav>
-
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
-            
-
-  <div id="posts" class="posts-expand">
+</header>
+      <div class="outer">
+        <section id="main"><article id="pages-AI/mnist/1.mnist" class="article article-type-pages" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/06/02/AI/mnist/1.mnist/" class="article-date">
+  <time datetime="2019-06-02T15:17:06.000Z" itemprop="datePublished">2019-06-02</time>
+</a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/AI/">AI</a>
+  </div>
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/AI/mnist/1.mnist/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="disanda">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/owl_2.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="owl's blog">
-    </span>
-
+  </div>
+  <div class="article-inner">
     
-      <header class="post-header">
-
+    
+      <header class="article-header">
         
-        
-          <h1 class="post-title" itemprop="name headline">MNIST 1.简介&可视化</h1>
-        
+  
+    <h1 class="article-title" itemprop="name">
+      MNIST 1.简介&amp;可视化
+    </h1>
+  
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-02T23:17:06+08:00">
-                2019-06-02
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/AI/" itemprop="url" rel="index">
-                    <span itemprop="name">AI</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-            <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>
-            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
-            </span>
-          
-
-          
-
-          
-
-        </div>
       </header>
     
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+    <div class="article-entry" itemprop="articleBody">
       
-      
-
-      
-        <h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><p>MNIST 数据集来自美国国家标准与技术研究所, 是NIST(National Institute of Standards and Technology)的缩小版，训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员，测试集(test set) 也是同样比例的手写数字数据.</p>
+        <h2 id="简介">1.简介</h2>
+<p>MNIST 数据集来自美国国家标准与技术研究所, 是NIST(National Institute of Standards and Technology)的缩小版，训练集 (training set) 由来自 250 个不同人手写的数字构成, 其中 50% 是高中学生, 50% 来自人口普查局 (the Census Bureau) 的工作人员，测试集(test set) 也是同样比例的手写数字数据.</p>
 <a id="more"></a>
-<p>MNIST 数据集可在 <a href="http://yann.lecun.com/exdb/mnist/" target="_blank" rel="noopener">http://yann.lecun.com/exdb/mnist/</a> 获取, 图片是以字节的形式进行存储，它包含了四个部分:</p>
+<p>MNIST 数据集可在 http://yann.lecun.com/exdb/mnist/ 获取, 图片是以字节的形式进行存储，它包含了四个部分:</p>
 <ul>
 <li>Training set images: train-images-idx3-ubyte.gz (9.9 MB, 解压后 47 MB, 包含 60,000 个样本)</li>
 <li>Training set labels: train-labels-idx1-ubyte.gz (29 KB, 解压后 60 KB, 包含 60,000 个标签)</li>
@@ -418,814 +111,176 @@
 <li>Test set labels: t10k-labels-idx1-ubyte.gz (5KB, 解压后 10 KB, 包含 10,000 个标签)</li>
 </ul>
 <p>此数据集中，训练样本：共60000个，其中55000个用于训练，另外5000个用于验证。测试样本：共10000个，验证数据比例相同。</p>
-<p>数据集中像素值<br>a）使用python读取二进制文件方法读取mnist数据集，则读进来的图像像素值为0-255之间；标签是0-9的数值。<br>b）采用TensorFlow的封装的函数读取mnist，则读进来的图像像素值为0-1之间；标签是0-1值组成的大小为1*10的行向量。</p>
-<h2 id="2-读取mnist到numpy"><a href="#2-读取mnist到numpy" class="headerlink" title="2.读取mnist到numpy"></a>2.读取mnist到numpy</h2><p>load_mnist 函数返回两个数组, 第一个是一个 n x m 维的 NumPy array(images), 这里的 n 是样本数(行数), m 是特征数(列数). 训练数据集包含 60,000 个样本, 测试数据集包含 10,000 样本.</p>
-<p>在 MNIST 数据集中的每张图片由 28 x 28 个像素点构成, 每个像素点用一个灰度值表示. 在这里, 我们将 28 x 28 的像素展开为一个一维的行向量, 这些行向量就是图片数组里的行(每行 784 个值, 或者说每行就是代表了一张图片). </p>
+<p>数据集中像素值 a）使用python读取二进制文件方法读取mnist数据集，则读进来的图像像素值为0-255之间；标签是0-9的数值。 b）采用TensorFlow的封装的函数读取mnist，则读进来的图像像素值为0-1之间；标签是0-1值组成的大小为1*10的行向量。</p>
+<h2 id="读取mnist到numpy">2.读取mnist到numpy</h2>
+<p>load_mnist 函数返回两个数组, 第一个是一个 n x m 维的 NumPy array(images), 这里的 n 是样本数(行数), m 是特征数(列数). 训练数据集包含 60,000 个样本, 测试数据集包含 10,000 样本.</p>
+<p>在 MNIST 数据集中的每张图片由 28 x 28 个像素点构成, 每个像素点用一个灰度值表示. 在这里, 我们将 28 x 28 的像素展开为一个一维的行向量, 这些行向量就是图片数组里的行(每行 784 个值, 或者说每行就是代表了一张图片).</p>
 <p>load_mnist 函数返回的第二个数组(labels) 包含了相应的目标变量, 也就是手写数字的类标签(整数 0-9).</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">mport os</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_mnist</span><span class="params">(path, kind=<span class="string">'train'</span>)</span>:</span></span><br><span class="line">    <span class="string">"""Load MNIST data from `path`"""</span></span><br><span class="line">    labels_path = os.path.join(path,<span class="string">'%s-labels-idx1-ubyte'</span>% kind)</span><br><span class="line">    </span><br><span class="line">    images_path = os.path.join(path,<span class="string">'%s-images-idx3-ubyte'</span>% kind)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> open(labels_path, <span class="string">'rb'</span>) <span class="keyword">as</span> lbpath:</span><br><span class="line">        magic, n = struct.unpack(<span class="string">'&gt;II'</span>,lbpath.read(<span class="number">8</span>))</span><br><span class="line">        labels = np.fromfile(lbpath,dtype=np.uint8)</span><br><span class="line">    <span class="comment">#读入magic是一个文件协议的描述,也是调用fromfile 方法将字节读入NumPy的array之前在文件缓冲中的item数(n). </span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    <span class="keyword">with</span> open(images_path, <span class="string">'rb'</span>) <span class="keyword">as</span> imgpath:</span><br><span class="line">        magic, num, rows, cols = struct.unpack(<span class="string">'&gt;IIII'</span>,imgpath.read(<span class="number">16</span>))</span><br><span class="line">        images = np.fromfile(imgpath,dtype=np.uint8).reshape(len(labels), <span class="number">784</span>)</span><br><span class="line">    <span class="keyword">return</span> images, labels</span><br></pre></td></tr></table></figure>
-<figure class="highlight erlang"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.</span><br><span class="line">&gt;这是指大端(用来定义字节是如何存储的，关于大小端, 更多内容可见&lt;&lt;深入理解计算机系统 – <span class="number">2.1</span> 节信息存储&gt;&gt;)</span><br><span class="line"><span class="number">2</span>.</span><br><span class="line">I: 这是指一个无符号整数.</span><br></pre></td></tr></table></figure>
-<h2 id="3-查看tensorflow集成的mnist"><a href="#3-查看tensorflow集成的mnist" class="headerlink" title="3.查看tensorflow集成的mnist"></a>3.查看tensorflow集成的mnist</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line">minit = input_data.read_data_sets(<span class="string">"../MNIST_data"</span>)</span><br><span class="line"><span class="comment">#如果该路径没有会自动下载</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Training data size"</span>,minit.train.num_examples)</span><br><span class="line"><span class="comment">#训练数据</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Training data size"</span>,minit.validatation.num_examples)</span><br><span class="line"><span class="comment">#验证数据</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Training data size"</span>,minit.test.num_examples)</span><br><span class="line"><span class="comment">#测试数据</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">"Example training data size"</span>,minit.train.image[<span class="number">0</span>])</span><br><span class="line"><span class="comment">#样例训练数据</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span>（“Example training data label”,minist.train.labels[<span class="number">0</span>]）</span><br><span class="line"><span class="comment">#样例训练数据标签 </span></span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">100</span></span><br><span class="line">x,y = mnist.train.next_batch(batch_size)</span><br><span class="line">print(<span class="string">'x shape:'</span>,x.shape)</span><br><span class="line">print(<span class="string">'y shape:'</span>,y.shape)</span><br></pre></td></tr></table></figure>
-<h2 id="4-可视化"><a href="#4-可视化" class="headerlink" title="4.可视化"></a>4.可视化</h2><h3 id="4-1-plt的方法"><a href="#4-1-plt的方法" class="headerlink" title="4.1 plt的方法"></a>4.1 plt的方法</h3><p> 从 feature matrix 中将 784-像素值 的向量 reshape 为之前的 28*28 的形状, 然后通过 matplotlib 的 imshow 函数进行绘制,不能进行one-hot编码:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">mport os</span><br><span class="line"><span class="keyword">import</span> struct</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_mnist</span>(<span class="params">path, kind=<span class="string">&#x27;train&#x27;</span></span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;Load MNIST data from `path`&quot;&quot;&quot;</span></span><br><span class="line">    labels_path = os.path.join(path,<span class="string">&#x27;%s-labels-idx1-ubyte&#x27;</span>% kind)</span><br><span class="line">    </span><br><span class="line">    images_path = os.path.join(path,<span class="string">&#x27;%s-images-idx3-ubyte&#x27;</span>% kind)</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(labels_path, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> lbpath:</span><br><span class="line">        magic, n = struct.unpack(<span class="string">&#x27;&gt;II&#x27;</span>,lbpath.read(<span class="number">8</span>))</span><br><span class="line">        labels = np.fromfile(lbpath,dtype=np.uint8)</span><br><span class="line">    <span class="comment">#读入magic是一个文件协议的描述,也是调用fromfile 方法将字节读入NumPy的array之前在文件缓冲中的item数(n). </span></span><br><span class="line"> </span><br><span class="line"> </span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(images_path, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> imgpath:</span><br><span class="line">        magic, num, rows, cols = struct.unpack(<span class="string">&#x27;&gt;IIII&#x27;</span>,imgpath.read(<span class="number">16</span>))</span><br><span class="line">        images = np.fromfile(imgpath,dtype=np.uint8).reshape(<span class="built_in">len</span>(labels), <span class="number">784</span>)</span><br><span class="line">    <span class="keyword">return</span> images, labels</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span><span class="string">.</span></span><br><span class="line"><span class="string">&gt;这是指大端(用来定义字节是如何存储的，关于大小端,</span> <span class="string">更多内容可见&lt;&lt;深入理解计算机系统</span> <span class="string">–</span> <span class="number">2.1</span> <span class="string">节信息存储&gt;&gt;)</span></span><br><span class="line"><span class="number">2</span><span class="string">.</span></span><br><span class="line"><span class="attr">I:</span> <span class="string">这是指一个无符号整数.</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="查看tensorflow集成的mnist">3.查看tensorflow集成的mnist</h2>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line">minit = input_data.read_data_sets(<span class="string">&quot;../MNIST_data&quot;</span>)</span><br><span class="line"><span class="comment">#如果该路径没有会自动下载</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;Training data size&quot;</span>,minit.train.num_examples)</span><br><span class="line"><span class="comment">#训练数据</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;Training data size&quot;</span>,minit.validatation.num_examples)</span><br><span class="line"><span class="comment">#验证数据</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;Training data size&quot;</span>,minit.test.num_examples)</span><br><span class="line"><span class="comment">#测试数据</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">&quot;Example training data size&quot;</span>,minit.train.image[<span class="number">0</span>])</span><br><span class="line"><span class="comment">#样例训练数据</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>（“Example training data label”,minist.train.labels[<span class="number">0</span>]）</span><br><span class="line"><span class="comment">#样例训练数据标签 </span></span><br><span class="line"></span><br><span class="line">batch_size = <span class="number">100</span></span><br><span class="line">x,y = mnist.train.next_batch(batch_size)</span><br><span class="line">print(<span class="string">&#x27;x shape:&#x27;</span>,x.shape)</span><br><span class="line">print(<span class="string">&#x27;y shape:&#x27;</span>,y.shape)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="可视化">4.可视化</h2>
+<h3 id="plt的方法">4.1 plt的方法</h3>
+<p>从 feature matrix 中将 784-像素值 的向量 reshape 为之前的 28*28 的形状, 然后通过 matplotlib 的 imshow 函数进行绘制,不能进行one-hot编码:</p>
 <ul>
-<li><p>读单个图片</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"> </span><br><span class="line"><span class="comment">#from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets</span></span><br><span class="line"><span class="comment">#mnist = read_data_sets('MNIST_data', one_hot=False)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">"./MNIST_data"</span>,one_hot=<span class="keyword">False</span>)</span><br><span class="line">x, y = mnist.test.next_batch(<span class="number">1</span>)</span><br><span class="line">x = x.reshape([<span class="number">28</span>, <span class="number">28</span>])</span><br><span class="line"> </span><br><span class="line">fig = plt.figure()</span><br><span class="line"><span class="comment"># Method1 </span></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">221</span>)</span><br><span class="line">ax1.imshow(x, cmap=plt.cm.gray)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Method2: 反转色</span></span><br><span class="line">ax2 = fig.add_subplot(<span class="number">222</span>)</span><br><span class="line">ax2.imshow(x, cmap=plt.cm.gray_r) <span class="comment"># r表示reverse</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Method3（等价于Method1）</span></span><br><span class="line">ax3 = fig.add_subplot(<span class="number">223</span>)</span><br><span class="line">ax3.imshow(x, cmap=<span class="string">'gray'</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Method4（等价于Method2）</span></span><br><span class="line">ax4 = fig.add_subplot(<span class="number">224</span>)</span><br><span class="line">ax4.imshow(x, cmap=<span class="string">'gray_r'</span>)</span><br><span class="line"> </span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>读多个图片</p>
-</li>
+<li>读单个图片 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"> </span><br><span class="line"><span class="comment">#from tensorflow.contrib.learn.python.learn.datasets.mnist import read_data_sets</span></span><br><span class="line"><span class="comment">#mnist = read_data_sets(&#x27;MNIST_data&#x27;, one_hot=False)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">&quot;./MNIST_data&quot;</span>,one_hot=<span class="literal">False</span>)</span><br><span class="line">x, y = mnist.test.next_batch(<span class="number">1</span>)</span><br><span class="line">x = x.reshape([<span class="number">28</span>, <span class="number">28</span>])</span><br><span class="line"> </span><br><span class="line">fig = plt.figure()</span><br><span class="line"><span class="comment"># Method1 </span></span><br><span class="line">ax1 = fig.add_subplot(<span class="number">221</span>)</span><br><span class="line">ax1.imshow(x, cmap=plt.cm.gray)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Method2: 反转色</span></span><br><span class="line">ax2 = fig.add_subplot(<span class="number">222</span>)</span><br><span class="line">ax2.imshow(x, cmap=plt.cm.gray_r) <span class="comment"># r表示reverse</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># Method3（等价于Method1）</span></span><br><span class="line">ax3 = fig.add_subplot(<span class="number">223</span>)</span><br><span class="line">ax3.imshow(x, cmap=<span class="string">&#x27;gray&#x27;</span>)</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Method4（等价于Method2）</span></span><br><span class="line">ax4 = fig.add_subplot(<span class="number">224</span>)</span><br><span class="line">ax4.imshow(x, cmap=<span class="string">&#x27;gray_r&#x27;</span>)</span><br><span class="line"> </span><br><span class="line">plt.show() </span><br></pre></td></tr></table></figure></li>
+<li>读多个图片</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">"./MNIST_data"</span>,one_hot=<span class="keyword">False</span>)</span><br><span class="line"> </span><br><span class="line">fig, ax_big = plt.subplots()</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">100</span>): <span class="comment">#读一百张</span></span><br><span class="line">	x,y = mnist.test.next_batch(<span class="number">1</span>)</span><br><span class="line">	x = x.reshape([<span class="number">28</span>,<span class="number">28</span>])</span><br><span class="line">	ax = fig.add_subplot(<span class="number">10</span>,<span class="number">10</span>,i+<span class="number">1</span>) <span class="comment">#10行10列</span></span><br><span class="line">	ax.imshow(x, cmap=plt.cm.gray)</span><br><span class="line">	ax.set_xticks([])              </span><br><span class="line">	ax.set_yticks([])</span><br><span class="line">	<span class="comment">#隐藏子图坐标轴刻度</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax_big.set_xticks([])                                   </span><br><span class="line"><span class="comment"># 隐藏坐标轴刻度</span></span><br><span class="line">ax_big.set_yticks([])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"><span class="comment">#plt.savefig("路径.png", dpi=150)</span></span><br></pre></td></tr></table></figure>
-<h3 id="4-2-torchvision-amp-scipy方法"><a href="#4-2-torchvision-amp-scipy方法" class="headerlink" title="4.2 torchvision&amp;scipy方法"></a>4.2 torchvision&amp;scipy方法</h3><p>其实数据集里的图片就是一个带有像素值的二维数组，可以画出这个数组的库有很多。包括<a href="https://baijiahao.baidu.com/s?id=1625418330981941428&amp;wfr=spider&amp;for=pc" target="_blank" rel="noopener">机器学习库torch</a>，其中的torchvision也可以。具体方法如下:</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision   </span><br><span class="line"><span class="keyword">import</span> torch.utils.data <span class="keyword">as</span> Data </span><br><span class="line"><span class="keyword">import</span> scipy.misc</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">DOWNLOAD_MNIST = <span class="keyword">True</span> </span><br><span class="line"></span><br><span class="line">train_data = torchvision.datasets.MNIST(root=<span class="string">'./MNIST_data2/'</span>,train=<span class="keyword">True</span>,transform=torchvision.transforms.ToTensor(),download=DOWNLOAD_MNIST)</span><br><span class="line"></span><br><span class="line"><span class="comment">#把原始图片保存至MNIST_data/raw/下</span></span><br><span class="line">save_dir=<span class="string">"mnist/raw/"</span></span><br><span class="line"><span class="keyword">if</span> os.path.exists(save_dir) <span class="keyword">is</span> <span class="keyword">False</span>:</span><br><span class="line">    os.makedirs(save_dir)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">20</span>):</span><br><span class="line">    image_array,_=train_data[i]<span class="comment">#打印第i个</span></span><br><span class="line">    image_array=image_array.resize(<span class="number">28</span>,<span class="number">28</span>)</span><br><span class="line">    filename=save_dir + <span class="string">'mnist_train_%d.jpg'</span> % i<span class="comment">#保存文件的格式</span></span><br><span class="line">    print(filename)</span><br><span class="line">    print(train_data.train_labels[i])<span class="comment">#打印出标签</span></span><br><span class="line">    scipy.misc.toimage(image_array,cmin=<span class="number">0.0</span>,cmax=<span class="number">1.0</span>).save(filename)<span class="comment">#保存图像</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">&quot;./MNIST_data&quot;</span>,one_hot=<span class="literal">False</span>)</span><br><span class="line"> </span><br><span class="line">fig, ax_big = plt.subplots()</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>): <span class="comment">#读一百张</span></span><br><span class="line">	x,y = mnist.test.next_batch(<span class="number">1</span>)</span><br><span class="line">	x = x.reshape([<span class="number">28</span>,<span class="number">28</span>])</span><br><span class="line">	ax = fig.add_subplot(<span class="number">10</span>,<span class="number">10</span>,i+<span class="number">1</span>) <span class="comment">#10行10列</span></span><br><span class="line">	ax.imshow(x, cmap=plt.cm.gray)</span><br><span class="line">	ax.set_xticks([])              </span><br><span class="line">	ax.set_yticks([])</span><br><span class="line">	<span class="comment">#隐藏子图坐标轴刻度</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ax_big.set_xticks([])                                   </span><br><span class="line"><span class="comment"># 隐藏坐标轴刻度</span></span><br><span class="line">ax_big.set_yticks([])</span><br><span class="line"></span><br><span class="line">plt.show()</span><br><span class="line"><span class="comment">#plt.savefig(&quot;路径.png&quot;, dpi=150)</span></span><br></pre></td></tr></table></figure>
+<h3 id="torchvisionscipy方法">4.2 torchvision&amp;scipy方法</h3>
+<p>其实数据集里的图片就是一个带有像素值的二维数组，可以画出这个数组的库有很多。包括<a target="_blank" rel="noopener" href="https://baijiahao.baidu.com/s?id=1625418330981941428&amp;wfr=spider&amp;for=pc">机器学习库torch</a>，其中的torchvision也可以。具体方法如下:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> torchvision   </span><br><span class="line"><span class="keyword">import</span> torch.utils.data <span class="keyword">as</span> Data </span><br><span class="line"><span class="keyword">import</span> scipy.misc</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">DOWNLOAD_MNIST = <span class="literal">True</span> </span><br><span class="line"></span><br><span class="line">train_data = torchvision.datasets.MNIST(root=<span class="string">&#x27;./MNIST_data2/&#x27;</span>,train=<span class="literal">True</span>,transform=torchvision.transforms.ToTensor(),download=DOWNLOAD_MNIST)</span><br><span class="line"></span><br><span class="line"><span class="comment">#把原始图片保存至MNIST_data/raw/下</span></span><br><span class="line">save_dir=<span class="string">&quot;mnist/raw/&quot;</span></span><br><span class="line"><span class="keyword">if</span> os.path.exists(save_dir) <span class="keyword">is</span> <span class="literal">False</span>:</span><br><span class="line">    os.makedirs(save_dir)</span><br><span class="line">    </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">20</span>):</span><br><span class="line">    image_array,_=train_data[i]<span class="comment">#打印第i个</span></span><br><span class="line">    image_array=image_array.resize(<span class="number">28</span>,<span class="number">28</span>)</span><br><span class="line">    filename=save_dir + <span class="string">&#x27;mnist_train_%d.jpg&#x27;</span> % i<span class="comment">#保存文件的格式</span></span><br><span class="line">    print(filename)</span><br><span class="line">    print(train_data.train_labels[i])<span class="comment">#打印出标签</span></span><br><span class="line">    scipy.misc.toimage(image_array,cmin=<span class="number">0.0</span>,cmax=<span class="number">1.0</span>).save(filename)<span class="comment">#保存图像</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <p>结果输出如下：</p>
-<p><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zngT3kDSse*gvdD1Nls8nq6h8SJU56z7o9*Qgn5e6ek!/b/dMAAAAAAAAAA&amp;bo=pAdiAwAAAAADB.A!&amp;rf=viewer_4" alt="image"></p>
+<figure>
+<img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zngT3kDSse*gvdD1Nls8nq6h8SJU56z7o9*Qgn5e6ek!/b/dMAAAAAAAAAA&amp;bo=pAdiAwAAAAADB.A!&amp;rf=viewer_4" alt="image" /><figcaption>image</figcaption>
+</figure>
 
       
     </div>
-    
-    
-    
-
-    
-
-    
-      <div>
-        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
-  <div>Donate comment here</div>
-  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
-    <span>打赏</span>
-  </button>
-  <div id="QR" style="display: none;">
-
-    
-      <div id="wechat" style="display: inline-block">
-        <img id="wechat_qr" src="http://m.qpic.cn/psb?/V13eBt6k40tVED/X1LLGmg.J.7mrcAoVWl8XY0pqUEGQPPgrMOabh*Und0!/b/dLgAAAAAAAAA&bo=OAQ4BAAAAAARBzA!&rf=viewer_4" alt="disanda 微信支付">
-        <p>微信支付</p>
-      </div>
-    
-
-    
-      <div id="alipay" style="display: inline-block">
-        <img id="alipay_qr" src="http://m.qpic.cn/psb?/V13eBt6k40tVED/jmWAh2ZbaEH4.C69wWshCiS*SnMRLXKrELfvh705IzE!/b/dFMBAAAAAAAA&bo=hANGBQAAAAARF.Q!&rf=viewer_4" alt="disanda 支付宝">
-        <p>支付宝</p>
-      </div>
-    
-
-    
-
-  </div>
-</div>
-
-      </div>
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/图片识别/" rel="tag"># 图片识别</a>
-          
-            <a href="/tags/MNIST/" rel="tag"># MNIST</a>
-          
-        </div>
-      
-
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2019/06/02/AI/mnist/1.mnist/" data-id="ckzv1upzz00490albg9to9vqv" class="article-share-link">Share</a>
       
       
-      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MNIST/" rel="tag">MNIST</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" rel="tag">图片识别</a></li></ul>
 
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/06/02/AI/mnist/3.mnist/" rel="next" title="MNIST 3.cnn实现">
-                <i class="fa fa-chevron-left"></i> MNIST 3.cnn实现
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/02/AI/cifar/1.cifar/" rel="prev" title="CIFAR 1.简介&可视化">
-                CIFAR 1.简介&可视化 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
     </footer>
   </div>
   
-  
-  
-  </article>
-
-
-
-    <div class="post-spread">
-      
-    </div>
-  </div>
-
-
-          </div>
-          
-
-
-          
-  
-    <div class="comments" id="comments">
-      <div id="vcomments"></div>
-    </div>
-  
-
-
-        </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
-    </div>
-  </div>
-
-  <aside id="sidebar" class="sidebar">
     
-    <div class="sidebar-inner">
+<nav id="article-nav">
+  
+    <a href="/2019/06/02/AI/cifar/1.cifar/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          CIFAR 1.简介&amp;可视化
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/02/AI/mnist/2.mnist/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">MNIST 2.最简单的识别模型</div>
+    </a>
+  
+</nav>
 
-      
+  
+</article>
 
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/GAN/">GAN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django%E6%A1%86%E6%9E%B6/">Django框架</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python%E6%95%99%E7%A8%8B/">Python教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python%E7%88%AC%E8%99%AB/">Python爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openstack/">openstack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sql/">sql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80/">高数基础</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CIFAR/" rel="tag">CIFAR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/" rel="tag">GAN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD/" rel="tag">MD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MNIST/" rel="tag">MNIST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" rel="tag">云平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" rel="tag">图片识别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6-AI/" rel="tag">计算框架(AI)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%B0/" rel="tag">高数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E8%81%8C%E6%95%99%E8%82%B2/" rel="tag">高职教育</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/CIFAR/" style="font-size: 10px;">CIFAR</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/MD/" style="font-size: 10px;">MD</a> <a href="/tags/MNIST/" style="font-size: 14.29px;">MNIST</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/sql/" style="font-size: 11.43px;">sql</a> <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" style="font-size: 18.57px;">云平台</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 15.71px;">公式</a> <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" style="font-size: 15.71px;">图片识别</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 10px;">基础算法</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 17.14px;">生活</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 17.14px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6-AI/" style="font-size: 10px;">计算框架(AI)</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 10px;">运动</a> <a href="/tags/%E9%AB%98%E6%95%B0/" style="font-size: 15.71px;">高数</a> <a href="/tags/%E9%AB%98%E8%81%8C%E6%95%99%E8%82%B2/" style="font-size: 10px;">高职教育</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">三月 2011</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2022/02/20/%E6%97%A5%E8%AE%B0/%E6%97%A0%E7%A7%91%E7%A0%94%E4%B8%8D%E6%B1%9F%E6%B9%96/">无学术, 不江湖</a>
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
+        
+          <li>
+            <a href="/2020/02/01/%E6%97%A5%E8%AE%B0/%E6%95%85%E5%9C%9F%E9%98%B3%E5%85%89/">故土阳光，启蒙众生__致2020</a>
           </li>
-        </ul>
-      
-
-      <section class="site-overview-wrap sidebar-panel">
-        <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-            
-              <img class="site-author-image" itemprop="image" src="/images/owl_2.png" alt="disanda">
-            
-              <p class="site-author-name" itemprop="name">disanda</p>
-              <p class="site-description motion-element" itemprop="description">正义会迟到，但不会缺席</p>
-          </div>
-
-          <nav class="site-state motion-element">
-
-            
-              <div class="site-state-item site-state-posts">
-              
-                <a href="/archives">
-              
-                  <span class="site-state-item-count">51</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">12</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-              
-              
-              <div class="site-state-item site-state-tags">
-                <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
-                  <span class="site-state-item-name">标签</span>
-                </a>
-              </div>
-            
-
-          </nav>
-
-          
-
-          <div class="links-of-author motion-element">
-            
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/disanda" target="_blank" title="GitHub">
-                    
-                      <i class="fa fa-fw fa-github"></i>GitHub</a>
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="mailto:77249920@qq.com" target="_blank" title="E-Mail">
-                    
-                      <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-                </span>
-              
-            
-          </div>
-
-          
-          
-
-          
-          
-
-          
-
-        </div>
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-简介"><span class="nav-number">1.</span> <span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-读取mnist到numpy"><span class="nav-number">2.</span> <span class="nav-text">2.读取mnist到numpy</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-查看tensorflow集成的mnist"><span class="nav-number">3.</span> <span class="nav-text">3.查看tensorflow集成的mnist</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-可视化"><span class="nav-number">4.</span> <span class="nav-text">4.可视化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#4-1-plt的方法"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 plt的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-2-torchvision-amp-scipy方法"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 torchvision&amp;scipy方法</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+        
+          <li>
+            <a href="/2019/11/08/AI/GAN/DCGAN/">DCGAN的PyTorch实现</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/02/AI/tf/1.tf/">TensorFlow 1.简介</a>
+          </li>
+        
+          <li>
+            <a href="/2019/06/02/AI/cifar/1.cifar/">CIFAR 1.简介&amp;可视化</a>
+          </li>
+        
+      </ul>
     </div>
-  </aside>
-
-
-        
-      </div>
-    </main>
-
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">disanda</span>
-
-  
-</div>
-
-<!--
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a> v5.1.3</div>
-
--->
-
-
-
-        
-<div class="busuanzi-count">
-  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-
-  
-    <span class="site-uv">
-      <i class="fa fa-user"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      
-    </span>
-  
-
-  
-    <span class="site-pv">
-      <i class="fa fa-eye"></i>
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      
-    </span>
-  
-</div>
-
-
-
-
-
-
-
-
-        
-      </div>
-    </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
-
   </div>
 
   
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2022 disanda<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
-</script>
-
-
-
-
-
-
-
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
   
-
-
-
-
-
-
-
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
 
   
-  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
 
 
 
 
+<script src="/js/script.js"></script>
 
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
 
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/three.min.js"></script>
-
-  
-  <script type="text/javascript" src="/lib/three/canvas_sphere.min.js"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
-
-
-
-  
-  
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
-  <script src="//cdn.jsdelivr.net/npm/valine@1.1.4/dist/Valine.min.js"></script>
-  <script type="text/javascript">
-    new Valine({
-        av: AV,
-        el: '#vcomments' ,
-        verify: false,
-        notify: false,
-        app_id: 'i46dWT60EL56MI3xwXmwS6Cp-gzGzoHsz',
-        app_key: 'xMLimEsWC5dHOpJg3YTbl7co',
-        placeholder: '可在此给disanda评论或留言'
-    });
-  </script>
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-
+  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
