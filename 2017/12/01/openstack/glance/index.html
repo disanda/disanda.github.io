@@ -1,10 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  
-  <title>glance | owl&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
   <meta name="description" content="openstack教程系列">
 <meta property="og:type" content="article">
 <meta property="og:title" content="glance">
@@ -12,281 +27,564 @@
 <meta property="og:site_name" content="owl&#39;s blog">
 <meta property="og:description" content="openstack教程系列">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://a1.qpic.cn/psb?/V13eBt6k40tVED/dEK6tsptlAqmWn1L7YrT9iHEc66k*N8EiJrzIaLyt60!/b/dPMAAAAAAAAA&amp;bo=sARyAgAAAAADB.Y!&amp;rf=viewer_4">
+<meta property="og:image" content="http://a1.qpic.cn/psb?/V13eBt6k40tVED/dEK6tsptlAqmWn1L7YrT9iHEc66k*N8EiJrzIaLyt60!/b/dPMAAAAAAAAA&bo=sARyAgAAAAADB.Y!&rf=viewer_4">
 <meta property="article:published_time" content="2017-12-01T05:16:06.000Z">
 <meta property="article:modified_time" content="2017-12-01T07:29:13.000Z">
 <meta property="article:author" content="disanda">
 <meta property="article:tag" content="云平台">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://a1.qpic.cn/psb?/V13eBt6k40tVED/dEK6tsptlAqmWn1L7YrT9iHEc66k*N8EiJrzIaLyt60!/b/dPMAAAAAAAAA&amp;bo=sARyAgAAAAADB.Y!&amp;rf=viewer_4">
-  
-    <link rel="alternate" href="/atom.xml" title="owl&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="http://a1.qpic.cn/psb?/V13eBt6k40tVED/dEK6tsptlAqmWn1L7YrT9iHEc66k*N8EiJrzIaLyt60!/b/dPMAAAAAAAAA&bo=sARyAgAAAAADB.Y!&rf=viewer_4">
 
+<link rel="canonical" href="http://yoursite.com/2017/12/01/openstack/glance/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>glance | owl's blog</title>
   
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07a295c6ccb5a3cdd8e052d917407520";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
-<body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">owl&#39;s blog</a>
-      </h1>
-      
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">owl's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">1111</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="pages-openstack/glance" class="article article-type-pages" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2017/12/01/openstack/glance/" class="article-date">
-  <time datetime="2017-12-01T05:16:06.000Z" itemprop="datePublished">2017-12-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/openstack/">openstack</a>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-disanda">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>Disanda</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
   </div>
 
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
-  <div class="article-inner">
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
     
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      glance
-    </h1>
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/12/01/openstack/glance/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="正义会迟到，但不会缺席">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          glance
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2017-12-01 13:16:06 / 修改时间：15:29:13" itemprop="dateCreated datePublished" datetime="2017-12-01T13:16:06+08:00">2017-12-01</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/openstack/" itemprop="url" rel="index"><span itemprop="name">openstack</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2017/12/01/openstack/glance/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2017/12/01/openstack/glance/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
-        <p>openstack教程系列 <a id="more"></a></p>
-<h1 id="glance">glance</h1>
-<p>OpenStack Image Service（Glance）是IaaS的核心组件</p>
-<h2 id="简介">1.简介</h2>
-<ul>
-<li><p>openstack目的是为用户创建<strong>一定配置需求</strong>的虚拟机</p></li>
-<li><p>openstack用<strong>image</strong>创建以及重构虚拟机</p></li>
-<li><p>openstack允许用户upload一定数量的image供创建虚拟机使用，至于image的数量，则有用户相关的tenant的quota来限定。</p></li>
+        <p>openstack教程系列</p>
+<span id="more"></span>
+
+<h1 id="glance"><a href="#glance" class="headerlink" title="glance"></a>glance</h1><p>OpenStack Image Service（Glance）是IaaS的核心组件</p>
+<h2 id="1-简介"><a href="#1-简介" class="headerlink" title="1.简介"></a>1.简介</h2><ul>
+<li><p>openstack目的是为用户创建<strong>一定配置需求</strong>的虚拟机</p>
+</li>
+<li><p>openstack用<strong>image</strong>创建以及重构虚拟机</p>
+</li>
+<li><p>openstack允许用户upload一定数量的image供创建虚拟机使用，至于image的数量，则有用户相关的tenant的quota来限定。</p>
+</li>
 </ul>
-<h2 id="镜像状态">2.镜像状态</h2>
-<ul>
-<li><p>quewed :镜像的初始化状态</p></li>
-<li><p>saving ：数据上传的中间状态</p></li>
-<li><p>active ：镜像上传成功后的状态</p></li>
+<h2 id="2-镜像状态"><a href="#2-镜像状态" class="headerlink" title="2.镜像状态"></a>2.镜像状态</h2><ul>
+<li><p>quewed<br>:镜像的初始化状态</p>
+</li>
+<li><p>saving<br>：数据上传的中间状态</p>
+</li>
+<li><p>active<br>：镜像上传成功后的状态</p>
+</li>
 </ul>
-<p>-killed :错误镜像的状态，镜像不可读</p>
-<p>-deleted ：镜像不可用，且在一定时间后自动清空，类似“回收站”的文件</p>
-<h2 id="对比进程状态">3.对比进程状态</h2>
-<h3 id="进程线程">3.1 进程&amp;线程</h3>
-<ul>
-<li><p><strong>进程（process）</strong> 和 <strong>线程（thread）</strong> 是操作系统的基本概念</p></li>
-<li>计算机的核心是CPU，它承担了所有的计算任务。就像一座工厂，时刻在运行。</li>
-<li>假定工厂的电力有限，一次只能供给一个车间使用。也就是说，一个车间开工的时候，其他车间都必须停工。背后的含义就是，单个CPU一次只能运行一个任务。</li>
-<li><strong>进程</strong>就好比工厂的车间，它代表CPU所能处理的单个任务。任一时刻，CPU总是运行一个进程，其他进程处于非运行状态。</li>
-<li><p>一个车间里，可以有很多工人。他们协同完成一个任务。<strong>线程</strong>就好比车间里的工人。一个进程可以包括多个线程。</p></li>
-<li><p>车间的空间是工人们共享的，比如许多房间是每个工人都可以进出的。这象征一个进程的内存空间是共享的，<strong>每个线程都可以使用这些共享内存</strong>。 #### 相关知识</p></li>
-<li><strong>CPU中，进程是资源的最小单位，线程是执行的最小单位</strong></li>
-<li>一个线程使用某一共享内存时，其他线程必须等它结束，才能使用这一块内存。</li>
-<li>一个防止共享内存使用出错的方法。是上锁，先用的线程上锁，后面的线程排队，等锁打开再进去。这就叫<strong>&quot;互斥锁&quot;（Mutual exclusion，缩写 Mutex）</strong>，防止多个线程同时读写某一块内存区域。</li>
-<li><p>线程池与上面的原理类似，只能同时n个线程使用，大于n的在后面排队。这时的解决方法，就是在门口挂n把钥匙。进去的人就取一把钥匙，出来时再把钥匙挂回原处。后到的人发现钥匙架空了，就知道必须在门口排队等着了。这种做法叫做 <strong>&quot;信号量&quot;（Semaphore）</strong>，用来保证多个线程不会互相冲突。</p></li>
+<p>-killed<br>:错误镜像的状态，镜像不可读</p>
+<p>-deleted<br>：镜像不可用，且在一定时间后自动清空，类似“回收站”的文件</p>
+<h2 id="3-对比进程状态"><a href="#3-对比进程状态" class="headerlink" title="3.对比进程状态"></a>3.对比进程状态</h2><h3 id="3-1-进程-amp-线程"><a href="#3-1-进程-amp-线程" class="headerlink" title="3.1 进程&amp;线程"></a>3.1 进程&amp;线程</h3><ul>
+<li><strong>进程（process）</strong> 和</li>
 </ul>
-<h4 id="举例">举例</h4>
+<p><strong>线程（thread）</strong><br>是操作系统的基本概念</p>
 <ul>
+<li><p>计算机的核心是CPU，它承担了所有的计算任务。就像一座工厂，时刻在运行。</p>
+</li>
+<li><p>假定工厂的电力有限，一次只能供给一个车间使用。也就是说，一个车间开工的时候，其他车间都必须停工。背后的含义就是，单个CPU一次只能运行一个任务。</p>
+</li>
+<li><p><strong>进程</strong>就好比工厂的车间，它代表CPU所能处理的单个任务。任一时刻，CPU总是运行一个进程，其他进程处于非运行状态。</p>
+</li>
+<li><p>一个车间里，可以有很多工人。他们协同完成一个任务。<strong>线程</strong>就好比车间里的工人。一个进程可以包括多个线程。</p>
+</li>
+<li><p>车间的空间是工人们共享的，比如许多房间是每个工人都可以进出的。这象征一个进程的内存空间是共享的，<strong>每个线程都可以使用这些共享内存</strong>。</p>
+<h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4></li>
+<li><p><strong>CPU中，进程是资源的最小单位，线程是执行的最小单位</strong></p>
+</li>
+<li><p>一个线程使用某一共享内存时，其他线程必须等它结束，才能使用这一块内存。</p>
+</li>
+<li><p>一个防止共享内存使用出错的方法。是上锁，先用的线程上锁，后面的线程排队，等锁打开再进去。这就叫**”互斥锁”（Mutual exclusion，缩写 Mutex）**，防止多个线程同时读写某一块内存区域。</p>
+</li>
+<li><p>线程池与上面的原理类似，只能同时n个线程使用，大于n的在后面排队。这时的解决方法，就是在门口挂n把钥匙。进去的人就取一把钥匙，出来时再把钥匙挂回原处。后到的人发现钥匙架空了，就知道必须在门口排队等着了。这种做法叫做</p>
+</li>
+</ul>
+<p><strong>“信号量”（Semaphore）</strong>，用来保证多个线程不会互相冲突。</p>
+<h4 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h4><ul>
 <li>开个QQ，开了一个进程；开了迅雷，开了一个进程。</li>
 <li>在QQ的这个进程里，传输文字开一个线程、传输语音开了一个线程、弹出对话框又开了一个线程。</li>
 <li>所以运行某个软件，相当于开了一个进程。在这个软件运行的过程里（在这个进程里），多个工作支撑的完成QQ的运行。</li>
 </ul>
-<h3 id="进程状态">3.2 进程状态</h3>
-<figure>
-<img src="http://a1.qpic.cn/psb?/V13eBt6k40tVED/dEK6tsptlAqmWn1L7YrT9iHEc66k*N8EiJrzIaLyt60!/b/dPMAAAAAAAAA&amp;bo=sARyAgAAAAADB.Y!&amp;rf=viewer_4" alt="image" /><figcaption>image</figcaption>
-</figure>
-<p>参考： http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html</p>
+<h3 id="3-2-进程状态"><a href="#3-2-进程状态" class="headerlink" title="3.2 进程状态"></a>3.2 进程状态</h3><p><img src="http://a1.qpic.cn/psb?/V13eBt6k40tVED/dEK6tsptlAqmWn1L7YrT9iHEc66k*N8EiJrzIaLyt60!/b/dPMAAAAAAAAA&bo=sARyAgAAAAADB.Y!&rf=viewer_4" alt="image"></p>
+<p>参考：<br><a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html">http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html</a></p>
 
-      
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2017/12/01/openstack/glance/" data-id="ckzv1upz0001p0alb5m9v0pj3" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" rel="tag">云平台</a></li></ul>
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" rel="tag"># 云平台</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2017/11/22/math/%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80/" rel="prev" title="高数基础">
+      <i class="fa fa-chevron-left"></i> 高数基础
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2017/12/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" rel="next" title="二叉树&相关算法">
+      二叉树&相关算法 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#glance"><span class="nav-number">1.</span> <span class="nav-text">glance</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E7%AE%80%E4%BB%8B"><span class="nav-number">1.1.</span> <span class="nav-text">1.简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E9%95%9C%E5%83%8F%E7%8A%B6%E6%80%81"><span class="nav-number">1.2.</span> <span class="nav-text">2.镜像状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%AF%B9%E6%AF%94%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.</span> <span class="nav-text">3.对比进程状态</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E8%BF%9B%E7%A8%8B-amp-%E7%BA%BF%E7%A8%8B"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 进程&amp;线程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%9B%B8%E5%85%B3%E7%9F%A5%E8%AF%86"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">相关知识</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%BE%E4%BE%8B"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">举例</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E8%BF%9B%E7%A8%8B%E7%8A%B6%E6%80%81"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 进程状态</span></a></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">disanda</p>
+  <div class="site-description" itemprop="description">正义会迟到，但不会缺席</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/disanda" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;disanda" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:77249920@qq.com" title="E-Mail → mailto:77249920@qq.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">disanda</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2017/12/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          二叉树&amp;相关算法
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2017/11/22/math/%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">高数基础</div>
-    </a>
-  
-</nav>
 
   
-</article>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/GAN/">GAN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django%E6%A1%86%E6%9E%B6/">Django框架</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python%E6%95%99%E7%A8%8B/">Python教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python%E7%88%AC%E8%99%AB/">Python爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openstack/">openstack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sql/">sql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80/">高数基础</a></li></ul>
-    </div>
-  </div>
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CIFAR/" rel="tag">CIFAR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/" rel="tag">GAN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD/" rel="tag">MD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MNIST/" rel="tag">MNIST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" rel="tag">云平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" rel="tag">图片识别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6-AI/" rel="tag">计算框架(AI)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%B0/" rel="tag">高数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E8%81%8C%E6%95%99%E8%82%B2/" rel="tag">高职教育</a></li></ul>
-    </div>
-  </div>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/CIFAR/" style="font-size: 10px;">CIFAR</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/MD/" style="font-size: 10px;">MD</a> <a href="/tags/MNIST/" style="font-size: 14.29px;">MNIST</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/sql/" style="font-size: 11.43px;">sql</a> <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" style="font-size: 18.57px;">云平台</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 15.71px;">公式</a> <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" style="font-size: 15.71px;">图片识别</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 10px;">基础算法</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 17.14px;">生活</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 17.14px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6-AI/" style="font-size: 10px;">计算框架(AI)</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 10px;">运动</a> <a href="/tags/%E9%AB%98%E6%95%B0/" style="font-size: 15.71px;">高数</a> <a href="/tags/%E9%AB%98%E8%81%8C%E6%95%99%E8%82%B2/" style="font-size: 10px;">高职教育</a>
-    </div>
-  </div>
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">三月 2011</a></li></ul>
-    </div>
-  </div>
-
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/02/20/%E6%97%A5%E8%AE%B0/%E6%97%A0%E7%A7%91%E7%A0%94%E4%B8%8D%E6%B1%9F%E6%B9%96/">无学术, 不江湖</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/01/%E6%97%A5%E8%AE%B0/%E6%95%85%E5%9C%9F%E9%98%B3%E5%85%89/">故土阳光，启蒙众生__致2020</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/08/AI/GAN/DCGAN/">DCGAN的PyTorch实现</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/02/AI/tf/1.tf/">TensorFlow 1.简介</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/02/AI/cifar/1.cifar/">CIFAR 1.简介&amp;可视化</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 disanda<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'q9I64zzcaflEifoi1tvq9GHd-MdYXbMMI',
+      appKey     : '9DJajljF6mR04Pa2b7UiR62m',
+      placeholder: "可在此给disanda评论或留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://q9i64zzc.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>

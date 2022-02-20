@@ -1,113 +1,290 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-CN">
 <head>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
-  
-  <title>MNIST 2.最简单的识别模型 | owl&#39;s blog</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="该模型是tensorflow官方文档首个模型,没有使用卷积网络 关键是构建一个公式   公式为y&#x3D;wx+b，带有二维像素值的数组(图片)作为输入x，标签(图片结果)作为输出y   用正向传播把数据(x，y)带入训练，再反向传播提升梯度来不断调整参数(w,b)，使得公式的输出尽量准确。   正确率约为92%">
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="该模型是tensorflow官方文档首个模型,没有使用卷积网络  关键是构建一个公式    公式为y&#x3D;wx+b，带有二维像素值的数组(图片)作为输入x，标签(图片结果)作为输出y   用正向传播把数据(x，y)带入训练，再反向传播提升梯度来不断调整参数(w,b)，使得公式的输出尽量准确。   正确率约为92%">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MNIST 2.最简单的识别模型">
 <meta property="og:url" content="http://yoursite.com/2019/06/02/AI/mnist/2.mnist/index.html">
 <meta property="og:site_name" content="owl&#39;s blog">
-<meta property="og:description" content="该模型是tensorflow官方文档首个模型,没有使用卷积网络 关键是构建一个公式   公式为y&#x3D;wx+b，带有二维像素值的数组(图片)作为输入x，标签(图片结果)作为输出y   用正向传播把数据(x，y)带入训练，再反向传播提升梯度来不断调整参数(w,b)，使得公式的输出尽量准确。   正确率约为92%">
+<meta property="og:description" content="该模型是tensorflow官方文档首个模型,没有使用卷积网络  关键是构建一个公式    公式为y&#x3D;wx+b，带有二维像素值的数组(图片)作为输入x，标签(图片结果)作为输出y   用正向传播把数据(x，y)带入训练，再反向传播提升梯度来不断调整参数(w,b)，使得公式的输出尽量准确。   正确率约为92%">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/9KIokAcGSsY17tIcV6FaPfh2aAqNNuwOpazZU0q0GAE!/b/dL4AAAAAAAAA&amp;bo=5AK2AAAAAAADF2I!&amp;rf=viewer_4">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/4BO8EBRwzsWxHzQVjugLpOQ3Fxn1tSuDAOHkhWI3ffY!/b/dL8AAAAAAAAA&amp;bo=ggKQAAAAAAADFyI!&amp;rf=viewer_4">
-<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/YoY5U*g0eEUed6EXl61fkkAszYrnzTWo12dOjhsxu64!/b/dLgAAAAAAAAA&amp;bo=pgK.AAAAAAADFyg!&amp;rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/9KIokAcGSsY17tIcV6FaPfh2aAqNNuwOpazZU0q0GAE!/b/dL4AAAAAAAAA&bo=5AK2AAAAAAADF2I!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/4BO8EBRwzsWxHzQVjugLpOQ3Fxn1tSuDAOHkhWI3ffY!/b/dL8AAAAAAAAA&bo=ggKQAAAAAAADFyI!&rf=viewer_4">
+<meta property="og:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/YoY5U*g0eEUed6EXl61fkkAszYrnzTWo12dOjhsxu64!/b/dLgAAAAAAAAA&bo=pgK.AAAAAAADFyg!&rf=viewer_4">
 <meta property="article:published_time" content="2019-06-02T15:17:06.000Z">
 <meta property="article:modified_time" content="2019-06-02T15:22:42.000Z">
 <meta property="article:author" content="disanda">
 <meta property="article:tag" content="图片识别">
 <meta property="article:tag" content="MNIST">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/9KIokAcGSsY17tIcV6FaPfh2aAqNNuwOpazZU0q0GAE!/b/dL4AAAAAAAAA&amp;bo=5AK2AAAAAAADF2I!&amp;rf=viewer_4">
-  
-    <link rel="alternate" href="/atom.xml" title="owl&#39;s blog" type="application/atom+xml">
-  
-  
-    <link rel="icon" href="/favicon.png">
-  
-  
-    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
-  
-  
-<link rel="stylesheet" href="/css/style.css">
+<meta name="twitter:image" content="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/9KIokAcGSsY17tIcV6FaPfh2aAqNNuwOpazZU0q0GAE!/b/dL4AAAAAAAAA&bo=5AK2AAAAAAADF2I!&rf=viewer_4">
 
+<link rel="canonical" href="http://yoursite.com/2019/06/02/AI/mnist/2.mnist/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>MNIST 2.最简单的识别模型 | owl's blog</title>
   
 
-<!-- hexo injector head_end start -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
-<!-- hexo injector head_end end --><meta name="generator" content="Hexo 5.2.0"><!-- hexo-inject:begin --><!-- hexo-inject:end --></head>
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07a295c6ccb5a3cdd8e052d917407520";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
 
-<body>
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="container">
-    <div id="wrap">
-      <header id="header">
-  <div id="banner"></div>
-  <div id="header-outer" class="outer">
-    <div id="header-title" class="inner">
-      <h1 id="logo-wrap">
-        <a href="/" id="logo">owl&#39;s blog</a>
-      </h1>
-      
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
     </div>
-    <div id="header-inner" class="inner">
-      <nav id="main-nav">
-        <a id="main-nav-toggle" class="nav-icon"></a>
-        
-          <a class="main-nav-link" href="/">Home</a>
-        
-          <a class="main-nav-link" href="/archives">Archives</a>
-        
-      </nav>
-      <nav id="sub-nav">
-        
-          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
-        
-        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
-      </nav>
-      <div id="search-form-wrap">
-        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
-      </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">owl's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">1111</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
-</header>
-      <div class="outer">
-        <section id="main"><article id="pages-AI/mnist/2.mnist" class="article article-type-pages" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/06/02/AI/mnist/2.mnist/" class="article-date">
-  <time datetime="2019-06-02T15:17:06.000Z" itemprop="datePublished">2019-06-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/AI/">AI</a>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-disanda">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>Disanda</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
   </div>
 
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
   </div>
-  <div class="article-inner">
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
     
-    
-      <header class="article-header">
-        
   
-    <h1 class="article-title" itemprop="name">
-      MNIST 2.最简单的识别模型
-    </h1>
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/02/AI/mnist/2.mnist/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="正义会迟到，但不会缺席">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          MNIST 2.最简单的识别模型
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-06-02 23:17:06 / 修改时间：23:22:42" itemprop="dateCreated datePublished" datetime="2019-06-02T23:17:06+08:00">2019-06-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2019/06/02/AI/mnist/2.mnist/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2019/06/02/AI/mnist/2.mnist/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
   
 
+        </div>
       </header>
+
     
-    <div class="article-entry" itemprop="articleBody">
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
         <ul>
-<li><p>该模型是tensorflow官方文档首个模型,没有使用卷积网络</p></li>
-<li><p>关键是构建一个公式</p></li>
+<li><p>该模型是tensorflow官方文档首个模型,没有使用卷积网络</p>
+</li>
+<li><p>关键是构建一个公式</p>
+</li>
 </ul>
 <blockquote>
-<p>公式为y=wx+b，带有二维像素值的数组(图片)作为输入x，标签(图片结果)作为输出y</p>
+<p>公式为y&#x3D;wx+b，带有二维像素值的数组(图片)作为输入x，标签(图片结果)作为输出y</p>
 </blockquote>
 <blockquote>
 <p>用正向传播把数据(x，y)带入训练，再反向传播提升梯度来不断调整参数(w,b)，使得公式的输出尽量准确。</p>
@@ -115,192 +292,294 @@
 <ul>
 <li>正确率约为92%</li>
 </ul>
-<a id="more"></a>
-<h2 id="一模型构建计算公式实现">一、模型构建(计算公式实现)</h2>
-<p>为了得到一章图片(28*28=784个像素值)属于某个特定数字类的特征，我们对像素值进行加权求和。如果结果特征即加权值为负，就不属于该类，为正就属于该类。</p>
-<h3 id="特征值需要学习参数wb">1.特征值(需要学习参数W、b)</h3>
-<figure>
-<img src="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/9KIokAcGSsY17tIcV6FaPfh2aAqNNuwOpazZU0q0GAE!/b/dL4AAAAAAAAA&amp;bo=5AK2AAAAAAADF2I!&amp;rf=viewer_4" alt="image" /><figcaption>image</figcaption>
-</figure>
-<h3 id="softmax转换特征值为概率0-1之间">2.softmax转换特征值为概率(0-1之间):</h3>
-<figure>
-<img src="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/4BO8EBRwzsWxHzQVjugLpOQ3Fxn1tSuDAOHkhWI3ffY!/b/dL8AAAAAAAAA&amp;bo=ggKQAAAAAAADFyI!&amp;rf=viewer_4" alt="image" /><figcaption>image</figcaption>
-</figure>
+<span id="more"></span>
+
+<h2 id="一、模型构建-计算公式实现"><a href="#一、模型构建-计算公式实现" class="headerlink" title="一、模型构建(计算公式实现)"></a>一、模型构建(计算公式实现)</h2><p>为了得到一章图片(28*28&#x3D;784个像素值)属于某个特定数字类的特征，我们对像素值进行加权求和。如果结果特征即加权值为负，就不属于该类，为正就属于该类。</p>
+<h3 id="1-特征值-需要学习参数W、b"><a href="#1-特征值-需要学习参数W、b" class="headerlink" title="1.特征值(需要学习参数W、b)"></a>1.特征值(需要学习参数W、b)</h3><p><img src="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/9KIokAcGSsY17tIcV6FaPfh2aAqNNuwOpazZU0q0GAE!/b/dL4AAAAAAAAA&bo=5AK2AAAAAAADF2I!&rf=viewer_4" alt="image"></p>
+<h3 id="2-softmax转换特征值为概率-0-1之间"><a href="#2-softmax转换特征值为概率-0-1之间" class="headerlink" title="2.softmax转换特征值为概率(0-1之间):"></a>2.softmax转换特征值为概率(0-1之间):</h3><p><img src="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/4BO8EBRwzsWxHzQVjugLpOQ3Fxn1tSuDAOHkhWI3ffY!/b/dL8AAAAAAAAA&bo=ggKQAAAAAAADFyI!&rf=viewer_4" alt="image"></p>
 <p>其中xi是输入数据，evidencei是特征,y为通过特征softmax后得到的最终概率，</p>
 <p>而参数W和b是我们要学习得到的数据，Wi是一个[784,10]的数据，bi是一个[10]的数据，就是模型(也是一个计算公式)的核心部分。</p>
 <blockquote>
-<p>代码：y=tf.nn.softmax(tf.matmul(x,W)+b)</p>
+<p>代码：y&#x3D;tf.nn.softmax(tf.matmul(x,W)+b)</p>
 </blockquote>
-<h3 id="构建交叉熵">3.构建交叉熵</h3>
-<p>可以将W和b初始化为全0向量(或随意设置)，通过迭代输入变量的计算结果反向传播(bp),从而使用梯度下降算法(gradient descent algorithm)完成最优化参数W和b，最优化的结果可以计算出最终的模型准球率</p>
+<h3 id="3-构建交叉熵"><a href="#3-构建交叉熵" class="headerlink" title="3.构建交叉熵"></a>3.构建交叉熵</h3><p>可以将W和b初始化为全0向量(或随意设置)，通过迭代输入变量的计算结果反向传播(bp),从而使用梯度下降算法(gradient descent algorithm)完成最优化参数W和b，最优化的结果可以计算出最终的模型准球率</p>
 <p>梯度下降需要设置学习率即学习的速率,还需要一个损失函数(最长见的是交叉熵cross-entropy),该函数得到一个loss值来刻画模型训练的结果(准确率)</p>
-<figure>
-<img src="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/YoY5U*g0eEUed6EXl61fkkAszYrnzTWo12dOjhsxu64!/b/dLgAAAAAAAAA&amp;bo=pgK.AAAAAAADFyg!&amp;rf=viewer_4" alt="image" /><figcaption>image</figcaption>
-</figure>
+<p><img src="http://m.qpic.cn/psb?/V13eBt6k3qUwrV/YoY5U*g0eEUed6EXl61fkkAszYrnzTWo12dOjhsxu64!/b/dLgAAAAAAAAA&bo=pgK.AAAAAAADFyg!&rf=viewer_4" alt="image"></p>
 <blockquote>
-<p>y是预测的分布，y`是实际的分布，</p>
+<p>y是预测的分布，y&#96;是实际的分布，</p>
 </blockquote>
 <blockquote>
-<p>代码:cross_entropy = -tf.reduce_sum(y_*tf.log(y))</p>
+<p>代码:cross_entropy &#x3D; -tf.reduce_sum(y_*tf.log(y))</p>
 </blockquote>
-<h3 id="训练bp和反向传播学习过程">4.训练(BP和反向传播,学习过程)</h3>
-<p>训练是一系列计算，包括1.计算梯度 2.每个参数的步长变化 3.更新参数</p>
+<h3 id="4-训练-BP和反向传播-学习过程"><a href="#4-训练-BP和反向传播-学习过程" class="headerlink" title="4.训练(BP和反向传播,学习过程)"></a>4.训练(BP和反向传播,学习过程)</h3><p>训练是一系列计算，包括1.计算梯度 2.每个参数的步长变化 3.更新参数</p>
 <blockquote>
-<p>train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)</p>
+<p>train_step &#x3D; tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)</p>
 </blockquote>
 <p>train_step是一个对象，计算时会使用梯度下降来更新参数，通过反复运行该对象完成。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    batch = mnist.train.next_batch(<span class="number">50</span>)</span><br><span class="line">    train_step.run(feed_ditc=&#123;x:batch[<span class="number">0</span>],y:batch[<span class="number">1</span>]&#125;)</span><br><span class="line">    <span class="comment">#x,y为具体数据，替代占位符(placeholder)</span></span><br><span class="line">    <span class="comment">#等价于:</span></span><br><span class="line">    <span class="comment">#train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)</span></span><br><span class="line">    <span class="comment">#sess.run(train_step,feed_ditc=&#123;x:batch[0],y:batch[1]&#125;)</span></span><br></pre></td></tr></table></figure>
-<h2 id="二实现代码">二、实现代码:</h2>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">&quot;./MNIST_data/&quot;</span>,one_hot=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">print(mnist.train.images)</span><br><span class="line">print(<span class="built_in">type</span>(mnist.train.images))</span><br><span class="line">print(mnist.train.images.shape)</span><br><span class="line"></span><br><span class="line">print(mnist.train.labels)</span><br><span class="line">print(<span class="built_in">type</span>(mnist.train.labels))</span><br><span class="line">print(mnist.train.labels.shape)</span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">784</span>]) <span class="comment">#该占位符第一维可以是任意长度，表示图像数据可以是28*28=784的n张图</span></span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>,<span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br><span class="line"><span class="comment">#w和b是需要学习的值，初始化为0</span></span><br><span class="line"></span><br><span class="line">y = tf.nn.softmax(tf.matmul(x,W)+b)</span><br><span class="line"><span class="comment">#模型即计算公式,y是预测值</span></span><br><span class="line"></span><br><span class="line">y_ = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">10</span>])</span><br><span class="line"><span class="comment">#y_是真实值</span></span><br><span class="line"></span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br><span class="line"><span class="comment">#计算交叉熵</span></span><br><span class="line"></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.01</span>).minimize(cross_entropy)</span><br><span class="line"><span class="comment">#优化器，计算梯度，并将梯度作用于变量.</span></span><br><span class="line"><span class="comment">#使用minimize()操作，该操作不仅可以优化更新训练的模型参数，也可以为全局步骤(global step)计数</span></span><br><span class="line"></span><br><span class="line">init = tf.initialize_all_variables()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    batch_xs,batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">    sess.run(train_step,feed_dict=&#123;x:batch_xs,y_:batch_ys&#125;)</span><br><span class="line">    </span><br><span class="line">correct_predict = tf.equal(tf.argmax(y,<span class="number">1</span>),tf.argmax(y_,<span class="number">1</span>))</span><br><span class="line"><span class="comment">#y是一个含有10个元素的标签</span></span><br><span class="line"><span class="comment">#argmax(a,b)返回集合a中和数值b相同的索引值</span></span><br><span class="line"></span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_predict,<span class="string">&quot;float&quot;</span>))</span><br><span class="line"><span class="comment">#tf.cast将bool值转化为浮点数</span></span><br><span class="line"><span class="comment">#tf.reduce_mean可以取平均值,如[1,0,1,1]为0.75</span></span><br><span class="line"></span><br><span class="line">sess.run(accuracy,feed_dict=&#123;x:mnist.test.images,y_:mnist.test.labels&#125;) </span><br><span class="line">sess.close()</span><br><span class="line"><span class="comment">#准确率为0.9129</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="三实现代码2">三、实现代码2</h2>
-<p>增加了测试过程的准确率，以1000次为一步</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">&quot;./MNIST_data/&quot;</span>,one_hot=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">784</span>]) <span class="comment">#该占位符第一维可以是任意长度，表示图像数据可以是28*28=784的n张图</span></span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>,<span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br><span class="line"><span class="comment">#w和b是需要学习的值，初始化为0</span></span><br><span class="line"></span><br><span class="line">y = tf.nn.softmax(tf.matmul(x,W)+b)</span><br><span class="line"><span class="comment">#模型即计算公式,y是预测值</span></span><br><span class="line">y_ = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">10</span>])</span><br><span class="line"><span class="comment">#y_是真实值</span></span><br><span class="line"></span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.01</span>).minimize(cross_entropy)</span><br><span class="line"></span><br><span class="line">correct_predict = tf.equal(tf.argmax(y,<span class="number">1</span>),tf.argmax(y_,<span class="number">1</span>))</span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_predict,<span class="string">&quot;float&quot;</span>))</span><br><span class="line"></span><br><span class="line">init = tf.initialize_all_variables()</span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):</span><br><span class="line">    batch_xs,batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">    sess.run(train_step,feed_dict=&#123;x:batch_xs,y_:batch_ys&#125;)</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">    	acc=sess.run(accuracy,feed_dict=&#123;x:mnist.validation.images,y_:mnist.validation.labels&#125;)</span><br><span class="line">    	<span class="comment">#训练1000次后(更新的参数W,b)，对整体validation的测试</span></span><br><span class="line">    	print(<span class="string">&#x27;step %d is %g&#x27;</span>%(i,acc))</span><br><span class="line">    	<span class="comment">#上两行代码等价于:</span></span><br><span class="line">    	<span class="comment">#print(accuracy.eval(feed_dict=&#123;x:mnist.validation.images,y_:mnist.validation.labels&#125;))</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">accFinal=sess.run(accuracy,feed_dict=&#123;x:mnist.test.images,y_:mnist.test.labels&#125;) </span><br><span class="line">print(accFinal)</span><br><span class="line">sess.close()</span><br><span class="line"><span class="comment">#准确率为0.9129</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-      
+<h2 id="二、实现代码"><a href="#二、实现代码" class="headerlink" title="二、实现代码:"></a>二、实现代码:</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">&quot;./MNIST_data/&quot;</span>,one_hot=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(mnist.train.images)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(mnist.train.images))</span><br><span class="line"><span class="built_in">print</span>(mnist.train.images.shape)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(mnist.train.labels)</span><br><span class="line"><span class="built_in">print</span>(<span class="built_in">type</span>(mnist.train.labels))</span><br><span class="line"><span class="built_in">print</span>(mnist.train.labels.shape)</span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">784</span>]) <span class="comment">#该占位符第一维可以是任意长度，表示图像数据可以是28*28=784的n张图</span></span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>,<span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br><span class="line"><span class="comment">#w和b是需要学习的值，初始化为0</span></span><br><span class="line"></span><br><span class="line">y = tf.nn.softmax(tf.matmul(x,W)+b)</span><br><span class="line"><span class="comment">#模型即计算公式,y是预测值</span></span><br><span class="line"></span><br><span class="line">y_ = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">10</span>])</span><br><span class="line"><span class="comment">#y_是真实值</span></span><br><span class="line"></span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br><span class="line"><span class="comment">#计算交叉熵</span></span><br><span class="line"></span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.01</span>).minimize(cross_entropy)</span><br><span class="line"><span class="comment">#优化器，计算梯度，并将梯度作用于变量.</span></span><br><span class="line"><span class="comment">#使用minimize()操作，该操作不仅可以优化更新训练的模型参数，也可以为全局步骤(global step)计数</span></span><br><span class="line"></span><br><span class="line">init = tf.initialize_all_variables()</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1000</span>):</span><br><span class="line">    batch_xs,batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">    sess.run(train_step,feed_dict=&#123;x:batch_xs,y_:batch_ys&#125;)</span><br><span class="line">    </span><br><span class="line">correct_predict = tf.equal(tf.argmax(y,<span class="number">1</span>),tf.argmax(y_,<span class="number">1</span>))</span><br><span class="line"><span class="comment">#y是一个含有10个元素的标签</span></span><br><span class="line"><span class="comment">#argmax(a,b)返回集合a中和数值b相同的索引值</span></span><br><span class="line"></span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_predict,<span class="string">&quot;float&quot;</span>))</span><br><span class="line"><span class="comment">#tf.cast将bool值转化为浮点数</span></span><br><span class="line"><span class="comment">#tf.reduce_mean可以取平均值,如[1,0,1,1]为0.75</span></span><br><span class="line"></span><br><span class="line">sess.run(accuracy,feed_dict=&#123;x:mnist.test.images,y_:mnist.test.labels&#125;) </span><br><span class="line">sess.close()</span><br><span class="line"><span class="comment">#准确率为0.9129</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="三、实现代码2"><a href="#三、实现代码2" class="headerlink" title="三、实现代码2"></a>三、实现代码2</h2><p>增加了测试过程的准确率，以1000次为一步</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</span><br><span class="line">mnist = input_data.read_data_sets(<span class="string">&quot;./MNIST_data/&quot;</span>,one_hot=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">x = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">784</span>]) <span class="comment">#该占位符第一维可以是任意长度，表示图像数据可以是28*28=784的n张图</span></span><br><span class="line"></span><br><span class="line">W = tf.Variable(tf.zeros([<span class="number">784</span>,<span class="number">10</span>]))</span><br><span class="line">b = tf.Variable(tf.zeros([<span class="number">10</span>]))</span><br><span class="line"><span class="comment">#w和b是需要学习的值，初始化为0</span></span><br><span class="line"></span><br><span class="line">y = tf.nn.softmax(tf.matmul(x,W)+b)</span><br><span class="line"><span class="comment">#模型即计算公式,y是预测值</span></span><br><span class="line">y_ = tf.placeholder(<span class="string">&#x27;float&#x27;</span>,[<span class="literal">None</span>,<span class="number">10</span>])</span><br><span class="line"><span class="comment">#y_是真实值</span></span><br><span class="line"></span><br><span class="line">cross_entropy = -tf.reduce_sum(y_*tf.log(y))</span><br><span class="line">train_step = tf.train.GradientDescentOptimizer(<span class="number">0.01</span>).minimize(cross_entropy)</span><br><span class="line"></span><br><span class="line">correct_predict = tf.equal(tf.argmax(y,<span class="number">1</span>),tf.argmax(y_,<span class="number">1</span>))</span><br><span class="line">accuracy = tf.reduce_mean(tf.cast(correct_predict,<span class="string">&quot;float&quot;</span>))</span><br><span class="line"></span><br><span class="line">init = tf.initialize_all_variables()</span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(init)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">10000</span>):</span><br><span class="line">    batch_xs,batch_ys = mnist.train.next_batch(<span class="number">100</span>)</span><br><span class="line">    sess.run(train_step,feed_dict=&#123;x:batch_xs,y_:batch_ys&#125;)</span><br><span class="line">    <span class="keyword">if</span> i%<span class="number">1000</span> == <span class="number">0</span>:</span><br><span class="line">    	acc=sess.run(accuracy,feed_dict=&#123;x:mnist.validation.images,y_:mnist.validation.labels&#125;)</span><br><span class="line">    	<span class="comment">#训练1000次后(更新的参数W,b)，对整体validation的测试</span></span><br><span class="line">    	<span class="built_in">print</span>(<span class="string">&#x27;step %d is %g&#x27;</span>%(i,acc))</span><br><span class="line">    	<span class="comment">#上两行代码等价于:</span></span><br><span class="line">    	<span class="comment">#print(accuracy.eval(feed_dict=&#123;x:mnist.validation.images,y_:mnist.validation.labels&#125;))</span></span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">accFinal=sess.run(accuracy,feed_dict=&#123;x:mnist.test.images,y_:mnist.test.labels&#125;) </span><br><span class="line"><span class="built_in">print</span>(accFinal)</span><br><span class="line">sess.close()</span><br><span class="line"><span class="comment">#准确率为0.9129</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
     </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2019/06/02/AI/mnist/2.mnist/" data-id="ckzv1uq00004b0albdalbb1zr" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/MNIST/" rel="tag">MNIST</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" rel="tag">图片识别</a></li></ul>
 
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" rel="tag"># 图片识别</a>
+              <a href="/tags/MNIST/" rel="tag"># MNIST</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/06/02/AI/mnist/3.mnist/" rel="prev" title="MNIST 3.cnn实现">
+      <i class="fa fa-chevron-left"></i> MNIST 3.cnn实现
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2019/06/02/AI/mnist/1.mnist/" rel="next" title="MNIST 1.简介&可视化">
+      MNIST 1.简介&可视化 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E3%80%81%E6%A8%A1%E5%9E%8B%E6%9E%84%E5%BB%BA-%E8%AE%A1%E7%AE%97%E5%85%AC%E5%BC%8F%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.</span> <span class="nav-text">一、模型构建(计算公式实现)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E7%89%B9%E5%BE%81%E5%80%BC-%E9%9C%80%E8%A6%81%E5%AD%A6%E4%B9%A0%E5%8F%82%E6%95%B0W%E3%80%81b"><span class="nav-number">1.1.</span> <span class="nav-text">1.特征值(需要学习参数W、b)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-softmax%E8%BD%AC%E6%8D%A2%E7%89%B9%E5%BE%81%E5%80%BC%E4%B8%BA%E6%A6%82%E7%8E%87-0-1%E4%B9%8B%E9%97%B4"><span class="nav-number">1.2.</span> <span class="nav-text">2.softmax转换特征值为概率(0-1之间):</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9E%84%E5%BB%BA%E4%BA%A4%E5%8F%89%E7%86%B5"><span class="nav-number">1.3.</span> <span class="nav-text">3.构建交叉熵</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E8%AE%AD%E7%BB%83-BP%E5%92%8C%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD-%E5%AD%A6%E4%B9%A0%E8%BF%87%E7%A8%8B"><span class="nav-number">1.4.</span> <span class="nav-text">4.训练(BP和反向传播,学习过程)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8C%E3%80%81%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%81"><span class="nav-number">2.</span> <span class="nav-text">二、实现代码:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%89%E3%80%81%E5%AE%9E%E7%8E%B0%E4%BB%A3%E7%A0%812"><span class="nav-number">3.</span> <span class="nav-text">三、实现代码2</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">disanda</p>
+  <div class="site-description" itemprop="description">正义会迟到，但不会缺席</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">51</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">20</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/disanda" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;disanda" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:77249920@qq.com" title="E-Mail → mailto:77249920@qq.com" rel="noopener" target="_blank"><i class="envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">disanda</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://mist.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Mist</a> 强力驱动
+  </div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
     </footer>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2019/06/02/AI/mnist/1.mnist/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          MNIST 1.简介&amp;可视化
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2019/06/02/AI/mnist/3.mnist/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">MNIST 3.cnn实现</div>
-    </a>
-  
-</nav>
 
   
-</article>
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
 
-</section>
-        
-          <aside id="sidebar">
-  
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">分类</h3>
-    <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/">AI</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/AI/GAN/">GAN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Django%E6%A1%86%E6%9E%B6/">Django框架</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python%E6%95%99%E7%A8%8B/">Python教程</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Python%E7%88%AC%E8%99%AB/">Python爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/openstack/">openstack</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/sql/">sql</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%97%A5%E8%AE%B0/">日记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%AB%98%E6%95%B0%E5%9F%BA%E7%A1%80/">高数基础</a></li></ul>
-    </div>
-  </div>
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CIFAR/" rel="tag">CIFAR</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Django/" rel="tag">Django</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GAN/" rel="tag">GAN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MD/" rel="tag">MD</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/MNIST/" rel="tag">MNIST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Markdown/" rel="tag">Markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Python/" rel="tag">Python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Tensorflow/" rel="tag">Tensorflow</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/python/" rel="tag">python</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/sql/" rel="tag">sql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" rel="tag">云平台</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%85%AC%E5%BC%8F/" rel="tag">公式</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" rel="tag">图片识别</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" rel="tag">基础算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%94%9F%E6%B4%BB/" rel="tag">生活</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E7%AE%97%E6%B3%95/" rel="tag">算法</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6-AI/" rel="tag">计算框架(AI)</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%BF%90%E5%8A%A8/" rel="tag">运动</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E6%95%B0/" rel="tag">高数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E9%AB%98%E8%81%8C%E6%95%99%E8%82%B2/" rel="tag">高职教育</a></li></ul>
-    </div>
-  </div>
+
+
 
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/AI/" style="font-size: 10px;">AI</a> <a href="/tags/CIFAR/" style="font-size: 10px;">CIFAR</a> <a href="/tags/Django/" style="font-size: 12.86px;">Django</a> <a href="/tags/GAN/" style="font-size: 10px;">GAN</a> <a href="/tags/MD/" style="font-size: 10px;">MD</a> <a href="/tags/MNIST/" style="font-size: 14.29px;">MNIST</a> <a href="/tags/Markdown/" style="font-size: 10px;">Markdown</a> <a href="/tags/Python/" style="font-size: 20px;">Python</a> <a href="/tags/Tensorflow/" style="font-size: 10px;">Tensorflow</a> <a href="/tags/python/" style="font-size: 10px;">python</a> <a href="/tags/sql/" style="font-size: 11.43px;">sql</a> <a href="/tags/%E4%BA%91%E5%B9%B3%E5%8F%B0/" style="font-size: 18.57px;">云平台</a> <a href="/tags/%E5%85%AC%E5%BC%8F/" style="font-size: 15.71px;">公式</a> <a href="/tags/%E5%9B%BE%E7%89%87%E8%AF%86%E5%88%AB/" style="font-size: 15.71px;">图片识别</a> <a href="/tags/%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/" style="font-size: 10px;">基础算法</a> <a href="/tags/%E7%94%9F%E6%B4%BB/" style="font-size: 17.14px;">生活</a> <a href="/tags/%E7%AE%97%E6%B3%95/" style="font-size: 17.14px;">算法</a> <a href="/tags/%E8%AE%A1%E7%AE%97%E6%A1%86%E6%9E%B6-AI/" style="font-size: 10px;">计算框架(AI)</a> <a href="/tags/%E8%BF%90%E5%8A%A8/" style="font-size: 10px;">运动</a> <a href="/tags/%E9%AB%98%E6%95%B0/" style="font-size: 15.71px;">高数</a> <a href="/tags/%E9%AB%98%E8%81%8C%E6%95%99%E8%82%B2/" style="font-size: 10px;">高职教育</a>
-    </div>
-  </div>
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">归档</h3>
-    <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/02/">二月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/12/">十二月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2011/03/">三月 2011</a></li></ul>
-    </div>
-  </div>
-
 
   
-    
-  <div class="widget-wrap">
-    <h3 class="widget-title">最新文章</h3>
-    <div class="widget">
-      <ul>
-        
-          <li>
-            <a href="/2022/02/20/%E6%97%A5%E8%AE%B0/%E6%97%A0%E7%A7%91%E7%A0%94%E4%B8%8D%E6%B1%9F%E6%B9%96/">无学术, 不江湖</a>
-          </li>
-        
-          <li>
-            <a href="/2020/02/01/%E6%97%A5%E8%AE%B0/%E6%95%85%E5%9C%9F%E9%98%B3%E5%85%89/">故土阳光，启蒙众生__致2020</a>
-          </li>
-        
-          <li>
-            <a href="/2019/11/08/AI/GAN/DCGAN/">DCGAN的PyTorch实现</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/02/AI/tf/1.tf/">TensorFlow 1.简介</a>
-          </li>
-        
-          <li>
-            <a href="/2019/06/02/AI/cifar/1.cifar/">CIFAR 1.简介&amp;可视化</a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-
-  
-</aside>
-        
-      </div>
-      <footer id="footer">
-  
-  <div class="outer">
-    <div id="footer-info" class="inner">
-      &copy; 2022 disanda<br>
-      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
-    </div>
-  </div>
-</footer>
-    </div>
-    <nav id="mobile-nav">
-  
-    <a href="/" class="mobile-nav-link">Home</a>
-  
-    <a href="/archives" class="mobile-nav-link">Archives</a>
-  
-</nav>
-    
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-  
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'q9I64zzcaflEifoi1tvq9GHd-MdYXbMMI',
+      appKey     : '9DJajljF6mR04Pa2b7UiR62m',
+      placeholder: "可在此给disanda评论或留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://q9i64zzc.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
 
-  
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-
-
-
-
-<script src="/js/script.js"></script>
-
-
-  </div><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 </body>
 </html>
