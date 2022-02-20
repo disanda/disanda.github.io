@@ -130,30 +130,37 @@
       </tags>
   </entry>
   <entry>
-    <title>3. Python函数</title>
-    <url>/2017/12/02/Python/3.%20%E5%87%BD%E6%95%B0/</url>
-    <content><![CDATA[<h1 id="第三章-函数"><a href="#第三章-函数" class="headerlink" title="第三章 函数"></a>第三章 函数</h1><blockquote>
-<p>Python原创教程，持续更新</p>
-</blockquote>
+    <title>10. 字符串</title>
+    <url>/2018/09/21/Python/10.%20%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/</url>
+    <content><![CDATA[<p>Python 原创基础教程</p>
 <span id="more"></span>
 
-<h2 id="3-1-函数本质"><a href="#3-1-函数本质" class="headerlink" title="3.1 函数本质"></a>3.1 函数本质</h2><blockquote>
-<p>函数，也称方法，是一系列运算集合,一个函数本质由以下要素构成:</p>
-</blockquote>
-<ul>
-<li><p>名字</p>
-</li>
-<li><p>参数</p>
-</li>
-<li><p>运算流程(方法体内)</p>
-</li>
-<li><p>返回值</p>
-</li>
+<h1 id="第十章-文件与异常"><a href="#第十章-文件与异常" class="headerlink" title="第十章 文件与异常"></a>第十章 文件与异常</h1><h2 id="1-文件操作"><a href="#1-文件操作" class="headerlink" title="1.文件操作"></a>1.文件操作</h2><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 1.txt 文件内容</span></span><br><span class="line"><span class="symbol">a:</span> aaa</span><br><span class="line"><span class="symbol">b:</span> bbb</span><br><span class="line"><span class="symbol">c:</span> ccc</span><br><span class="line"><span class="symbol">d:</span> ddd :d222</span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">data1 = <span class="built_in">open</span>(<span class="string">&#x27;1.txt&#x27;</span>) <span class="comment">#open函数生成一个文件对象</span></span><br><span class="line"></span><br><span class="line">data2 = <span class="built_in">open</span>(<span class="string">&#x27;2.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>) <span class="comment">#w是从头开始写，a是从文件尾开始写 参数‘w’，代表可写，无该文件时会创建该文件，默认为r</span></span><br><span class="line"></span><br><span class="line">data2.<span class="built_in">write</span>(<span class="string">&#x27;hello /n world /n&#x27;</span>) <span class="comment">#将字符串写入文件中</span></span><br><span class="line"></span><br><span class="line">data1.<span class="built_in">close</span>() <span class="comment">#关闭文件</span></span><br><span class="line"></span><br><span class="line">data2.<span class="built_in">close</span>()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span> = open(&#x27;1.<span class="title">txt&#x27;</span>)</span></span><br><span class="line"><span class="title">for</span> i <span class="keyword">in</span> <span class="class"><span class="keyword">data</span></span></span><br><span class="line">    print(i)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
+
+
+
+
+<h2 id="2-异常处理"><a href="#2-异常处理" class="headerlink" title="2.异常处理"></a>2.异常处理</h2><ul>
+<li>1<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">try:</span></span><br><span class="line">    code1</span><br><span class="line"><span class="symbol">except:</span></span><br><span class="line">    code2 <span class="meta">#如果code1出现错误，执行code2部分</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
+<li>2</li>
 </ul>
-<blockquote>
-<p>其中参数和返回值是可选的</p>
-</blockquote>
-<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 无参数，无返回值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun1</span><span class="params">()</span></span>:</span><br><span class="line">    print(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有两个参数x，y</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun2</span><span class="params">(x,y)</span></span>:</span><br><span class="line">    z=x+y</span><br><span class="line">    print(z)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 无参数，有返回值    </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun3</span><span class="params">()</span></span>:</span><br><span class="line">    z=<span class="number">100</span></span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 有参数，有返回值(最常见的函数)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun4</span><span class="params">(x,y,z)</span></span>:</span><br><span class="line">    w=x+y*z</span><br><span class="line">    <span class="keyword">return</span> w</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+<figure class="highlight nim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    code1</span><br><span class="line"><span class="keyword">except</span> <span class="type">ValueError</span>: </span><br><span class="line">    code2 <span class="comment">#如果code1出现ValueError错误，执行code2部分   </span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 错误类型有很多，例如IOError()</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>3</li>
+</ul>
+<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">try:</span></span><br><span class="line">    code1</span><br><span class="line"><span class="symbol">except:</span></span><br><span class="line">    code2</span><br><span class="line"><span class="symbol">finally:</span></span><br><span class="line">    code3 <span class="meta">#code3是无论是否出错，都会执行的代码块,例如文件关闭</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>4</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;1.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;It;s...&#x27;</span>,file=data)</span><br><span class="line">exceot IOError <span class="keyword">as</span> err:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;File error&#x27;</span>+<span class="built_in">str</span>(err))</span><br><span class="line"></span><br><span class="line"><span class="comment">#省去finnaly，with可以妥善关闭一个文件</span></span><br></pre></td></tr></table></figure>
+
+
+]]></content>
       <categories>
         <category>Python教程</category>
       </categories>
@@ -217,6 +224,38 @@
 
 
 ]]></content>
+      <categories>
+        <category>Python教程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>3. Python函数</title>
+    <url>/2017/12/02/Python/3.%20%E5%87%BD%E6%95%B0/</url>
+    <content><![CDATA[<h1 id="第三章-函数"><a href="#第三章-函数" class="headerlink" title="第三章 函数"></a>第三章 函数</h1><blockquote>
+<p>Python原创教程，持续更新</p>
+</blockquote>
+<span id="more"></span>
+
+<h2 id="3-1-函数本质"><a href="#3-1-函数本质" class="headerlink" title="3.1 函数本质"></a>3.1 函数本质</h2><blockquote>
+<p>函数，也称方法，是一系列运算集合,一个函数本质由以下要素构成:</p>
+</blockquote>
+<ul>
+<li><p>名字</p>
+</li>
+<li><p>参数</p>
+</li>
+<li><p>运算流程(方法体内)</p>
+</li>
+<li><p>返回值</p>
+</li>
+</ul>
+<blockquote>
+<p>其中参数和返回值是可选的</p>
+</blockquote>
+<figure class="highlight ruby"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 无参数，无返回值</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun1</span><span class="params">()</span></span>:</span><br><span class="line">    print(<span class="string">&quot;hello world&quot;</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 有两个参数x，y</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun2</span><span class="params">(x,y)</span></span>:</span><br><span class="line">    z=x+y</span><br><span class="line">    print(z)</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 无参数，有返回值    </span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun3</span><span class="params">()</span></span>:</span><br><span class="line">    z=<span class="number">100</span></span><br><span class="line">    <span class="keyword">return</span> z</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 有参数，有返回值(最常见的函数)</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">fun4</span><span class="params">(x,y,z)</span></span>:</span><br><span class="line">    w=x+y*z</span><br><span class="line">    <span class="keyword">return</span> w</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python教程</category>
       </categories>
@@ -477,45 +516,6 @@
       </tags>
   </entry>
   <entry>
-    <title>10. 字符串</title>
-    <url>/2018/09/21/Python/10.%20%E6%96%87%E4%BB%B6%E5%92%8C%E5%BC%82%E5%B8%B8/</url>
-    <content><![CDATA[<p>Python 原创基础教程</p>
-<span id="more"></span>
-
-<h1 id="第十章-文件与异常"><a href="#第十章-文件与异常" class="headerlink" title="第十章 文件与异常"></a>第十章 文件与异常</h1><h2 id="1-文件操作"><a href="#1-文件操作" class="headerlink" title="1.文件操作"></a>1.文件操作</h2><figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="meta"># 1.txt 文件内容</span></span><br><span class="line"><span class="symbol">a:</span> aaa</span><br><span class="line"><span class="symbol">b:</span> bbb</span><br><span class="line"><span class="symbol">c:</span> ccc</span><br><span class="line"><span class="symbol">d:</span> ddd :d222</span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">data1 = <span class="built_in">open</span>(<span class="string">&#x27;1.txt&#x27;</span>) <span class="comment">#open函数生成一个文件对象</span></span><br><span class="line"></span><br><span class="line">data2 = <span class="built_in">open</span>(<span class="string">&#x27;2.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>) <span class="comment">#w是从头开始写，a是从文件尾开始写 参数‘w’，代表可写，无该文件时会创建该文件，默认为r</span></span><br><span class="line"></span><br><span class="line">data2.<span class="built_in">write</span>(<span class="string">&#x27;hello /n world /n&#x27;</span>) <span class="comment">#将字符串写入文件中</span></span><br><span class="line"></span><br><span class="line">data1.<span class="built_in">close</span>() <span class="comment">#关闭文件</span></span><br><span class="line"></span><br><span class="line">data2.<span class="built_in">close</span>()</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">data</span> = open(&#x27;1.<span class="title">txt&#x27;</span>)</span></span><br><span class="line"><span class="title">for</span> i <span class="keyword">in</span> <span class="class"><span class="keyword">data</span></span></span><br><span class="line">    print(i)</span><br><span class="line">    </span><br></pre></td></tr></table></figure>
-
-
-
-
-<h2 id="2-异常处理"><a href="#2-异常处理" class="headerlink" title="2.异常处理"></a>2.异常处理</h2><ul>
-<li>1<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">try:</span></span><br><span class="line">    code1</span><br><span class="line"><span class="symbol">except:</span></span><br><span class="line">    code2 <span class="meta">#如果code1出现错误，执行code2部分</span></span><br><span class="line">    </span><br></pre></td></tr></table></figure></li>
-<li>2</li>
-</ul>
-<figure class="highlight nim"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    code1</span><br><span class="line"><span class="keyword">except</span> <span class="type">ValueError</span>: </span><br><span class="line">    code2 <span class="comment">#如果code1出现ValueError错误，执行code2部分   </span></span><br><span class="line">    </span><br><span class="line"><span class="comment"># 错误类型有很多，例如IOError()</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>3</li>
-</ul>
-<figure class="highlight avrasm"><table><tr><td class="code"><pre><span class="line"><span class="symbol">try:</span></span><br><span class="line">    code1</span><br><span class="line"><span class="symbol">except:</span></span><br><span class="line">    code2</span><br><span class="line"><span class="symbol">finally:</span></span><br><span class="line">    code3 <span class="meta">#code3是无论是否出错，都会执行的代码块,例如文件关闭</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li>4</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&#x27;1.txt&#x27;</span>,<span class="string">&#x27;w&#x27;</span>) <span class="keyword">as</span> data:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&#x27;It;s...&#x27;</span>,file=data)</span><br><span class="line">exceot IOError <span class="keyword">as</span> err:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&#x27;File error&#x27;</span>+<span class="built_in">str</span>(err))</span><br><span class="line"></span><br><span class="line"><span class="comment">#省去finnaly，with可以妥善关闭一个文件</span></span><br></pre></td></tr></table></figure>
-
-
-]]></content>
-      <categories>
-        <category>Python教程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>5.面向对象</title>
     <url>/2018/09/21/Python/5.%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1-2/</url>
     <content><![CDATA[<p>Python 原创基础教程</p>
@@ -644,6 +644,42 @@
       </tags>
   </entry>
   <entry>
+    <title>7. 字符串</title>
+    <url>/2018/09/21/Python/7.%20%E7%89%B9%E6%AE%8A%E5%8F%82%E6%95%B0/</url>
+    <content><![CDATA[<p>Python 原创基础教程</p>
+<span id="more"></span>
+
+<h1 id="第七章-类方法中的特殊参数"><a href="#第七章-类方法中的特殊参数" class="headerlink" title="第七章 类方法中的特殊参数"></a>第七章 类方法中的特殊参数</h1><h2 id="类参数self-amp-cls"><a href="#类参数self-amp-cls" class="headerlink" title="类参数self&amp;cls"></a>类参数self&amp;cls</h2><ul>
+<li>staticmethod(静态方法):可以没有self，当普通函数使用</li>
+<li>classmethod(类方法):第一个参数是cls，代表类本身</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title class_">A</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">foo1</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello&quot;</span>,self)</span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">foo2</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">foo3</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>,cls)</span><br><span class="line">        </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = A()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.foo1()          <span class="comment">#最常见的调用方式，但与下面的方式相同</span></span><br><span class="line">Hello &lt;__main__.A <span class="built_in">object</span> at <span class="number">0x9f6abec</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A.foo1(a)         <span class="comment">#这里传入实例a，相当于普通方法的self</span></span><br><span class="line">Hello &lt;__main__.A <span class="built_in">object</span> at <span class="number">0x9f6abec</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A.foo2()          <span class="comment">#这里，由于静态方法没有参数，故可以不传东西</span></span><br><span class="line">hello</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A.foo3()          <span class="comment">#这里，由于是类方法，因此，它的第一个参数为类本身。</span></span><br><span class="line">hello &lt;<span class="keyword">class</span> <span class="string">&#x27;__main__.A&#x27;</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A                 <span class="comment">#可以看到，直接输入A，与上面那种调用返回同样的信息。</span></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;__main__.A&#x27;</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="函数参数（-args-amp-kwargs）"><a href="#函数参数（-args-amp-kwargs）" class="headerlink" title="函数参数（*args &amp; **kwargs）"></a>函数参数（*args &amp; **kwargs）</h2><blockquote>
+<p>*args 其中args只是个名字，可以是其他字母</p>
+</blockquote>
+<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">*args表示函数可以接受多个参数</span></span><br></pre></td></tr></table></figure>
+
+<p>实例1</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">def test_args(normal_arg, <span class="number">*a</span>rgs):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;first normal arg:&quot;</span> + normal_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;another arg through *args :&quot;</span> + arg)</span><br><span class="line"></span><br><span class="line">test_args(<span class="string">&quot;normal&quot;</span>, <span class="string">&quot;python&quot;</span>, <span class="string">&quot;java&quot;</span>, <span class="string">&quot;C#&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>**kwargs意思相同，但参数形式是字典形式</p>
+</blockquote>
+<p>实例2</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">def <span class="keyword">fun</span><span class="constructor">_kwargs(<span class="params">farg</span>, <span class="operator">**</span><span class="params">kwargs</span>)</span>:  </span><br><span class="line">    print <span class="string">&quot;arg:&quot;</span>, farg  </span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> kwargs:  </span><br><span class="line">        print <span class="string">&quot;another key and arg: %s: %s&quot;</span> % (key, kwargs<span class="literal">[<span class="identifier">key</span>]</span>)  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">fun</span><span class="constructor">_kwargs(<span class="params">farg</span>=1, <span class="params">myarg2</span>=<span class="string">&quot;two&quot;</span>, <span class="params">myarg3</span>=3)</span>  </span><br><span class="line">  </span><br><span class="line">dic = &#123;<span class="string">&quot;args2&quot;</span>:<span class="string">&quot;two&quot;</span>, <span class="string">&quot;args3&quot;</span>:<span class="number">3</span>&#125;  </span><br><span class="line"><span class="keyword">fun</span><span class="constructor">_kwargs(<span class="params">fargs</span>=1, <span class="operator">**</span><span class="params">dic</span>)</span> #调用方式<span class="number">1</span>  </span><br></pre></td></tr></table></figure>
+<p>实例3</p>
+<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">def <span class="keyword">fun</span><span class="constructor">_kwargs1(<span class="params">arg1</span>, <span class="params">arg2</span>, <span class="params">arg3</span>)</span>:  </span><br><span class="line">    print <span class="string">&quot;arg1:&quot;</span>, arg1  </span><br><span class="line">    print <span class="string">&quot;arg2:&quot;</span>, arg2  </span><br><span class="line">    print <span class="string">&quot;arg3:&quot;</span>, arg3  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">kwargs = &#123;<span class="string">&quot;arg2&quot;</span>:<span class="string">&quot;two&quot;</span>, <span class="string">&quot;arg3&quot;</span>:<span class="number">3</span>&#125;  </span><br><span class="line"><span class="keyword">fun</span><span class="constructor">_kwargs1(1, <span class="operator">**</span><span class="params">kwargs</span>)</span>  </span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Python教程</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>6.类的系统成员</title>
     <url>/2018/09/21/Python/6.%20%E7%B1%BB%E7%9A%84%E7%B3%BB%E7%BB%9F%E6%88%90%E5%91%98(%E5%86%85%E7%BD%AE%E5%B1%9E%E6%80%A7)/</url>
     <content><![CDATA[<p>Python 原创基础教程</p>
@@ -704,42 +740,6 @@
 <figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">A</span>(<span class="title class_ inherited__">object</span>):  </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):  </span><br><span class="line">        self[<span class="string">&#x27;B&#x27;</span>] = <span class="string">&quot;BB&quot;</span>  </span><br><span class="line">        self[<span class="string">&#x27;D&#x27;</span>] = <span class="string">&quot;DD&quot;</span>  </span><br><span class="line">        <span class="keyword">del</span> self[<span class="string">&#x27;D&#x27;</span>]  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__setitem__</span>(<span class="params">self,name,value</span>):  </span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;&#x27;&#x27; </span></span><br><span class="line"><span class="string">        @summary: 每当属性被赋值的时候都会调用该方法，因此不能再该方法内赋值 self.name = value 会死循环 </span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span>  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;__setitem__:Set %s Value %s&quot;</span>%(name,value)  </span><br><span class="line">        self.__dict__[name] = value  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__getitem__</span>(<span class="params">self,name</span>):  </span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;&#x27;&#x27;  </span></span><br><span class="line"><span class="string">        @summary: 当访问不存在的属性时会调用该方法 </span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span>  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;__getitem__:No attribute named &#x27;%s&#x27;&quot;</span>%name  </span><br><span class="line">        <span class="keyword">return</span> <span class="literal">None</span>  </span><br><span class="line">      </span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__delitem__</span>(<span class="params">self,name</span>):  </span><br><span class="line">        <span class="string">&#x27;&#x27;&#x27;&#x27;&#x27;  </span></span><br><span class="line"><span class="string">        @summary: 当删除属性时调用该方法 </span></span><br><span class="line"><span class="string">        &#x27;&#x27;&#x27;</span>  </span><br><span class="line">        <span class="built_in">print</span> <span class="string">&quot;__delitem__:Delect attribute &#x27;%s&#x27;&quot;</span>%name  </span><br><span class="line">        <span class="keyword">del</span> self.__dict__[name]  </span><br><span class="line">        <span class="built_in">print</span> self.__dict__  </span><br><span class="line">      </span><br><span class="line">      </span><br><span class="line">X = A()</span><br><span class="line">X[<span class="string">&#x27;a&#x27;</span>]=<span class="string">&#x27;aa&#x27;</span></span><br><span class="line">X[<span class="string">&#x27;b&#x27;</span>]=<span class="string">&#x27;bb&#x27;</span></span><br><span class="line">X.__dict__</span><br></pre></td></tr></table></figure>
 
 ]]></content>
-      <categories>
-        <category>Python教程</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>7. 字符串</title>
-    <url>/2018/09/21/Python/7.%20%E7%89%B9%E6%AE%8A%E5%8F%82%E6%95%B0/</url>
-    <content><![CDATA[<p>Python 原创基础教程</p>
-<span id="more"></span>
-
-<h1 id="第七章-类方法中的特殊参数"><a href="#第七章-类方法中的特殊参数" class="headerlink" title="第七章 类方法中的特殊参数"></a>第七章 类方法中的特殊参数</h1><h2 id="类参数self-amp-cls"><a href="#类参数self-amp-cls" class="headerlink" title="类参数self&amp;cls"></a>类参数self&amp;cls</h2><ul>
-<li>staticmethod(静态方法):可以没有self，当普通函数使用</li>
-<li>classmethod(类方法):第一个参数是cls，代表类本身</li>
-</ul>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"> <span class="keyword">class</span> <span class="title class_">A</span>(<span class="title class_ inherited__">object</span>):</span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">foo1</span>(<span class="params">self</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;Hello&quot;</span>,self)</span><br><span class="line"><span class="meta">    @staticmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">foo2</span>():</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>)</span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">foo3</span>(<span class="params">cls</span>):</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;hello&quot;</span>,cls)</span><br><span class="line">        </span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a = A()</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>a.foo1()          <span class="comment">#最常见的调用方式，但与下面的方式相同</span></span><br><span class="line">Hello &lt;__main__.A <span class="built_in">object</span> at <span class="number">0x9f6abec</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A.foo1(a)         <span class="comment">#这里传入实例a，相当于普通方法的self</span></span><br><span class="line">Hello &lt;__main__.A <span class="built_in">object</span> at <span class="number">0x9f6abec</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A.foo2()          <span class="comment">#这里，由于静态方法没有参数，故可以不传东西</span></span><br><span class="line">hello</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A.foo3()          <span class="comment">#这里，由于是类方法，因此，它的第一个参数为类本身。</span></span><br><span class="line">hello &lt;<span class="keyword">class</span> <span class="string">&#x27;__main__.A&#x27;</span>&gt;</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>A                 <span class="comment">#可以看到，直接输入A，与上面那种调用返回同样的信息。</span></span><br><span class="line">&lt;<span class="keyword">class</span> <span class="string">&#x27;__main__.A&#x27;</span>&gt;</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="函数参数（-args-amp-kwargs）"><a href="#函数参数（-args-amp-kwargs）" class="headerlink" title="函数参数（*args &amp; **kwargs）"></a>函数参数（*args &amp; **kwargs）</h2><blockquote>
-<p>*args 其中args只是个名字，可以是其他字母</p>
-</blockquote>
-<figure class="highlight gams"><table><tr><td class="code"><pre><span class="line"><span class="comment">*args表示函数可以接受多个参数</span></span><br></pre></td></tr></table></figure>
-
-<p>实例1</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">def test_args(normal_arg, <span class="number">*a</span>rgs):</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;first normal arg:&quot;</span> + normal_arg)</span><br><span class="line">    <span class="keyword">for</span> arg <span class="keyword">in</span> args:</span><br><span class="line">        <span class="built_in">print</span>(<span class="string">&quot;another arg through *args :&quot;</span> + arg)</span><br><span class="line"></span><br><span class="line">test_args(<span class="string">&quot;normal&quot;</span>, <span class="string">&quot;python&quot;</span>, <span class="string">&quot;java&quot;</span>, <span class="string">&quot;C#&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>**kwargs意思相同，但参数形式是字典形式</p>
-</blockquote>
-<p>实例2</p>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">def <span class="keyword">fun</span><span class="constructor">_kwargs(<span class="params">farg</span>, <span class="operator">**</span><span class="params">kwargs</span>)</span>:  </span><br><span class="line">    print <span class="string">&quot;arg:&quot;</span>, farg  </span><br><span class="line">    <span class="keyword">for</span> key <span class="keyword">in</span> kwargs:  </span><br><span class="line">        print <span class="string">&quot;another key and arg: %s: %s&quot;</span> % (key, kwargs<span class="literal">[<span class="identifier">key</span>]</span>)  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line"><span class="keyword">fun</span><span class="constructor">_kwargs(<span class="params">farg</span>=1, <span class="params">myarg2</span>=<span class="string">&quot;two&quot;</span>, <span class="params">myarg3</span>=3)</span>  </span><br><span class="line">  </span><br><span class="line">dic = &#123;<span class="string">&quot;args2&quot;</span>:<span class="string">&quot;two&quot;</span>, <span class="string">&quot;args3&quot;</span>:<span class="number">3</span>&#125;  </span><br><span class="line"><span class="keyword">fun</span><span class="constructor">_kwargs(<span class="params">fargs</span>=1, <span class="operator">**</span><span class="params">dic</span>)</span> #调用方式<span class="number">1</span>  </span><br></pre></td></tr></table></figure>
-<p>实例3</p>
-<figure class="highlight reasonml"><table><tr><td class="code"><pre><span class="line">def <span class="keyword">fun</span><span class="constructor">_kwargs1(<span class="params">arg1</span>, <span class="params">arg2</span>, <span class="params">arg3</span>)</span>:  </span><br><span class="line">    print <span class="string">&quot;arg1:&quot;</span>, arg1  </span><br><span class="line">    print <span class="string">&quot;arg2:&quot;</span>, arg2  </span><br><span class="line">    print <span class="string">&quot;arg3:&quot;</span>, arg3  </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">kwargs = &#123;<span class="string">&quot;arg2&quot;</span>:<span class="string">&quot;two&quot;</span>, <span class="string">&quot;arg3&quot;</span>:<span class="number">3</span>&#125;  </span><br><span class="line"><span class="keyword">fun</span><span class="constructor">_kwargs1(1, <span class="operator">**</span><span class="params">kwargs</span>)</span>  </span><br></pre></td></tr></table></figure>]]></content>
       <categories>
         <category>Python教程</category>
       </categories>
@@ -1540,38 +1540,6 @@
       </tags>
   </entry>
   <entry>
-    <title>keystone(v3) 简介</title>
-    <url>/2017/11/20/openstack/keystone/</url>
-    <content><![CDATA[<h1 id="keystone-v3-简介"><a href="#keystone-v3-简介" class="headerlink" title="keystone(v3) 简介"></a>keystone(v3) 简介</h1><span id="more"></span>
-<h1 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h1><p>User(用户)<br>:服务的用户，可以是人、系统或服务，只要是openstack服务的对象都可以称为用户。</p>
-<p>Tenant(租户)<br>：可以理解为人、项目或者组织拥有资源的集合，在一个租户中可以拥有很多个用户，这些用户可以根据权限划分使用租户的资源。</p>
-<p>Role(角色)<br>：用于分配操作的权限，角色可以指定给用户，用户会获得对应该<br>角色的权限。</p>
-<p>Token(认证)<br>：指的是一串比特值或者字符串，用来作为访问资源的记号。token中含有可访问资源的范围</p>
-<h2 id="keystone交互过程"><a href="#keystone交互过程" class="headerlink" title="keystone交互过程"></a>keystone交互过程</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/kN.4ccACz65s.KizplMiQaMzN0.Qz.VMVMBMfdmtfsQ!/b/dG0BAAAAAAAA&bo=kwOAAgAAAAARByI!&rf=viewer_4" alt="image"></p>
-<p>首先用户向Keystone提供自己的身份验证信息，如用户名和密码。Keystone 会从数据库中读取数据对其验证，如验证通过，会向用户返回一个 token，此后用户所有的请求都会使用该token进行身份验证。如用户向 Nova 申请虚拟机服务，nova 会将用户提供的 token 发给 Keystone 进行验证，Keystone会根据token判断用户是否拥有进行此项操作的权限，若验证通过那么nova会向其提供相对应的服务。其它组件和 Keystone 的交互也是如此。</p>
-<p>在 Keystone V3 之前，用户的权限管理以每一个用户为单位，需要对每一个用户进行角色分配，并不存在一种对一组用户进行统一管理的方案，这给系统管理员带来了额外的工作和不便。此外，Keystone V3 之前的版本中，资源分配是以 Tenant 为单位的，这不太符合现实世界中的层级关系。如一个公司在 Openstack 中拥有两个不同的项目，他需要管理两个 Tenant 来分别对应这两个项目，并对这两个 Tenant 中的用户分别分配角色。</p>
-<h2 id="keystone-v3"><a href="#keystone-v3" class="headerlink" title="keystone v3"></a>keystone v3</h2><p>为了更加符合现实世界和云服务的映射，将 Tenant 改为 Project 并在其上添加 Domain 的概念</p>
-<p>graph TD</p>
-<pre><code>A[Tenant] --&gt;|改为| B(Project)
-B --&gt; C(Domain)
-B --&gt; D(Group)
- 
-</code></pre>
-<p>graph LR;<br>　　A–&gt;B;<br>　　A–&gt;C;<br>　　B–&gt;D;<br>　　C–&gt;D; </p>
-<p>V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。</p>
-<p>域(Domain):比Project更高级的容器，云服务客服是Domain的拥有者，一个Domain可以创建多Project、Users、Groups和Roles。通过<br>Domain对所拥有的多个Project统一管理，不必对每个Project单独管理。</p>
-<p>组(Group):是一组User容器,通过给Group分配角色，在用一组的用户就有Group所有角色的权限</p>
-<h2 id="keystone-v3-各组件关系"><a href="#keystone-v3-各组件关系" class="headerlink" title="keystone v3 各组件关系"></a>keystone v3 各组件关系</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/KmXtiBNrtlpm4aus*Y7ldSR9TuHfm9y09*TfoAYsDzw!/b/dOAAAAAAAAAA&bo=*gKAAgAAAAARAEk!&rf=viewer_4" alt="image"></p>
-<p>UUID FRENET</p>
-]]></content>
-      <categories>
-        <category>openstack</category>
-      </categories>
-      <tags>
-        <tag>云平台</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>glance</title>
     <url>/2017/12/01/openstack/glance/</url>
     <content><![CDATA[<p>openstack教程系列</p>
@@ -1675,6 +1643,38 @@ B --&gt; D(Group)
       </tags>
   </entry>
   <entry>
+    <title>keystone(v3) 简介</title>
+    <url>/2017/11/20/openstack/keystone/</url>
+    <content><![CDATA[<h1 id="keystone-v3-简介"><a href="#keystone-v3-简介" class="headerlink" title="keystone(v3) 简介"></a>keystone(v3) 简介</h1><span id="more"></span>
+<h1 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h1><p>User(用户)<br>:服务的用户，可以是人、系统或服务，只要是openstack服务的对象都可以称为用户。</p>
+<p>Tenant(租户)<br>：可以理解为人、项目或者组织拥有资源的集合，在一个租户中可以拥有很多个用户，这些用户可以根据权限划分使用租户的资源。</p>
+<p>Role(角色)<br>：用于分配操作的权限，角色可以指定给用户，用户会获得对应该<br>角色的权限。</p>
+<p>Token(认证)<br>：指的是一串比特值或者字符串，用来作为访问资源的记号。token中含有可访问资源的范围</p>
+<h2 id="keystone交互过程"><a href="#keystone交互过程" class="headerlink" title="keystone交互过程"></a>keystone交互过程</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/kN.4ccACz65s.KizplMiQaMzN0.Qz.VMVMBMfdmtfsQ!/b/dG0BAAAAAAAA&bo=kwOAAgAAAAARByI!&rf=viewer_4" alt="image"></p>
+<p>首先用户向Keystone提供自己的身份验证信息，如用户名和密码。Keystone 会从数据库中读取数据对其验证，如验证通过，会向用户返回一个 token，此后用户所有的请求都会使用该token进行身份验证。如用户向 Nova 申请虚拟机服务，nova 会将用户提供的 token 发给 Keystone 进行验证，Keystone会根据token判断用户是否拥有进行此项操作的权限，若验证通过那么nova会向其提供相对应的服务。其它组件和 Keystone 的交互也是如此。</p>
+<p>在 Keystone V3 之前，用户的权限管理以每一个用户为单位，需要对每一个用户进行角色分配，并不存在一种对一组用户进行统一管理的方案，这给系统管理员带来了额外的工作和不便。此外，Keystone V3 之前的版本中，资源分配是以 Tenant 为单位的，这不太符合现实世界中的层级关系。如一个公司在 Openstack 中拥有两个不同的项目，他需要管理两个 Tenant 来分别对应这两个项目，并对这两个 Tenant 中的用户分别分配角色。</p>
+<h2 id="keystone-v3"><a href="#keystone-v3" class="headerlink" title="keystone v3"></a>keystone v3</h2><p>为了更加符合现实世界和云服务的映射，将 Tenant 改为 Project 并在其上添加 Domain 的概念</p>
+<p>graph TD</p>
+<pre><code>A[Tenant] --&gt;|改为| B(Project)
+B --&gt; C(Domain)
+B --&gt; D(Group)
+ 
+</code></pre>
+<p>graph LR;<br>　　A–&gt;B;<br>　　A–&gt;C;<br>　　B–&gt;D;<br>　　C–&gt;D; </p>
+<p>V3 利用 Domain 实现真正的多租户（multi-tenancy）架构，Domain 担任 Project 的高层容器。云服务的客户是 Domain 的所有者，他们可以在自己的 Domain 中创建多个 Projects、Users、Groups 和 Roles。通过引入 Domain，云服务客户可以对其拥有的多个 Project 进行统一管理，而不必再向过去那样对每一个 Project 进行单独管理。</p>
+<p>域(Domain):比Project更高级的容器，云服务客服是Domain的拥有者，一个Domain可以创建多Project、Users、Groups和Roles。通过<br>Domain对所拥有的多个Project统一管理，不必对每个Project单独管理。</p>
+<p>组(Group):是一组User容器,通过给Group分配角色，在用一组的用户就有Group所有角色的权限</p>
+<h2 id="keystone-v3-各组件关系"><a href="#keystone-v3-各组件关系" class="headerlink" title="keystone v3 各组件关系"></a>keystone v3 各组件关系</h2><p><img src="http://a3.qpic.cn/psb?/V13eBt6k40tVED/KmXtiBNrtlpm4aus*Y7ldSR9TuHfm9y09*TfoAYsDzw!/b/dOAAAAAAAAAA&bo=*gKAAgAAAAARAEk!&rf=viewer_4" alt="image"></p>
+<p>UUID FRENET</p>
+]]></content>
+      <categories>
+        <category>openstack</category>
+      </categories>
+      <tags>
+        <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>openStack集成安装</title>
     <url>/2017/11/20/openstack/openStack%E9%9B%86%E6%88%90%E5%AE%89%E8%A3%85/</url>
     <content><![CDATA[<h1 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h1><p><a href="https://docs.openstack.org/pike/">https://docs.openstack.org/pike/</a></p>
@@ -1695,6 +1695,41 @@ B --&gt; D(Group)
       </categories>
       <tags>
         <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql基础教程1</title>
+    <url>/2017/11/09/sql/sql_1/</url>
+    <content><![CDATA[<p>针对常用命令直接实践掌握<br> <span id="more"></span></p>
+<h1 id="一、基础命令"><a href="#一、基础命令" class="headerlink" title="一、基础命令"></a>一、基础命令</h1><h2 id="1-启动登录"><a href="#1-启动登录" class="headerlink" title="1.启动登录"></a>1.启动登录</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">service mysqld start <span class="regexp">//</span>启动mysql</span><br><span class="line">mysql -u root -p password <span class="regexp">//</span>登陆root password</span><br></pre></td></tr></table></figure>
+<h2 id="2-建立新用户-grant命令"><a href="#2-建立新用户-grant命令" class="headerlink" title="2.建立新用户(grant命令)"></a>2.建立新用户(grant命令)</h2><p>格式：<br>grant all privileges on 数据库.* to 用户名@登录主机 identified by “密码”； 　　</p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> shopex.* <span class="keyword">to</span> test@localhost identified <span class="keyword">by</span> </span><br><span class="line">&quot;1234&quot;; 　</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>增加一个用户test密码为”1234”,让他只可以在localhost上登录，并可以对数据库Shopex进行所有的操作（localhost指本地主机，即MYSQL数据库所在的那台主机）</p>
+</blockquote>
+<h2 id="3-操作数据库"><a href="#3-操作数据库" class="headerlink" title="3.操作数据库"></a>3.操作数据库</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> student_management;</span><br><span class="line">//创建数据库</span><br><span class="line"><span class="keyword">show</span> databases;</span><br><span class="line">use student_management;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">table</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student_info(stu_id <span class="type">int</span>,<span class="type">name</span> <span class="type">varchar</span>(<span class="number">8</span>),sex <span class="type">varchar</span>(<span class="number">4</span>),<span class="keyword">class</span> <span class="type">varchar</span>(<span class="number">16</span>));</span><br><span class="line">//创建student_info表</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> teacher_info(tea_id <span class="type">int</span> <span class="keyword">primary key</span>,<span class="type">name</span> <span class="type">varchar</span>(<span class="number">8</span>),sex <span class="type">varchar</span>(<span class="number">4</span>) <span class="keyword">check</span>(sex=’男’ <span class="keyword">or</span> sex=’女’),join_time <span class="type">date</span>,nationality <span class="type">varchar</span>(<span class="number">8</span>) <span class="keyword">default</span> ’汉族’)</span><br><span class="line">//主键、约束、默认值</span><br><span class="line"></span><br><span class="line"><span class="keyword">desc</span> student_info;</span><br><span class="line">//查看表结构</span><br></pre></td></tr></table></figure>
+
+<h1 id="二、对表数据操作"><a href="#二、对表数据操作" class="headerlink" title="二、对表数据操作"></a>二、对表数据操作</h1><h2 id="1-增删改"><a href="#1-增删改" class="headerlink" title="1.增删改"></a>1.增删改</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student_info <span class="keyword">values</span>(<span class="number">20080201</span>,’张帅’,’男’,’计算机软件’);</span><br><span class="line">//增加一行数据</span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> student_info <span class="keyword">set</span> <span class="keyword">class</span>=’计算机软件’ <span class="keyword">where</span> <span class="type">name</span>=’王青’;</span><br><span class="line">//修改一行数据</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> student_info <span class="keyword">where</span> <span class="type">name</span>=’张玲’;</span><br><span class="line">//删除一行数据</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="2-查询"><a href="#2-查询" class="headerlink" title="2.查询"></a>2.查询</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student_info <span class="keyword">order</span> <span class="keyword">by</span> stu_id;</span><br><span class="line">//<span class="keyword">order</span> <span class="keyword">by</span>子句：按顺序排序</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> stu_id,<span class="keyword">class</span> <span class="keyword">from</span> student_info <span class="keyword">where</span> <span class="type">name</span>=’李飞’;</span><br><span class="line">//<span class="keyword">where</span>子句：过滤记录</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> count(*) <span class="keyword">from</span> student_info;</span><br><span class="line">//count()函数：计数</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="type">name</span> <span class="keyword">from</span> student_info <span class="keyword">where</span> <span class="type">name</span> <span class="keyword">like</span> <span class="string">&#x27;张%&#x27;</span>;</span><br><span class="line">//<span class="keyword">like</span>操作符:模式（模糊）匹配,&quot;%&quot;符号用于在模式的前后定义通配符（缺省字母）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h1 id="三、对表结构操作"><a href="#三、对表结构操作" class="headerlink" title="三、对表结构操作"></a>三、对表结构操作</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info <span class="keyword">add</span> tel_num <span class="type">int</span>(<span class="number">11</span>);</span><br><span class="line">//添加字段</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info change <span class="type">name</span> stu_name <span class="type">varchar</span>(<span class="number">8</span>);</span><br><span class="line">//修改字段名称</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info modify stu_id <span class="type">int</span> <span class="keyword">primary key</span>;</span><br><span class="line">//修改字段属性</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> tavle student_info modify tel_num <span class="type">int</span>(<span class="number">22</span>);</span><br><span class="line">//同上</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info <span class="keyword">drop</span> <span class="keyword">column</span> tel_num;</span><br><span class="line">//删除字段</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> course_info;</span><br><span class="line">//删除表</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> student_management;</span><br><span class="line">//删除数据库</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+]]></content>
+      <categories>
+        <category>sql</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -1739,6 +1774,34 @@ B --&gt; D(Group)
       </categories>
       <tags>
         <tag>云平台</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>sql_2</title>
+    <url>/2017/11/07/sql/sql_2/</url>
+    <content><![CDATA[<h1 id="查询-2"><a href="#查询-2" class="headerlink" title="查询_2"></a>查询_2</h1><span id="more"></span>
+
+<h2 id="1-聚合函数"><a href="#1-聚合函数" class="headerlink" title="1. 聚合函数"></a>1. 聚合函数</h2><p>计算列中的值，返回一个单一的值</p>
+<p>SUM() 求总和</p>
+<p>MIN() 最小值</p>
+<p>MAX() 最大值</p>
+<p>AVG() 平均值</p>
+<p>count() 返回行数</p>
+<p>first()</p>
+<p>last()</p>
+<h2 id="2-join-inner-join-left-join-right-join"><a href="#2-join-inner-join-left-join-right-join" class="headerlink" title="2. join (inner join,left join,right join)"></a>2. join (inner join,left join,right join)</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Websites.id, Websites.name, access_log.count, access_log.date</span><br><span class="line"><span class="keyword">FROM</span> Websites</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> access_log</span><br><span class="line"><span class="keyword">ON</span> Websites.id=access_log.site_id;</span><br><span class="line">//把两张表拼起来查询</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-group-by-语句"><a href="#3-group-by-语句" class="headerlink" title="3. group by 语句"></a>3. group by 语句</h2><p>结合聚合函数使用</p>
+<figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> site_id, <span class="built_in">SUM</span>(access_log.<span class="built_in">count</span>) <span class="keyword">AS</span> nums</span><br><span class="line"><span class="keyword">FROM</span> access_log <span class="keyword">GROUP</span> <span class="keyword">BY</span> site_id;</span><br><span class="line">//按某一字段，聚合其他字段数据后显示新表</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Websites.name,<span class="built_in">COUNT</span>(access_log.aid) <span class="keyword">AS</span> nums <span class="keyword">FROM</span> access_log</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Websites</span><br><span class="line"><span class="keyword">ON</span> access_log.site_id=Websites.id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Websites.name;</span><br><span class="line">//</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="4-having-子句"><a href="#4-having-子句" class="headerlink" title="4. having 子句"></a>4. having 子句</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Websites.name, Websites.url, SUM(access_log.count) <span class="keyword">AS</span> nums <span class="keyword">FROM</span> (access_log</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Websites</span><br><span class="line"><span class="keyword">ON</span> access_log.site_id=Websites.id)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Websites.name</span><br><span class="line"><span class="keyword">HAVING</span> SUM(access_log.count) &gt; <span class="number">200</span>;</span><br><span class="line">//<span class="keyword">having</span>的作用在于对<span class="keyword">group</span> <span class="keyword">by</span>后的数据进行筛选，类似<span class="keyword">where</span>，而<span class="keyword">where</span>不能用聚合函数 </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Websites.name, SUM(access_log.count) <span class="keyword">AS</span> nums <span class="keyword">FROM</span> Websites</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> access_log</span><br><span class="line"><span class="keyword">ON</span> Websites.id=access_log.site_id</span><br><span class="line"><span class="keyword">WHERE</span> Websites.alexa &lt; <span class="number">200</span> </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Websites.name</span><br><span class="line"><span class="keyword">HAVING</span> SUM(access_log.count) &gt; <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>sql</category>
+      </categories>
+      <tags>
+        <tag>sql</tag>
       </tags>
   </entry>
   <entry>
@@ -1801,7 +1864,7 @@ B --&gt; D(Group)
 <figure class="highlight angelscript"><table><tr><td class="code"><pre><span class="line">email &lt;<span class="symbol">example@</span>example.com&gt;</span><br><span class="line"><span class="string">[GitHub]</span>(http:<span class="comment">//github.com)</span></span><br><span class="line">自动生成连接  &lt;http:<span class="comment">//www.github.com/&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p><code>Control + Shift + L</code> 可插入Markdown语法。<br>如果是 MWeb 的文档库中的文档，拖放或<code>CMD + Option + I</code> 导入非图片时，会生成连接。<br>效果如下：</p>
-<p>Email 连接： <a href="mailto:&#101;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;">&#101;&#120;&#x61;&#109;&#112;&#x6c;&#101;&#x40;&#x65;&#120;&#97;&#x6d;&#x70;&#x6c;&#101;&#46;&#x63;&#111;&#x6d;</a><br><a href="http://github.com/">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/">http://www.github.com/</a> 这样</p>
+<p>Email 连接： <a href="mailto:&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;">&#101;&#120;&#x61;&#x6d;&#112;&#x6c;&#x65;&#64;&#x65;&#120;&#x61;&#x6d;&#112;&#108;&#101;&#x2e;&#99;&#111;&#109;</a><br><a href="http://github.com/">连接标题Github网站</a><br>自动生成连接像： <a href="http://www.github.com/">http://www.github.com/</a> 这样</p>
 <h2 id="区块引用"><a href="#区块引用" class="headerlink" title="区块引用"></a>区块引用</h2><p>Markdown 语法：</p>
 <figure class="highlight node-repl"><table><tr><td class="code"><pre><span class="line">某某说:</span><br><span class="line"><span class="meta">&gt;</span> <span class="language-javascript">第一行引用</span></span><br><span class="line"><span class="meta">&gt;</span> <span class="language-javascript">第二行费用文字</span></span><br></pre></td></tr></table></figure>
 
@@ -1894,69 +1957,6 @@ B --&gt; D(Group)
       </tags>
   </entry>
   <entry>
-    <title>sql基础教程1</title>
-    <url>/2017/11/09/sql/sql_1/</url>
-    <content><![CDATA[<p>针对常用命令直接实践掌握<br> <span id="more"></span></p>
-<h1 id="一、基础命令"><a href="#一、基础命令" class="headerlink" title="一、基础命令"></a>一、基础命令</h1><h2 id="1-启动登录"><a href="#1-启动登录" class="headerlink" title="1.启动登录"></a>1.启动登录</h2><figure class="highlight awk"><table><tr><td class="code"><pre><span class="line">service mysqld start <span class="regexp">//</span>启动mysql</span><br><span class="line">mysql -u root -p password <span class="regexp">//</span>登陆root password</span><br></pre></td></tr></table></figure>
-<h2 id="2-建立新用户-grant命令"><a href="#2-建立新用户-grant命令" class="headerlink" title="2.建立新用户(grant命令)"></a>2.建立新用户(grant命令)</h2><p>格式：<br>grant all privileges on 数据库.* to 用户名@登录主机 identified by “密码”； 　　</p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">grant</span> <span class="keyword">all</span> <span class="keyword">privileges</span> <span class="keyword">on</span> shopex.* <span class="keyword">to</span> test@localhost identified <span class="keyword">by</span> </span><br><span class="line">&quot;1234&quot;; 　</span><br></pre></td></tr></table></figure>
-
-<blockquote>
-<p>增加一个用户test密码为”1234”,让他只可以在localhost上登录，并可以对数据库Shopex进行所有的操作（localhost指本地主机，即MYSQL数据库所在的那台主机）</p>
-</blockquote>
-<h2 id="3-操作数据库"><a href="#3-操作数据库" class="headerlink" title="3.操作数据库"></a>3.操作数据库</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">database</span> student_management;</span><br><span class="line">//创建数据库</span><br><span class="line"><span class="keyword">show</span> databases;</span><br><span class="line">use student_management;</span><br><span class="line"><span class="keyword">show</span> <span class="keyword">table</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> student_info(stu_id <span class="type">int</span>,<span class="type">name</span> <span class="type">varchar</span>(<span class="number">8</span>),sex <span class="type">varchar</span>(<span class="number">4</span>),<span class="keyword">class</span> <span class="type">varchar</span>(<span class="number">16</span>));</span><br><span class="line">//创建student_info表</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> teacher_info(tea_id <span class="type">int</span> <span class="keyword">primary key</span>,<span class="type">name</span> <span class="type">varchar</span>(<span class="number">8</span>),sex <span class="type">varchar</span>(<span class="number">4</span>) <span class="keyword">check</span>(sex=’男’ <span class="keyword">or</span> sex=’女’),join_time <span class="type">date</span>,nationality <span class="type">varchar</span>(<span class="number">8</span>) <span class="keyword">default</span> ’汉族’)</span><br><span class="line">//主键、约束、默认值</span><br><span class="line"></span><br><span class="line"><span class="keyword">desc</span> student_info;</span><br><span class="line">//查看表结构</span><br></pre></td></tr></table></figure>
-
-<h1 id="二、对表数据操作"><a href="#二、对表数据操作" class="headerlink" title="二、对表数据操作"></a>二、对表数据操作</h1><h2 id="1-增删改"><a href="#1-增删改" class="headerlink" title="1.增删改"></a>1.增删改</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> student_info <span class="keyword">values</span>(<span class="number">20080201</span>,’张帅’,’男’,’计算机软件’);</span><br><span class="line">//增加一行数据</span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> student_info <span class="keyword">set</span> <span class="keyword">class</span>=’计算机软件’ <span class="keyword">where</span> <span class="type">name</span>=’王青’;</span><br><span class="line">//修改一行数据</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> student_info <span class="keyword">where</span> <span class="type">name</span>=’张玲’;</span><br><span class="line">//删除一行数据</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h2 id="2-查询"><a href="#2-查询" class="headerlink" title="2.查询"></a>2.查询</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> student_info <span class="keyword">order</span> <span class="keyword">by</span> stu_id;</span><br><span class="line">//<span class="keyword">order</span> <span class="keyword">by</span>子句：按顺序排序</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> stu_id,<span class="keyword">class</span> <span class="keyword">from</span> student_info <span class="keyword">where</span> <span class="type">name</span>=’李飞’;</span><br><span class="line">//<span class="keyword">where</span>子句：过滤记录</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> count(*) <span class="keyword">from</span> student_info;</span><br><span class="line">//count()函数：计数</span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="type">name</span> <span class="keyword">from</span> student_info <span class="keyword">where</span> <span class="type">name</span> <span class="keyword">like</span> <span class="string">&#x27;张%&#x27;</span>;</span><br><span class="line">//<span class="keyword">like</span>操作符:模式（模糊）匹配,&quot;%&quot;符号用于在模式的前后定义通配符（缺省字母）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h1 id="三、对表结构操作"><a href="#三、对表结构操作" class="headerlink" title="三、对表结构操作"></a>三、对表结构操作</h1><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info <span class="keyword">add</span> tel_num <span class="type">int</span>(<span class="number">11</span>);</span><br><span class="line">//添加字段</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info change <span class="type">name</span> stu_name <span class="type">varchar</span>(<span class="number">8</span>);</span><br><span class="line">//修改字段名称</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info modify stu_id <span class="type">int</span> <span class="keyword">primary key</span>;</span><br><span class="line">//修改字段属性</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> tavle student_info modify tel_num <span class="type">int</span>(<span class="number">22</span>);</span><br><span class="line">//同上</span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> student_info <span class="keyword">drop</span> <span class="keyword">column</span> tel_num;</span><br><span class="line">//删除字段</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span> course_info;</span><br><span class="line">//删除表</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">database</span> student_management;</span><br><span class="line">//删除数据库</span><br></pre></td></tr></table></figure>
-
-
-
-
-
-
-
-
-
-]]></content>
-      <categories>
-        <category>sql</category>
-      </categories>
-      <tags>
-        <tag>sql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>sql_2</title>
-    <url>/2017/11/07/sql/sql_2/</url>
-    <content><![CDATA[<h1 id="查询-2"><a href="#查询-2" class="headerlink" title="查询_2"></a>查询_2</h1><span id="more"></span>
-
-<h2 id="1-聚合函数"><a href="#1-聚合函数" class="headerlink" title="1. 聚合函数"></a>1. 聚合函数</h2><p>计算列中的值，返回一个单一的值</p>
-<p>SUM() 求总和</p>
-<p>MIN() 最小值</p>
-<p>MAX() 最大值</p>
-<p>AVG() 平均值</p>
-<p>count() 返回行数</p>
-<p>first()</p>
-<p>last()</p>
-<h2 id="2-join-inner-join-left-join-right-join"><a href="#2-join-inner-join-left-join-right-join" class="headerlink" title="2. join (inner join,left join,right join)"></a>2. join (inner join,left join,right join)</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> Websites.id, Websites.name, access_log.count, access_log.date</span><br><span class="line"><span class="keyword">FROM</span> Websites</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> access_log</span><br><span class="line"><span class="keyword">ON</span> Websites.id=access_log.site_id;</span><br><span class="line">//把两张表拼起来查询</span><br></pre></td></tr></table></figure>
-
-<h2 id="3-group-by-语句"><a href="#3-group-by-语句" class="headerlink" title="3. group by 语句"></a>3. group by 语句</h2><p>结合聚合函数使用</p>
-<figure class="highlight n1ql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> site_id, <span class="built_in">SUM</span>(access_log.<span class="built_in">count</span>) <span class="keyword">AS</span> nums</span><br><span class="line"><span class="keyword">FROM</span> access_log <span class="keyword">GROUP</span> <span class="keyword">BY</span> site_id;</span><br><span class="line">//按某一字段，聚合其他字段数据后显示新表</span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Websites.name,<span class="built_in">COUNT</span>(access_log.aid) <span class="keyword">AS</span> nums <span class="keyword">FROM</span> access_log</span><br><span class="line"><span class="keyword">LEFT</span> <span class="keyword">JOIN</span> Websites</span><br><span class="line"><span class="keyword">ON</span> access_log.site_id=Websites.id</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Websites.name;</span><br><span class="line">//</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="4-having-子句"><a href="#4-having-子句" class="headerlink" title="4. having 子句"></a>4. having 子句</h2><figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Websites.name, Websites.url, SUM(access_log.count) <span class="keyword">AS</span> nums <span class="keyword">FROM</span> (access_log</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> Websites</span><br><span class="line"><span class="keyword">ON</span> access_log.site_id=Websites.id)</span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Websites.name</span><br><span class="line"><span class="keyword">HAVING</span> SUM(access_log.count) &gt; <span class="number">200</span>;</span><br><span class="line">//<span class="keyword">having</span>的作用在于对<span class="keyword">group</span> <span class="keyword">by</span>后的数据进行筛选，类似<span class="keyword">where</span>，而<span class="keyword">where</span>不能用聚合函数 </span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> Websites.name, SUM(access_log.count) <span class="keyword">AS</span> nums <span class="keyword">FROM</span> Websites</span><br><span class="line"><span class="keyword">INNER</span> <span class="keyword">JOIN</span> access_log</span><br><span class="line"><span class="keyword">ON</span> Websites.id=access_log.site_id</span><br><span class="line"><span class="keyword">WHERE</span> Websites.alexa &lt; <span class="number">200</span> </span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> Websites.name</span><br><span class="line"><span class="keyword">HAVING</span> SUM(access_log.count) &gt; <span class="number">200</span>;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>sql</category>
-      </categories>
-      <tags>
-        <tag>sql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>二叉树&amp;相关算法</title>
     <url>/2017/12/01/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84&amp;%E5%9F%BA%E7%A1%80%E7%AE%97%E6%B3%95/%E4%BA%8C%E5%8F%89%E6%A0%91/</url>
     <content><![CDATA[<p>python实战基础《数据结构和算法》</p>
@@ -1991,100 +1991,6 @@ b.用栈</li>
       <tags>
         <tag>基础算法</tag>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>爬虫教程1 爬虫基础</title>
-    <url>/2018/09/26/%E7%88%AC%E8%99%AB/1.%20%E7%88%AC%E8%99%AB%201/</url>
-    <content><![CDATA[<blockquote>
-<p>Python 简易爬虫</p>
-</blockquote>
-<span id="more"></span>
-
-
-<h2 id="1-爬整个网页"><a href="#1-爬整个网页" class="headerlink" title="1.爬整个网页"></a>1.爬整个网页</h2><ul>
-<li>一个网址字符串，ex：’<a href="http://www.baidu.com&/#39;">http://www.baidu.com&#39;</a></li>
-<li>向网站发出请求：把字符串传入request对象()</li>
-<li>把请求返回的信息赋值到变量response</li>
-<li>写入txt文件</li>
-</ul>
-<figure class="highlight roboconf"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">header= &#123;</span><br><span class="line">     &#x27;<span class="attribute">User-Agent&#x27;</span>: &#x27;Mozilla/5.0 (Windows NT 6.1; <span class="attribute">WOW64) AppleWebKit/537.36 (KHTML, like Gecko    ) Chrome/58.0.3029.96 Safari/537.36&#x27;</span></span><br><span class="line"><span class="attribute">&#125; </span></span><br><span class="line"><span class="attribute">#一个请求的头部，其中User-Agent用于描述浏览器类型</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">request = urllib.request.Request(&#x27;http</span>://www<span class="variable">.sina</span><span class="variable">.com</span>&#x27;,headers=header)</span><br><span class="line">#请求对象，请求某一网站的内容</span><br><span class="line"></span><br><span class="line">response1 = urllib<span class="variable">.request</span><span class="variable">.urlopen</span>(&#x27;http://www<span class="variable">.sina</span><span class="variable">.com</span>&#x27;)</span><br><span class="line">#某一网站的响应</span><br><span class="line">response2 = urllib<span class="variable">.request</span><span class="variable">.urlopen</span>(request)</span><br><span class="line">   </span><br><span class="line">html=response1<span class="variable">.read</span>()</span><br><span class="line">#读取响应信息的字节流</span><br><span class="line"></span><br><span class="line">f = open(&#x27;./4<span class="variable">.txt</span>&#x27;,&#x27;wb&#x27;)</span><br><span class="line">f<span class="variable">.write</span>(html)</span><br><span class="line">f<span class="variable">.close</span>()</span><br><span class="line">#将字节流写入到文件中</span><br></pre></td></tr></table></figure>
-
-<h2 id="2-爬取豆瓣短评"><a href="#2-爬取豆瓣短评" class="headerlink" title="2.爬取豆瓣短评"></a>2.爬取豆瓣短评</h2><blockquote>
-<p>load(url)函数,通过url传递网页爬取网页内容</p>
-</blockquote>
-<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="built_in">import</span> urllib.request</span><br><span class="line">def load(url):</span><br><span class="line">    <span class="attr">req</span> = urllib.request.Request(url)</span><br><span class="line">    <span class="comment">#豆瓣评论的网址</span></span><br><span class="line">    <span class="attr">res</span> = urllib.request.urlopen(req)</span><br><span class="line">    <span class="attr">html</span> = res.read()</span><br><span class="line">    return html</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>write(html,txt)函数，将html内容存至txt文件中</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">def write(<span class="selector-tag">html</span>,t):</span><br><span class="line">    f = <span class="built_in">open</span>(t,<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    f.<span class="built_in">write</span>(html)</span><br><span class="line">    f.<span class="built_in">close</span>()</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>spider(url,begin,end)函数，爬取指定页数的评论</p>
-</blockquote>
-<p>其中<br><a href="https://movie.douban.com/subject/24773958/comments?start=0&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=%E4%B8%BA%E7%9F%AD%E8%AF%84%E9%A6%96%E9%A1%B5">https://movie.douban.com/subject/24773958/comments?start=0&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=为短评首页</a></p>
-<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">def spider(url,<span class="keyword">begin</span>,<span class="keyword">end</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="keyword">begin</span>,<span class="keyword">end</span>+<span class="number">1</span>):</span><br><span class="line">        <span class="number">20</span>*(i<span class="number">-1</span>)</span><br><span class="line">        the_url=<span class="string">&#x27;https://movie.douban.com/subject/24773958/comments?start=&#x27;</span>+str(i)+<span class="string">&#x27;&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=&#x27;</span></span><br><span class="line">        html = <span class="keyword">load</span>(the_url)</span><br><span class="line">        t = str(i)+<span class="string">&#x27;.html&#x27;</span></span><br><span class="line">        <span class="keyword">write</span>(html,t)</span><br><span class="line">        print(<span class="string">&#x27;已保存第%d页&#x27;</span>%i)</span><br><span class="line">        </span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>正则表达式爬取评论内容</p>
-</blockquote>
-<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">&lt;p <span class="attr">class=&quot;&quot;&gt;</span> </span><br><span class="line">结局简直丧出天际！灭霸竟然有内心戏！</span><br><span class="line">全程下来美队和钢铁侠也没见上一面，</span><br><span class="line">我还以为在世界末日前必然要重修旧好了！</span><br><span class="line">&lt;/p&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#正则表达式为</span></span><br><span class="line">&#x27;&lt;p <span class="attr">class=&quot;&quot;&gt;(.*?)&lt;/p&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改写load()</span></span><br><span class="line"><span class="built_in">import</span> urllib.request</span><br><span class="line"><span class="built_in">import</span> re</span><br><span class="line">def load(url):</span><br><span class="line">    <span class="attr">req</span> = urllib.request.Request(url)</span><br><span class="line">    <span class="comment">#豆瓣评论的网址</span></span><br><span class="line">    <span class="attr">res</span> = urllib.request.urlopen(req)</span><br><span class="line">    <span class="attr">html</span> = res.read() <span class="comment">#二进制文件</span></span><br><span class="line">    <span class="attr">html</span> = html.decode(&#x27;utf-<span class="number">8</span>&#x27;) <span class="comment">#解码,该方法返回解码后的字符串。 </span></span><br><span class="line">    <span class="attr">pattern</span> = re.compile(&#x27;&lt;p <span class="attr">class=&quot;&quot;&gt;(.*?)&lt;/div&gt;&#x27;)</span></span><br><span class="line">    <span class="attr">list</span> = pattern.findall(html)</span><br><span class="line">    return list</span><br></pre></td></tr></table></figure>
-
-
-<blockquote>
-<p>命令行操作</p>
-</blockquote>
-<figure class="highlight hsp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#有中文输出输入时需加下行的编码</span></span><br><span class="line"><span class="meta"># -*- coding: utf<span class="number">-8</span> -*-</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    url = <span class="keyword">input</span>(<span class="string">&#x27;请输入网址:&#x27;</span>)</span><br><span class="line">    begin = <span class="keyword">int</span>(<span class="keyword">input</span>(<span class="string">&#x27;请输入起始页:&#x27;</span>))</span><br><span class="line">    <span class="keyword">end</span> = <span class="keyword">int</span>(<span class="keyword">input</span>(<span class="string">&#x27;请输入终止页:&#x27;</span>))</span><br><span class="line">    spider(url,begin,<span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
-
-
-
-]]></content>
-      <categories>
-        <category>Python爬虫</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>爬虫教程2 框架爬虫</title>
-    <url>/2018/09/26/%E7%88%AC%E8%99%AB/2.%E7%88%AC%E8%99%AB2/</url>
-    <content><![CDATA[<blockquote>
-<p>Python 简易爬虫</p>
-</blockquote>
-<span id="more"></span>
-
-<h1 id="1-Scrapy框架"><a href="#1-Scrapy框架" class="headerlink" title="1 Scrapy框架"></a>1 Scrapy框架</h1><h2 id="1-1-框架介绍"><a href="#1-1-框架介绍" class="headerlink" title="1.1 框架介绍"></a>1.1 框架介绍</h2><blockquote>
-<p>通过ORM，把爬取的数据对应到python的对象中，完成数据的爬取。</p>
-</blockquote>
-<h2 id="1-2-基本操作"><a href="#1-2-基本操作" class="headerlink" title="1.2 基本操作"></a>1.2 基本操作</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">可能安装的依赖包</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;pip install wheel</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;<span class="built_in">cd</span> c:/</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;pip install Twi+(tab)</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;pip install scrapy</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">创建项目</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;scrapy startproject aSpider</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="1-2-1-项目的目录结构"><a href="#1-2-1-项目的目录结构" class="headerlink" title="1.2.1 项目的目录结构"></a>1.2.1 项目的目录结构</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">aSpider</span><br><span class="line">    ---</span><br><span class="line">        aSpider</span><br><span class="line">            ---</span><br><span class="line">                __init__<span class="selector-class">.py</span>	</span><br><span class="line">                __pycache__</span><br><span class="line">                middlewares<span class="selector-class">.py</span>	</span><br><span class="line">                settings<span class="selector-class">.py</span>	</span><br><span class="line">                spiders       #用于实现爬虫的文件</span><br><span class="line">                __init__<span class="selector-class">.pyc</span>	</span><br><span class="line">                items<span class="selector-class">.py</span>      #用于写类(class)实现ORM的文件</span><br><span class="line">                pipelines<span class="selector-class">.py</span>	</span><br><span class="line">                settings<span class="selector-class">.pyc</span>                </span><br><span class="line">        scrapy<span class="selector-class">.cfg</span></span><br><span class="line">        </span><br></pre></td></tr></table></figure>
-
-<h2 id="1-3-Xpath"><a href="#1-3-Xpath" class="headerlink" title="1.3 Xpath"></a>1.3 Xpath</h2><p>XPath 是一门在 XML 文档中查找信息的语言。XPath 可用来在 XML 文档中对元素和属性进行遍历。</p>
-<p>XPath 是 W3C XSLT 标准的主要元素，并且 XQuery 和 XPointer 都构建于 XPath 表达之上。</p>
-<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/html/</span>head<span class="regexp">/title/</span>text()</span><br><span class="line"><span class="comment">#选择HTML文档&lt;head&gt;元素下面的&lt;title&gt;标签内的文本内容</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>td:</span><br><span class="line"><span class="comment">#选择所有的td元素</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>div[@class=<span class="string">&quot;mine&quot;</span>]</span><br><span class="line"><span class="comment">#选择所有包含class=&quot;mine&quot;属性的div标签元素</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>xpath():返回selectors,每一个select表示一个xpath参数表达式选择的节点</li>
-<li>css():返回selectors，每一个select表示一个css参数表达式选择的节点</li>
-<li>extract():返回一个unicode字符串，内容为xpath选中的内容</li>
-<li>re()：返回一个unicode字符串，内容为正则表达式的内容</li>
-</ul>
-<h2 id="1-4-spider"><a href="#1-4-spider" class="headerlink" title="1.4 spider"></a>1.4 spider</h2><p>存于项目的spiders文件夹下,itcast_spider.py中</p>
-<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">class aSpider(scrapy.spiders.Spider):</span><br><span class="line">    <span class="attribute">name</span>=<span class="string">&quot;itcast&quot;</span></span><br><span class="line">    allowd_domains = [<span class="string">&quot;http://www.itcast.cn&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;http://www.itcast.cn/channel/teacher.shtml#ac&quot;</span>]</span><br><span class="line">    </span><br><span class="line">    def parse(self,response):</span><br><span class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> response.xpath(<span class="string">&#x27;//div[@class=&quot;li_txt&quot;]&#x27;</span>):</span><br><span class="line">            teacher_name = site.xpath(<span class="string">&#x27;h3/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_level = site.xpath(<span class="string">&#x27;h4/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_info = site.xpath(<span class="string">&#x27;p/text()&#x27;</span>).extract()</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">print</span> teacher_name[0]</span><br><span class="line">            <span class="built_in">print</span> teacher_level[0]</span><br><span class="line">            <span class="built_in">print</span> teacher_info[0]</span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;=============&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="1-5-items-py"><a href="#1-5-items-py" class="headerlink" title="1.5 items.py"></a>1.5 items.py</h2><figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="class"> </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> aSpiderItem(<span class="title">scrapy</span>.<span class="type">Item</span>):</span></span><br><span class="line"><span class="class">    # define the fields for your item here like:</span></span><br><span class="line"><span class="class">    # name = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">      pass</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">ItcastItem</span>(<span class="title">scrapy</span>.<span class="type">Item</span>):</span></span><br><span class="line"><span class="class">      name = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">      level = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">      info = scrapy.<span class="type">Field</span>()</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="1-6-改写spider"><a href="#1-6-改写spider" class="headerlink" title="1.6 改写spider"></a>1.6 改写spider</h2><figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line"><span class="built_in">from</span> aSpider.<span class="keyword">items</span> import ItcastItem</span><br><span class="line"></span><br><span class="line">class aSpider(scrapy.spiders.Spider):</span><br><span class="line">    name=<span class="string">&quot;itcast&quot;</span></span><br><span class="line">    allowd_domains = [<span class="string">&quot;http://www.itcast.cn&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;http://www.itcast.cn/channel/teacher.shtml#ac&quot;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">items</span> = []</span><br><span class="line">    </span><br><span class="line">    def parse(self,response):</span><br><span class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> response.xpath(<span class="string">&#x27;//div[@class=&quot;li_txt&quot;]&#x27;</span>)</span><br><span class="line">            </span><br><span class="line">            teacher_name = site.xpath(<span class="string">&#x27;h3/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_level = site.xpath(<span class="string">&#x27;h4/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_info = site.xpath(<span class="string">&#x27;p/text()&#x27;</span>).extract()</span><br><span class="line">            </span><br><span class="line">            print teacher_name[<span class="number">0</span>]</span><br><span class="line">            print teacher_level[<span class="number">0</span>]</span><br><span class="line">            print teacher_info[<span class="number">0</span>]</span><br><span class="line">            print <span class="string">&quot;=============&quot;</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">item</span> = ItcastItem()</span><br><span class="line">            <span class="comment">#一个对象数据</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">item</span>[<span class="string">&#x27;name&#x27;</span>]=teacher_name[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">item</span>[<span class="string">&#x27;level&#x27;</span>]=teacher_level[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">item</span>[<span class="string">&#x27;info&#x27;</span>]=teacher_info[<span class="number">0</span>]</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">items</span>.append(<span class="keyword">item</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="literal">return</span> <span class="keyword">items</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="1-7-爬取内容"><a href="#1-7-爬取内容" class="headerlink" title="1.7 爬取内容"></a>1.7 爬取内容</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="comment">#爬取内容</span></span><br><span class="line">&gt;&gt;&gt;python3 -m <span class="keyword">scrapy </span>crawl itcast</span><br><span class="line"></span><br><span class="line"><span class="comment">#爬取内容至json中</span></span><br><span class="line">&gt;&gt;&gt;<span class="keyword">scrapy </span>crawl itcast  -o itcast_teacher.<span class="keyword">json </span>-t <span class="keyword">json</span></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>Python爬虫</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2406,6 +2312,100 @@ b.用栈</li>
       </categories>
       <tags>
         <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬虫教程1 爬虫基础</title>
+    <url>/2018/09/26/%E7%88%AC%E8%99%AB/1.%20%E7%88%AC%E8%99%AB%201/</url>
+    <content><![CDATA[<blockquote>
+<p>Python 简易爬虫</p>
+</blockquote>
+<span id="more"></span>
+
+
+<h2 id="1-爬整个网页"><a href="#1-爬整个网页" class="headerlink" title="1.爬整个网页"></a>1.爬整个网页</h2><ul>
+<li>一个网址字符串，ex：’<a href="http://www.baidu.com&/#39;">http://www.baidu.com&#39;</a></li>
+<li>向网站发出请求：把字符串传入request对象()</li>
+<li>把请求返回的信息赋值到变量response</li>
+<li>写入txt文件</li>
+</ul>
+<figure class="highlight roboconf"><table><tr><td class="code"><pre><span class="line"><span class="comment"># python3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">header= &#123;</span><br><span class="line">     &#x27;<span class="attribute">User-Agent&#x27;</span>: &#x27;Mozilla/5.0 (Windows NT 6.1; <span class="attribute">WOW64) AppleWebKit/537.36 (KHTML, like Gecko    ) Chrome/58.0.3029.96 Safari/537.36&#x27;</span></span><br><span class="line"><span class="attribute">&#125; </span></span><br><span class="line"><span class="attribute">#一个请求的头部，其中User-Agent用于描述浏览器类型</span></span><br><span class="line"><span class="attribute"></span></span><br><span class="line"><span class="attribute">request = urllib.request.Request(&#x27;http</span>://www<span class="variable">.sina</span><span class="variable">.com</span>&#x27;,headers=header)</span><br><span class="line">#请求对象，请求某一网站的内容</span><br><span class="line"></span><br><span class="line">response1 = urllib<span class="variable">.request</span><span class="variable">.urlopen</span>(&#x27;http://www<span class="variable">.sina</span><span class="variable">.com</span>&#x27;)</span><br><span class="line">#某一网站的响应</span><br><span class="line">response2 = urllib<span class="variable">.request</span><span class="variable">.urlopen</span>(request)</span><br><span class="line">   </span><br><span class="line">html=response1<span class="variable">.read</span>()</span><br><span class="line">#读取响应信息的字节流</span><br><span class="line"></span><br><span class="line">f = open(&#x27;./4<span class="variable">.txt</span>&#x27;,&#x27;wb&#x27;)</span><br><span class="line">f<span class="variable">.write</span>(html)</span><br><span class="line">f<span class="variable">.close</span>()</span><br><span class="line">#将字节流写入到文件中</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-爬取豆瓣短评"><a href="#2-爬取豆瓣短评" class="headerlink" title="2.爬取豆瓣短评"></a>2.爬取豆瓣短评</h2><blockquote>
+<p>load(url)函数,通过url传递网页爬取网页内容</p>
+</blockquote>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line"><span class="built_in">import</span> urllib.request</span><br><span class="line">def load(url):</span><br><span class="line">    <span class="attr">req</span> = urllib.request.Request(url)</span><br><span class="line">    <span class="comment">#豆瓣评论的网址</span></span><br><span class="line">    <span class="attr">res</span> = urllib.request.urlopen(req)</span><br><span class="line">    <span class="attr">html</span> = res.read()</span><br><span class="line">    return html</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>write(html,txt)函数，将html内容存至txt文件中</p>
+</blockquote>
+<figure class="highlight css"><table><tr><td class="code"><pre><span class="line">def write(<span class="selector-tag">html</span>,t):</span><br><span class="line">    f = <span class="built_in">open</span>(t,<span class="string">&#x27;wb&#x27;</span>)</span><br><span class="line">    f.<span class="built_in">write</span>(html)</span><br><span class="line">    f.<span class="built_in">close</span>()</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>spider(url,begin,end)函数，爬取指定页数的评论</p>
+</blockquote>
+<p>其中<br><a href="https://movie.douban.com/subject/24773958/comments?start=0&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=%E4%B8%BA%E7%9F%AD%E8%AF%84%E9%A6%96%E9%A1%B5">https://movie.douban.com/subject/24773958/comments?start=0&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=为短评首页</a></p>
+<figure class="highlight pgsql"><table><tr><td class="code"><pre><span class="line">def spider(url,<span class="keyword">begin</span>,<span class="keyword">end</span>):</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="keyword">begin</span>,<span class="keyword">end</span>+<span class="number">1</span>):</span><br><span class="line">        <span class="number">20</span>*(i<span class="number">-1</span>)</span><br><span class="line">        the_url=<span class="string">&#x27;https://movie.douban.com/subject/24773958/comments?start=&#x27;</span>+str(i)+<span class="string">&#x27;&amp;limit=20&amp;sort=new_score&amp;status=P&amp;percent_type=&#x27;</span></span><br><span class="line">        html = <span class="keyword">load</span>(the_url)</span><br><span class="line">        t = str(i)+<span class="string">&#x27;.html&#x27;</span></span><br><span class="line">        <span class="keyword">write</span>(html,t)</span><br><span class="line">        print(<span class="string">&#x27;已保存第%d页&#x27;</span>%i)</span><br><span class="line">        </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>正则表达式爬取评论内容</p>
+</blockquote>
+<figure class="highlight nix"><table><tr><td class="code"><pre><span class="line">&lt;p <span class="attr">class=&quot;&quot;&gt;</span> </span><br><span class="line">结局简直丧出天际！灭霸竟然有内心戏！</span><br><span class="line">全程下来美队和钢铁侠也没见上一面，</span><br><span class="line">我还以为在世界末日前必然要重修旧好了！</span><br><span class="line">&lt;/p&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment">#正则表达式为</span></span><br><span class="line">&#x27;&lt;p <span class="attr">class=&quot;&quot;&gt;(.*?)&lt;/p&gt;&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 改写load()</span></span><br><span class="line"><span class="built_in">import</span> urllib.request</span><br><span class="line"><span class="built_in">import</span> re</span><br><span class="line">def load(url):</span><br><span class="line">    <span class="attr">req</span> = urllib.request.Request(url)</span><br><span class="line">    <span class="comment">#豆瓣评论的网址</span></span><br><span class="line">    <span class="attr">res</span> = urllib.request.urlopen(req)</span><br><span class="line">    <span class="attr">html</span> = res.read() <span class="comment">#二进制文件</span></span><br><span class="line">    <span class="attr">html</span> = html.decode(&#x27;utf-<span class="number">8</span>&#x27;) <span class="comment">#解码,该方法返回解码后的字符串。 </span></span><br><span class="line">    <span class="attr">pattern</span> = re.compile(&#x27;&lt;p <span class="attr">class=&quot;&quot;&gt;(.*?)&lt;/div&gt;&#x27;)</span></span><br><span class="line">    <span class="attr">list</span> = pattern.findall(html)</span><br><span class="line">    return list</span><br></pre></td></tr></table></figure>
+
+
+<blockquote>
+<p>命令行操作</p>
+</blockquote>
+<figure class="highlight hsp"><table><tr><td class="code"><pre><span class="line"><span class="meta">#有中文输出输入时需加下行的编码</span></span><br><span class="line"><span class="meta"># -*- coding: utf<span class="number">-8</span> -*-</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    url = <span class="keyword">input</span>(<span class="string">&#x27;请输入网址:&#x27;</span>)</span><br><span class="line">    begin = <span class="keyword">int</span>(<span class="keyword">input</span>(<span class="string">&#x27;请输入起始页:&#x27;</span>))</span><br><span class="line">    <span class="keyword">end</span> = <span class="keyword">int</span>(<span class="keyword">input</span>(<span class="string">&#x27;请输入终止页:&#x27;</span>))</span><br><span class="line">    spider(url,begin,<span class="keyword">end</span>)</span><br></pre></td></tr></table></figure>
+
+
+
+]]></content>
+      <categories>
+        <category>Python爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>爬虫教程2 框架爬虫</title>
+    <url>/2018/09/26/%E7%88%AC%E8%99%AB/2.%E7%88%AC%E8%99%AB2/</url>
+    <content><![CDATA[<blockquote>
+<p>Python 简易爬虫</p>
+</blockquote>
+<span id="more"></span>
+
+<h1 id="1-Scrapy框架"><a href="#1-Scrapy框架" class="headerlink" title="1 Scrapy框架"></a>1 Scrapy框架</h1><h2 id="1-1-框架介绍"><a href="#1-1-框架介绍" class="headerlink" title="1.1 框架介绍"></a>1.1 框架介绍</h2><blockquote>
+<p>通过ORM，把爬取的数据对应到python的对象中，完成数据的爬取。</p>
+</blockquote>
+<h2 id="1-2-基本操作"><a href="#1-2-基本操作" class="headerlink" title="1.2 基本操作"></a>1.2 基本操作</h2><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="language-bash">可能安装的依赖包</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;pip install wheel</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;<span class="built_in">cd</span> c:/</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;pip install Twi+(tab)</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;pip install scrapy</span></span><br><span class="line"><span class="meta"></span></span><br><span class="line"><span class="meta">#</span><span class="language-bash">创建项目</span></span><br><span class="line"><span class="meta">&gt;</span><span class="language-bash">&gt;&gt;scrapy startproject aSpider</span></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-2-1-项目的目录结构"><a href="#1-2-1-项目的目录结构" class="headerlink" title="1.2.1 项目的目录结构"></a>1.2.1 项目的目录结构</h3><figure class="highlight stylus"><table><tr><td class="code"><pre><span class="line">aSpider</span><br><span class="line">    ---</span><br><span class="line">        aSpider</span><br><span class="line">            ---</span><br><span class="line">                __init__<span class="selector-class">.py</span>	</span><br><span class="line">                __pycache__</span><br><span class="line">                middlewares<span class="selector-class">.py</span>	</span><br><span class="line">                settings<span class="selector-class">.py</span>	</span><br><span class="line">                spiders       #用于实现爬虫的文件</span><br><span class="line">                __init__<span class="selector-class">.pyc</span>	</span><br><span class="line">                items<span class="selector-class">.py</span>      #用于写类(class)实现ORM的文件</span><br><span class="line">                pipelines<span class="selector-class">.py</span>	</span><br><span class="line">                settings<span class="selector-class">.pyc</span>                </span><br><span class="line">        scrapy<span class="selector-class">.cfg</span></span><br><span class="line">        </span><br></pre></td></tr></table></figure>
+
+<h2 id="1-3-Xpath"><a href="#1-3-Xpath" class="headerlink" title="1.3 Xpath"></a>1.3 Xpath</h2><p>XPath 是一门在 XML 文档中查找信息的语言。XPath 可用来在 XML 文档中对元素和属性进行遍历。</p>
+<p>XPath 是 W3C XSLT 标准的主要元素，并且 XQuery 和 XPointer 都构建于 XPath 表达之上。</p>
+<figure class="highlight awk"><table><tr><td class="code"><pre><span class="line"><span class="regexp">/html/</span>head<span class="regexp">/title/</span>text()</span><br><span class="line"><span class="comment">#选择HTML文档&lt;head&gt;元素下面的&lt;title&gt;标签内的文本内容</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>td:</span><br><span class="line"><span class="comment">#选择所有的td元素</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>div[@class=<span class="string">&quot;mine&quot;</span>]</span><br><span class="line"><span class="comment">#选择所有包含class=&quot;mine&quot;属性的div标签元素</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>xpath():返回selectors,每一个select表示一个xpath参数表达式选择的节点</li>
+<li>css():返回selectors，每一个select表示一个css参数表达式选择的节点</li>
+<li>extract():返回一个unicode字符串，内容为xpath选中的内容</li>
+<li>re()：返回一个unicode字符串，内容为正则表达式的内容</li>
+</ul>
+<h2 id="1-4-spider"><a href="#1-4-spider" class="headerlink" title="1.4 spider"></a>1.4 spider</h2><p>存于项目的spiders文件夹下,itcast_spider.py中</p>
+<figure class="highlight routeros"><table><tr><td class="code"><pre><span class="line">class aSpider(scrapy.spiders.Spider):</span><br><span class="line">    <span class="attribute">name</span>=<span class="string">&quot;itcast&quot;</span></span><br><span class="line">    allowd_domains = [<span class="string">&quot;http://www.itcast.cn&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;http://www.itcast.cn/channel/teacher.shtml#ac&quot;</span>]</span><br><span class="line">    </span><br><span class="line">    def parse(self,response):</span><br><span class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> response.xpath(<span class="string">&#x27;//div[@class=&quot;li_txt&quot;]&#x27;</span>):</span><br><span class="line">            teacher_name = site.xpath(<span class="string">&#x27;h3/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_level = site.xpath(<span class="string">&#x27;h4/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_info = site.xpath(<span class="string">&#x27;p/text()&#x27;</span>).extract()</span><br><span class="line">            </span><br><span class="line">            <span class="built_in">print</span> teacher_name[0]</span><br><span class="line">            <span class="built_in">print</span> teacher_level[0]</span><br><span class="line">            <span class="built_in">print</span> teacher_info[0]</span><br><span class="line">            <span class="built_in">print</span> <span class="string">&quot;=============&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-5-items-py"><a href="#1-5-items-py" class="headerlink" title="1.5 items.py"></a>1.5 items.py</h2><figure class="highlight haskell"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> scrapy</span><br><span class="line"><span class="class"> </span></span><br><span class="line"><span class="class"><span class="keyword">class</span> aSpiderItem(<span class="title">scrapy</span>.<span class="type">Item</span>):</span></span><br><span class="line"><span class="class">    # define the fields for your item here like:</span></span><br><span class="line"><span class="class">    # name = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">      pass</span></span><br><span class="line"><span class="class"></span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="type">ItcastItem</span>(<span class="title">scrapy</span>.<span class="type">Item</span>):</span></span><br><span class="line"><span class="class">      name = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">      level = scrapy.<span class="type">Field</span>()</span></span><br><span class="line"><span class="class">      info = scrapy.<span class="type">Field</span>()</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="1-6-改写spider"><a href="#1-6-改写spider" class="headerlink" title="1.6 改写spider"></a>1.6 改写spider</h2><figure class="highlight livecodeserver"><table><tr><td class="code"><pre><span class="line">import scrapy</span><br><span class="line"><span class="built_in">from</span> aSpider.<span class="keyword">items</span> import ItcastItem</span><br><span class="line"></span><br><span class="line">class aSpider(scrapy.spiders.Spider):</span><br><span class="line">    name=<span class="string">&quot;itcast&quot;</span></span><br><span class="line">    allowd_domains = [<span class="string">&quot;http://www.itcast.cn&quot;</span>]</span><br><span class="line">    start_urls = [<span class="string">&quot;http://www.itcast.cn/channel/teacher.shtml#ac&quot;</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">items</span> = []</span><br><span class="line">    </span><br><span class="line">    def parse(self,response):</span><br><span class="line">        <span class="keyword">for</span> site <span class="keyword">in</span> response.xpath(<span class="string">&#x27;//div[@class=&quot;li_txt&quot;]&#x27;</span>)</span><br><span class="line">            </span><br><span class="line">            teacher_name = site.xpath(<span class="string">&#x27;h3/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_level = site.xpath(<span class="string">&#x27;h4/text()&#x27;</span>).extract()</span><br><span class="line">            teacher_info = site.xpath(<span class="string">&#x27;p/text()&#x27;</span>).extract()</span><br><span class="line">            </span><br><span class="line">            print teacher_name[<span class="number">0</span>]</span><br><span class="line">            print teacher_level[<span class="number">0</span>]</span><br><span class="line">            print teacher_info[<span class="number">0</span>]</span><br><span class="line">            print <span class="string">&quot;=============&quot;</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">item</span> = ItcastItem()</span><br><span class="line">            <span class="comment">#一个对象数据</span></span><br><span class="line">            </span><br><span class="line">            <span class="keyword">item</span>[<span class="string">&#x27;name&#x27;</span>]=teacher_name[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">item</span>[<span class="string">&#x27;level&#x27;</span>]=teacher_level[<span class="number">0</span>]</span><br><span class="line">            <span class="keyword">item</span>[<span class="string">&#x27;info&#x27;</span>]=teacher_info[<span class="number">0</span>]</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">items</span>.append(<span class="keyword">item</span>)</span><br><span class="line">        </span><br><span class="line">        <span class="literal">return</span> <span class="keyword">items</span></span><br></pre></td></tr></table></figure>
+
+
+<h2 id="1-7-爬取内容"><a href="#1-7-爬取内容" class="headerlink" title="1.7 爬取内容"></a>1.7 爬取内容</h2><figure class="highlight mipsasm"><table><tr><td class="code"><pre><span class="line"><span class="comment">#爬取内容</span></span><br><span class="line">&gt;&gt;&gt;python3 -m <span class="keyword">scrapy </span>crawl itcast</span><br><span class="line"></span><br><span class="line"><span class="comment">#爬取内容至json中</span></span><br><span class="line">&gt;&gt;&gt;<span class="keyword">scrapy </span>crawl itcast  -o itcast_teacher.<span class="keyword">json </span>-t <span class="keyword">json</span></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>Python爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -2737,6 +2737,166 @@ b.用栈</li>
       </tags>
   </entry>
   <entry>
+    <title>CIFAR 1.简介&amp;可视化</title>
+    <url>/2019/06/02/AI/cifar/1.cifar/</url>
+    <content><![CDATA[<h1 id="cifar"><a href="#cifar" class="headerlink" title="cifar"></a>cifar</h1><p>CIFAR数据集是 <a href="http://groups.csail.mit.edu/vision/TinyImages/">Visual Dictionary<br>(Teaching computers to recognize objects)</a> 的子集，由三个教授收集，主要来自google和各类搜索引擎的图片。</p>
+<span id="more"></span>
+
+<p>备注：<a href="http://www.cs.toronto.edu/~kriz/cifar.html">cifar官网</a></p>
+<h2 id="1-cifar10"><a href="#1-cifar10" class="headerlink" title="1.cifar10"></a>1.cifar10</h2><p>由10个类的60000的32*32彩色图像组成，每个类有6000个图像。有50000个训练图像和10000个测试图像。</p>
+<p>类型如下:<br><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/olV9rA*CpkCt11In.qobQwYhNTG7GbFSZPZ38g*E9g8!/b/dEABAAAAAAAA&bo=sAPQAgAAAAADB0M!&rf=viewer_4" alt="image"></p>
+<h2 id="2-cifar100"><a href="#2-cifar100" class="headerlink" title="2.cifar100"></a>2.cifar100</h2><p>这个数据集和cifar10类似，它有100个类，每个类包含600个图像，600个图像中有500个训练图像和100个测试图像。100类实际是由20个类(每个类又包含5个子类)构成(5*20&#x3D;100)。</p>
+<p>类型如下：</p>
+<p><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/VVHWqrUzZu9IsNn0B3m4No3TNnHpL9cEjiZesN7jkYA!/b/dLYAAAAAAAAA&bo=5AW.AwAAAAADB34!&rf=viewer_4" alt="image"></p>
+<h2 id="3-数据结构-Python版本"><a href="#3-数据结构-Python版本" class="headerlink" title="3.数据结构(Python版本)"></a>3.数据结构(Python版本)</h2><ul>
+<li>cifar10</li>
+</ul>
+<p>数据格式如下：</p>
+<figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">&lt;1×标签&gt;</span> <span class="attribute">&lt;3072×像素&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="attribute">&lt;1×标签&gt;</span> <span class="attribute">&lt;3072×像素&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>第一个字节是第一个图像的标签，它是一个0-9范围内的数字。接下来的3072个字节是图像像素的值。前1024个字节是红色通道值，下1024个绿色，最后1024个蓝色。</p>
+<ul>
+<li>CIFAR-100</li>
+</ul>
+<p>二进制版本与CIFAR-10的二进制版本相似，只是每个图像都有两个标签字节（粗略和细小）和3072像素字节，所以二进制文件如下所示：</p>
+<figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">&lt;1 x粗标签&gt;</span> <span class="attribute">&lt;1 x精标签&gt;</span> <span class="attribute">&lt;3072 x像素&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="attribute">&lt;1 x粗标签&gt;</span> <span class="attribute">&lt;1 x精标签&gt;</span> <span class="attribute">&lt;3072 x像素&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看cifar100 python版本的数据结构</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">unpickle</span>(<span class="params">file</span>):</span><br><span class="line">    <span class="keyword">import</span> pickle</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> fo:</span><br><span class="line">        <span class="built_in">dict</span> = pickle.load(fo, encoding=<span class="string">&#x27;bytes&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span></span><br><span class="line"><span class="built_in">dict</span>.keys()</span><br><span class="line"><span class="comment">#dict_keys([b&#x27;data&#x27;, b&#x27;coarse_labels&#x27;, b&#x27;fine_labels&#x27;, b&#x27;filenames&#x27;, b&#x27;batch_label&#x27;])</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-可视化"><a href="#4-可视化" class="headerlink" title="4.可视化"></a>4.可视化</h2><ul>
+<li>pickle模块</li>
+</ul>
+<p>pickle模块实现了基本的数据序列化和反序列化。</p>
+<blockquote>
+<p>序列化过程将文本信息转变为二进制数据流，便于存储在硬盘之中，当需要读取文件的时候，从硬盘中读取数据。</p>
+</blockquote>
+<blockquote>
+<p>反序列可以从文件中得到原始的数据，如字符串、列表、字典等数据。</p>
+</blockquote>
+<ul>
+<li>PIL</li>
+</ul>
+<p>负责将三色像素合并为一张图片保存</p>
+<ul>
+<li>matplotlib.image</li>
+</ul>
+<p>负责将单色道二维数组保存为一张图片</p>
+<h3 id="4-1-cifar10可视化"><a href="#4-1-cifar10可视化" class="headerlink" title="4.1 cifar10可视化:"></a>4.1 cifar10可视化:</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> matplotlib.image <span class="keyword">as</span> plimg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CHANNEL = <span class="number">3</span></span><br><span class="line">WIDTH = <span class="number">32</span></span><br><span class="line">HEIGHT = <span class="number">32</span></span><br><span class="line"> </span><br><span class="line">data = []</span><br><span class="line">labels=[]</span><br><span class="line">classification = [<span class="string">&#x27;airplane&#x27;</span>,<span class="string">&#x27;automobile&#x27;</span>,<span class="string">&#x27;bird&#x27;</span>,<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;deer&#x27;</span>,<span class="string">&#x27;dog&#x27;</span>,<span class="string">&#x27;frog&#x27;</span>,<span class="string">&#x27;horse&#x27;</span>,<span class="string">&#x27;ship&#x27;</span>,<span class="string">&#x27;truck&#x27;</span>]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./cifar-10-batches-py/data_batch_&quot;</span>+ <span class="built_in">str</span>(i+<span class="number">1</span>),mode=<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="comment">#数据集在当脚本前文件夹下</span></span><br><span class="line">        data_dict = pickle.load(file, encoding=<span class="string">&#x27;bytes&#x27;</span>)</span><br><span class="line">        data+= <span class="built_in">list</span>(data_dict[<span class="string">b&#x27;data&#x27;</span>])</span><br><span class="line">        labels+= <span class="built_in">list</span>(data_dict[<span class="string">b&#x27;labels&#x27;</span>])</span><br><span class="line"> </span><br><span class="line">img =  np.reshape(data,[-<span class="number">1</span>,CHANNEL, WIDTH, HEIGHT])</span><br><span class="line"> </span><br><span class="line"><span class="comment">#代码创建文件夹，也可以自行创建 </span></span><br><span class="line">data_path = <span class="string">&quot;./pic3/&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(data_path):</span><br><span class="line">    os.makedirs(data_path)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    r = img[i][<span class="number">0</span>]</span><br><span class="line">    g = img[i][<span class="number">1</span>]</span><br><span class="line">    b = img[i][<span class="number">2</span>]</span><br><span class="line"> </span><br><span class="line">    plimg.imsave(<span class="string">&quot;./pic4/&quot;</span> +<span class="built_in">str</span>(i)+<span class="string">&quot;r&quot;</span>+<span class="string">&quot;.png&quot;</span>,r)</span><br><span class="line">    plimg.imsave(<span class="string">&quot;./pic4/&quot;</span> +<span class="built_in">str</span>(i)+<span class="string">&quot;g&quot;</span>+<span class="string">&quot;.png&quot;</span>,g)</span><br><span class="line">    plimg.imsave(<span class="string">&quot;./pic4/&quot;</span> +<span class="built_in">str</span>(i) +<span class="string">&quot;b&quot;</span>+<span class="string">&quot;.png&quot;</span>,b)</span><br><span class="line"></span><br><span class="line">    ir = Image.fromarray(r)</span><br><span class="line">    ig = Image.fromarray(g)</span><br><span class="line">    ib = Image.fromarray(b)</span><br><span class="line">    rgb = Image.merge(<span class="string">&quot;RGB&quot;</span>, (ir, ig, ib))</span><br><span class="line"> </span><br><span class="line">    name = <span class="string">&quot;img-&quot;</span> + <span class="built_in">str</span>(i) +<span class="string">&quot;-&quot;</span>+ classification[labels[i]]+ <span class="string">&quot;.png&quot;</span></span><br><span class="line">    rgb.save(data_path + name, <span class="string">&quot;PNG&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/7VV46P*hJ8FhYS2OxPWGqiW4EOa7V58WgvkqUviaL.U!/b/dL8AAAAAAAAA&bo=tAc4BAAAAAADB60!&rf=viewer_4" alt="image"></p>
+<h3 id="4-2-cifar100"><a href="#4-2-cifar100" class="headerlink" title="4.2 cifar100"></a>4.2 cifar100</h3><p>cifar100的文件结构和cifar10不同，数据只有一个文件夹里面有50000个图片，且有两个标签，可以从返回的dict的key查看其标签(前文有提到)。</p>
+<p>知道其与cifar10后，改写前段代码即可实现。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pickle <span class="keyword">as</span> p</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.image <span class="keyword">as</span> plimg</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_CIFAR_batch</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot; load single batch of cifar &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;rb&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">        datadict = p.load(f,encoding=<span class="string">&#x27;bytes&#x27;</span>)</span><br><span class="line">        <span class="comment">#X = datadict[b&#x27;data&#x27;]</span></span><br><span class="line">        <span class="comment">#Y = datadict[b&#x27;labels&#x27;]</span></span><br><span class="line">        <span class="comment">#X = X.reshape(10000, 3, 32, 32)</span></span><br><span class="line">        X = datadict[<span class="string">b&#x27;data&#x27;</span>]</span><br><span class="line">        Y = datadict[<span class="string">b&#x27;coarse_labels&#x27;</span>]+datadict[<span class="string">b&#x27;fine_labels&#x27;</span>]</span><br><span class="line">        X = X.reshape(<span class="number">50000</span>, <span class="number">3</span>, <span class="number">32</span>, <span class="number">32</span>)</span><br><span class="line">        Y = np.array(Y)</span><br><span class="line">        <span class="keyword">return</span> X, Y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment">#imgX, imgY = load_CIFAR_batch(&quot;./cifar-10-batches-py/data_batch_1&quot;)</span></span><br><span class="line">    imgX, imgY = load_CIFAR_batch(<span class="string">&quot;./cifar-100-python/train&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(imgX.shape)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;正在保存图片:&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(imgX.shape[<span class="number">0</span>]):</span><br><span class="line">        imgs = imgX[i]</span><br><span class="line">        <span class="keyword">if</span> i &lt; <span class="number">100</span>:<span class="comment">#只循环100张图片,这句注释掉可以便利出所有的图片,图片较多,可能要一定的时间</span></span><br><span class="line">            img0 = imgs[<span class="number">0</span>]</span><br><span class="line">            img1 = imgs[<span class="number">1</span>]</span><br><span class="line">            img2 = imgs[<span class="number">2</span>]</span><br><span class="line">            i0 = Image.fromarray(img0)</span><br><span class="line">            i1 = Image.fromarray(img1)</span><br><span class="line">            i2 = Image.fromarray(img2)</span><br><span class="line">            img = Image.merge(<span class="string">&quot;RGB&quot;</span>,(i0,i1,i2))</span><br><span class="line">            name = <span class="string">&quot;img&quot;</span> + <span class="built_in">str</span>(i)+<span class="string">&quot;.png&quot;</span></span><br><span class="line">            img.save(<span class="string">&quot;./pic1/&quot;</span>+name,<span class="string">&quot;png&quot;</span>)<span class="comment">#文件夹下是RGB融合后的图像</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(imgs.shape[<span class="number">0</span>]):</span><br><span class="line">                img = imgs[j]</span><br><span class="line">                name = <span class="string">&quot;img&quot;</span> + <span class="built_in">str</span>(i) + <span class="built_in">str</span>(j) + <span class="string">&quot;.jpg&quot;</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;正在保存图片&quot;</span> + name)</span><br><span class="line">                plimg.imsave(<span class="string">&quot;./pic2/&quot;</span> + name, img)<span class="comment">#文件夹下是RGB分离的图像</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;保存完毕.&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/g2UGfoSOvCdg9qNOXwItPwk8duEF8s21NEhqoqiJkUw!/b/dL4AAAAAAAAA&bo=pwc4BAAAAAADR*4!&rf=viewer_4" alt="image"></p>
+<p>注:在另一个文件夹还保存了三色的单通道图</p>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>CIFAR</tag>
+        <tag>图片识别</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>TensorFlow 1.简介</title>
+    <url>/2019/06/02/AI/tf/1.tf/</url>
+    <content><![CDATA[<h1 id="TensorFlow基础介绍"><a href="#TensorFlow基础介绍" class="headerlink" title="TensorFlow基础介绍"></a>TensorFlow基础介绍</h1><span id="more"></span>
+
+<h2 id="1-基本结构"><a href="#1-基本结构" class="headerlink" title="1.基本结构"></a>1.基本结构</h2><ul>
+<li>计算图graph</li>
+</ul>
+<p>表示计算任务</p>
+<ul>
+<li>会话Session</li>
+</ul>
+<p>表示执行计算图的上下文，执行时需要初始化所有变量(initializer)，会话完成时需要关闭(sess.close)</p>
+<ul>
+<li>张量(Tensor)</li>
+</ul>
+<p>表示数据，图中的线条。包括常量constant,变量variable,以及通过占位符(placeholder),其中占位符只在运行时才放入具体的值</p>
+<ul>
+<li>操作(op)</li>
+</ul>
+<p>图中的节点,构建图包括构建数据(因为本身不保存数据)和完成计算，因此定义一个Tensor也是一个计算。</p>
+<h2 id="2-代码及运行方式"><a href="#2-代码及运行方式" class="headerlink" title="2.代码及运行方式"></a>2.代码及运行方式</h2><blockquote>
+<p>tf本身不完成运算，而是定义图来描述计算，把计算放在Python之外进行以提高计算效率</p>
+</blockquote>
+<h3 id="2-1-Tensor-张量"><a href="#2-1-Tensor-张量" class="headerlink" title="2.1 Tensor(张量)"></a>2.1 Tensor(张量)</h3><p>张量是tensorflow里面的数据结构，可分为常量和变量，所有的数据都通过张量来表示，可以简短理解为多维数组。那么0阶张量表示一个数，1阶张量表示一个向量(即一维数组)，n阶张量表示n维数组。</p>
+<blockquote>
+<p>张量主要保存了三个属性:1.名字，2.维度，3.类型</p>
+</blockquote>
+<blockquote>
+<p>张量中并不是直接保存数据，而是保存数据的计算过程。如下：</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1.0</span>,<span class="number">2.0</span>],name=<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">b = tf.constant([<span class="number">2.0</span>,<span class="number">3.0</span>],name=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">result = tf.ddd(a,b,name=<span class="string">&quot;add&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果为:</span></span><br><span class="line"><span class="comment">#&lt;tf.Tensor &#x27;add:0&#x27; shape=(2,) dtype=float32&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1.0</span>,<span class="number">2</span>,<span class="number">0</span>],name=<span class="string">&#x27;a&#x27;</span>)<span class="comment">#定义常量a</span></span><br><span class="line">b = tf.constant([<span class="number">2.0</span>,<span class="number">3.0</span>],name=<span class="string">&#x27;b&#x27;</span>)<span class="comment">#定义常量b</span></span><br><span class="line"></span><br><span class="line">result = tf.add(a,b,name=<span class="string">&#x27;add&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li>变量<blockquote>
+<p>变量的声明函数tf.Variable()是一个运算，是一种特殊的张量</p>
+</blockquote>
+</li>
+</ul>
+<p>神经网络中的参数是神经网络实现分类或者回归问题中的重要部分，变量的作用就是保存和更新神经网络中的参数(边)。</p>
+<p>tf.Variable是一个运算，运算的输出结果是一个张量，所以变量是一种特殊的张量。</p>
+<p>定义一个2*3矩阵变量(元素值默认为0，标准差为2的随机数):</p>
+<blockquote>
+<p>weights&#x3D;tf.Variable(tf.random_normal([2,3],stddev&#x3D;2))</p>
+</blockquote>
+<p>变量一个小应用：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">1</span>,seed=<span class="number">1</span>))</span><br><span class="line">w2 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">1</span>,seed=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">x = tf.constant([<span class="number">0.7</span>,<span class="number">0.9</span>])</span><br><span class="line"></span><br><span class="line">a = tf.matmul(x,w1)</span><br><span class="line">y = tf.matmul(a,w2)</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">sess.run(w1.initializer)</span><br><span class="line">sess.run(w2.initializer)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(y))</span><br><span class="line">sess.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-Session-会话"><a href="#2-2-Session-会话" class="headerlink" title="2.2 Session(会话)"></a>2.2 Session(会话)</h3><p>会话作用是执行定义好的运算，会话可以管理tensorflow运行时的所有资源。当所以计算完成后需要关闭会话回收资源。包含三个要点:</p>
+<ul>
+<li>定义会话对象(tf.Session)</li>
+<li>启动会话完成计算(run)</li>
+<li>会话关闭(sess.close())</li>
+</ul>
+<p>使用会话如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(...)</span><br><span class="line">ses.close()</span><br></pre></td></tr></table></figure>
+
+<p>可以使用python上下文管理机制自动关闭会话:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Sesssion() <span class="keyword">as</span> sess():</span><br><span class="line">    sess.run(...)</span><br></pre></td></tr></table></figure>
+<p>总结:</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run()</span><br><span class="line">sess.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">#以上代码等同于</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess()</span><br><span class="line">    sess.run()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-placeholder-占位符"><a href="#2-3-placeholder-占位符" class="headerlink" title="2.3 placeholder(占位符)"></a>2.3 placeholder(占位符)</h3><p>反向传播的机制就是迭代(循环执行某一个流程图)<br><img src="https://i.loli.net/2019/07/02/5d1ac8df7afd322985.png" alt="image"><br>如果每一次迭代都要用到常量，计算量就过大(一个神经元网络的训练过程需要几百万轮甚至几亿轮迭代)，placeholder相当于定义了一个位置，这个位置中的数据在程序运行时再指定。和张量一样，placeholder的类型也是不可以改变的。</p>
+<ul>
+<li>无placeholder的代码:<br><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/EtDHbyBvhMsGfGVAhU03t2rs647l2rUjJHsNmgoCeOg!/b/dFMBAAAAAAAA&bo=bgNgAgAAAAADBy0!&rf=viewer_4" alt="在这里插入图片描述"></li>
+<li>有placeholder:<br><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zcwRLJAE9mpUUK.CQ0IDV1buoe9rwTKH*xmTNUEVpKY!/b/dL8AAAAAAAAA&bo=cANAAgAAAAADBxM!&rf=viewer_4" alt="image"></li>
+<li>总结:</li>
+</ul>
+<blockquote>
+<p>placeholder通过一个指针来表示该节点的输入数据，这样可以在运行时再计算该节点的数据</p>
+</blockquote>
+<blockquote>
+<p>比直接用张量来作为输入数据节省内存</p>
+</blockquote>
+<blockquote>
+<p>需要在Session的run()中通过字典类型参数feed_dict赋值</p>
+</blockquote>
+<h3 id="2-4-initializer-初始化"><a href="#2-4-initializer-初始化" class="headerlink" title="2.4 initializer(初始化)"></a>2.4 initializer(初始化)</h3><blockquote>
+<p>tf中变量是保存和更新神经网络参数的值，变量的操作分为变量定义和变量初始化</p>
+</blockquote>
+<blockquote>
+<p>需要注意的是变量定义时只是给出变量赋值的方法，并没有被真正执行，需要通过会话初始化变量已完成赋值</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">2</span>)) <span class="comment">#随机数定义</span></span><br><span class="line">biases = tf.Variable(tf.zeors([<span class="number">3</span>])) <span class="comment"># 常数定义</span></span><br><span class="line"></span><br><span class="line">w2 = tf.Variable(weights.initialized_Value()) <span class="comment">#通过其他变量定义</span></span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(w1.initializer) <span class="comment">#初始化</span></span><br><span class="line">sess.run(w2.initializer) </span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-graph-计算图"><a href="#2-5-graph-计算图" class="headerlink" title="2.5 graph(计算图)"></a>2.5 graph(计算图)</h3><p>计算图是tensorflow计算的流程图，里面包括数据和计算，其中节点代表数据，节点和节点直接的连线代表计算。可以通过不同的计算图来管理模型。</p>
+<p>以下代码会发现不同计算图的变量值不一样，就说明不同的图是一独立的运算流程</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义一个计算图g1，其中变量v的值为0</span></span><br><span class="line">g1 = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g1.as_default():</span><br><span class="line">    v = tf.get_variable(<span class="string">&quot;v&quot;</span>, shape=[<span class="number">1</span>], initializer=tf.zeros_initializer)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义一个计算图g2，其中变量v的值为1</span></span><br><span class="line">g2 = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g2.as_default():</span><br><span class="line">    v = tf.get_variable(<span class="string">&quot;v&quot;</span>,shape=[<span class="number">1</span>],initializer=tf.ones_initializer)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#读取计算图g1中v的值</span></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=g1) <span class="keyword">as</span> sess:</span><br><span class="line">    tf.initialize_all_variables().run()</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;&quot;</span>,reuse=<span class="literal">True</span>):</span><br><span class="line">        <span class="built_in">print</span>(sess.run(tf.get.variable(<span class="string">&quot;v&quot;</span>)))</span><br><span class="line">        </span><br><span class="line"><span class="comment">#读取计算图g2中v的值</span></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=g2) <span class="keyword">as</span> sess:</span><br><span class="line">    tf.initialize_all_variables().run()</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;&quot;</span>,reuse=<span class="literal">True</span>):</span><br><span class="line">        <span class="built_in">print</span>(sess.run(tf.get.variable(<span class="string">&quot;v&quot;</span>)))</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>AI</category>
+      </categories>
+      <tags>
+        <tag>Tensorflow</tag>
+        <tag>计算框架(AI)</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>DCGAN的PyTorch实现</title>
     <url>/2019/11/08/AI/GAN/DCGAN/</url>
     <content><![CDATA[<h1 id="DCGAN"><a href="#DCGAN" class="headerlink" title="DCGAN"></a>DCGAN</h1><span id="more"></span>
@@ -2900,69 +3060,6 @@ b.用栈</li>
       <tags>
         <tag>GAN</tag>
         <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>CIFAR 1.简介&amp;可视化</title>
-    <url>/2019/06/02/AI/cifar/1.cifar/</url>
-    <content><![CDATA[<h1 id="cifar"><a href="#cifar" class="headerlink" title="cifar"></a>cifar</h1><p>CIFAR数据集是 <a href="http://groups.csail.mit.edu/vision/TinyImages/">Visual Dictionary<br>(Teaching computers to recognize objects)</a> 的子集，由三个教授收集，主要来自google和各类搜索引擎的图片。</p>
-<span id="more"></span>
-
-<p>备注：<a href="http://www.cs.toronto.edu/~kriz/cifar.html">cifar官网</a></p>
-<h2 id="1-cifar10"><a href="#1-cifar10" class="headerlink" title="1.cifar10"></a>1.cifar10</h2><p>由10个类的60000的32*32彩色图像组成，每个类有6000个图像。有50000个训练图像和10000个测试图像。</p>
-<p>类型如下:<br><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/olV9rA*CpkCt11In.qobQwYhNTG7GbFSZPZ38g*E9g8!/b/dEABAAAAAAAA&bo=sAPQAgAAAAADB0M!&rf=viewer_4" alt="image"></p>
-<h2 id="2-cifar100"><a href="#2-cifar100" class="headerlink" title="2.cifar100"></a>2.cifar100</h2><p>这个数据集和cifar10类似，它有100个类，每个类包含600个图像，600个图像中有500个训练图像和100个测试图像。100类实际是由20个类(每个类又包含5个子类)构成(5*20&#x3D;100)。</p>
-<p>类型如下：</p>
-<p><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/VVHWqrUzZu9IsNn0B3m4No3TNnHpL9cEjiZesN7jkYA!/b/dLYAAAAAAAAA&bo=5AW.AwAAAAADB34!&rf=viewer_4" alt="image"></p>
-<h2 id="3-数据结构-Python版本"><a href="#3-数据结构-Python版本" class="headerlink" title="3.数据结构(Python版本)"></a>3.数据结构(Python版本)</h2><ul>
-<li>cifar10</li>
-</ul>
-<p>数据格式如下：</p>
-<figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">&lt;1×标签&gt;</span> <span class="attribute">&lt;3072×像素&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="attribute">&lt;1×标签&gt;</span> <span class="attribute">&lt;3072×像素&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>第一个字节是第一个图像的标签，它是一个0-9范围内的数字。接下来的3072个字节是图像像素的值。前1024个字节是红色通道值，下1024个绿色，最后1024个蓝色。</p>
-<ul>
-<li>CIFAR-100</li>
-</ul>
-<p>二进制版本与CIFAR-10的二进制版本相似，只是每个图像都有两个标签字节（粗略和细小）和3072像素字节，所以二进制文件如下所示：</p>
-<figure class="highlight bnf"><table><tr><td class="code"><pre><span class="line"><span class="attribute">&lt;1 x粗标签&gt;</span> <span class="attribute">&lt;1 x精标签&gt;</span> <span class="attribute">&lt;3072 x像素&gt;</span></span><br><span class="line">...</span><br><span class="line"><span class="attribute">&lt;1 x粗标签&gt;</span> <span class="attribute">&lt;1 x精标签&gt;</span> <span class="attribute">&lt;3072 x像素&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment">#查看cifar100 python版本的数据结构</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">unpickle</span>(<span class="params">file</span>):</span><br><span class="line">    <span class="keyword">import</span> pickle</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(file, <span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> fo:</span><br><span class="line">        <span class="built_in">dict</span> = pickle.load(fo, encoding=<span class="string">&#x27;bytes&#x27;</span>)</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">dict</span></span><br><span class="line"><span class="built_in">dict</span>.keys()</span><br><span class="line"><span class="comment">#dict_keys([b&#x27;data&#x27;, b&#x27;coarse_labels&#x27;, b&#x27;fine_labels&#x27;, b&#x27;filenames&#x27;, b&#x27;batch_label&#x27;])</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="4-可视化"><a href="#4-可视化" class="headerlink" title="4.可视化"></a>4.可视化</h2><ul>
-<li>pickle模块</li>
-</ul>
-<p>pickle模块实现了基本的数据序列化和反序列化。</p>
-<blockquote>
-<p>序列化过程将文本信息转变为二进制数据流，便于存储在硬盘之中，当需要读取文件的时候，从硬盘中读取数据。</p>
-</blockquote>
-<blockquote>
-<p>反序列可以从文件中得到原始的数据，如字符串、列表、字典等数据。</p>
-</blockquote>
-<ul>
-<li>PIL</li>
-</ul>
-<p>负责将三色像素合并为一张图片保存</p>
-<ul>
-<li>matplotlib.image</li>
-</ul>
-<p>负责将单色道二维数组保存为一张图片</p>
-<h3 id="4-1-cifar10可视化"><a href="#4-1-cifar10可视化" class="headerlink" title="4.1 cifar10可视化:"></a>4.1 cifar10可视化:</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"><span class="keyword">import</span> pickle</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> matplotlib.image <span class="keyword">as</span> plimg</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">CHANNEL = <span class="number">3</span></span><br><span class="line">WIDTH = <span class="number">32</span></span><br><span class="line">HEIGHT = <span class="number">32</span></span><br><span class="line"> </span><br><span class="line">data = []</span><br><span class="line">labels=[]</span><br><span class="line">classification = [<span class="string">&#x27;airplane&#x27;</span>,<span class="string">&#x27;automobile&#x27;</span>,<span class="string">&#x27;bird&#x27;</span>,<span class="string">&#x27;cat&#x27;</span>,<span class="string">&#x27;deer&#x27;</span>,<span class="string">&#x27;dog&#x27;</span>,<span class="string">&#x27;frog&#x27;</span>,<span class="string">&#x27;horse&#x27;</span>,<span class="string">&#x27;ship&#x27;</span>,<span class="string">&#x27;truck&#x27;</span>]</span><br><span class="line"> </span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">5</span>):</span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">&quot;./cifar-10-batches-py/data_batch_&quot;</span>+ <span class="built_in">str</span>(i+<span class="number">1</span>),mode=<span class="string">&#x27;rb&#x27;</span>) <span class="keyword">as</span> file:</span><br><span class="line">    <span class="comment">#数据集在当脚本前文件夹下</span></span><br><span class="line">        data_dict = pickle.load(file, encoding=<span class="string">&#x27;bytes&#x27;</span>)</span><br><span class="line">        data+= <span class="built_in">list</span>(data_dict[<span class="string">b&#x27;data&#x27;</span>])</span><br><span class="line">        labels+= <span class="built_in">list</span>(data_dict[<span class="string">b&#x27;labels&#x27;</span>])</span><br><span class="line"> </span><br><span class="line">img =  np.reshape(data,[-<span class="number">1</span>,CHANNEL, WIDTH, HEIGHT])</span><br><span class="line"> </span><br><span class="line"><span class="comment">#代码创建文件夹，也可以自行创建 </span></span><br><span class="line">data_path = <span class="string">&quot;./pic3/&quot;</span></span><br><span class="line"><span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(data_path):</span><br><span class="line">    os.makedirs(data_path)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line">    r = img[i][<span class="number">0</span>]</span><br><span class="line">    g = img[i][<span class="number">1</span>]</span><br><span class="line">    b = img[i][<span class="number">2</span>]</span><br><span class="line"> </span><br><span class="line">    plimg.imsave(<span class="string">&quot;./pic4/&quot;</span> +<span class="built_in">str</span>(i)+<span class="string">&quot;r&quot;</span>+<span class="string">&quot;.png&quot;</span>,r)</span><br><span class="line">    plimg.imsave(<span class="string">&quot;./pic4/&quot;</span> +<span class="built_in">str</span>(i)+<span class="string">&quot;g&quot;</span>+<span class="string">&quot;.png&quot;</span>,g)</span><br><span class="line">    plimg.imsave(<span class="string">&quot;./pic4/&quot;</span> +<span class="built_in">str</span>(i) +<span class="string">&quot;b&quot;</span>+<span class="string">&quot;.png&quot;</span>,b)</span><br><span class="line"></span><br><span class="line">    ir = Image.fromarray(r)</span><br><span class="line">    ig = Image.fromarray(g)</span><br><span class="line">    ib = Image.fromarray(b)</span><br><span class="line">    rgb = Image.merge(<span class="string">&quot;RGB&quot;</span>, (ir, ig, ib))</span><br><span class="line"> </span><br><span class="line">    name = <span class="string">&quot;img-&quot;</span> + <span class="built_in">str</span>(i) +<span class="string">&quot;-&quot;</span>+ classification[labels[i]]+ <span class="string">&quot;.png&quot;</span></span><br><span class="line">    rgb.save(data_path + name, <span class="string">&quot;PNG&quot;</span>)</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<p><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/7VV46P*hJ8FhYS2OxPWGqiW4EOa7V58WgvkqUviaL.U!/b/dL8AAAAAAAAA&bo=tAc4BAAAAAADB60!&rf=viewer_4" alt="image"></p>
-<h3 id="4-2-cifar100"><a href="#4-2-cifar100" class="headerlink" title="4.2 cifar100"></a>4.2 cifar100</h3><p>cifar100的文件结构和cifar10不同，数据只有一个文件夹里面有50000个图片，且有两个标签，可以从返回的dict的key查看其标签(前文有提到)。</p>
-<p>知道其与cifar10后，改写前段代码即可实现。</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> pickle <span class="keyword">as</span> p</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> matplotlib.image <span class="keyword">as</span> plimg</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">load_CIFAR_batch</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="string">&quot;&quot;&quot; load single batch of cifar &quot;&quot;&quot;</span></span><br><span class="line">    <span class="keyword">with</span> <span class="built_in">open</span>(filename, <span class="string">&#x27;rb&#x27;</span>)<span class="keyword">as</span> f:</span><br><span class="line">        datadict = p.load(f,encoding=<span class="string">&#x27;bytes&#x27;</span>)</span><br><span class="line">        <span class="comment">#X = datadict[b&#x27;data&#x27;]</span></span><br><span class="line">        <span class="comment">#Y = datadict[b&#x27;labels&#x27;]</span></span><br><span class="line">        <span class="comment">#X = X.reshape(10000, 3, 32, 32)</span></span><br><span class="line">        X = datadict[<span class="string">b&#x27;data&#x27;</span>]</span><br><span class="line">        Y = datadict[<span class="string">b&#x27;coarse_labels&#x27;</span>]+datadict[<span class="string">b&#x27;fine_labels&#x27;</span>]</span><br><span class="line">        X = X.reshape(<span class="number">50000</span>, <span class="number">3</span>, <span class="number">32</span>, <span class="number">32</span>)</span><br><span class="line">        Y = np.array(Y)</span><br><span class="line">        <span class="keyword">return</span> X, Y</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment">#imgX, imgY = load_CIFAR_batch(&quot;./cifar-10-batches-py/data_batch_1&quot;)</span></span><br><span class="line">    imgX, imgY = load_CIFAR_batch(<span class="string">&quot;./cifar-100-python/train&quot;</span>)</span><br><span class="line">    <span class="built_in">print</span>(imgX.shape)</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;正在保存图片:&quot;</span>)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(imgX.shape[<span class="number">0</span>]):</span><br><span class="line">        imgs = imgX[i]</span><br><span class="line">        <span class="keyword">if</span> i &lt; <span class="number">100</span>:<span class="comment">#只循环100张图片,这句注释掉可以便利出所有的图片,图片较多,可能要一定的时间</span></span><br><span class="line">            img0 = imgs[<span class="number">0</span>]</span><br><span class="line">            img1 = imgs[<span class="number">1</span>]</span><br><span class="line">            img2 = imgs[<span class="number">2</span>]</span><br><span class="line">            i0 = Image.fromarray(img0)</span><br><span class="line">            i1 = Image.fromarray(img1)</span><br><span class="line">            i2 = Image.fromarray(img2)</span><br><span class="line">            img = Image.merge(<span class="string">&quot;RGB&quot;</span>,(i0,i1,i2))</span><br><span class="line">            name = <span class="string">&quot;img&quot;</span> + <span class="built_in">str</span>(i)+<span class="string">&quot;.png&quot;</span></span><br><span class="line">            img.save(<span class="string">&quot;./pic1/&quot;</span>+name,<span class="string">&quot;png&quot;</span>)<span class="comment">#文件夹下是RGB融合后的图像</span></span><br><span class="line">            <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(imgs.shape[<span class="number">0</span>]):</span><br><span class="line">                img = imgs[j]</span><br><span class="line">                name = <span class="string">&quot;img&quot;</span> + <span class="built_in">str</span>(i) + <span class="built_in">str</span>(j) + <span class="string">&quot;.jpg&quot;</span></span><br><span class="line">                <span class="built_in">print</span>(<span class="string">&quot;正在保存图片&quot;</span> + name)</span><br><span class="line">                plimg.imsave(<span class="string">&quot;./pic2/&quot;</span> + name, img)<span class="comment">#文件夹下是RGB分离的图像</span></span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;保存完毕.&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/g2UGfoSOvCdg9qNOXwItPwk8duEF8s21NEhqoqiJkUw!/b/dL4AAAAAAAAA&bo=pwc4BAAAAAADR*4!&rf=viewer_4" alt="image"></p>
-<p>注:在另一个文件夹还保存了三色的单通道图</p>
-]]></content>
-      <categories>
-        <category>AI</category>
-      </categories>
-      <tags>
-        <tag>CIFAR</tag>
-        <tag>图片识别</tag>
       </tags>
   </entry>
   <entry>
@@ -3133,103 +3230,6 @@ b.用栈</li>
       <tags>
         <tag>图片识别</tag>
         <tag>MNIST</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>TensorFlow 1.简介</title>
-    <url>/2019/06/02/AI/tf/1.tf/</url>
-    <content><![CDATA[<h1 id="TensorFlow基础介绍"><a href="#TensorFlow基础介绍" class="headerlink" title="TensorFlow基础介绍"></a>TensorFlow基础介绍</h1><span id="more"></span>
-
-<h2 id="1-基本结构"><a href="#1-基本结构" class="headerlink" title="1.基本结构"></a>1.基本结构</h2><ul>
-<li>计算图graph</li>
-</ul>
-<p>表示计算任务</p>
-<ul>
-<li>会话Session</li>
-</ul>
-<p>表示执行计算图的上下文，执行时需要初始化所有变量(initializer)，会话完成时需要关闭(sess.close)</p>
-<ul>
-<li>张量(Tensor)</li>
-</ul>
-<p>表示数据，图中的线条。包括常量constant,变量variable,以及通过占位符(placeholder),其中占位符只在运行时才放入具体的值</p>
-<ul>
-<li>操作(op)</li>
-</ul>
-<p>图中的节点,构建图包括构建数据(因为本身不保存数据)和完成计算，因此定义一个Tensor也是一个计算。</p>
-<h2 id="2-代码及运行方式"><a href="#2-代码及运行方式" class="headerlink" title="2.代码及运行方式"></a>2.代码及运行方式</h2><blockquote>
-<p>tf本身不完成运算，而是定义图来描述计算，把计算放在Python之外进行以提高计算效率</p>
-</blockquote>
-<h3 id="2-1-Tensor-张量"><a href="#2-1-Tensor-张量" class="headerlink" title="2.1 Tensor(张量)"></a>2.1 Tensor(张量)</h3><p>张量是tensorflow里面的数据结构，可分为常量和变量，所有的数据都通过张量来表示，可以简短理解为多维数组。那么0阶张量表示一个数，1阶张量表示一个向量(即一维数组)，n阶张量表示n维数组。</p>
-<blockquote>
-<p>张量主要保存了三个属性:1.名字，2.维度，3.类型</p>
-</blockquote>
-<blockquote>
-<p>张量中并不是直接保存数据，而是保存数据的计算过程。如下：</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1.0</span>,<span class="number">2.0</span>],name=<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">b = tf.constant([<span class="number">2.0</span>,<span class="number">3.0</span>],name=<span class="string">&#x27;b&#x27;</span>)</span><br><span class="line">result = tf.ddd(a,b,name=<span class="string">&quot;add&quot;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br><span class="line"><span class="comment">#输出结果为:</span></span><br><span class="line"><span class="comment">#&lt;tf.Tensor &#x27;add:0&#x27; shape=(2,) dtype=float32&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">a = tf.constant([<span class="number">1.0</span>,<span class="number">2</span>,<span class="number">0</span>],name=<span class="string">&#x27;a&#x27;</span>)<span class="comment">#定义常量a</span></span><br><span class="line">b = tf.constant([<span class="number">2.0</span>,<span class="number">3.0</span>],name=<span class="string">&#x27;b&#x27;</span>)<span class="comment">#定义常量b</span></span><br><span class="line"></span><br><span class="line">result = tf.add(a,b,name=<span class="string">&#x27;add&#x27;</span>)</span><br><span class="line"><span class="built_in">print</span>(result)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<ul>
-<li>变量<blockquote>
-<p>变量的声明函数tf.Variable()是一个运算，是一种特殊的张量</p>
-</blockquote>
-</li>
-</ul>
-<p>神经网络中的参数是神经网络实现分类或者回归问题中的重要部分，变量的作用就是保存和更新神经网络中的参数(边)。</p>
-<p>tf.Variable是一个运算，运算的输出结果是一个张量，所以变量是一种特殊的张量。</p>
-<p>定义一个2*3矩阵变量(元素值默认为0，标准差为2的随机数):</p>
-<blockquote>
-<p>weights&#x3D;tf.Variable(tf.random_normal([2,3],stddev&#x3D;2))</p>
-</blockquote>
-<p>变量一个小应用：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">1</span>,seed=<span class="number">1</span>))</span><br><span class="line">w2 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">1</span>,seed=<span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">x = tf.constant([<span class="number">0.7</span>,<span class="number">0.9</span>])</span><br><span class="line"></span><br><span class="line">a = tf.matmul(x,w1)</span><br><span class="line">y = tf.matmul(a,w2)</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line"></span><br><span class="line">sess.run(w1.initializer)</span><br><span class="line">sess.run(w2.initializer)</span><br><span class="line"></span><br><span class="line"><span class="built_in">print</span>(sess.run(y))</span><br><span class="line">sess.close()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-2-Session-会话"><a href="#2-2-Session-会话" class="headerlink" title="2.2 Session(会话)"></a>2.2 Session(会话)</h3><p>会话作用是执行定义好的运算，会话可以管理tensorflow运行时的所有资源。当所以计算完成后需要关闭会话回收资源。包含三个要点:</p>
-<ul>
-<li>定义会话对象(tf.Session)</li>
-<li>启动会话完成计算(run)</li>
-<li>会话关闭(sess.close())</li>
-</ul>
-<p>使用会话如下：</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(...)</span><br><span class="line">ses.close()</span><br></pre></td></tr></table></figure>
-
-<p>可以使用python上下文管理机制自动关闭会话:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.Sesssion() <span class="keyword">as</span> sess():</span><br><span class="line">    sess.run(...)</span><br></pre></td></tr></table></figure>
-<p>总结:</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run()</span><br><span class="line">sess.close()</span><br><span class="line"></span><br><span class="line"><span class="comment">#以上代码等同于</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess()</span><br><span class="line">    sess.run()</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="2-3-placeholder-占位符"><a href="#2-3-placeholder-占位符" class="headerlink" title="2.3 placeholder(占位符)"></a>2.3 placeholder(占位符)</h3><p>反向传播的机制就是迭代(循环执行某一个流程图)<br><img src="https://i.loli.net/2019/07/02/5d1ac8df7afd322985.png" alt="image"><br>如果每一次迭代都要用到常量，计算量就过大(一个神经元网络的训练过程需要几百万轮甚至几亿轮迭代)，placeholder相当于定义了一个位置，这个位置中的数据在程序运行时再指定。和张量一样，placeholder的类型也是不可以改变的。</p>
-<ul>
-<li>无placeholder的代码:<br><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/EtDHbyBvhMsGfGVAhU03t2rs647l2rUjJHsNmgoCeOg!/b/dFMBAAAAAAAA&bo=bgNgAgAAAAADBy0!&rf=viewer_4" alt="在这里插入图片描述"></li>
-<li>有placeholder:<br><img src="http://m.qpic.cn/psb?/V13eBt6k2MYzwW/zcwRLJAE9mpUUK.CQ0IDV1buoe9rwTKH*xmTNUEVpKY!/b/dL8AAAAAAAAA&bo=cANAAgAAAAADBxM!&rf=viewer_4" alt="image"></li>
-<li>总结:</li>
-</ul>
-<blockquote>
-<p>placeholder通过一个指针来表示该节点的输入数据，这样可以在运行时再计算该节点的数据</p>
-</blockquote>
-<blockquote>
-<p>比直接用张量来作为输入数据节省内存</p>
-</blockquote>
-<blockquote>
-<p>需要在Session的run()中通过字典类型参数feed_dict赋值</p>
-</blockquote>
-<h3 id="2-4-initializer-初始化"><a href="#2-4-initializer-初始化" class="headerlink" title="2.4 initializer(初始化)"></a>2.4 initializer(初始化)</h3><blockquote>
-<p>tf中变量是保存和更新神经网络参数的值，变量的操作分为变量定义和变量初始化</p>
-</blockquote>
-<blockquote>
-<p>需要注意的是变量定义时只是给出变量赋值的方法，并没有被真正执行，需要通过会话初始化变量已完成赋值</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">w1 = tf.Variable(tf.random_normal([<span class="number">2</span>,<span class="number">3</span>],stddev=<span class="number">2</span>)) <span class="comment">#随机数定义</span></span><br><span class="line">biases = tf.Variable(tf.zeors([<span class="number">3</span>])) <span class="comment"># 常数定义</span></span><br><span class="line"></span><br><span class="line">w2 = tf.Variable(weights.initialized_Value()) <span class="comment">#通过其他变量定义</span></span><br><span class="line"></span><br><span class="line">sess = tf.Session()</span><br><span class="line">sess.run(w1.initializer) <span class="comment">#初始化</span></span><br><span class="line">sess.run(w2.initializer) </span><br></pre></td></tr></table></figure>
-
-<h3 id="2-5-graph-计算图"><a href="#2-5-graph-计算图" class="headerlink" title="2.5 graph(计算图)"></a>2.5 graph(计算图)</h3><p>计算图是tensorflow计算的流程图，里面包括数据和计算，其中节点代表数据，节点和节点直接的连线代表计算。可以通过不同的计算图来管理模型。</p>
-<p>以下代码会发现不同计算图的变量值不一样，就说明不同的图是一独立的运算流程</p>
-<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义一个计算图g1，其中变量v的值为0</span></span><br><span class="line">g1 = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g1.as_default():</span><br><span class="line">    v = tf.get_variable(<span class="string">&quot;v&quot;</span>, shape=[<span class="number">1</span>], initializer=tf.zeros_initializer)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#定义一个计算图g2，其中变量v的值为1</span></span><br><span class="line">g2 = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> g2.as_default():</span><br><span class="line">    v = tf.get_variable(<span class="string">&quot;v&quot;</span>,shape=[<span class="number">1</span>],initializer=tf.ones_initializer)</span><br><span class="line">    </span><br><span class="line"><span class="comment">#读取计算图g1中v的值</span></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=g1) <span class="keyword">as</span> sess:</span><br><span class="line">    tf.initialize_all_variables().run()</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;&quot;</span>,reuse=<span class="literal">True</span>):</span><br><span class="line">        <span class="built_in">print</span>(sess.run(tf.get.variable(<span class="string">&quot;v&quot;</span>)))</span><br><span class="line">        </span><br><span class="line"><span class="comment">#读取计算图g2中v的值</span></span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=g2) <span class="keyword">as</span> sess:</span><br><span class="line">    tf.initialize_all_variables().run()</span><br><span class="line">    <span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;&quot;</span>,reuse=<span class="literal">True</span>):</span><br><span class="line">        <span class="built_in">print</span>(sess.run(tf.get.variable(<span class="string">&quot;v&quot;</span>)))</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>AI</category>
-      </categories>
-      <tags>
-        <tag>Tensorflow</tag>
-        <tag>计算框架(AI)</tag>
       </tags>
   </entry>
 </search>
