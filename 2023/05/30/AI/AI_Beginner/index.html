@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":true,"preload":true},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="对AI初学者和学生的若干学习建议：写这篇文章的起因是想给新入门或即将入学的AI专业学生一些学习建议。 核心思想包括：注重实践，夯实基础，聚焦前沿">
+<meta property="og:type" content="article">
+<meta property="og:title" content="对AI初学者和学生的若干学习建议">
+<meta property="og:url" content="http://yoursite.com/2023/05/30/AI/AI_Beginner/index.html">
+<meta property="og:site_name" content="owl&#39;s blog">
+<meta property="og:description" content="对AI初学者和学生的若干学习建议：写这篇文章的起因是想给新入门或即将入学的AI专业学生一些学习建议。 核心思想包括：注重实践，夯实基础，聚焦前沿">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-05-30T06:01:00.000Z">
+<meta property="article:modified_time" content="2023-05-30T06:01:32.122Z">
+<meta property="article:author" content="disanda">
+<meta property="article:tag" content="AI学习建议">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://yoursite.com/2023/05/30/AI/AI_Beginner/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>对AI初学者和学生的若干学习建议 | owl's blog</title>
+  
+
+
+  <script>
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?07a295c6ccb5a3cdd8e052d917407520";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">owl's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-disanda">
+
+    <a href="/about/" rel="section"><i class="user fa-fw"></i>Disanda</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="tags fa-fw"></i>Tags</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="archive fa-fw"></i>Archives</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2023/05/30/AI/AI_Beginner/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="disanda">
+      <meta itemprop="description" content="正义会迟到，但不会缺席">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="owl's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          对AI初学者和学生的若干学习建议
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2023-05-30 14:01:00 / 修改时间：14:01:32" itemprop="dateCreated datePublished" datetime="2023-05-30T14:01:00+08:00">2023-05-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/AI/" itemprop="url" rel="index"><span itemprop="name">AI</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/2023/05/30/AI/AI_Beginner/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/2023/05/30/AI/AI_Beginner/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="对AI初学者和学生的若干学习建议："><a href="#对AI初学者和学生的若干学习建议：" class="headerlink" title="对AI初学者和学生的若干学习建议："></a>对AI初学者和学生的若干学习建议：</h1><p>写这篇文章的起因是想给新入门或即将入学的AI专业学生一些学习建议。</p>
+<p>核心思想包括：注重实践，夯实基础，聚焦前沿</p>
+<span id="more"></span>
+
+<h2 id="1-实践"><a href="#1-实践" class="headerlink" title="1. 实践"></a>1. 实践</h2><p>AI是一个多学科交叉方向，其核心由计算机学(Computer Science, CS)发展而来，所以有CS基础的学生会好上手一些。没有CS基础一般需要补一下编程，unix知识。但是AI和CS是有很大不同的，兴趣和方向才是未来发展的根本。</p>
+<p> 这里说一下为什么重实践，如何实践。</p>
+<h3 id="1-1-注重代码的学习"><a href="#1-1-注重代码的学习" class="headerlink" title="1.1 注重代码的学习"></a>1.1 注重代码的学习</h3><p>AI无论在科研和就业上都继承了CS的特性，包括:</p>
+<pre><code>- ‘Show me the code’
+</code></pre>
+<blockquote>
+<p>这句话省略了前半句，大意是空说没用，用代码证明，其涵盖了这个学科的精髓，就是任何想法和改变只有现实中能使用才有价值。</p>
+</blockquote>
+<h3 id="1-2-开源精神"><a href="#1-2-开源精神" class="headerlink" title="1.2 开源精神"></a>1.2 开源精神</h3><pre><code>- Open Source 
+</code></pre>
+<blockquote>
+<p>即源代码公开，是一种软件发布模式。 早在1998年就被提出，开源运动涵盖了Unix等自由软件的发展。开源不仅是种行为，更是一种精神：</p>
+</blockquote>
+<pre><code>a.知识共享，互惠互利。
+
+b.扶弱济困，先进带动后进。
+
+c.公正公开，维护开发者与使用者利益。
+</code></pre>
+<p>大意是：提倡自由，创新，互助，进取。反对垄断，封闭，排异，畏缩。避免造成弱者恒弱，强者恒强的局面。</p>
+<p>AI技术整体是学术和产业高度整合的，好的研究工作会同时受到企业和高校的关注，因此开源也是一种默契。大家在积极依靠开源的同时，自己也要有开源的勇气和并保持开放的心态。</p>
+<h2 id="2-基础"><a href="#2-基础" class="headerlink" title="2. 基础"></a>2. 基础</h2><p>基础非常重要，很多方向和应用所需的知识是相通的，当前AI的基本任务大体可分为机器视觉(CV)和自然语言处理任务(NLP)。所用到的技能主要是机器学习，特别是深度学习这一块。近年来随着大模型的突破，更多前沿任务是以跨模态（CV+NLP）的形式出现。</p>
+<p>如何打好基础，是个系统而长期的问题，取决于个人的天赋、努力和学习效率。这里只能给大家一些建议。</p>
+<ul>
+<li>掌握编程基础和机器学习&#x2F;深度学习框架</li>
+</ul>
+<blockquote>
+<p>当前主要用Python语言，其特性是极简的面向对象编程和丰富的库支持(胶水语言)</p>
+</blockquote>
+<p>a. 编程基础：</p>
+<blockquote>
+<p>面向过程编程(基础变量，集合变量，条件控制，函数等)</p>
+</blockquote>
+<blockquote>
+<p>面向对象编程(对象, 类，构造函数等），这个精髓是一种编程思想</p>
+</blockquote>
+<p>b. 机器学习框架：</p>
+<p>总的来说要掌握熟悉各类常见库，包括：</p>
+<blockquote>
+<p>算法库sklearn，数据结构和处理库numpy, pandas, 以及一些作图库：matplotlib，opencv，imageio等</p>
+</blockquote>
+<p>c.深度学习框架:  </p>
+<p>当前Pytorch为主要深度学习框架，其次是tensorflow。另外框架就是个工具，用好工具的关键还是工具后面的“技术”。</p>
+<ul>
+<li>学习方法</li>
+</ul>
+<p>除了个别关键库有时需要去阅读和查阅分析外（pytorch，numpy，sklearn）。其他库没有必要刻意去学习，主要通过实践去学习。这里建议如下学习方法：</p>
+<blockquote>
+<p>可以通过一些小项目，模型demo，代码片段调试，去掌握核心代码含义。</p>
+</blockquote>
+<blockquote>
+<p>通过调试一些感兴趣的视频(b站），帖子（知乎，csdn），开源代码（github）的代码去学习</p>
+</blockquote>
+<p>tips: 注重学习的质而非量，一定要深入搞懂核心功能，结构，梳理关键代码</p>
+<h2 id="3-前沿"><a href="#3-前沿" class="headerlink" title="3. 前沿"></a>3. 前沿</h2><h3 id="3-1-研究方向"><a href="#3-1-研究方向" class="headerlink" title="3.1 研究方向"></a>3.1 研究方向</h3><p>AI发展非常快，当前以ChatGPT等大语言模型(LLM)从发布到现在只有很短的时间，但却产生深刻的影响，造成广泛行业变革，有未来新一代科技革命的可能性。因此聚焦前沿是AI最重要能力之一。</p>
+<p>当前可以关注的大模型技术包括：</p>
+<ul>
+<li><p>NLP模型结构GPT：</p>
+<p>  GPT一般人没有设备和资源去跑或者之间参与训练工作，能做的是在大模型基础上做微调和应用，只要熟悉深度学习（这里主要是attention-transformer结构），搞懂大模型的一些基本原理，在预训练模型下加一些改进结构（涉及迁移学习和知识蒸馏），或者在熟悉大模型框架下将其应用到一个特殊的领域（比如医疗，法务，教育等等）</p>
+</li>
+<li><p>CV视觉大模型（StyleGAN, 扩散模型）</p>
+<p>  原理同GPTs，这里主要是cnn等结构和相关模型，包括常见的resnet, u-net, yolo等</p>
+</li>
+<li><p>跨模态应用</p>
+<p>  就是结合CV和GPT进行完成更加智能和有挑战性的AI任务，包括图像理解（描述图像，编辑），语言问答（专家系统：专业知识问答如医疗诊断），音视频生成和编辑（如音乐和视频的创作）。</p>
+</li>
+</ul>
+<p>tips：有一个普遍困难是觉得大模型需要大量设备或者大量数据，其实这是一个误区。一方面是大模型都倾向小型化并部署在消费级显卡上（比如12gb显存，或者24gb显存下）。而且有众繁多开源的预训练模型直接加载使用，并不需要个人消耗资源和时间训练，因此最最关键是搞懂深度学习基础，会用，然后稍微改或调一下大模型，即可达到画龙点睛的效果。</p>
+<h3 id="3-2-研究方法"><a href="#3-2-研究方法" class="headerlink" title="3.2 研究方法"></a>3.2 研究方法</h3><p>这里主要指发表论文，专利等成果的研究。因此需要在大量调试代码，得到各类实验结果的基础上，整理研究思路，总结研究成果，并最终撰写论文，大体方法和建议是：</p>
+<pre><code>a.泛读论文
+</code></pre>
+<blockquote>
+<p>通过大量阅读前沿和高质量领域相关论文，能从”没吃过猪肉，但见猪跑“的情况下逐渐积累研究内容，方法。同时积累写作方法和经验，这是一个漫长的积累过程。</p>
+</blockquote>
+<pre><code>b.精读论文
+</code></pre>
+<blockquote>
+<p>谈到具体研究，方向众多，思路多样。因此你需要聚焦，聚焦是你在大量阅读和了解大方向和领域的基础上提炼并关注一个可行的小方向，这里有1-2篇关键的论文是你感兴趣并且深入了解的，并以此作为研究基础就行改进和突破，它们最好是好的工作，前沿的工作，有广泛的影响，开源和可复现的，那么你就可以站在它们的肩膀上做出好的成果。</p>
+</blockquote>
+<pre><code>c.不断实验
+</code></pre>
+<blockquote>
+<p>这是最关键的一步，真正的创新一般都不容易，你会有一个想法，但这个想法往往和现实有很大差距，你可能需要不断试错，改进，但是请相信越困难的事情往往也是收获和成长最大的时候。有时运气和心态也很重要的，包括你的热爱。</p>
+</blockquote>
+<pre><code>d.论文写作，投稿交流
+</code></pre>
+<blockquote>
+<p>这里包括与合作者，导师等完成论文写作，制定投稿目标，期刊或者会议。投稿目的更多是学术交流，同行专家匿名评审（review），在得到专家指导修改或者建议后，最终认可的学术手稿会批准出版。</p>
+</blockquote>
+<p>如何高效学习打好基础，并逐步聚焦前沿某一领域，实现研究和项目突破，是AI方向出成果的关键</p>
+<h2 id="4-补充内容"><a href="#4-补充内容" class="headerlink" title="4.补充内容"></a>4.补充内容</h2><ul>
+<li>github</li>
+</ul>
+<blockquote>
+<p>包括基本的unix命令，git命令(涉及一点操作系统的知识)</p>
+</blockquote>
+<blockquote>
+<p>基本的github功能，比如团队协作维护同一个开源项目的命令</p>
+</blockquote>
+<ul>
+<li>huggingface</li>
+</ul>
+<p>现在很多新模型的预训练模型都在上面，一些基本操作需要掌握</p>
+<p><a target="_blank" rel="noopener" href="https://huggingface.co/">https://huggingface.co/</a></p>
+<ul>
+<li>aminer</li>
+</ul>
+<p>这个是学术机构清华办的，主要分享和整理优秀AI论文</p>
+<p><a target="_blank" rel="noopener" href="https://www.aminer.cn/topic">https://www.aminer.cn/topic</a></p>
+<ul>
+<li>paperswithcode</li>
+</ul>
+<p>介绍AI主流公认的研究成果（baseline），一般是论文都配套开源复现代码，可用于借鉴和改进当前优秀工作</p>
+<p><a target="_blank" rel="noopener" href="https://paperswithcode.com/">https://paperswithcode.com/</a></p>
+<p>tips：对于学生而言，如何充分利用时间高效学习和成长，把握短暂的3-4年校园学习时光，是决定你未来发展和高度的关键因素。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/AI%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE/" rel="tag"># AI学习建议</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/09/23/%E6%97%A5%E8%AE%B0/%E7%94%9F%E5%91%BD%E7%9A%84%E8%BD%AE%E5%9B%9E/" rel="prev" title="生命论文">
+      <i class="fa fa-chevron-left"></i> 生命论文
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+    <div class="comments" id="valine-comments"></div>
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%AF%B9AI%E5%88%9D%E5%AD%A6%E8%80%85%E5%92%8C%E5%AD%A6%E7%94%9F%E7%9A%84%E8%8B%A5%E5%B9%B2%E5%AD%A6%E4%B9%A0%E5%BB%BA%E8%AE%AE%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">对AI初学者和学生的若干学习建议：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.1.</span> <span class="nav-text">1. 实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E6%B3%A8%E9%87%8D%E4%BB%A3%E7%A0%81%E7%9A%84%E5%AD%A6%E4%B9%A0"><span class="nav-number">1.1.1.</span> <span class="nav-text">1.1 注重代码的学习</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E5%BC%80%E6%BA%90%E7%B2%BE%E7%A5%9E"><span class="nav-number">1.1.2.</span> <span class="nav-text">1.2 开源精神</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-%E5%9F%BA%E7%A1%80"><span class="nav-number">1.2.</span> <span class="nav-text">2. 基础</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-%E5%89%8D%E6%B2%BF"><span class="nav-number">1.3.</span> <span class="nav-text">3. 前沿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-%E7%A0%94%E7%A9%B6%E6%96%B9%E5%90%91"><span class="nav-number">1.3.1.</span> <span class="nav-text">3.1 研究方向</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-%E7%A0%94%E7%A9%B6%E6%96%B9%E6%B3%95"><span class="nav-number">1.3.2.</span> <span class="nav-text">3.2 研究方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-%E8%A1%A5%E5%85%85%E5%86%85%E5%AE%B9"><span class="nav-number">1.4.</span> <span class="nav-text">4.补充内容</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">disanda</p>
+  <div class="site-description" itemprop="description">正义会迟到，但不会缺席</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives">
+          <span class="site-state-item-count">53</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+        <span class="site-state-item-count">12</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+        <span class="site-state-item-count">21</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/disanda" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;disanda" rel="noopener" target="_blank"><i class="github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2023</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">disanda</span>
+</div>
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//unpkg.com/valine/dist/Valine.min.js', () => {
+    var GUEST = ['nick', 'mail', 'link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(item => {
+      return GUEST.includes(item);
+    });
+    new Valine({
+      el         : '#valine-comments',
+      verify     : false,
+      notify     : false,
+      appId      : 'q9I64zzcaflEifoi1tvq9GHd-MdYXbMMI',
+      appKey     : '9DJajljF6mR04Pa2b7UiR62m',
+      placeholder: "可在此给disanda评论或留言",
+      avatar     : 'mm',
+      meta       : guest,
+      pageSize   : '10' || 10,
+      visitor    : false,
+      lang       : '' || 'zh-cn',
+      path       : location.pathname,
+      recordIP   : false,
+      serverURLs : 'https://q9i64zzc.api.lncldglobal.com'
+    });
+  }, window.Valine);
+});
+</script>
+
+</body>
+</html>
